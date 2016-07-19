@@ -6,3 +6,9 @@ def find_parity(x):
         x >>= 1
 
     return parity % 2
+
+def reverse_digits():
+    '''
+    Problem 5.8
+    '''
+    pass
