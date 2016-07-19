@@ -13,3 +13,7 @@ def test_basic_reverse():
 
 def test_negative_reverse():
     assert reverse_digits(-314) == -413
+
+def test_reverse_zeros():
+    assert reverse_digits(100) == 1
+    assert reverse_digits(-100) == -1
