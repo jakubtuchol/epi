@@ -1,5 +1,8 @@
 from math import ceil
 def find_parity(x):
+    '''
+    Problem 5.1
+    '''
     parity = 0
 
     while x:
