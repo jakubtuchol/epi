@@ -1,4 +1,4 @@
-from src.arrays import dutch_national_partition, dutch_partition_better
+from src.arrays import dutch_national_partition, dutch_partition_better, buy_sell_once
 
 class TestDutchNationalFlag:
     def test_arr_ordered(self):
@@ -57,3 +57,21 @@ class TestDutchFlagBetter:
                 assert arr[x] == 3
             else:
                 assert arr[x] == 5
+
+class TestBuySellOnce:
+    def test_stock_one(self):
+        stocks = [
+            310, 315, 275,
+            295, 260, 270,
+            290, 230, 255,
+            250,
+        ]
+        assert buy_sell_once(stocks) == 30
+
+    def test_stock_two(self):
+        stocks = [2,3,10,6,4,8,1]
+        assert buy_sell_once(stocks) == 8
+
+    def test_stock_three(self):
+        stocks = [7,9,5,6,3,2]
+        assert buy_sell_once(stocks) == 2

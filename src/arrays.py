@@ -1,3 +1,5 @@
+import sys
+
 '''
 Chapter 6
 '''
@@ -55,3 +57,17 @@ def dutch_partition_better(idx, arr):
         else:
             swap(arr, equal, large)
             large -= 1
+
+def buy_sell_once(stocks):
+    '''
+    find the maximum profit achieved by buying
+    a stock and selling it
+    '''
+    max_profit = 0
+    lowest = sys.maxsize
+    for price in stocks:
+        if price < lowest:
+            lowest = price
+        if price - lowest > max_profit:
+            max_profit = price - lowest
+    return max_profit
