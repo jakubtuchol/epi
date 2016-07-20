@@ -1,4 +1,4 @@
-from src.arrays import dutch_national_partition, dutch_partition_better, buy_sell_once, random_sample
+from src.arrays import dutch_national_partition, dutch_partition_better, buy_sell_once, random_sample, spiralize
 
 class TestDutchNationalFlag:
     def test_arr_ordered(self):
@@ -82,3 +82,28 @@ class TestRandomSampling:
         sample_1 = random_sample(population, 5)
         sample_2 = random_sample(population, 5)
         assert sample_1 != sample_2
+
+class TestSpiralize:
+    def test_spiralize_three(self):
+        expected = [1,2,3,6,9,8,7,4,5]
+        arr = [
+            [1,2,3],
+            [4,5,6],
+            [7,8,9],
+        ]
+        assert spiralize(arr) == expected
+
+    def test_spiralize_four(self):
+        expected = [
+            1,2,3,4,
+            8,12,16,15,
+            14,13,9,5,
+            6,7,11,10,
+        ]
+        arr = [
+            [1,2,3,4],
+            [5,6,7,8],
+            [9,10,11,12],
+            [13,14,15,16],
+        ]
+        assert expected == spiralize(arr)

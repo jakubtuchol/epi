@@ -91,3 +91,36 @@ def random_sample(inputs, size):
         next_pos -= 1
 
     return inputs[next_pos:]
+
+def spiralize(arr):
+    '''
+    Problem 6.18
+    print out spiral traversal of 2D array
+    '''
+    output = []
+    min_x = 0
+    min_y = 0
+    max_x = len(arr[0]) - 1
+    max_y = len(arr) - 1
+
+    while min_x <= max_x and min_y <= max_y:
+        # iterate forward across top
+        for x in xrange(min_x, max_x+1):
+            output.append(arr[min_y][x])
+        min_y += 1
+
+        # iterate down across right
+        for y in xrange(min_y, max_y+1):
+            output.append(arr[y][max_x])
+        max_x -= 1
+
+        # iterate backward across bottom
+        for x in xrange(max_x, min_x-1, -1):
+            output.append(arr[max_y][x])
+        max_y -= 1
+
+        # iterate upward across left
+        for y in xrange(max_y, min_y-1, -1):
+            output.append(arr[y][min_x])
+        min_x += 1
+    return output
