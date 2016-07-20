@@ -6,25 +6,15 @@ class TestDutchNationalFlag:
         should pass automatically, array
         is already ordered
         '''
-        arr = [1,2,3,4,5,6,7,8,9,10]
+        arr = [0,0,0,1,1,1,2,2,2]
         dutch_national_partition(5, arr)
-        for x in xrange(1,11):
-            if x < 5:
-                assert arr[x-1] < 5
+        for x in xrange(9):
+            if x < 3:
+                assert arr[x] == 0
+            elif x < 6:
+                assert arr[x] == 1 
             else:
-                assert arr[x-1] >= 5
-
-    def test_arry_reversed(self):
-        '''
-        should properly reverse array
-        '''
-        arr = [10,9,8,7,6,5,4,3,2,1]
-        dutch_national_partition(5, arr)
-        for x in xrange(1,11):
-            if x < 5:
-                assert arr[x-1] < 5
-            else:
-                assert arr[x-1] >= 5
+                assert arr[x] == 2 
 
     def test_repeated_elements(self):
         '''
@@ -34,9 +24,9 @@ class TestDutchNationalFlag:
         arr = [5,3,1,5,5,3,3,1,1]
         dutch_national_partition(1, arr)
         for x in xrange(9):
-            if x <= 2:
+            if x < 3:
                 assert arr[x] == 1
-            elif x <= 5:
+            elif x < 6:
                 assert arr[x] == 3
             else:
                 assert arr[x] == 5

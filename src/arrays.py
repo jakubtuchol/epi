@@ -17,17 +17,21 @@ def dutch_national_partition(idx, arr):
     pivot = arr[idx]
 
     smaller = 0
-    for idy, elt in enumerate(arr):
+    idy = smaller
+    while idy < len(arr):
         # group all elements less than pivot at
         # the bottom
-        if elt < pivot:
+        if arr[idy] < pivot:
             swap(arr, smaller, idy)
             smaller += 1
+        idy += 1
 
     larger = len(arr) - 1
-    for idy, elt in enumerate(arr):
+    idy = larger
+    while idy >= 0:
         # group all elements greater than pivot
         # at the bottom
-        if elt > pivot:
+        if arr[idy] > pivot:
             swap(arr, larger, idy)
             larger -= 1
+        idy -= 1
