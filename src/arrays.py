@@ -1,6 +1,10 @@
 '''
 Chapter 6
 '''
+def swap(arr, idx, idy):
+    tmp = arr[idx]
+    arr[idx] = arr[idy]
+    arr[idy] = tmp
 
 def dutch_national_partition(idx, arr):
     '''
@@ -9,11 +13,6 @@ def dutch_national_partition(idx, arr):
     to arr[idx], then all elements greater than
     arr[idx]
     '''
-    def swap(arr, idx, idy):
-        tmp = arr[idx]
-        arr[idx] = arr[idy]
-        arr[idy] = tmp
-
     pivot = arr[idx]
 
     smaller = 0
@@ -35,3 +34,24 @@ def dutch_national_partition(idx, arr):
             swap(arr, larger, idy)
             larger -= 1
         idy -= 1
+
+def dutch_partition_better(idx, arr):
+    '''
+    improved, single-pass version of
+    dutch national flag algorithm
+    '''
+    pivot = arr[idx]
+
+    small = 0
+    equal = 0
+    large = len(arr) - 1
+
+    while equal < large:
+        if arr[equal] < pivot:
+            swap(arr, small, equal)
+            small += 1; equal += 1
+        elif arr[equal] == pivot:
+            equal += 1
+        else:
+            swap(arr, equal, large)
+            large -= 1
