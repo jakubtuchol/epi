@@ -1,4 +1,4 @@
-from src.arrays import dutch_national_partition, dutch_partition_better, buy_sell_once
+from src.arrays import dutch_national_partition, dutch_partition_better, buy_sell_once, random_sample
 
 class TestDutchNationalFlag:
     def test_arr_ordered(self):
@@ -75,3 +75,10 @@ class TestBuySellOnce:
     def test_stock_three(self):
         stocks = [7,9,5,6,3,2]
         assert buy_sell_once(stocks) == 2
+
+class TestRandomSampling:
+    def test_random_sample(self):
+        population = list(range(100))
+        sample_1 = random_sample(population, 5)
+        sample_2 = random_sample(population, 5)
+        assert sample_1 != sample_2

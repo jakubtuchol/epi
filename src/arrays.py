@@ -1,4 +1,6 @@
 import sys
+import random
+from datetime import datetime
 
 '''
 Chapter 6
@@ -10,6 +12,7 @@ def swap(arr, idx, idy):
 
 def dutch_national_partition(idx, arr):
     '''
+    Problem 6.1
     Partition such that all elements less than
     arr[idx] come first, then all elements equal
     to arr[idx], then all elements greater than
@@ -60,6 +63,7 @@ def dutch_partition_better(idx, arr):
 
 def buy_sell_once(stocks):
     '''
+    Problem 6.7
     find the maximum profit achieved by buying
     a stock and selling it
     '''
@@ -71,3 +75,19 @@ def buy_sell_once(stocks):
         if price - lowest > max_profit:
             max_profit = price - lowest
     return max_profit
+
+def random_sample(inputs, size):
+    '''
+    Problem 6.12
+    given an array of input values, return
+    a random subset of inputs of size `size`
+    '''
+    next_pos = len(inputs) - 1
+    # seed rand generator
+    random.seed(datetime.now())
+    for _ in xrange(size):
+        idx = random.randrange(next_pos)
+        swap(inputs, idx, next_pos)
+        next_pos -= 1
+
+    return inputs[next_pos:]
