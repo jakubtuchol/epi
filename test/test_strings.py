@@ -8,3 +8,12 @@ class TestIntToString:
     def test_negative(self):
         assert '-1155' == int_to_string(-1155)
         assert '-188' == int_to_string(-188)
+
+class TestStringToInt:
+    def test_basic(self):
+        assert 187 == string_to_int('187')
+        assert 5151 == string_to_int('5151')
+
+    def test_negative(self):
+        assert -1155 == string_to_int('-1155')
+        assert -188 == string_to_int('-188')

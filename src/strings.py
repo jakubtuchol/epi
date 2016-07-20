@@ -7,8 +7,7 @@ def int_to_string(num):
     '''
     negative = num < 0
     output = []
-    if negative:
-        num *= -1
+    if negative: num *= -1
 
     while num > 0:
         code = ord('0') + (num % 10)
@@ -23,4 +22,16 @@ def string_to_int(string):
     Problem 7.1
     convert a string to an integer, without using `int`
     '''
-    pass
+    negative = string[0] == '-'
+    if negative: string = string[1:]
+
+    idx = 0
+    output = 0
+
+    while idx < len(string):
+        low = ord(string[idx]) - ord('0')
+        output = (output * 10) + low
+        idx += 1
+
+    if negative: output *= -1
+    return output
