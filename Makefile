@@ -10,3 +10,4 @@ test:
 clean:
 	-rm -rf $(SRC)/*.pyc
 	-rm -rf $(TEST)/*.pyc
+	-rm -rf test/__pycache__
