@@ -35,3 +35,10 @@ def string_to_int(string):
 
     if negative: output *= -1
     return output
+
+def convert_base(s, base1, base2):
+    '''
+    Problem 7.2
+    Convert number from one base to another
+    '''
+    return ''

@@ -1,4 +1,4 @@
-from src.strings import int_to_string, string_to_int
+from src.strings import int_to_string, string_to_int, convert_base
 
 class TestIntToString:
     def test_basic(self):
@@ -17,3 +17,10 @@ class TestStringToInt:
     def test_negative(self):
         assert -1155 == string_to_int('-1155')
         assert -188 == string_to_int('-188')
+
+class TestConvertBase:
+    def test_basic_conversion(self):
+        assert '1A7' == convert_base('615',7,13)
+
+    def test_binary_conversion(self):
+        assert '4' == convert_base('100', 2, 10)
