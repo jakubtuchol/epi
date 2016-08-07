@@ -66,8 +66,3 @@ def convert_base(s, base1, base2):
 
     result.reverse()
     return unicode(''.join(result), 'utf-8')
-
-'''
-def replace_and_remove(char_arr):
-    Problem 7.4
-'''
