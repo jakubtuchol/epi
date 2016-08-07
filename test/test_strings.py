@@ -20,7 +20,7 @@ class TestStringToInt:
 
 class TestConvertBase:
     def test_basic_conversion(self):
-        assert '1A7' == convert_base('615',7,13)
+        assert u'1A7' == convert_base(u'615',7,13)
 
     def test_binary_conversion(self):
-        assert '4' == convert_base('100', 2, 10)
+        assert u'4' == convert_base(u'100', 2, 10)

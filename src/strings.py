@@ -41,4 +41,33 @@ def convert_base(s, base1, base2):
     Problem 7.2
     Convert number from one base to another
     '''
-    return ''
+    # Convert string to int
+    negative = s[0] == '-'
+    begin = 1 if negative else 0
+
+    num = 0
+    # converting string to int
+    for char in s[begin:]:
+        num *= base1
+        num += int(char) if char.isnumeric() else ord(char) - ord('A') + 10
+
+    # converting int to string
+    result = []
+    while num:
+        remainder = num % base2
+        result.append(chr(ord('A') + remainder - 10) if remainder >= 10 else str(remainder))
+        num /= base2
+
+    if len(result) == 0:
+        return '0'
+
+    if negative:
+        result.append('-')
+
+    result.reverse()
+    return unicode(''.join(result), 'utf-8')
+
+'''
+def replace_and_remove(char_arr):
+    Problem 7.4
+'''
