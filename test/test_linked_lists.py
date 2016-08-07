@@ -1,4 +1,4 @@
-from src.linked_lists import Node, merge_sorted_lists
+from src.linked_lists import Node, merge_sorted_lists, reverse_linked_list
 
 class TestMergeLinkedLists:
     '''
@@ -46,3 +46,22 @@ class TestMergeLinkedLists:
         for i in xrange(1,21):
             assert merge_head.val == i
             merge_head = merge_head.next
+
+class TestReverseLinkedList:
+    '''
+    Question 8.2
+    '''
+    def test_basic_incremental(self):
+        '''
+        Test for basic presorted list
+        '''
+        head = Node(1)
+        cur = head
+        for i in xrange(2,11):
+            cur.next = Node(i)
+            cur = cur.next
+
+        rev_head = reverse_linked_list(head)
+        for i in xrange(10,0,-1):
+            assert i == rev_head.val
+            rev_head = rev_head.next

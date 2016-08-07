@@ -27,3 +27,20 @@ def merge_sorted_lists(ls_1, ls_2):
     tail.next = ls_1 or ls_2
 
     return dummy_head.next
+
+def reverse_linked_list(ls):
+    '''
+    Question 8.2: Reverse a linked list using O(1) space and O(n) time
+    '''
+    prev = ls.next
+    cur = prev
+    head = ls
+
+    while prev:
+        # retain pointer to current node
+        cur = prev
+        prev = prev.next
+        cur.next = head
+        head = cur
+
+    return head
