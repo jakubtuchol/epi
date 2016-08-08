@@ -24,3 +24,25 @@ class MaxStack(object):
 
     def get_max(self):
         return self.max_at[-1]
+
+def evaluate_rpn(ls):
+    '''
+    Question 9.2
+    '''
+    tokens = []
+    for token in ls:
+        if token in '+-/*':
+            tk_1 = tokens.pop()
+            tk_2 = tokens.pop()
+
+            if token == '+':
+                tokens.append(tk_1 + tk_2)
+            elif token == '-':
+                tokens.append(tk_1 - tk_2)
+            elif token == '*':
+                tokens.append(tk_1 * tk_2)
+            elif token == '/':
+                tokens.append(tk_1 / tk_2)
+        else:
+            tokens.append(int(token))
+    return tokens.pop()

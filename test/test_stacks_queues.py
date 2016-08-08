@@ -1,4 +1,4 @@
-from src.stacks_queues import MaxStack
+from src.stacks_queues import MaxStack, evaluate_rpn
 
 '''
 Chapter 9: Stacks and Queues
@@ -29,3 +29,28 @@ class TestMaxStack:
         for _ in xrange(0,10):
             assert 10 == stack.get_max()
             stack.pop()
+
+class TestRpnEvaluation:
+    def test_singleton(self):
+        '''
+        Test singleton evaluation
+        '''
+        assert 1729 == evaluate_rpn(['1729'])
+
+    def test_operation(self):
+        '''
+        Test simple operation
+        '''
+        assert 738 == evaluate_rpn(['6','123','*'])
+
+    def test_complex_operation(self):
+        '''
+        Test complex operation
+        '''
+        assert 15 == evaluate_rpn(['3','4','+','2','*','1','+'])
+
+    def test_division_operation(self):
+        '''
+        Test complex division operation
+        '''
+        assert 80 == evaluate_rpn(['8','64','/','640','/'])
