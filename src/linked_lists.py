@@ -44,3 +44,39 @@ def reverse_linked_list(ls):
         head = cur
 
     return head
+
+def detect_cycle(head):
+    '''
+    Question 8.4: Detect a cycle in a singly-linked list.
+    Return None if there is no cycle.
+    If there is, return the first node in the cycle.
+    '''
+    slow = head
+    fast = head
+
+    cycle_length = 0
+    while fast and fast.next and fast.next.next:
+        slow = slow.next
+        fast = fast.next.next
+
+        if slow == fast:
+            cycle_length = 1
+            fast = fast.next
+
+            while fast != slow:
+                fast = fast.next
+                cycle_length += 1
+
+            advanced_ptr = head
+            while cycle_length:
+                advanced_ptr = advanced_ptr.next
+                cycle_length -= 1
+
+            iterator = head
+            # advance both pointers in tandem
+            while iterator != advanced_ptr:
+                iterator = iterator.next
+                advanced_ptr = advanced_ptr.next
+            return iterator
+
+    return None

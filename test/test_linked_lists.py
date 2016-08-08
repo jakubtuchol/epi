@@ -1,4 +1,4 @@
-from src.linked_lists import Node, merge_sorted_lists, reverse_linked_list
+from src.linked_lists import Node, merge_sorted_lists, reverse_linked_list, detect_cycle
 
 class TestMergeLinkedLists:
     '''
@@ -65,3 +65,25 @@ class TestReverseLinkedList:
         for i in xrange(10,0,-1):
             assert i == rev_head.val
             rev_head = rev_head.next
+
+class TestCyclicTest:
+    '''
+    Question 8.4
+    '''
+    def test_basic_cycle(self):
+        '''
+        Testing very simple cycle
+        '''
+        head = Node(1)
+        cur = head
+        for i in xrange(2,11):
+            cur.next = Node(i)
+            cur = cur.next
+        cur.next = head
+
+        cycle = detect_cycle(head)
+        assert cycle == head
+
+        cur.next = head.next
+        cycle = detect_cycle(head)
+        assert cycle == head.next
