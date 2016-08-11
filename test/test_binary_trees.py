@@ -1,4 +1,4 @@
-from src.binary_trees import TNode, is_balanced
+from src.binary_trees import TNode, is_balanced, compute_parent_lca
 
 class TestIsBalanced:
     '''
@@ -63,3 +63,33 @@ class TestIsBalanced:
         root.left.right = TNode(3)
 
         assert not is_balanced(root)
+
+class TestParentLCA:
+    '''
+    Question 10.4
+    '''
+    def test_basic_case(self):
+        '''
+        Right and left nodes with same parent
+        '''
+        root = TNode(1)
+        root.left = TNode(2)
+        root.right = TNode(3)
+        root.left.parent = root
+        root.right.parent = root
+
+        assert root == compute_parent_lca(root.left, root.right)
+
+    def test_deeper_case(self):
+        '''
+        Deeper case, with two nodes on subtree
+        '''
+        root = TNode(1)
+        root.left = TNode(1)
+        root.left.parent = root
+        root.right = TNode(1)
+        root.right.parent = root
+        root.left.left = TNode(1)
+        root.left.left.parent = TNode(1)
+
+        assert root == compute_parent_lca(root.left.left, root.right)
