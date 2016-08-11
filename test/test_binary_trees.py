@@ -26,6 +26,10 @@ class TestIsBalanced:
         root.right = TNode('K')
         root.right.left = TNode('L')
         root.right.left.left = TNode('M')
+        root.right.left.right = TNode('N')
+
+        # handle right right subtree
+        root.right.right = TNode('O')
 
         assert is_balanced(root)
 

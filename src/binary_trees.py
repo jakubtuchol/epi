@@ -19,9 +19,6 @@ def balanced_helper(root):
         return (True, 0)
     left = balanced_helper(root.left)
     right = balanced_helper(root.right)
-    print('left is {}', left[1])
-    print('right is {}', right[1])
-    print('diff is {}', abs(left[1] - right[1]))
 
     return (
         left[0] and right[0] and abs(left[1] - right[1]) <= 1,
