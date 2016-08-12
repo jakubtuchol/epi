@@ -34,6 +34,25 @@ def compute_parent_lca(first_tree, second_tree):
     Problem 10.4: Get least common ancestor if nodes
     have parent pointer
     '''
-    if first_tree.parent == second_tree.parent:
-        return first_tree.parent
-    return None
+    return lca_helper(first_tree, second_tree, set())
+
+def lca_helper(first_tree, second_tree, seen_nodes):
+    '''
+    Helper function that keeps track of seen nodes for
+    tree traversal
+    '''
+    if first_tree == second_tree:
+        return first_tree
+
+    if first_tree in seen_nodes:
+        return first_tree
+    if second_tree in seen_nodes:
+        return second_tree
+
+    seen_nodes.add(first_tree)
+    seen_nodes.add(second_tree)
+    return lca_helper(
+        first_tree.parent if first_,
+        second_tree.parent,
+        seen_nodes,
+    )
