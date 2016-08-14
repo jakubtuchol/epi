@@ -29,30 +29,38 @@ def balanced_helper(root):
         1 + max(left[1], right[1]),
     )
 
-def compute_parent_lca(first_tree, second_tree):
+def compute_parent_lca(first, second):
     '''
     Problem 10.4: Get least common ancestor if nodes
     have parent pointer
     '''
-    return lca_helper(first_tree, second_tree, set())
+    first_depth = get_depth(first)
+    second_depth = get_depth(second)
 
-def lca_helper(first_tree, second_tree, seen_nodes):
+    # swap if second deeper than first
+    if second_depth > first_depth:
+        tmp = first
+        first = second
+        second = first
+
+    depth_diff = abs(first_depth - second_depth)
+    while depth_diff:
+        first = first.parent
+        depth_diff -= 1
+
+    while first != second:
+        first = first.parent
+        second = second.parent
+
+    return first
+
+def get_depth(node):
     '''
-    Helper function that keeps track of seen nodes for
-    tree traversal
+    Helper function to get depth of node
+    from root
     '''
-    if first_tree == second_tree:
-        return first_tree
-
-    if first_tree in seen_nodes:
-        return first_tree
-    if second_tree in seen_nodes:
-        return second_tree
-
-    seen_nodes.add(first_tree)
-    seen_nodes.add(second_tree)
-    return lca_helper(
-        first_tree.parent if first_,
-        second_tree.parent,
-        seen_nodes,
-    )
+    depth = 0
+    while node.parent:
+        node = node.parent
+        depth += 1
+    return depth

@@ -90,6 +90,6 @@ class TestParentLCA:
         root.right = TNode(1)
         root.right.parent = root
         root.left.left = TNode(1)
-        root.left.left.parent = TNode(1)
+        root.left.left.parent = root.left
 
         assert root == compute_parent_lca(root.left.left, root.right)
