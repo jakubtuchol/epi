@@ -3,13 +3,14 @@ Chapter 11: Heaps
 '''
 
 class Heap(object):
-    def __init__(self):
+    def __init__(self, comp):
         self.heap_list = [0]
         self.cur_size = 0
+        self.comp = comp
 
     def perc_up(self, i):
         while i // 2 > 0:
-            if self.heap_list[i] < self.heap_list[i // 2]:
+            if self.comp(self.heap_list[i], self.heap_list[i // 2]):
                 tmp = self.heap_list[i // 2]
                 self.heap_list[i // 2] = self.heap_list[i]
                 self.heap_list[i] = tmp
@@ -23,7 +24,7 @@ class Heap(object):
     def perc_down(self, i):
         while i * 2 <= self.cur_size:
             mc = self.min_child(i)
-            if self.heap_list[i] > self.heap_list[mc]:
+            if not self.comp(self.heap_list[i], self.heap_list[mc]):
                 tmp = self.heap_list[i]
                 self.heap_list[i] = self.heap_list[mc]
                 self.heap_list[mc] = tmp
@@ -33,7 +34,7 @@ class Heap(object):
         if i * 2 + 1 > self.cur_size:
             return i * 2
 
-        if self.heap_list[i * 2] < self.heap_list[i * 2 + 1]:
+        if self.comp(self.heap_list[i * 2], self.heap_list[i * 2 + 1]):
             return i * 2
         return  i * 2 + 1
 
