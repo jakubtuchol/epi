@@ -1,4 +1,4 @@
-from src.heaps import Heap, merge_sorted_arrays
+from src.heaps import Heap, merge_sorted_arrays, find_closest_stars
 
 class TestMinHeap:
     def test_basic_heap(self):
@@ -81,3 +81,19 @@ class TestMergeArrays:
         ]
         expected = [0,10,12,100,200,400,1000,10000]
         assert expected == merge_sorted_arrays(input_arrs)
+
+class TestFindClosestStars:
+    '''
+    Question 11.4
+    '''
+    def test_basic_stream(self):
+        stream = [
+            200,30,42,
+            500,80,928,
+            23,3828,9382,
+            12,8383,23,
+            212,291,6342,
+            32893,4,1221,
+        ]
+        assert [4,12,23] == sorted(find_closest_stars(3, stream))
+        assert [4,12,23,23,30] == sorted(find_closest_stars(5, stream))

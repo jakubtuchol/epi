@@ -60,6 +60,9 @@ class Heap(object):
     def empty(self):
         return self._cur_size == 0
 
+    def size(self):
+        return self._cur_size
+
 def merge_sorted_arrays(arrs):
     # create min-heap sorted on first element in tuple
     heap = Heap(lambda x,y: x[0] < y[0])
@@ -81,3 +84,20 @@ def merge_sorted_arrays(arrs):
             heap.insert((new_elt, idx))
 
     return output
+
+def find_closest_stars(limit, stars):
+    # create max heap to handle keeping
+    # track of closest stars
+    heap = Heap(lambda x,y: x > y)
+
+    for star in stars:
+        heap.insert(star)
+
+        if heap.size() > limit:
+            heap.pop()
+
+    closest_stars = []
+    while not heap.empty():
+        closest_stars.append(heap.pop())
+
+    return closest_stars
