@@ -1,21 +1,16 @@
 def find_first_occurrence(target, ls):
     left = 0
     right = len(ls) - 1
-    candidates = set()
+    result = -1
 
     while left <= right:
-        mid = (left + right) // 2
-        if ls[mid] == target:
-            candidates.add(mid)
-            right = mid
-        elif ls[mid] < target:
-            if mid + 1 in candidates:
-                return mid + 1
-            left = mid
+        mid = left + ((right - left) // 2)
+        if ls[mid] > target:
+            right = mid - 1
+        elif ls[mid] == target:
+            result = mid
+            right = mid - 1
         else:
-            right = mid
-        if mid == 0 or mid == len(ls):
-            break
-    if len(candidates):
-        return min(candidates)
-    return -1
+            left = mid + 1
+
+    return result
