@@ -69,3 +69,15 @@ class TestMergeArrays:
         ]
         expected = [0,0,3,5,6,6,7,28]
         assert expected == merge_sorted_arrays(input_arrs)
+
+    def test_asymmetrical_case(self):
+        '''
+        Significantly asymmetrical case
+        '''
+        input_arrs = [
+            [10,100,1000, 10000],
+            [0,200,400],
+            [12],
+        ]
+        expected = [0,10,12,100,200,400,1000,10000]
+        assert expected == merge_sorted_arrays(input_arrs)
