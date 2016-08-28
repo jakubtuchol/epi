@@ -3,61 +3,58 @@ Chapter 11: Heaps
 '''
 
 class Heap(object):
-    def __init__(self, comp):
-        '''
-        comp is function that is
-        used for ranking values
-        '''
-        self.comp = comp
-        self.contents = []
-        self.num_elts = 0
+    def __init__(self):
+        self.heap_list = [0]
+        self.cur_size = 0
 
-    def add(self, elt):
-        self.contents.append(elt)
-        self.num_elts += 1
+    def perc_up(self, i):
+        while i // 2 > 0:
+            if self.heap_list[i] < self.heap_list[i // 2]:
+                tmp = self.heap_list[i // 2]
+                self.heap_list[i // 2] = self.heap_list[i]
+                self.heap_list[i] = tmp
+            i = i // 2
 
-        self._swap_elts(0,-1)
-        # rebalance
+    def insert(self, k):
+        self.heap_list.append(k)
+        self.cur_size += 1
+        self.perc_up(self.cur_size)
+
+    def perc_down(self, i):
+        while i * 2 <= self.cur_size:
+            mc = self.min_child(i)
+            if self.heap_list[i] > self.heap_list[mc]:
+                tmp = self.heap_list[i]
+                self.heap_list[i] = self.heap_list[mc]
+                self.heap_list[mc] = tmp
+            i = mc
+
+    def min_child(self, i):
+        if i * 2 + 1 > self.cur_size:
+            return i * 2
+
+        if self.heap_list[i * 2] < self.heap_list[i * 2 + 1]:
+            return i * 2
+        return  i * 2 + 1
 
     def pop(self):
-        '''
-        Get root of heap, removin root
-        from heap in process
-        '''
-        ret = self.peek()
-        if self.num_elts > 1:
-            self._rebalance()
-        pass
+        retval = self.heap_list[1]
+        self.heap_list[1] = self.heap_list[self.cur_size]
+        self.cur_size -= 1
+        self.heap_list.pop()
+        self.perc_down(1)
+        return retval
 
     def peek(self):
-        '''
-        Get root of heap, allowing
-        root to remain in heap
-        '''
-        if self.num_elts == 0:
-            return None
-        return self.contents[0]
+        return self.heap_list[1]
 
-    def _swap_elts(self, idx1, idx2):
-        '''
-        swaps specified elements
-        '''
-        self.contents[idx1] = self.contents[idx2],
-            self.contents[idx2] self.contents[idx1]
-
-    def _rebalance(self):
-        '''
-        Rebalance elements, starting
-        from root
-        '''
-        root = self.contents[0]
-        pass
-
-    def _get_left_child(self, idx):
-        return idx * 2 + 1
-
-    def _get_right_child(self, idx):
-        return idx * 2 + 2
+    def build_heap(self, alist):
+        i = len(alist) // 2
+        self.cur_size = len(alist)
+        self.heap_list = [0] + alist[:]
+        while i > 0:
+            self.perc_down(i)
+            i -= 1
 
 def merge_sorted_arrays(arrs):
     # create min-heap
