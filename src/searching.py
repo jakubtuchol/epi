@@ -14,3 +14,30 @@ def find_first_occurrence(target, ls):
             left = mid + 1
 
     return result
+
+def square_root(num):
+    last_root = 1
+    root = 2
+    square = 4
+    while square < num:
+        last_root = root
+        root = square
+        square *= square
+
+    if square == num:
+        return root
+
+    # binary search for proper root
+    low, high = last_root, root
+
+    while low <= high:
+        mid = low + ((high - low) // 2)
+        square = mid ** 2
+        if square > num:
+            high = mid - 1
+        elif square == num:
+            return mid
+        else:
+            low = mid + 1
+        
+    return low - 1

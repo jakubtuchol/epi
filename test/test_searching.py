@@ -1,4 +1,4 @@
-from src.searching import find_first_occurrence
+from src.searching import find_first_occurrence, square_root
 
 class TestFindFirstOccurrence:
     '''
@@ -17,3 +17,20 @@ class TestFindFirstOccurrence:
         assert -1 == find_first_occurrence(800, ls)
         assert -1 == find_first_occurrence(-200, ls)
         assert -1 == find_first_occurrence(100, ls)
+
+class TestSquareRoot:
+    '''
+    Question 12.5
+    '''
+    def test_equal_case(self):
+        assert 16 == square_root(256)
+        assert 10 == square_root(100)
+        assert 6 == square_root(36)
+
+    def test_lower_case(self):
+        assert 10 == square_root(101)
+        assert 16 == square_root(257)
+        assert 6 == square_root(37)
+
+    def test_book_case(self):
+        assert 17 == square_root(300)
