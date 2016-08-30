@@ -4,6 +4,9 @@ TEST_CMD = py.test
 
 .PHONY: test clean
 
+install:
+	pip install -rrequirements.txt
+
 test:
 	$(TEST_CMD)
 
