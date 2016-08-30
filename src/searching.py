@@ -1,4 +1,7 @@
 def find_first_occurrence(target, ls):
+    '''
+    Question 12.1
+    '''
     left = 0
     right = len(ls) - 1
     result = -1
@@ -16,6 +19,9 @@ def find_first_occurrence(target, ls):
     return result
 
 def square_root(num):
+    '''
+    Question 12.5
+    '''
     last_root = 1
     root = 2
     square = 4
