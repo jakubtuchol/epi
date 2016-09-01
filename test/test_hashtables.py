@@ -39,3 +39,10 @@ class TestFindAnagrams:
             assert match is not None
             for element in expect:
                 assert element in res
+
+class TestIsbnCache:
+    '''
+    Question
+    '''
+    def test_serial_insert_removes_least_recent(self):
+        self

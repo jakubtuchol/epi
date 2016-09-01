@@ -15,30 +15,48 @@ def find_anagrams(words):
 @attr.s
 class Node(object):
     _val = attr.ib(validator=instance_of(str))
-    _prev = attr.ib()
-    _next = attr.ib()
+    _price = attr.ib(validator=instance_of(float))
+    _prev = attr.ib(default=None)
+    _next = attr.ib(default=None)
 
 @attr.s
 class IsbnCache(object):
     _capacity = attr.ib(validator=instance_of(int))
     _contents = attr.ib(default=attr.Factory(dict))
-    _head_node = None
-    _tail_node = None
-    _cur_size = 0
+    _head_node = attr.ib(default=None)
+    _tail_node = attr.ib(default=None)
+    _cur_size = attr.ib(default=0)
 
-    def insert(self, isbn):
+    def insert(self, isbn, price):
         if self._cur_size == self._capacity:
             # need to least recently accessed node
             del self._contents[self._tail_node._val]
             self._tail_node = self._tail_node._prev
             self._tail_node._next = None
+        else:
+            self._cur_size += 1
         new_node = Node(
             val=isbn,
-            prev=None,
+            price=price,
             next=self._head_node,
         )
         self._head_node = new_node
         self._contents[isbn] = new_node
 
     def lookup(self, isbn):
-        pass
+        if isbn in self._contents:
+            node = self._contents[isbn]
+            # move node to head node
+            prev = node.prev
+            next = node.next
+            prev.next = next
+            next.prev = prev
+            # if is last node, then make prev last
+            if self._tail_node == node and self._cur_size > 1:
+                self._tail_node = node.prev
+            node.next = self._head_node
+            node.prev = None
+            self._head_node.prev = node
+            self._head_node = node
+            return node.price
+        return None
