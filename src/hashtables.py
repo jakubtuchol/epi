@@ -39,24 +39,32 @@ class IsbnCache(object):
             val=isbn,
             price=price,
             next=self._head_node,
+            prev=None,
         )
+
+        # check if have single node
+        if self._cur_size == 1:
+            self._tail_node = new_node
         self._head_node = new_node
         self._contents[isbn] = new_node
 
     def lookup(self, isbn):
         if isbn in self._contents:
             node = self._contents[isbn]
+            print('node for {} is {}'.format(isbn, node))
             # move node to head node
-            prev = node.prev
-            next = node.next
-            prev.next = next
-            next.prev = prev
+            prev = node._prev
+            next = node._next
+            if prev:
+                prev._next = next
+            if next:
+                next._prev = prev
             # if is last node, then make prev last
             if self._tail_node == node and self._cur_size > 1:
-                self._tail_node = node.prev
-            node.next = self._head_node
-            node.prev = None
-            self._head_node.prev = node
+                self._tail_node = node._prev
+            node._next = self._head_node
+            node._prev = None
+            self._head_node._prev = node
             self._head_node = node
-            return node.price
+            return node._price
         return None

@@ -67,5 +67,5 @@ class TestIsbnCache:
         for isbn in isbns[:5]:
             assert isbn[0] in cache._contents
             assert cache._tail_node == cache._contents[isbn[0]]
-            assert isbn[1] == cache.lookup(isbn)
-            assert isbn._head_node == cache._contents[isbn[0]]
+            assert isbn[1] == cache.lookup(isbn[0])
+            assert cache._head_node == cache._contents[isbn[0]]
