@@ -65,7 +65,10 @@ class TestIsbnCache:
 
         # check that each of these are in cache
         for isbn in isbns[:5]:
-            assert isbn[0] in cache._contents
-            assert cache._tail_node == cache._contents[isbn[0]]
+            contents = cache.get_contents()
+            assert isbn[0] in contents
+            print('isbn testing {}'.format(isbn[0]))
+            assert cache.get_tail()._val == isbn[0]
             assert isbn[1] == cache.lookup(isbn[0])
-            assert cache._head_node == cache._contents[isbn[0]]
+            new_contents = cache.get_contents()
+            assert cache.get_head() == new_contents[isbn[0]]
