@@ -1,6 +1,9 @@
 from collections import defaultdict
 
 def find_anagrams(words):
+    '''
+    Question 13.1
+    '''
     anagrams = defaultdict(set)
 
     for word in words:
@@ -17,6 +20,9 @@ class IsbnNode(object):
         self.next = None
 
 class IsbnCache(object):
+    '''
+    Question 13.4
+    '''
     def __init__(self, max_size):
         self.capacity = max_size
         self.cur_size = 0
