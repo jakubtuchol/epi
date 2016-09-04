@@ -1,8 +1,5 @@
 from collections import defaultdict
 
-import attr
-from attr.validators import instance_of
-
 def find_anagrams(words):
     anagrams = defaultdict(set)
 
@@ -12,73 +9,55 @@ def find_anagrams(words):
 
     return [val for val in anagrams.values() if len(val) > 1]
 
-@attr.s(repr_ns='node')
-class Node(object):
-    _val = attr.ib(validator=instance_of(str))
-    _price = attr.ib(validator=instance_of(float))
-    _prev = attr.ib(default=None)
-    _next = attr.ib(default=None)
+class IsbnNode(object):
+    def __init__(self, val, price):
+        self.val = val
+        self.price = price
+        self.prev = None
+        self.next = None
 
-@attr.s(repr_ns='cache')
 class IsbnCache(object):
-    _capacity = attr.ib(validator=instance_of(int))
-    _contents = attr.ib(default=attr.Factory(dict))
-    _head_node = attr.ib(default=None)
-    _tail_node = attr.ib(default=None)
-    _cur_size = attr.ib(default=0)
+    def __init__(self, max_size):
+        self.capacity = max_size
+        self.cur_size = 0
+        self.contents = dict()
+        self.head = None
+        self.tail = None
 
-    def insert(self, isbn, price):
-        if self._cur_size == self._capacity:
-            # need to least recently accessed node
-            last_val = self._tail_node._val
-            self._contents.pop(last_val)
-            # self._contents[self._tail_node._val]
-            self._tail_node = self._tail_node._prev
-            self._tail_node._next = None
+    def insert(self, val, price):
+        node = IsbnNode(val, price)
+        if self.cur_size == 0:
+            self.tail = node
         else:
-            self._cur_size += 1
-        new_node = Node(
-            val=isbn,
-            price=price,
-            next=self._head_node,
-            prev=None,
-        )
+            node.next = self.head
+            self.head.prev = node
+        self.head = node
 
-        # check if have single node
-        if self._cur_size == 1:
-            self._tail_node = new_node
-        self._head_node = new_node
-        self._contents[isbn] = new_node
+        # need to vacate node
+        if self.cur_size == self.capacity:
+            cur_tail = self.tail
+            self.tail = tail.prev
+            tail.next = None
+            self.contents.pop(cur_tail.val)
+            cur_size -= 1
+        self.contents[val] = node
+        self.cur_size += 1
 
-    def lookup(self, code):
-        if code in self._contents:
-            node = self._contents[code]
-            # move node to head node
-            prev = node._prev
-            next = node._next
-            if prev:
-                prev._next = next
-            if next:
-                next._prev = prev
-            if self._cur_size > 1:
-            # if is last node, then make prev last
-                if self._tail_node == node:
-                    self._tail_node = node._prev
-                node._next = self._head_node
-                self._head_node._prev = node
-            node._prev = None
-            self._head_node = node
-            assert len(self._contents.keys()) == self._cur_size
-            return node._price
+    def lookup(self, val):
+        if val in self.contents:
+            res_node = self.contents[val]
+            prev_node = res_node.prev
+            next_node = res_node.next
+
+            if res_node != self.head:
+                if self.cur_size > 1 and self.tail == res_node:
+                    self.tail = prev_node
+                if prev_node:
+                    prev_node.next = next_node
+                if next_node:
+                    next_node.prev = prev_node
+                res_node.prev = None
+                res_node.next = self.head
+                self.head = res_node
+            return res_node.price
         return None
-
-    def get_tail(self):
-        if self._cur_size > 0:
-            assert self._tail_node != None
-        return self._tail_node
-
-    def get_head(self):
-        return self._head_node
-
-    def get_contents(self):
-        return self._contents

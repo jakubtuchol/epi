@@ -57,7 +57,7 @@ class TestIsbnCache:
             ('1616204583',17.65),
             ('1610395832',14.93),
         ]
-        cache = IsbnCache(capacity=5)
+        cache = IsbnCache(5)
 
         # insert first five elements
         for isbn in isbns[:5]:
@@ -65,10 +65,7 @@ class TestIsbnCache:
 
         # check that each of these are in cache
         for isbn in isbns[:5]:
-            contents = cache.get_contents()
-            assert isbn[0] in contents
-            print('isbn testing {}'.format(isbn[0]))
-            assert cache.get_tail()._val == isbn[0]
+            assert isbn[0] in cache.contents
+            assert cache.tail.val == isbn[0]
             assert isbn[1] == cache.lookup(isbn[0])
-            new_contents = cache.get_contents()
-            assert cache.get_head() == new_contents[isbn[0]]
+            assert cache.head == cache.contents[isbn[0]]
