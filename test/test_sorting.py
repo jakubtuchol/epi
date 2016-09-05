@@ -1,4 +1,4 @@
-from src.sorting import compute_intersection
+from src.sorting import compute_intersection, inplace_mergesort
 
 class TestComputeIntersection:
     '''
@@ -18,3 +18,14 @@ class TestComputeIntersection:
         arr_2 = [3,3,7,15,31]
 
         assert [3,7] == compute_intersection(arr_1, arr_2)
+
+class TestInplaceMergesort:
+    '''
+    Question 14.2
+    '''
+    def test_book_case(self):
+        long_arr = [5,13,17,None,None,None,None,None]
+        short_arr = [3,7,11,19]
+        expected = [3,5,7,11,13,17,19,None]
+        inplace_mergesort(long_arr, 3, short_arr, 4)
+        assert expected == long_arr
