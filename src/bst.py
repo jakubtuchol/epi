@@ -23,3 +23,10 @@ def check_bst_helper(root, low, high):
 
     return check_bst_helper(root.left, low, root.val-1) \
             and check_bst_helper(root.right, root.val+1, high)
+
+def find_first_larger_key(root, key):
+    '''
+    Question 15.3: Find the first key larger than given
+    value in bst
+    '''
+    return root.val
