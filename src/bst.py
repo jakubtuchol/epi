@@ -1,3 +1,5 @@
+from sys import maxint
+
 class BST(object):
     def __init__(self, val):
         self.val = val
@@ -5,7 +7,19 @@ class BST(object):
         self.right = None
 
 def check_bst(root):
+    INT_MAX = maxint
+    INT_MIN = -maxint - 1
     '''
     Question 15.1: Test if a binary tree satisfies the BST property
     '''
-    pass
+    return check_bst_helper(root, INT_MIN, INT_MAX)
+
+def check_bst_helper(root, low, high):
+    if not root:
+        return True
+
+    if root.val < low or root.val > high:
+        return False
+
+    return check_bst_helper(root.left, low, root.val-1) \
+            and check_bst_helper(root.right, root.val+1, high)

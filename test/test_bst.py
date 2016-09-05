@@ -1,6 +1,6 @@
 from src.bst import BST, check_bst
 
-def TestCheckBST:
+class TestCheckBST:
     '''
     Question 15.1
     '''
