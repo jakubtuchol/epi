@@ -3,7 +3,10 @@ from src.stacks_queues import MaxStack, evaluate_rpn
 '''
 Chapter 9: Stacks and Queues
 '''
-class TestMaxStack:
+class TestMaxStack(object):
+    '''
+    Question 9.1
+    '''
     def test_basic_configuration(self):
         '''
         Test basic incrementing list
@@ -30,7 +33,10 @@ class TestMaxStack:
             assert 10 == stack.get_max()
             stack.pop()
 
-class TestRpnEvaluation:
+class TestRpnEvaluation(object):
+    '''
+    Question 9.2
+    '''
     def test_singleton(self):
         '''
         Test singleton evaluation

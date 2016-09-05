@@ -63,7 +63,7 @@ def create_large_nonbst():
     root.left.right = BST(20)
     return root
 
-class TestCheckBST:
+class TestCheckBST(object):
     '''
     Question 15.1
     '''
@@ -79,7 +79,7 @@ class TestCheckBST:
     def test_incorrect_example(self, create_large_nonbst):
         assert not check_bst(create_large_nonbst)
 
-class TestFindFirstLargerKey:
+class TestFindFirstLargerKey(object):
     '''
     Question 15.3
     '''
@@ -88,3 +88,6 @@ class TestFindFirstLargerKey:
 
     def test_nonval(self, create_tiny_bst):
         assert None == find_first_larger_key(create_tiny_bst, 10)
+
+class FindKLargestElements(object):
+    pass

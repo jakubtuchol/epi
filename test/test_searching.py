@@ -1,6 +1,6 @@
 from src.searching import find_first_occurrence, square_root
 
-class TestFindFirstOccurrence:
+class TestFindFirstOccurrence(object):
     '''
     Question 12.1
     '''
@@ -18,7 +18,7 @@ class TestFindFirstOccurrence:
         assert -1 == find_first_occurrence(-200, ls)
         assert -1 == find_first_occurrence(100, ls)
 
-class TestSquareRoot:
+class TestSquareRoot(object):
     '''
     Question 12.5
     '''

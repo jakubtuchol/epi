@@ -1,6 +1,9 @@
 from src.arrays import dutch_national_partition, dutch_partition_better, buy_sell_once, random_sample, spiralize
 
-class TestDutchNationalFlag:
+class TestDutchNationalFlag(object):
+    '''
+    Question 6.1
+    '''
     def test_arr_ordered(self):
         '''
         should pass automatically, array
@@ -31,7 +34,10 @@ class TestDutchNationalFlag:
             else:
                 assert arr[x] == 5
 
-class TestDutchFlagBetter:
+class TestDutchFlagBetter(object):
+    '''
+    Question 6.1
+    '''
     def test_better_ordered(self):
         arr = [0,0,0,1,1,1,2,2,2]
         dutch_partition_better(5, arr)
@@ -58,7 +64,10 @@ class TestDutchFlagBetter:
             else:
                 assert arr[x] == 5
 
-class TestBuySellOnce:
+class TestBuySellOnce(object):
+    '''
+    Question 6.7
+    '''
     def test_stock_one(self):
         stocks = [
             310, 315, 275,
@@ -76,14 +85,20 @@ class TestBuySellOnce:
         stocks = [7,9,5,6,3,2]
         assert buy_sell_once(stocks) == 2
 
-class TestRandomSampling:
+class TestRandomSampling(object):
+    '''
+    Question 6.12
+    '''
     def test_random_sample(self):
         population = list(range(100))
         sample_1 = random_sample(population, 5)
         sample_2 = random_sample(population, 5)
         assert sample_1 != sample_2
 
-class TestSpiralize:
+class TestSpiralize(object):
+    '''
+    Question 6.18
+    '''
     def test_spiralize_three(self):
         expected = [1,2,3,6,9,8,7,4,5]
         arr = [

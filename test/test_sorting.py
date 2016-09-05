@@ -1,6 +1,6 @@
 from src.sorting import compute_intersection, inplace_mergesort
 
-class TestComputeIntersection:
+class TestComputeIntersection(object):
     '''
     Question 14.1
     '''
@@ -19,7 +19,7 @@ class TestComputeIntersection:
 
         assert [3,7] == compute_intersection(arr_1, arr_2)
 
-class TestInplaceMergesort:
+class TestInplaceMergesort(object):
     '''
     Question 14.2
     '''

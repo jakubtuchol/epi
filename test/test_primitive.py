@@ -1,6 +1,9 @@
 from src.primitive import find_parity, reverse_digits
 
-class TestParity:
+class TestParity(object):
+    '''
+    Question 5.1
+    '''
     def test_basic_parity(self):
         x = int('1011', 2)
         assert find_parity(x) == 1
@@ -9,7 +12,10 @@ class TestParity:
         x = int('10001000', 2)
         assert find_parity(x) == 0
 
-class TestReverseInteger:
+class TestReverseInteger(object):
+    '''
+    Question 5.8
+    '''
     def test_basic_reverse(self):
         assert reverse_digits(42) == 24
 

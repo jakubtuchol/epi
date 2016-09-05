@@ -1,6 +1,6 @@
 from src.binary_trees import TNode, is_balanced, compute_parent_lca
 
-class TestIsBalanced:
+class TestIsBalanced(object):
     '''
     Question 10.1
     '''
@@ -64,7 +64,7 @@ class TestIsBalanced:
 
         assert not is_balanced(root)
 
-class TestParentLCA:
+class TestParentLCA(object):
     '''
     Question 10.4
     '''

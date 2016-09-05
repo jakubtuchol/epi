@@ -1,6 +1,6 @@
 from src.hashtables import find_anagrams, IsbnCache
 
-class TestFindAnagrams:
+class TestFindAnagrams(object):
     '''
     Question 13.1
     '''
@@ -40,9 +40,9 @@ class TestFindAnagrams:
             for element in expect:
                 assert element in res
 
-class TestIsbnCache:
+class TestIsbnCache(object):
     '''
-    Question
+    Question 13.4
     '''
     def test_serial_insert_removes_least_recent(self):
         isbns = [

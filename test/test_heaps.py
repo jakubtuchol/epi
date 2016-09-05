@@ -1,6 +1,9 @@
 from src.heaps import Heap, merge_sorted_arrays, find_closest_stars
 
-class TestMinHeap:
+class TestMinHeap(object):
+    '''
+    Testing min heap
+    '''
     def test_basic_heap(self):
         heap = Heap(lambda x,y: x < y)
         for i in xrange(10,0,-1):
@@ -32,7 +35,10 @@ class TestMinHeap:
         for i in xrange(1,11):
             assert (i, 10-i) == heap.pop()
 
-class TestMaxHeap:
+class TestMaxHeap(object):
+    '''
+    Testing max heap
+    '''
     def test_basic_heap(self):
         heap = Heap(lambda x,y: x > y)
         for i in xrange(11):
@@ -54,7 +60,7 @@ class TestMaxHeap:
         for _ in xrange(10):
             assert 1 == heap.pop()
 
-class TestMergeArrays:
+class TestMergeArrays(object):
     '''
     Question 11.1
     '''
@@ -82,7 +88,7 @@ class TestMergeArrays:
         expected = [0,10,12,100,200,400,1000,10000]
         assert expected == merge_sorted_arrays(input_arrs)
 
-class TestFindClosestStars:
+class TestFindClosestStars(object):
     '''
     Question 11.4
     '''

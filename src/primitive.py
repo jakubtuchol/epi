@@ -1,7 +1,7 @@
 from math import ceil
 def find_parity(x):
     '''
-    Problem 5.1
+    Problem 5.1: Computing the parity of a word
     '''
     parity = 0
 
@@ -13,7 +13,7 @@ def find_parity(x):
 
 def reverse_digits(num):
     '''
-    Problem 5.8
+    Problem 5.8: Reverse digits of a number
     '''
     negative = False
     if num < 0:

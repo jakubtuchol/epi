@@ -1,6 +1,6 @@
 from src.linked_lists import Node, merge_sorted_lists, reverse_linked_list, detect_cycle
 
-class TestMergeLinkedLists:
+class TestMergeLinkedLists(object):
     '''
     Question 8.1
     '''
@@ -47,7 +47,7 @@ class TestMergeLinkedLists:
             assert merge_head.val == i
             merge_head = merge_head.next
 
-class TestReverseLinkedList:
+class TestReverseLinkedList(object):
     '''
     Question 8.2
     '''
@@ -66,7 +66,7 @@ class TestReverseLinkedList:
             assert i == rev_head.val
             rev_head = rev_head.next
 
-class TestCyclicTest:
+class TestCyclicTest(object):
     '''
     Question 8.4
     '''
