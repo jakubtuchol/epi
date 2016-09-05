@@ -13,6 +13,16 @@ def create_tiny_bst():
     return root
 
 @pytest.fixture(scope='module')
+def create_tiny_nonbst():
+    '''
+    Create tiny incorrectly formatted BST
+    '''
+    root = BST(30)
+    root.left = BST(35)
+    root.right = BST(25)
+    return root
+
+@pytest.fixture(scope='module')
 def create_large_bst():
     '''
     Create large properly formatted bst
@@ -60,6 +70,9 @@ class TestCheckBST:
     def test_small_example(self, create_tiny_bst):
         assert check_bst(create_tiny_bst)
 
+    def test_small_nonexample(self, create_tiny_nonbst):
+        assert not check_bst(create_tiny_nonbst)
+
     def test_large_correct_example(self, create_large_bst):
         assert check_bst(create_large_bst)
 
@@ -70,5 +83,8 @@ class TestFindFirstLargerKey:
     '''
     Question 15.3
     '''
-    def test_book_example(self):
-        pass
+    def test_book_example(self, create_large_bst):
+        assert 29 == find_first_larger_key(create_large_bst, 23)
+
+    def test_nonval(self, create_tiny_bst):
+        assert None == find_first_larger_key(create_tiny_bst, 10)

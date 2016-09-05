@@ -29,4 +29,12 @@ def find_first_larger_key(root, key):
     Question 15.3: Find the first key larger than given
     value in bst
     '''
-    return root.val
+    larger = None
+    while root:
+        if root.val > key:
+            # check if larger defined
+            larger = root.val
+            root = root.left
+        else:
+            root = root.right
+    return larger
