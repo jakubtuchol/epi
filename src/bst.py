@@ -38,3 +38,24 @@ def find_first_larger_key(root, key):
         else:
             root = root.right
     return larger
+
+def find_largest_keys(root, k):
+    '''
+    Question 15.4: Find k largest keys in bst
+    '''
+    largest = []
+    stack = []
+    done = False
+
+    while not done and len(largest) < k:
+        if root:
+            stack.append(root)
+            root = root.right
+        else:
+            if len(stack):
+                root = stack.pop()
+                largest.insert(0, root.val)
+                root = root.left
+            else:
+                done = True
+    return largest

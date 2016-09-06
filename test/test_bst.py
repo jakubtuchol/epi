@@ -1,4 +1,4 @@
-from src.bst import BST, check_bst, find_first_larger_key
+from src.bst import BST, check_bst, find_first_larger_key, find_largest_keys
 
 import pytest
 
@@ -89,5 +89,12 @@ class TestFindFirstLargerKey(object):
     def test_nonval(self, create_tiny_bst):
         assert None == find_first_larger_key(create_tiny_bst, 10)
 
-class FindKLargestElements(object):
-    pass
+class TestFindKLargestElements(object):
+    '''
+    Question 15.4
+    '''
+    def test_tiny_tree(self, create_tiny_bst):
+        assert [7] == find_largest_keys(create_tiny_bst, 1)
+
+    def test_larger_tree(self, create_large_bst):
+        assert [23,29,31,37,41,43,47,53] == find_largest_keys(create_large_bst, 8)
