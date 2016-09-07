@@ -27,4 +27,19 @@ class TestFindMajorityElement(object):
     Question 18.6
     '''
     def test_book_example(self):
-        pass
+        in_arr = [
+            'b','a',
+            'c','a',
+            'a','b',
+            'a','a',
+            'c','a',
+        ]
+        assert 'a' == find_majority_element(in_arr)
+
+    def test_int_example(self):
+        in_arr = [
+            3,3,4,
+            2,4,4,
+            2,4,4,
+        ]
+        assert 4 == find_majority_element(in_arr)

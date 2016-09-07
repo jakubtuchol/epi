@@ -22,8 +22,19 @@ def two_sum(target, ls):
 
     return False
 
-def find_majority_element():
+def find_majority_element(array):
     '''
     Question 18.6
     '''
-    pass
+    majority_elt = None
+    count = 0
+    for elt in array:
+        if elt != majority_elt:
+            if count == 0:
+                majority_elt = elt
+                count = 1
+            else:
+                count -= 1
+        else:
+            count += 1
+    return majority_elt
