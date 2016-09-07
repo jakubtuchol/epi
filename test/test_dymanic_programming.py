@@ -1,4 +1,4 @@
-from src.dynamic_programming import count_score_combinations
+from src.dynamic_programming import count_score_combinations, calculate_levenshtein_distance
 
 class TestCountScoreCombinations(object):
     '''
@@ -12,3 +12,13 @@ class TestCountScoreCombinations(object):
     def test_book_examples(self):
         assert 4 == count_score_combinations(12)
         assert 3 == count_score_combinations(9)
+
+class TestLevenshteinDistance(object):
+    '''
+    Question 17.2
+    '''
+    def test_book_example(self):
+        assert 4 == calculate_levenshtein_distance('Saturday', 'Sundays')
+
+    def test_longer_example(self):
+        assert 8 == calculate_levenshtein_distance('Carthorse', 'Orchestra')
