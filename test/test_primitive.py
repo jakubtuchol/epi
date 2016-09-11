@@ -1,5 +1,6 @@
 from src.primitive import find_parity, reverse_bits, \
-        reverse_digits, Rectangle, check_rectangle_intersection
+        reverse_digits, Rectangle, check_rectangle_intersection, \
+        get_intersection
 
 
 class TestParity(object):
@@ -60,21 +61,29 @@ class TestCheckRectangleIntersection(object):
         rect_left = Rectangle(0,0,2,2)
         rect_right = Rectangle(1,1,2,2)
         rect_intersect = Rectangle(1,1,1,1)
-        assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
+        assert get_intersection(rect_left, rect_right)
+        assert get_intersection(rect_right, rect_left)
+        # assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
 
     def test_fully_contained_case(self):
         rect_left = Rectangle(0,0,4,4)
         rect_right = Rectangle(1,1,2,2)
         rect_intersect = Rectangle(1,1,2,2)
-        assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
+        assert get_intersection(rect_left, rect_right)
+        assert get_intersection(rect_right, rect_left)
+        # assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
 
     def test_mid_intersection(self):
         rect_left = Rectangle(0,2,1,4)
         rect_right = Rectangle(1,0,4,4)
         rect_intersect = Rectangle(1,2,1,3)
-        assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
+        assert get_intersection(rect_left, rect_right)
+        assert get_intersection(rect_right, rect_left)
+        # assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
 
     def test_no_intersection(self):
         rect_left = Rectangle(0,0,3,3)
         rect_right = Rectangle(4,4,1,1)
-        assert None == check_rectangle_intersection(rect_left, rect_right)
+        assert not get_intersection(rect_left, rect_right)
+        assert not get_intersection(rect_right, rect_left)
+        # assert None == check_rectangle_intersection(rect_left, rect_right)

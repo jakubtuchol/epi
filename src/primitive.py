@@ -60,7 +60,19 @@ def check_rectangle_intersection(rect1, rect2):
     '''
     Problem 5.11: Check intersection of two rectangles
     '''
-    left = rect1 if rect1.x <= rect2.x else rect2
-    right = rect1 if rect1.x > rect2.x else rect2
-    # check if left 
-    return False
+    if get_intersection(rect1, rect2):
+        x = max(rec1.x, rect2.x)
+        y = max(rec1.y, rect2.y)
+        height = min(rect1.y + rect1.height, rect2.y + rect2.height) - y
+        width = min(rect1.x + rect1.width, rect2.x + rect2.width) - x
+        return Rectangle(x, y, height, width)
+
+    return None
+
+
+def get_intersection(one, two):
+    # intersection of widths
+    width_intersect = one.x < two.x + two.width and one.x + one.width > two.x
+    # intersection of heights
+    height_intersect = one.y < two.y + two.height and one.y + one.height > two.y
+    return width_intersect and height_intersect
