@@ -1,4 +1,4 @@
-from src.primitive import find_parity, reverse_digits
+from src.primitive import find_parity, reverse_bits, reverse_digits
 
 class TestParity(object):
     '''
@@ -11,6 +11,27 @@ class TestParity(object):
     def test_basic_nonparity(self):
         x = int('10001000', 2)
         assert find_parity(x) == 0
+
+class TestReverseBits(object):
+    '''
+    Question 5.3
+    '''
+    def test_basic_reversal(self):
+        '''
+        Alternating 0s and 1s reversed
+        010101... => 101010...
+        '''
+        num_in = 6148914691236517205
+        num_out = 12297829382473034410L
+        assert num_out == reverse_bits(num_in)
+
+    def test_chunk_reversal(self):
+        '''
+        48 0s and 16 1s => 16 1s and 48 0s
+        '''
+        num_in = int((48 * '0') + (16 * '1'), 2)
+        num_out = int((16 * '1') + (48 * '0'), 2)
+        assert num_out == reverse_bits(num_in)
 
 class TestReverseInteger(object):
     '''

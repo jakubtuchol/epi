@@ -1,4 +1,5 @@
 from math import ceil
+
 def find_parity(x):
     '''
     Problem 5.1: Computing the parity of a word
@@ -10,6 +11,16 @@ def find_parity(x):
         x >>= 1
 
     return parity % 2
+
+def reverse_bits(x):
+    '''
+    Question 5.3: Reverse the bits in a number
+    '''
+    MAX_LEN = 64
+    bin_str = '{:08b}'.format(x)
+    remaining = MAX_LEN - len(bin_str)
+    full_str = bin_str[::-1] + ('0' * remaining)
+    return int(full_str, 2)
 
 def reverse_digits(num):
     '''
