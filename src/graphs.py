@@ -26,10 +26,14 @@ def search_maze(maze, start, end):
     }
 
     while has_neighbors:
-        pt = has_neighbors[-1]
-        neighbor = visited[pt].pop()
-        while 
-        break
+        # if in has_neighbors, then
+        # definitely has neighbors
+        pt = has_neighbors.pop()
+        if pt not in visited:
+            visited[pt] = Visited(pt, get_neighbors(pt), len(path))
+        neighbor = visited[pt].neighbors.pop()
+        while neighbor:
+            path.append(neighbor)
     return 
 
 def get_neighbors(point, maze):
