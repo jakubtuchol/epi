@@ -1,4 +1,6 @@
-from src.primitive import find_parity, reverse_bits, reverse_digits
+from src.primitive import find_parity, reverse_bits, \
+        reverse_digits, Rectangle, check_rectangle_intersection
+
 
 class TestParity(object):
     '''
@@ -11,6 +13,7 @@ class TestParity(object):
     def test_basic_nonparity(self):
         x = int('10001000', 2)
         assert find_parity(x) == 0
+
 
 class TestReverseBits(object):
     '''
@@ -33,6 +36,7 @@ class TestReverseBits(object):
         num_out = int((16 * '1') + (48 * '0'), 2)
         assert num_out == reverse_bits(num_in)
 
+
 class TestReverseInteger(object):
     '''
     Question 5.8
@@ -46,3 +50,31 @@ class TestReverseInteger(object):
     def test_reverse_zeros(self):
         assert reverse_digits(100) == 1
         assert reverse_digits(-100) == -1
+
+
+class TestCheckRectangleIntersection(object):
+    '''
+    Question 5.11
+    '''
+    def test_basic_case(self):
+        rect_left = Rectangle(0,0,2,2)
+        rect_right = Rectangle(1,1,2,2)
+        rect_intersect = Rectangle(1,1,1,1)
+        assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
+
+    def test_fully_contained_case(self):
+        rect_left = Rectangle(0,0,4,4)
+        rect_right = Rectangle(1,1,2,2)
+        rect_intersect = Rectangle(1,1,2,2)
+        assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
+
+    def test_mid_intersection(self):
+        rect_left = Rectangle(0,2,1,4)
+        rect_right = Rectangle(1,0,4,4)
+        rect_intersect = Rectangle(1,2,1,3)
+        assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
+
+    def test_no_intersection(self):
+        rect_left = Rectangle(0,0,3,3)
+        rect_right = Rectangle(4,4,1,1)
+        assert None == check_rectangle_intersection(rect_left, rect_right)

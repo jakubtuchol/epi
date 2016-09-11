@@ -1,5 +1,6 @@
 from math import ceil
 
+
 def find_parity(x):
     '''
     Problem 5.1: Computing the parity of a word
@@ -12,6 +13,7 @@ def find_parity(x):
 
     return parity % 2
 
+
 def reverse_bits(x):
     '''
     Question 5.3: Reverse the bits in a number
@@ -21,6 +23,7 @@ def reverse_bits(x):
     remaining = MAX_LEN - len(bin_str)
     full_str = bin_str[::-1] + ('0' * remaining)
     return int(full_str, 2)
+
 
 def reverse_digits(num):
     '''
@@ -43,3 +46,21 @@ def reverse_digits(num):
     if negative:
         return -1 * rev_num
     return rev_num
+
+
+class Rectangle(object):
+    def __init__(self, x, y, height, width):
+        self.x = x
+        self.y = y
+        self.height = height
+        self.width = width
+
+
+def check_rectangle_intersection(rect1, rect2):
+    '''
+    Problem 5.11: Check intersection of two rectangles
+    '''
+    left = rect1 if rect1.x <= rect2.x else rect2
+    right = rect1 if rect1.x > rect2.x else rect2
+    # check if left 
+    return False
