@@ -1,5 +1,7 @@
 from src.arrays import dutch_national_partition, dutch_partition_better, \
-        buy_sell_once, random_sample, spiralize, add_one
+        buy_sell_once, random_sample, spiralize, add_one, check_sudoku, \
+        get_square_idx
+
 
 class TestDutchNationalFlag(object):
     '''
@@ -109,6 +111,64 @@ class TestRandomSampling(object):
         sample_1 = random_sample(population, 5)
         sample_2 = random_sample(population, 5)
         assert sample_1 != sample_2
+
+class TestCheckSudoku(object):
+    '''
+    Question 6.17
+    '''
+    def test_book_solution(self):
+        sudoku = [
+            [5,3,4,6,7,8,9,1,2],
+            [6,7,2,1,9,5,3,4,8],
+            [1,9,8,3,4,2,5,6,7],
+            [8,5,9,7,6,1,4,2,3],
+            [4,2,6,8,5,3,7,9,1],
+            [7,1,3,9,2,4,8,5,6],
+            [9,6,1,5,3,7,2,8,4],
+            [2,8,7,4,1,9,6,3,5],
+            [3,4,5,2,8,6,1,7,9],
+        ]
+        assert check_sudoku(sudoku)
+
+    def test_incorrect_sudoku(self):
+        bad_sudoku = [
+            [3,5,4,6,7,8,9,1,2],
+            [6,7,2,1,9,5,3,4,8],
+            [1,9,8,3,4,2,5,6,7],
+            [8,5,9,7,6,1,4,2,3],
+            [4,2,6,8,5,3,7,9,1],
+            [7,1,3,9,2,4,8,5,6],
+            [9,6,1,5,3,7,2,8,4],
+            [2,8,7,4,1,9,6,3,5],
+            [3,4,5,2,8,6,1,7,9],
+        ]
+        assert not check_sudoku(bad_sudoku)
+
+class TestGetSquare(object):
+    '''
+    Testing getting square indexes
+    '''
+    def test_get_square(self):
+        assert 0 == get_square_idx(1,1)
+        assert 1 == get_square_idx(0,5)
+        assert 2 == get_square_idx(2,6)
+        assert 3 == get_square_idx(3,0)
+        assert 5 == get_square_idx(3,8)
+        assert 6 == get_square_idx(7,0)
+        assert 7 == get_square_idx(8,4)
+        assert 8 == get_square_idx(6,7)
+
+    def test_get_four(self):
+        assert 4 == get_square_idx(3,3)
+        assert 4 == get_square_idx(3,4)
+        assert 4 == get_square_idx(3,5)
+        assert 4 == get_square_idx(4,3)
+        assert 4 == get_square_idx(4,4)
+        assert 4 == get_square_idx(4,5)
+        assert 4 == get_square_idx(5,3)
+        assert 4 == get_square_idx(5,4)
+        assert 4 == get_square_idx(5,5)
+
 
 class TestSpiralize(object):
     '''

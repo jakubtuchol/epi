@@ -110,6 +110,43 @@ def random_sample(inputs, size):
 
     return inputs[next_pos:]
 
+def check_sudoku(sudoku):
+    '''
+    Question 6.17: Check if 9x9 sudoku puzzle is valid
+    '''
+    # initialize sets
+    rows = []
+    cols = []
+    squares = []
+    for idx in xrange(9):
+        rows.append(set())
+        cols.append(set())
+        squares.append(set())
+
+    for row, row_elt in enumerate(sudoku):
+        for col, elt in enumerate(row_elt):
+            if elt in rows[row]:
+                return False
+            rows[row].add(elt)
+
+            if elt in cols[col]:
+                return False
+            cols[col].add(elt)
+
+            square = get_square_idx(row, col)
+            if elt in squares[square]:
+                return False
+            squares[square].add(elt)
+    return True
+
+
+def get_square_idx(row, col):
+    '''
+    Get index of associated square
+    '''
+    return (row // 3) * 3 + col // 3
+
+
 def spiralize(arr):
     '''
     Problem 6.18
