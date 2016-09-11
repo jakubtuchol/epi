@@ -61,6 +61,24 @@ def dutch_partition_better(idx, arr):
             swap(arr, equal, large)
             large -= 1
 
+def add_one(num):
+    '''
+    Question 6.2: Implement arbitrary precision
+    integer to add one
+    '''
+    num[-1] += 1
+    begin = len(num) - 1
+
+    while num[begin] == 10 and begin > 0:
+        num[begin] = 0
+        num[begin-1] += 1
+        begin -= 1
+
+    if num[0] == 10:
+        num[0] = 0
+        return [1] + num
+    return num
+
 def buy_sell_once(stocks):
     '''
     Problem 6.7

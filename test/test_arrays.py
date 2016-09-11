@@ -1,4 +1,5 @@
-from src.arrays import dutch_national_partition, dutch_partition_better, buy_sell_once, random_sample, spiralize
+from src.arrays import dutch_national_partition, dutch_partition_better, \
+        buy_sell_once, random_sample, spiralize, add_one
 
 class TestDutchNationalFlag(object):
     '''
@@ -63,6 +64,20 @@ class TestDutchFlagBetter(object):
                 assert arr[x] == 3
             else:
                 assert arr[x] == 5
+
+class TestAddOne(object):
+    '''
+    Question 6.2
+    '''
+    def test_book_example(self):
+        assert [1,3,0] == add_one([1,2,9])
+
+    def test_many_nines(self):
+        assert [1,0,0,0] == add_one([9,9,9])
+
+    def test_normal_addition(self):
+        assert [1] == add_one([0])
+        assert [1,2] == add_one([1,1])
 
 class TestBuySellOnce(object):
     '''
