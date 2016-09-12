@@ -1,5 +1,5 @@
 from src.strings import int_to_string, string_to_int, convert_base, \
-        check_palindrome, reverse_words
+        check_palindrome, reverse_words, get_phone_mnemonics
 
 class TestIntToString(object):
     '''
@@ -66,3 +66,21 @@ class TestReverseWord(object):
 
     def test_another_case(object):
         assert 'ram is costly' == reverse_words('costly is ram')
+
+
+class TestGetPhoneMnemonics(object):
+    '''
+    Question 7.7
+    '''
+    def test_limited_example(self):
+        results = [
+            'AD','AE','AF',
+            'BD','BE','BF',
+            'CD','CE','CF',
+        ]
+        assert results == get_phone_mnemonics('23')
+
+    def test_longer_example(self):
+        results = get_phone_mnemonics('2276696')
+        assert 'ACRONYM' in results
+        assert 'ABPOMZN' in results

@@ -96,3 +96,33 @@ def reverse_words(sentence):
     '''
     split_sentence = sentence.split()
     return ' '.join(reversed(split_sentence))
+
+
+def get_phone_mnemonics(number):
+    '''
+    Question 7.7: Generate mnemonics for phone numbers
+    '''
+    keymapping = {
+        '0': [''],
+        '1': [''],
+        '2': ['A','B','C'],
+        '3': ['D','E','F'],
+        '4': ['G','H','I'],
+        '5': ['J','K','L'],
+        '6': ['M','N','O'],
+        '7': ['P','Q','R','S'],
+        '8': ['T','U','V'],
+        '9': ['W','X','Y','Z'],
+    }
+    if not len(number):
+        return ['']
+
+    first_num = number[0]
+    rest_num = number[1:]
+
+    res = []
+    for letter in keymapping[first_num]:
+        for rest in get_phone_mnemonics(rest_num):
+            res.append(''.join([letter,rest]))
+
+    return res
