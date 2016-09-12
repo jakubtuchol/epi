@@ -147,3 +147,18 @@ class TestCircularQueue(object):
         with pytest.raises(Exception, message='queue is currently at capacity'):
             for idx in xrange(11):
                 cqueue.enqueue(idx)
+
+    def test_overwrite_case(self):
+        cqueue = CircularQueue(10)
+        for idx in xrange(10):
+            cqueue.enqueue(idx)
+
+        assert 0 == cqueue.tail
+        assert 0 == cqueue.head
+        assert 0 == cqueue.dequeue()
+        assert 0 == cqueue.tail
+        assert 1 == cqueue.head
+        cqueue.enqueue(11)
+        assert 1 == cqueue.tail
+        assert 1 == cqueue.head
+        assert 11 == cqueue.contents[0]
