@@ -1,4 +1,5 @@
-from src.strings import int_to_string, string_to_int, convert_base
+from src.strings import int_to_string, string_to_int, convert_base, \
+        check_palindrome
 
 class TestIntToString(object):
     '''
@@ -24,7 +25,7 @@ class TestStringToInt(object):
         assert -1155 == string_to_int('-1155')
         assert -188 == string_to_int('-188')
 
-class TestConvertBase:
+class TestConvertBase(object):
     '''
     Question 7.2
     '''
@@ -33,3 +34,24 @@ class TestConvertBase:
 
     def test_binary_conversion(self):
         assert u'4' == convert_base(u'100', 2, 10)
+
+
+class TestCheckPalindrome(object):
+    '''
+    Question 7.5
+    '''
+    def test_classic_case(self):
+        assert check_palindrome('amanaplanacanalpanama')
+        assert check_palindrome('ablewasiereisawelba')
+
+    def test_wrong_case(self):
+        assert not check_palindrome('rayaray')
+        assert not check_palindrome('amanaplanacanalpanam')
+
+    def test_punctuation_case(self):
+        assert check_palindrome('A man, a plan, a canal, Panama!')
+        assert check_palindrome('Able was I, ere I saw Elba!')
+
+    def test_punctuated_non_palindrome(self):
+        assert not check_palindrome('A man, a 8 plan, a canal, Panama!')
+        assert not check_palindrome('Ray, a Ray')

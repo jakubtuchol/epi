@@ -1,5 +1,6 @@
 from math import floor
 
+
 def int_to_string(num):
     '''
     Problem 7.1
@@ -16,6 +17,7 @@ def int_to_string(num):
 
     if negative: output.insert(0, '-')
     return ''.join(output)
+
 
 def string_to_int(string):
     '''
@@ -35,6 +37,7 @@ def string_to_int(string):
 
     if negative: output *= -1
     return output
+
 
 def convert_base(s, base1, base2):
     '''
@@ -66,3 +69,23 @@ def convert_base(s, base1, base2):
 
     result.reverse()
     return unicode(''.join(result), 'utf-8')
+
+
+def check_palindrome(string):
+    '''
+    Question 7.5:
+    '''
+    begin = 0
+    end = len(string) - 1
+
+    while begin < end:
+        while not string[begin].isalnum() and begin < end:
+            begin += 1
+        while not string[end].isalnum() and begin < end:
+            end -= 1
+
+        if string[begin].lower() != string[end].lower():
+            return False
+        begin += 1
+        end -= 1
+    return True
