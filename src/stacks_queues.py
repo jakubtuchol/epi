@@ -71,3 +71,38 @@ def depth_order(root):
             queue.insert(0, (elt.right, depth+1))
 
     return traversal
+
+class CircularQueue(object):
+    '''
+    Question 9.10: Impelement a circular queue
+    '''
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.size = 0
+        self.head = 0
+        self.tail = 0
+        self.contents = [None] * capacity
+
+    def enqueue(value):
+        if self.size == self.capacity:
+            raise Exception('queue is currently at capacity')
+
+        self.contents[self.tail] = value
+        self.tail = (self.tail + 1) % self.capacity
+
+    def dequeue(value):
+        if not self.size:
+            return None
+
+        elt = self.capacity[self.head]
+        self.size += 1
+        self.head = (self.head + 1) % self.capacity
+        return elt
+
+
+class TestCircularQueue(object):
+    '''
+    Question 9.10
+    '''
+    def test_basic_case(self):
+        pass

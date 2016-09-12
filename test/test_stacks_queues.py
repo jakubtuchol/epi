@@ -1,4 +1,4 @@
-from src.stacks_queues import MaxStack, evaluate_rpn, depth_order
+from src.stacks_queues import MaxStack, evaluate_rpn, depth_order, CircularQueue
 from src.binary_trees import TNode
 
 import pytest
