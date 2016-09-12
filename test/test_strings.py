@@ -1,5 +1,5 @@
 from src.strings import int_to_string, string_to_int, convert_base, \
-        check_palindrome
+        check_palindrome, reverse_words
 
 class TestIntToString(object):
     '''
@@ -55,3 +55,14 @@ class TestCheckPalindrome(object):
     def test_punctuated_non_palindrome(self):
         assert not check_palindrome('A man, a 8 plan, a canal, Panama!')
         assert not check_palindrome('Ray, a Ray')
+
+
+class TestReverseWord(object):
+    '''
+    Question 7.6
+    '''
+    def test_reverse_basic_word(object):
+        assert 'Alice likes Bob' == reverse_words('Bob likes Alice')
+
+    def test_another_case(object):
+        assert 'ram is costly' == reverse_words('costly is ram')

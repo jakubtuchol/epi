@@ -73,7 +73,7 @@ def convert_base(s, base1, base2):
 
 def check_palindrome(string):
     '''
-    Question 7.5:
+    Question 7.5: Check palindromicity of string
     '''
     begin = 0
     end = len(string) - 1
@@ -89,3 +89,10 @@ def check_palindrome(string):
         begin += 1
         end -= 1
     return True
+
+def reverse_words(sentence):
+    '''
+    Question 7.6: Reverse space-separated words in string
+    '''
+    split_sentence = sentence.split()
+    return ' '.join(reversed(split_sentence))
