@@ -172,3 +172,27 @@ def advance_list(node, k):
         node = node.next
         k -= 1
     return node
+
+def remove_kth_last_element(ls, k):
+    '''
+    Question 8.8: Remove kth element from
+    end of list
+    '''
+    # first advance first pointer by k
+    # then advance first and second pointer in tandem
+    fast_runner = ls
+    slow_runner = ls
+    head = slow_runner
+
+    while k:
+        fast_runner = fast_runner.next
+        k -= 1
+
+    while fast_runner:
+        slow_runner = slow_runner.next
+        fast_runner = fast_runner.next
+
+    if slow_runner and slow_runner.next:
+            slow_runner.next = slow_runner.next.next
+
+    return head

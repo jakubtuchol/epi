@@ -1,5 +1,7 @@
 from src.linked_lists import Node, merge_sorted_lists, reverse_linked_list, \
-        detect_cycle, find_overlap, find_overlap_cycle
+        detect_cycle, find_overlap, find_overlap_cycle, remove_kth_last_element
+
+import pytest
 
 class TestMergeLinkedLists(object):
     '''
@@ -148,3 +150,43 @@ class TestFindOverlapCycle(object):
         head_two.next.next = cross_node
 
         assert cross_node == find_overlap(head_one, head_two)
+
+
+@pytest.fixture
+def create_list():
+    dummy = Node(None)
+    head = dummy
+
+    for idx in xrange(10):
+        dummy.next = Node(idx)
+        dummy = dummy.next
+
+    return head.next
+
+
+class TestRemoveKthElement(object):
+    '''
+    Question 8.8
+    '''
+    def test_remove_kth_element(self, create_list):
+        remove = remove_kth_last_element(create_list, 3)
+
+        for idx in xrange(8):
+            assert idx == remove.val
+            remove = remove.next
+
+        for idx in xrange(9,10):
+            assert idx == remove.val
+            remove = remove.next
+
+        assert None == remove
+
+
+    def test_remove_last_element(self, create_list):
+        remove = remove_kth_last_element(create_list, 1)
+
+        for idx in xrange(10):
+            assert idx == remove.val
+            remove = remove.next
+
+        assert None == remove
