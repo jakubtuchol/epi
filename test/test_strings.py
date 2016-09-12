@@ -1,5 +1,5 @@
 from src.strings import int_to_string, string_to_int, convert_base, \
-        check_palindrome, reverse_words, get_phone_mnemonics
+        check_palindrome, reverse_words, get_phone_mnemonics, look_say
 
 class TestIntToString(object):
     '''
@@ -84,3 +84,16 @@ class TestGetPhoneMnemonics(object):
         results = get_phone_mnemonics('2276696')
         assert 'ACRONYM' in results
         assert 'ABPOMZN' in results
+
+class TestLookSay(object):
+    '''
+    Question 7.8
+    '''
+    def test_look_say(self):
+        assert '1' == look_say(1)
+        assert '11' == look_say(2)
+        assert '21' == look_say(3)
+        assert '1211' == look_say(4)
+
+    def test_long_example(self):
+        assert '1113213211' == look_say(8)

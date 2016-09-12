@@ -126,3 +126,36 @@ def get_phone_mnemonics(number):
             res.append(''.join([letter,rest]))
 
     return res
+
+
+def look_say(n):
+    '''
+    Question 7.8: Return nth step in looksay sequence
+    '''
+    x = '1'
+
+    for _ in xrange(1,n):
+        x = look_say_helper(x)
+    return x
+
+def look_say_helper(s):
+    run = 0
+    char = ''
+
+    string = []
+
+    for c in s:
+        if char != c:
+            if run:
+                string.append(str(run))
+                string.append(char)
+            char = c
+            run = 1
+        else:
+            run += 1
+
+    if run:
+        string.append(str(run))
+        string.append(char)
+
+    return ''.join(string)
