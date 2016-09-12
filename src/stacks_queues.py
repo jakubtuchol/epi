@@ -46,3 +46,28 @@ def evaluate_rpn(ls):
         else:
             tokens.append(int(token))
     return tokens.pop()
+
+
+def depth_order(root):
+    '''
+    Question 9.9: return depth order representation
+    of a binary tree
+    '''
+    traversal = []
+    queue = []
+    if root:
+        queue.insert(0, (root, 0))
+
+    while queue:
+        (elt, depth) = queue.pop()
+        if len(traversal) == depth:
+            traversal.append([elt.val])
+        else:
+            traversal[depth].append(elt.val)
+
+        if elt.left:
+            queue.insert(0, (elt.left, depth+1))
+        if elt.right:
+            queue.insert(0, (elt.right, depth+1))
+
+    return traversal
