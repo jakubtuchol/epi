@@ -80,3 +80,35 @@ def detect_cycle(head):
             return iterator
 
     return None
+
+
+def find_overlap(ls_one, ls_two):
+    '''
+    Question 8.5: Find overlap in two linked lists
+    '''
+    # find length of list one
+    len_one = 0
+    len_two = 0
+    head_one = ls_one
+    head_two = ls_two
+
+    while head_one:
+        head_one = head_one.next
+        len_one += 1
+
+    while head_two:
+        head_two = head_two.next
+        len_two += 1
+
+    diff = abs(len_one - len_two)
+
+    while diff:
+        ls_one = ls_one.next
+        ls_two = ls_two.next
+        diff -= 1
+
+    while ls_one != ls_two:
+        ls_one = ls_one.next
+        ls_two = ls_two.next
+
+    return ls_one

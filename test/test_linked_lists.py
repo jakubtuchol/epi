@@ -1,4 +1,5 @@
-from src.linked_lists import Node, merge_sorted_lists, reverse_linked_list, detect_cycle
+from src.linked_lists import Node, merge_sorted_lists, reverse_linked_list, \
+        detect_cycle, find_overlap
 
 class TestMergeLinkedLists(object):
     '''
@@ -87,3 +88,27 @@ class TestCyclicTest(object):
         cur.next = head.next
         cycle = detect_cycle(head)
         assert cycle == head.next
+
+class TestOverlappingLists(object):
+    '''
+    Question 8.5
+    '''
+    def test_book_case(self):
+        head_one = Node('A')
+        head_one.next = Node('B')
+
+        head_two = Node('J')
+        head_two.next = Node('K')
+
+        cross_node = Node('C')
+        cross_node.next = Node('D')
+        cross_node.next.next = Node('E')
+        head_one.next.next = cross_node
+        head_two.next.next = cross_node
+
+        assert cross_node == find_overlap(head_one, head_two)
+
+    def test_non_overlapping_case(self):
+        one = Node('A')
+        two = Node('B')
+        assert None == find_overlap(one, two)
