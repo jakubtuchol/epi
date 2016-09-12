@@ -122,3 +122,11 @@ class TestDepthOrder(object):
 
     def test_tiny_tree(self):
         assert [] == depth_order(None)
+
+
+class TestCircularQueue(object):
+    '''
+    Question 9.10
+    '''
+    def test_basic_case(self):
+        pass

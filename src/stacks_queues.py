@@ -98,11 +98,3 @@ class CircularQueue(object):
         self.size += 1
         self.head = (self.head + 1) % self.capacity
         return elt
-
-
-class TestCircularQueue(object):
-    '''
-    Question 9.10
-    '''
-    def test_basic_case(self):
-        pass
