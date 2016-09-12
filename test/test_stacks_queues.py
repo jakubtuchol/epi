@@ -129,4 +129,21 @@ class TestCircularQueue(object):
     Question 9.10
     '''
     def test_basic_case(self):
-        pass
+        cqueue = CircularQueue(10)
+
+        for idx in xrange(10):
+            assert idx == cqueue.size
+            cqueue.enqueue(idx)
+            assert idx + 1 == cqueue.size
+
+        for idx in xrange(10):
+            assert 10 - idx == cqueue.size
+            assert idx == cqueue.dequeue()
+            assert 10 - idx - 1 == cqueue.size
+
+    def test_overflow_case(self):
+        cqueue = CircularQueue(10)
+
+        with pytest.raises(Exception, message='queue is currently at capacity'):
+            for idx in xrange(11):
+                cqueue.enqueue(idx)

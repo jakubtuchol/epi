@@ -83,18 +83,19 @@ class CircularQueue(object):
         self.tail = 0
         self.contents = [None] * capacity
 
-    def enqueue(value):
+    def enqueue(self, value):
         if self.size == self.capacity:
             raise Exception('queue is currently at capacity')
 
         self.contents[self.tail] = value
         self.tail = (self.tail + 1) % self.capacity
+        self.size += 1
 
-    def dequeue(value):
+    def dequeue(self):
         if not self.size:
             return None
 
-        elt = self.capacity[self.head]
-        self.size += 1
+        elt = self.contents[self.head]
+        self.size -= 1
         self.head = (self.head + 1) % self.capacity
         return elt
