@@ -85,6 +85,7 @@ def detect_cycle(head):
 def find_overlap(ls_one, ls_two):
     '''
     Question 8.5: Find overlap in two linked lists
+    without cycles
     '''
     # find length of list one
     len_one = 0
@@ -112,3 +113,62 @@ def find_overlap(ls_one, ls_two):
         ls_two = ls_two.next
 
     return ls_one
+
+
+def find_overlap_cycle(ls_one, ls_two):
+    '''
+    Question 8.5: Find overlap in two linked lists
+    with cycles
+    '''
+    cycle_one = detect_cycle(ls_one)
+    cycle_two = detect_cycle(ls_two)
+
+    if not cycle_one and not cycle_two:
+        return find_overlap(cycle_one, cycle_two)
+    elif (cycle_one and not cycle_two) or (not cycle_one and cycle_two):
+        return None
+
+    temp = cycle_two
+
+    while True:
+        temp = temp.next
+
+        if temp == cycle_one or temp == cycle_two:
+            break
+
+    if temp != cycle_one:
+        return None
+
+    # both one and two end in same cycle, so check if
+    # they overlap before cycle
+    stem_one = get_node_distance(ls_one, cycle_one)
+    stem_two = get_node_distance(ls_two, cycle_two)
+
+    uneven_distance = abs(stem_one - stem_two)
+
+    if stem_one > stem_two:
+        ls_one = advance_list(ls_one, uneven_distance)
+    else:
+        ls_two = advance_list(ls_two, uneven_distance)
+
+    while ls_one != ls_two and ls_one != cycle_one and ls_two != cycle_two:
+        ls_one = ls_one.next
+        ls_two = ls_two.next
+
+    return ls_one if ls_one == ls_two else cycle_one
+
+
+def get_node_distance(a, b):
+    distance = 0
+
+    while a != b:
+        a = a.next
+        distance += 1
+    return distance
+
+
+def advance_list(node, k):
+    while k:
+        node = node.next
+        k -= 1
+    return node
