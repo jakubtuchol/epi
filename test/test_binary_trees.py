@@ -1,4 +1,6 @@
-from src.binary_trees import TNode, is_balanced, compute_parent_lca
+from src.binary_trees import TNode, is_balanced, compute_parent_lca, is_symmetric
+
+import pytest
 
 class TestIsBalanced(object):
     '''
@@ -63,6 +65,112 @@ class TestIsBalanced(object):
         root.left.right = TNode(3)
 
         assert not is_balanced(root)
+
+
+@pytest.fixture(scope='module')
+def generate_symmetric_tree():
+    root = TNode(314)
+
+    # level 1
+    root.left = TNode(6)
+    root.right = TNode(6)
+
+    # level 2
+    root.left.right = TNode(2)
+    root.right.left = TNode(2)
+
+    # level 3
+    root.left.right.right = TNode(3)
+    root.right.left.left = TNode(3)
+
+    return root
+
+@pytest.fixture(scope='module')
+def generate_asymmetric_value_tree():
+    root = TNode(314)
+
+    # level 1
+    root.left = TNode(6)
+    root.right = TNode(6)
+
+    # level 2
+    root.left.right = TNode(561)
+    root.right.left = TNode(2)
+
+    # level 3
+    root.left.right.right = TNode(3)
+    root.right.left.left = TNode(3)
+
+    return root
+
+@pytest.fixture(scope='module')
+def generate_asymmetric_shape_tree():
+    root = TNode(314)
+
+    # level 1
+    root.left = TNode(6)
+    root.right = TNode(6)
+
+    # level 2
+    root.left.right = TNode(561)
+    root.right.left = TNode(561)
+
+    # level 3
+    root.left.right.right = TNode(3)
+
+    return root
+
+class TestCheckSymmetric(object):
+    '''
+    Question 10.2
+    '''
+    def test_symmetric_case(self,):
+        pass
+
+class TestParentLCA(object):
+    '''
+    Question 10.4
+    '''
+    def test_basic_case(self):
+        '''
+        Right and left nodes with same parent
+        '''
+        root = TNode(1)
+        root.left = TNode(2)
+        root.right = TNode(3)
+        root.left.parent = root
+        root.right.parent = root
+
+        assert root == compute_parent_lca(root.left, root.right)
+
+    def test_deeper_case(self):
+        '''
+        Deeper case, with two nodes on subtree
+        '''
+        root = TNode(1)
+        root.left = TNode(1)
+        root.left.parent = root
+        root.right = TNode(1)
+        root.right.parent = root
+        root.left.left = TNode(1)
+        root.left.left.parent = root.left
+
+        assert root == compute_parent_lca(root.left.left, root.right)
+
+
+class TestCheckSymmetric(object):
+    '''
+    Question 10.2
+    '''
+    def test_symmetric_case(self, generate_symmetric_tree):
+        assert is_symmetric(generate_symmetric_tree)
+
+    def test_asymmetric_value_case(self, generate_asymmetric_value_tree):
+        assert not is_symmetric(generate_asymmetric_value_tree)
+
+    def test_asymmetric_shape_case(self, generate_asymmetric_shape_tree):
+        assert not is_symmetric(generate_asymmetric_shape_tree)
+
 
 class TestParentLCA(object):
     '''

@@ -29,6 +29,27 @@ def balanced_helper(root):
         1 + max(left[1], right[1]),
     )
 
+
+def is_symmetric(root):
+    '''
+    Question 10.2: check if binary tree is symmetric
+    '''
+    return root == None or check_symmetric(root.left, root.right)
+
+def check_symmetric(left, right):
+    '''
+    Helper function to recursively check symmetry of subtrees
+    '''
+    if left is None and right is None:
+        return True
+    elif (left is None and right is not None) or (left is not None and right is None):
+        return False
+    elif left.val != right.val:
+        return False
+    else:
+        return check_symmetric(left.left, right.right) and check_symmetric(left.right, right.left)
+
+
 def compute_parent_lca(first, second):
     '''
     Problem 10.4: Get least common ancestor if nodes
