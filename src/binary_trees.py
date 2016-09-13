@@ -9,6 +9,20 @@ class TNode(object):
         self.right = None
         self.parent = None
 
+
+def check_equal(root_one, root_two):
+    '''
+    Check that two binary trees are equal
+    '''
+    if root_one is None and root_two is None:
+        return True
+    elif (root_one is None and root_two is not None) or (root_one is not None and root_two is None):
+        return False
+    elif root_one.val != root_two.val:
+        return False
+    else:
+        return check_equal(root_one.left, root_two.left) and check_equal(root_one.right, root_two.right)
+
 def is_balanced(root):
     '''
     Problem 10.1: determine if binary tree is balanced

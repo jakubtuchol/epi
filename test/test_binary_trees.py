@@ -201,3 +201,21 @@ class TestParentLCA(object):
         root.left.left.parent = root.left
 
         assert root == compute_parent_lca(root.left.left, root.right)
+
+
+class TestReconstructTreeInorderPreorder(object):
+    '''
+    Question 10.10
+    '''
+    def test_basic_example(self):
+        root = TNode('A')
+        root.left = TNode('B')
+        root.right = TNode('C')
+        root.left.left = TNode('D')
+        root.left.right = TNode('E')
+        root.right.left = TNode('F')
+
+        inorder = ['D','B','E','A','F','C']
+        preorder = ['A','B','D','E','C','F']
+
+        reconstruct = reconstruct_tree_inorder_preorder(inorder, preorder)
