@@ -1,6 +1,39 @@
-from src.binary_trees import TNode, is_balanced, compute_parent_lca, is_symmetric
+from src.binary_trees import TNode, is_balanced, compute_parent_lca, is_symmetric, check_equal
 
 import pytest
+
+@pytest.fixture(scope='module')
+def create_basic_tree():
+    root = TNode(1)
+    root.left = TNode(2)
+    root.right = TNode(3)
+    root.left.left = TNode(4)
+    root.left.right = TNode(5)
+    root.right.left = TNode(6)
+    root.right.right = TNode(7)
+    return root
+
+@pytest.fixture(scope='module')
+def create_almost_equal():
+    root = TNode(1)
+    root.left = TNode(2)
+    root.right = TNode(3)
+    root.left.left = TNode(4)
+    root.left.right = TNode(5)
+    root.right.left = TNode(6)
+    return root
+
+
+class TestCheckEqual(object):
+    '''
+    Testing check equal helper function
+    '''
+    def test_equal_trees(self, create_basic_tree):
+        assert check_equal(create_basic_tree, create_basic_tree)
+
+    def test_almost_equal(self, create_basic_tree, create_almost_equal):
+        assert not check_equal(create_basic_tree, create_almost_equal)
+
 
 class TestIsBalanced(object):
     '''
@@ -203,10 +236,9 @@ class TestParentLCA(object):
         assert root == compute_parent_lca(root.left.left, root.right)
 
 
+    '''
 class TestReconstructTreeInorderPreorder(object):
-    '''
     Question 10.10
-    '''
     def test_basic_example(self):
         root = TNode('A')
         root.left = TNode('B')
@@ -219,3 +251,4 @@ class TestReconstructTreeInorderPreorder(object):
         preorder = ['A','B','D','E','C','F']
 
         reconstruct = reconstruct_tree_inorder_preorder(inorder, preorder)
+    '''

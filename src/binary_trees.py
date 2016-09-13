@@ -23,11 +23,13 @@ def check_equal(root_one, root_two):
     else:
         return check_equal(root_one.left, root_two.left) and check_equal(root_one.right, root_two.right)
 
+
 def is_balanced(root):
     '''
     Problem 10.1: determine if binary tree is balanced
     '''
     return balanced_helper(root)[0]
+
 
 def balanced_helper(root):
     '''
@@ -49,6 +51,7 @@ def is_symmetric(root):
     Question 10.2: check if binary tree is symmetric
     '''
     return root == None or check_symmetric(root.left, root.right)
+
 
 def check_symmetric(left, right):
     '''
@@ -88,6 +91,7 @@ def compute_parent_lca(first, second):
         second = second.parent
 
     return first
+
 
 def get_depth(node):
     '''
