@@ -1,10 +1,17 @@
-from src.strings import int_to_string, string_to_int, convert_base, \
-        check_palindrome, reverse_words, get_phone_mnemonics, look_say
+from src.strings import check_palindrome
+from src.strings import convert_base
+from src.strings import get_phone_mnemonics
+from src.strings import int_to_string
+from src.strings import look_say
+from src.strings import reverse_words
+from src.strings import string_to_int
+
 
 class TestIntToString(object):
     '''
     Question 7.1
     '''
+
     def test_basic(self):
         assert '187' == int_to_string(187)
         assert '5151' == int_to_string(5151)
@@ -13,10 +20,12 @@ class TestIntToString(object):
         assert '-1155' == int_to_string(-1155)
         assert '-188' == int_to_string(-188)
 
+
 class TestStringToInt(object):
     '''
     Question 7.1
     '''
+
     def test_basic(self):
         assert 187 == string_to_int('187')
         assert 5151 == string_to_int('5151')
@@ -25,12 +34,14 @@ class TestStringToInt(object):
         assert -1155 == string_to_int('-1155')
         assert -188 == string_to_int('-188')
 
+
 class TestConvertBase(object):
     '''
     Question 7.2
     '''
+
     def test_basic_conversion(self):
-        assert u'1A7' == convert_base(u'615',7,13)
+        assert u'1A7' == convert_base(u'615', 7, 13)
 
     def test_binary_conversion(self):
         assert u'4' == convert_base(u'100', 2, 10)
@@ -40,6 +51,7 @@ class TestCheckPalindrome(object):
     '''
     Question 7.5
     '''
+
     def test_classic_case(self):
         assert check_palindrome('amanaplanacanalpanama')
         assert check_palindrome('ablewasiereisawelba')
@@ -72,11 +84,12 @@ class TestGetPhoneMnemonics(object):
     '''
     Question 7.7
     '''
+
     def test_limited_example(self):
         results = [
-            'AD','AE','AF',
-            'BD','BE','BF',
-            'CD','CE','CF',
+            'AD', 'AE', 'AF',
+            'BD', 'BE', 'BF',
+            'CD', 'CE', 'CF',
         ]
         assert results == get_phone_mnemonics('23')
 
@@ -85,10 +98,12 @@ class TestGetPhoneMnemonics(object):
         assert 'ACRONYM' in results
         assert 'ABPOMZN' in results
 
+
 class TestLookSay(object):
     '''
     Question 7.8
     '''
+
     def test_look_say(self):
         assert '1' == look_say(1)
         assert '11' == look_say(2)

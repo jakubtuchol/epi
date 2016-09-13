@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 def find_anagrams(words):
     '''
     Question 13.1
@@ -12,17 +13,21 @@ def find_anagrams(words):
 
     return [val for val in anagrams.values() if len(val) > 1]
 
+
 class IsbnNode(object):
+
     def __init__(self, val, price):
         self.val = val
         self.price = price
         self.prev = None
         self.next = None
 
+
 class IsbnCache(object):
     '''
     Question 13.4
     '''
+
     def __init__(self, max_size):
         self.capacity = max_size
         self.cur_size = 0
@@ -42,10 +47,10 @@ class IsbnCache(object):
         # need to vacate node
         if self.cur_size == self.capacity:
             cur_tail = self.tail
-            self.tail = tail.prev
-            tail.next = None
+            self.tail = cur_tail.prev
+            cur_tail.next = None
             self.contents.pop(cur_tail.val)
-            cur_size -= 1
+            self.cur_size -= 1
         self.contents[val] = node
         self.cur_size += 1
 

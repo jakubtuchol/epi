@@ -1,12 +1,19 @@
-from src.linked_lists import Node, merge_sorted_lists, reverse_linked_list, \
-        detect_cycle, find_overlap, find_overlap_cycle, remove_kth_last_element
-
 import pytest
+
+from src.linked_lists import detect_cycle
+from src.linked_lists import find_overlap
+from src.linked_lists import find_overlap_cycle
+from src.linked_lists import merge_sorted_lists
+from src.linked_lists import Node
+from src.linked_lists import remove_kth_last_element
+from src.linked_lists import reverse_linked_list
+
 
 class TestMergeLinkedLists(object):
     '''
     Question 8.1
     '''
+
     def test_append_case(self):
         '''
         Basic test providing two linked lists, both
@@ -14,18 +21,18 @@ class TestMergeLinkedLists(object):
         '''
         head_1 = Node(1)
         cur_1 = head_1
-        for i in xrange(2,11):
+        for i in xrange(2, 11):
             cur_1.next = Node(i)
             cur_1 = cur_1.next
 
         head_2 = Node(11)
         cur_2 = head_2
-        for i in xrange(12,21):
+        for i in xrange(12, 21):
             cur_2.next = Node(i)
             cur_2 = cur_2.next
 
         merge_head = merge_sorted_lists(head_2, head_1)
-        for i in xrange(1,21):
+        for i in xrange(1, 21):
             assert merge_head.val == i
             merge_head = merge_head.next
 
@@ -35,51 +42,55 @@ class TestMergeLinkedLists(object):
         '''
         head_1 = Node(1)
         cur_1 = head_1
-        for i in xrange(3,21,2):
+        for i in xrange(3, 21, 2):
             cur_1.next = Node(i)
             cur_1 = cur_1.next
 
         head_2 = Node(2)
         cur_2 = head_2
-        for i in xrange(4,21,2):
+        for i in xrange(4, 21, 2):
             cur_2.next = Node(i)
             cur_2 = cur_2.next
 
         merge_head = merge_sorted_lists(head_1, head_2)
-        for i in xrange(1,21):
+        for i in xrange(1, 21):
             assert merge_head.val == i
             merge_head = merge_head.next
+
 
 class TestReverseLinkedList(object):
     '''
     Question 8.2
     '''
+
     def test_basic_incremental(self):
         '''
         Test for basic presorted list
         '''
         head = Node(1)
         cur = head
-        for i in xrange(2,11):
+        for i in xrange(2, 11):
             cur.next = Node(i)
             cur = cur.next
 
         rev_head = reverse_linked_list(head)
-        for i in xrange(10,0,-1):
+        for i in xrange(10, 0, -1):
             assert i == rev_head.val
             rev_head = rev_head.next
+
 
 class TestCyclicTest(object):
     '''
     Question 8.4
     '''
+
     def test_basic_cycle(self):
         '''
         Testing very simple cycle
         '''
         head = Node(1)
         cur = head
-        for i in xrange(2,11):
+        for i in xrange(2, 11):
             cur.next = Node(i)
             cur = cur.next
         cur.next = head
@@ -91,10 +102,12 @@ class TestCyclicTest(object):
         cycle = detect_cycle(head)
         assert cycle == head.next
 
+
 class TestOverlappingLists(object):
     '''
     Question 8.5
     '''
+
     def test_book_case(self):
         head_one = Node('A')
         head_one.next = Node('B')
@@ -113,12 +126,14 @@ class TestOverlappingLists(object):
     def test_non_overlapping_case(self):
         one = Node('A')
         two = Node('B')
-        assert None == find_overlap(one, two)
+        assert find_overlap(one, two) is None
+
 
 class TestFindOverlapCycle(object):
     '''
     Question 8.6
     '''
+
     def test_book_case(self):
         head_one = Node('A')
         head_one.next = Node('B')
@@ -168,6 +183,7 @@ class TestRemoveKthElement(object):
     '''
     Question 8.8
     '''
+
     def test_remove_kth_element(self, create_list):
         remove = remove_kth_last_element(create_list, 3)
 
@@ -175,12 +191,11 @@ class TestRemoveKthElement(object):
             assert idx == remove.val
             remove = remove.next
 
-        for idx in xrange(9,10):
+        for idx in xrange(9, 10):
             assert idx == remove.val
             remove = remove.next
 
-        assert None == remove
-
+        assert remove is None
 
     def test_remove_last_element(self, create_list):
         remove = remove_kth_last_element(create_list, 1)
@@ -189,4 +204,4 @@ class TestRemoveKthElement(object):
             assert idx == remove.val
             remove = remove.next
 
-        assert None == remove
+        assert remove is None

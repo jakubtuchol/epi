@@ -1,10 +1,13 @@
 from sys import maxint
 
+
 class BST(object):
+
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
+
 
 def check_bst(root):
     INT_MAX = maxint
@@ -14,6 +17,7 @@ def check_bst(root):
     '''
     return check_bst_helper(root, INT_MIN, INT_MAX)
 
+
 def check_bst_helper(root, low, high):
     if not root:
         return True
@@ -21,8 +25,9 @@ def check_bst_helper(root, low, high):
     if root.val < low or root.val > high:
         return False
 
-    return check_bst_helper(root.left, low, root.val-1) \
-            and check_bst_helper(root.right, root.val+1, high)
+    return check_bst_helper(root.left, low, root.val - 1) \
+        and check_bst_helper(root.right, root.val + 1, high)
+
 
 def find_first_larger_key(root, key):
     '''
@@ -38,6 +43,7 @@ def find_first_larger_key(root, key):
         else:
             root = root.right
     return larger
+
 
 def find_largest_keys(root, k):
     '''

@@ -2,10 +2,12 @@
 Chapter 9: Stacks and Queues
 '''
 
+
 class MaxStack(object):
     '''
     Question 9.1
     '''
+
     def __init__(self):
         self.contents = []
         self.max_at = [0]
@@ -24,6 +26,7 @@ class MaxStack(object):
 
     def get_max(self):
         return self.max_at[-1]
+
 
 def evaluate_rpn(ls):
     '''
@@ -66,16 +69,18 @@ def depth_order(root):
             traversal[depth].append(elt.val)
 
         if elt.left:
-            queue.insert(0, (elt.left, depth+1))
+            queue.insert(0, (elt.left, depth + 1))
         if elt.right:
-            queue.insert(0, (elt.right, depth+1))
+            queue.insert(0, (elt.right, depth + 1))
 
     return traversal
+
 
 class CircularQueue(object):
     '''
     Question 9.10: Impelement a circular queue
     '''
+
     def __init__(self, capacity):
         self.capacity = capacity
         self.size = 0

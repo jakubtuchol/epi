@@ -18,6 +18,7 @@ def find_first_occurrence(target, ls):
 
     return result
 
+
 def square_root(num):
     '''
     Question 12.5
@@ -45,5 +46,5 @@ def square_root(num):
             return mid
         else:
             low = mid + 1
-        
+
     return low - 1

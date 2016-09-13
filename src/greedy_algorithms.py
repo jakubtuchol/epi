@@ -5,10 +5,11 @@ def three_sum(target, ls):
     '''
     ls = sorted(ls)
 
-    for idx,elt in enumerate(ls):
-        if two_sum(target-elt, ls[:idx] + ls[idx+1:]):
+    for idx, elt in enumerate(ls):
+        if two_sum(target - elt, ls[:idx] + ls[idx + 1:]):
             return True
     return False
+
 
 def two_sum(target, ls):
     '''
@@ -18,9 +19,10 @@ def two_sum(target, ls):
     for num in ls:
         if num in complements:
             return True
-        complements.add(target-num)
+        complements.add(target - num)
 
     return False
+
 
 def find_majority_element(array):
     '''

@@ -1,25 +1,31 @@
-from src.stacks_queues import MaxStack, evaluate_rpn, depth_order, CircularQueue
-from src.binary_trees import TNode
-
 import pytest
+
+from src.binary_trees import TNode
+from src.stacks_queues import CircularQueue
+from src.stacks_queues import depth_order
+from src.stacks_queues import evaluate_rpn
+from src.stacks_queues import MaxStack
 
 '''
 Chapter 9: Stacks and Queues
 '''
+
+
 class TestMaxStack(object):
     '''
     Question 9.1
     '''
+
     def test_basic_configuration(self):
         '''
         Test basic incrementing list
         '''
         stack = MaxStack()
-        for idx in xrange(1,11):
+        for idx in xrange(1, 11):
             stack.push(idx)
             assert idx == stack.get_max()
 
-        for idx in xrange(10,0,-1):
+        for idx in xrange(10, 0, -1):
             assert idx == stack.get_max()
             assert idx == stack.pop()
 
@@ -28,18 +34,20 @@ class TestMaxStack(object):
         Reverse configuration
         '''
         stack = MaxStack()
-        for idx in xrange(10,0,-1):
+        for idx in xrange(10, 0, -1):
             stack.push(idx)
             assert 10 == stack.get_max()
 
-        for _ in xrange(0,10):
+        for _ in xrange(0, 10):
             assert 10 == stack.get_max()
             stack.pop()
+
 
 class TestRpnEvaluation(object):
     '''
     Question 9.2
     '''
+
     def test_singleton(self):
         '''
         Test singleton evaluation
@@ -50,19 +58,19 @@ class TestRpnEvaluation(object):
         '''
         Test simple operation
         '''
-        assert 738 == evaluate_rpn(['6','123','*'])
+        assert 738 == evaluate_rpn(['6', '123', '*'])
 
     def test_complex_operation(self):
         '''
         Test complex operation
         '''
-        assert 15 == evaluate_rpn(['3','4','+','2','*','1','+'])
+        assert 15 == evaluate_rpn(['3', '4', '+', '2', '*', '1', '+'])
 
     def test_division_operation(self):
         '''
         Test complex division operation
         '''
-        assert 80 == evaluate_rpn(['8','64','/','640','/'])
+        assert 80 == evaluate_rpn(['8', '64', '/', '640', '/'])
 
 
 @pytest.fixture(scope='module')
@@ -99,28 +107,30 @@ def get_book_tree():
 
 @pytest.fixture(scope='module')
 def get_tiny_tree():
-    return Node(23)
+    return TNode(23)
+
 
 class TestDepthOrder(object):
     '''
     Question 9.9
     '''
+
     def test_book_example(self, get_book_tree):
         expected = [
             [314],           # level 0
-            [6,6],           # level 1
-            [271,561,2,271], # level 2
-            [28,0,3,1,28],   # level 3
-            [17,401,257],    # level 4
+            [6, 6],           # level 1
+            [271, 561, 2, 271],  # level 2
+            [28, 0, 3, 1, 28],   # level 3
+            [17, 401, 257],    # level 4
             [641],           # level 5
         ]
 
         assert expected == depth_order(get_book_tree)
 
     def test_tiny_tree(self, get_tiny_tree):
-        assert [23] == depth_order(get_tiny_tree)
+        assert [[23]] == depth_order(get_tiny_tree)
 
-    def test_tiny_tree(self):
+    def test_nullary_tree(self):
         assert [] == depth_order(None)
 
 
@@ -128,6 +138,7 @@ class TestCircularQueue(object):
     '''
     Question 9.10
     '''
+
     def test_basic_case(self):
         cqueue = CircularQueue(10)
 
@@ -144,7 +155,10 @@ class TestCircularQueue(object):
     def test_overflow_case(self):
         cqueue = CircularQueue(10)
 
-        with pytest.raises(Exception, message='queue is currently at capacity'):
+        with pytest.raises(
+            Exception,
+            message='queue is currently at capacity'
+        ):
             for idx in xrange(11):
                 cqueue.enqueue(idx)
 

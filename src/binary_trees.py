@@ -2,7 +2,9 @@
 Chapter 10: Binary Trees
 '''
 
+
 class TNode(object):
+
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -16,12 +18,14 @@ def check_equal(root_one, root_two):
     '''
     if root_one is None and root_two is None:
         return True
-    elif (root_one is None and root_two is not None) or (root_one is not None and root_two is None):
+    elif (root_one is None and root_two is not None) \
+            or (root_one is not None and root_two is None):
         return False
     elif root_one.val != root_two.val:
         return False
     else:
-        return check_equal(root_one.left, root_two.left) and check_equal(root_one.right, root_two.right)
+        return check_equal(root_one.left, root_two.left) and \
+            check_equal(root_one.right, root_two.right)
 
 
 def is_balanced(root):
@@ -50,7 +54,7 @@ def is_symmetric(root):
     '''
     Question 10.2: check if binary tree is symmetric
     '''
-    return root == None or check_symmetric(root.left, root.right)
+    return root is None or check_symmetric(root.left, root.right)
 
 
 def check_symmetric(left, right):
@@ -59,12 +63,14 @@ def check_symmetric(left, right):
     '''
     if left is None and right is None:
         return True
-    elif (left is None and right is not None) or (left is not None and right is None):
+    elif (left is None and right is not None) or \
+            (left is not None and right is None):
         return False
     elif left.val != right.val:
         return False
     else:
-        return check_symmetric(left.left, right.right) and check_symmetric(left.right, right.left)
+        return check_symmetric(left.left, right.right) and \
+            check_symmetric(left.right, right.left)
 
 
 def compute_parent_lca(first, second):
@@ -79,7 +85,7 @@ def compute_parent_lca(first, second):
     if second_depth > first_depth:
         tmp = first
         first = second
-        second = first
+        second = tmp
 
     depth_diff = abs(first_depth - second_depth)
     while depth_diff:
@@ -122,7 +128,7 @@ def reconstruct_tree(preorder, inorder):
 def reconstruct_helper(
     preorder, preorder_start, preorder_end,
     inorder_start, inorder_end, node_to_inorder_idx,
-    ):
+):
     if preorder_start <= preorder_end or inorder_start <= inorder_end:
         return None
 

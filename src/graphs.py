@@ -3,11 +3,14 @@
 WHITE = 'WHITE'
 BLACK = 'BLACK'
 
+
 class Visited(object):
+
     def __init__(self, point, neighbors, pos):
         self.point = point
         self.neighbors = neighbors
         self.pos = pos
+
 
 def search_maze(maze, start, end):
     '''
@@ -21,7 +24,7 @@ def search_maze(maze, start, end):
         start: Visited(
             start,
             get_neighbors(start),
-            len(path)-1,
+            len(path) - 1,
         )
     }
 
@@ -34,39 +37,40 @@ def search_maze(maze, start, end):
         neighbor = visited[pt].neighbors.pop()
         while neighbor:
             path.append(neighbor)
-    return 
+    return
+
 
 def get_neighbors(point, maze):
     neighbors = []
     print('point: {}'.format(point))
-    print('maze: {} rows, {} cols'.format(len(maze),len(maze[0])))
+    print('maze: {} rows, {} cols'.format(len(maze), len(maze[0])))
 
     # get point below
     if point[0] > 0:
-        row, col = point[0]-1, point[1]
-        print('below is {}: {}'.format((row,col),maze[row][col]))
+        row, col = point[0] - 1, point[1]
+        print('below is {}: {}'.format((row, col), maze[row][col]))
         if maze[row][col] == WHITE:
-            neighbors.append((row,col))
+            neighbors.append((row, col))
 
     # get point above
     if point[0] < len(maze) - 1:
-        row, col = point[0]+1, point[1]
-        print('above is {}: {}'.format((row,col),maze[row][col]))
+        row, col = point[0] + 1, point[1]
+        print('above is {}: {}'.format((row, col), maze[row][col]))
         if maze[row][col] == WHITE:
-            neighbors.append((row,col))
+            neighbors.append((row, col))
 
     # get point on left
     if point[1] > 0:
-        row, col = point[0], point[1]-1
-        print('left is {}: {}'.format((row,col),maze[row][col]))
+        row, col = point[0], point[1] - 1
+        print('left is {}: {}'.format((row, col), maze[row][col]))
         if maze[row][col] == WHITE:
-            neighbors.append((row,col))
+            neighbors.append((row, col))
 
     # get point on right
     if point[1] < len(maze[0]) - 1:
-        row, col = point[0], point[1]+1
-        print('right is {}: {}'.format((row,col),maze[row][col]))
+        row, col = point[0], point[1] + 1
+        print('right is {}: {}'.format((row, col), maze[row][col]))
         if maze[row][col] == WHITE:
-            neighbors.append((row,col))
+            neighbors.append((row, col))
 
     return neighbors

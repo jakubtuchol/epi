@@ -1,12 +1,16 @@
-from src.primitive import find_parity, reverse_bits, \
-        reverse_digits, Rectangle, check_rectangle_intersection, \
-        get_intersection
+from src.primitive import check_rectangle_intersection
+from src.primitive import find_parity
+from src.primitive import get_intersection
+from src.primitive import Rectangle
+from src.primitive import reverse_bits
+from src.primitive import reverse_digits
 
 
 class TestParity(object):
     '''
     Question 5.1
     '''
+
     def test_basic_parity(self):
         x = int('1011', 2)
         assert find_parity(x) == 1
@@ -20,6 +24,7 @@ class TestReverseBits(object):
     '''
     Question 5.3
     '''
+
     def test_basic_reversal(self):
         '''
         Alternating 0s and 1s reversed
@@ -42,6 +47,7 @@ class TestReverseInteger(object):
     '''
     Question 5.8
     '''
+
     def test_basic_reverse(self):
         assert reverse_digits(42) == 24
 
@@ -57,33 +63,46 @@ class TestCheckRectangleIntersection(object):
     '''
     Question 5.11
     '''
+
     def test_basic_case(self):
-        rect_left = Rectangle(0,0,2,2)
-        rect_right = Rectangle(1,1,2,2)
-        rect_intersect = Rectangle(1,1,1,1)
+        rect_left = Rectangle(0, 0, 2, 2)
+        rect_right = Rectangle(1, 1, 2, 2)
+        rect_intersect = Rectangle(1, 1, 1, 1)
         assert get_intersection(rect_left, rect_right)
         assert get_intersection(rect_right, rect_left)
-        # assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
+        result = check_rectangle_intersection(rect_left, rect_right)
+        assert rect_intersect.x == result.x
+        assert rect_intersect.y == result.y
+        assert rect_intersect.width == result.width
+        assert rect_intersect.height == result.height
 
     def test_fully_contained_case(self):
-        rect_left = Rectangle(0,0,4,4)
-        rect_right = Rectangle(1,1,2,2)
-        rect_intersect = Rectangle(1,1,2,2)
+        rect_left = Rectangle(0, 0, 4, 4)
+        rect_right = Rectangle(1, 1, 2, 2)
+        rect_intersect = Rectangle(1, 1, 2, 2)
         assert get_intersection(rect_left, rect_right)
         assert get_intersection(rect_right, rect_left)
-        # assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
+        result = check_rectangle_intersection(rect_left, rect_right)
+        assert rect_intersect.x == result.x
+        assert rect_intersect.y == result.y
+        assert rect_intersect.width == result.width
+        assert rect_intersect.height == result.height
 
     def test_mid_intersection(self):
-        rect_left = Rectangle(0,2,1,4)
-        rect_right = Rectangle(1,0,4,4)
-        rect_intersect = Rectangle(1,2,1,3)
+        rect_left = Rectangle(0, 2, 1, 4)
+        rect_right = Rectangle(1, 0, 4, 4)
+        rect_intersect = Rectangle(1, 2, 1, 3)
         assert get_intersection(rect_left, rect_right)
         assert get_intersection(rect_right, rect_left)
-        # assert rect_intersect == check_rectangle_intersection(rect_left, rect_right)
+        result = check_rectangle_intersection(rect_left, rect_right)
+        assert rect_intersect.x == result.x
+        assert rect_intersect.y == result.y
+        assert rect_intersect.width == result.width
+        assert rect_intersect.height == result.height
 
     def test_no_intersection(self):
-        rect_left = Rectangle(0,0,3,3)
-        rect_right = Rectangle(4,4,1,1)
+        rect_left = Rectangle(0, 0, 3, 3)
+        rect_right = Rectangle(4, 4, 1, 1)
         assert not get_intersection(rect_left, rect_right)
         assert not get_intersection(rect_right, rect_left)
-        # assert None == check_rectangle_intersection(rect_left, rect_right)
+        assert check_rectangle_intersection(rect_left, rect_right) is None

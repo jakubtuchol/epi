@@ -1,6 +1,10 @@
-from src.bst import BST, check_bst, find_first_larger_key, find_largest_keys
-
 import pytest
+
+from src.bst import BST
+from src.bst import check_bst
+from src.bst import find_first_larger_key
+from src.bst import find_largest_keys
+
 
 @pytest.fixture(scope='module')
 def create_tiny_bst():
@@ -12,6 +16,7 @@ def create_tiny_bst():
     root.right = BST(7)
     return root
 
+
 @pytest.fixture(scope='module')
 def create_tiny_nonbst():
     '''
@@ -21,6 +26,7 @@ def create_tiny_nonbst():
     root.left = BST(35)
     root.right = BST(25)
     return root
+
 
 @pytest.fixture(scope='module')
 def create_large_bst():
@@ -51,6 +57,7 @@ def create_large_bst():
 
     return root
 
+
 @pytest.fixture
 def create_large_nonbst():
     '''
@@ -63,10 +70,12 @@ def create_large_nonbst():
     root.left.right = BST(20)
     return root
 
+
 class TestCheckBST(object):
     '''
     Question 15.1
     '''
+
     def test_small_example(self, create_tiny_bst):
         assert check_bst(create_tiny_bst)
 
@@ -79,22 +88,27 @@ class TestCheckBST(object):
     def test_incorrect_example(self, create_large_nonbst):
         assert not check_bst(create_large_nonbst)
 
+
 class TestFindFirstLargerKey(object):
     '''
     Question 15.3
     '''
+
     def test_book_example(self, create_large_bst):
         assert 29 == find_first_larger_key(create_large_bst, 23)
 
     def test_nonval(self, create_tiny_bst):
-        assert None == find_first_larger_key(create_tiny_bst, 10)
+        assert find_first_larger_key(create_tiny_bst, 10) is None
+
 
 class TestFindKLargestElements(object):
     '''
     Question 15.4
     '''
+
     def test_tiny_tree(self, create_tiny_bst):
         assert [7] == find_largest_keys(create_tiny_bst, 1)
 
     def test_larger_tree(self, create_large_bst):
-        assert [23,29,31,37,41,43,47,53] == find_largest_keys(create_large_bst, 8)
+        assert [23, 29, 31, 37, 41, 43, 47,
+                53] == find_largest_keys(create_large_bst, 8)

@@ -8,14 +8,16 @@ def int_to_string(num):
     '''
     negative = num < 0
     output = []
-    if negative: num *= -1
+    if negative:
+        num *= -1
 
     while num > 0:
         code = ord('0') + (num % 10)
         output.insert(0, chr(code))
         num = int(floor(num / 10))
 
-    if negative: output.insert(0, '-')
+    if negative:
+        output.insert(0, '-')
     return ''.join(output)
 
 
@@ -25,7 +27,8 @@ def string_to_int(string):
     convert a string to an integer, without using `int`
     '''
     negative = string[0] == '-'
-    if negative: string = string[1:]
+    if negative:
+        string = string[1:]
 
     idx = 0
     output = 0
@@ -35,7 +38,8 @@ def string_to_int(string):
         output = (output * 10) + low
         idx += 1
 
-    if negative: output *= -1
+    if negative:
+        output *= -1
     return output
 
 
@@ -58,7 +62,8 @@ def convert_base(s, base1, base2):
     result = []
     while num:
         remainder = num % base2
-        result.append(chr(ord('A') + remainder - 10) if remainder >= 10 else str(remainder))
+        result.append(chr(ord('A') + remainder - 10)
+                      if remainder >= 10 else str(remainder))
         num /= base2
 
     if len(result) == 0:
@@ -90,6 +95,7 @@ def check_palindrome(string):
         end -= 1
     return True
 
+
 def reverse_words(sentence):
     '''
     Question 7.6: Reverse space-separated words in string
@@ -105,14 +111,14 @@ def get_phone_mnemonics(number):
     keymapping = {
         '0': [''],
         '1': [''],
-        '2': ['A','B','C'],
-        '3': ['D','E','F'],
-        '4': ['G','H','I'],
-        '5': ['J','K','L'],
-        '6': ['M','N','O'],
-        '7': ['P','Q','R','S'],
-        '8': ['T','U','V'],
-        '9': ['W','X','Y','Z'],
+        '2': ['A', 'B', 'C'],
+        '3': ['D', 'E', 'F'],
+        '4': ['G', 'H', 'I'],
+        '5': ['J', 'K', 'L'],
+        '6': ['M', 'N', 'O'],
+        '7': ['P', 'Q', 'R', 'S'],
+        '8': ['T', 'U', 'V'],
+        '9': ['W', 'X', 'Y', 'Z'],
     }
     if not len(number):
         return ['']
@@ -123,7 +129,7 @@ def get_phone_mnemonics(number):
     res = []
     for letter in keymapping[first_num]:
         for rest in get_phone_mnemonics(rest_num):
-            res.append(''.join([letter,rest]))
+            res.append(''.join([letter, rest]))
 
     return res
 
@@ -134,9 +140,10 @@ def look_say(n):
     '''
     x = '1'
 
-    for _ in xrange(1,n):
+    for _ in xrange(1, n):
         x = look_say_helper(x)
     return x
+
 
 def look_say_helper(s):
     run = 0

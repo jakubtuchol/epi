@@ -1,7 +1,12 @@
-from src.binary_trees import TNode, is_balanced, compute_parent_lca, \
-        is_symmetric, check_equal, reconstruct_tree
-
 import pytest
+
+from src.binary_trees import check_equal
+from src.binary_trees import compute_parent_lca
+from src.binary_trees import is_balanced
+from src.binary_trees import is_symmetric
+from src.binary_trees import reconstruct_tree
+from src.binary_trees import TNode
+
 
 @pytest.fixture(scope='module')
 def create_basic_tree():
@@ -13,6 +18,7 @@ def create_basic_tree():
     root.right.left = TNode(6)
     root.right.right = TNode(7)
     return root
+
 
 @pytest.fixture(scope='module')
 def create_almost_equal():
@@ -29,6 +35,7 @@ class TestCheckEqual(object):
     '''
     Testing check equal helper function
     '''
+
     def test_equal_trees(self, create_basic_tree):
         assert check_equal(create_basic_tree, create_basic_tree)
 
@@ -40,6 +47,7 @@ class TestIsBalanced(object):
     '''
     Question 10.1
     '''
+
     def test_book_case(self):
         '''
         Test balancing in book case
@@ -119,6 +127,7 @@ def generate_symmetric_tree():
 
     return root
 
+
 @pytest.fixture(scope='module')
 def generate_asymmetric_value_tree():
     root = TNode(314)
@@ -137,6 +146,7 @@ def generate_asymmetric_value_tree():
 
     return root
 
+
 @pytest.fixture(scope='module')
 def generate_asymmetric_shape_tree():
     root = TNode(314)
@@ -154,48 +164,12 @@ def generate_asymmetric_shape_tree():
 
     return root
 
-class TestCheckSymmetric(object):
-    '''
-    Question 10.2
-    '''
-    def test_symmetric_case(self,):
-        pass
-
-class TestParentLCA(object):
-    '''
-    Question 10.4
-    '''
-    def test_basic_case(self):
-        '''
-        Right and left nodes with same parent
-        '''
-        root = TNode(1)
-        root.left = TNode(2)
-        root.right = TNode(3)
-        root.left.parent = root
-        root.right.parent = root
-
-        assert root == compute_parent_lca(root.left, root.right)
-
-    def test_deeper_case(self):
-        '''
-        Deeper case, with two nodes on subtree
-        '''
-        root = TNode(1)
-        root.left = TNode(1)
-        root.left.parent = root
-        root.right = TNode(1)
-        root.right.parent = root
-        root.left.left = TNode(1)
-        root.left.left.parent = root.left
-
-        assert root == compute_parent_lca(root.left.left, root.right)
-
 
 class TestCheckSymmetric(object):
     '''
     Question 10.2
     '''
+
     def test_symmetric_case(self, generate_symmetric_tree):
         assert is_symmetric(generate_symmetric_tree)
 
@@ -210,6 +184,7 @@ class TestParentLCA(object):
     '''
     Question 10.4
     '''
+
     def test_basic_case(self):
         '''
         Right and left nodes with same parent
@@ -241,6 +216,7 @@ class TestReconstructTree(object):
     '''
     Question 10.10
     '''
+
     def test_basic_example(self):
         root = TNode('A')
         root.left = TNode('B')
@@ -249,7 +225,8 @@ class TestReconstructTree(object):
         root.left.right = TNode('E')
         root.right.left = TNode('F')
 
-        inorder = ['D','B','E','A','F','C']
-        preorder = ['A','B','D','E','C','F']
+        inorder = ['D', 'B', 'E', 'A', 'F', 'C']
+        preorder = ['A', 'B', 'D', 'E', 'C', 'F']
 
         reconstruct = reconstruct_tree(preorder, inorder)
+        assert check_equal(root, reconstruct)

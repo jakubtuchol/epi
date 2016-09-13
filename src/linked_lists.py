@@ -2,10 +2,13 @@
 Chapter 8: Linked Lists
 '''
 
+
 class Node(object):
+
     def __init__(self, value):
         self.val = value
         self.next = None
+
 
 def merge_sorted_lists(ls_1, ls_2):
     '''
@@ -28,6 +31,7 @@ def merge_sorted_lists(ls_1, ls_2):
 
     return dummy_head.next
 
+
 def reverse_linked_list(ls):
     '''
     Question 8.2: Reverse a linked list using O(1) space and O(n) time
@@ -44,6 +48,7 @@ def reverse_linked_list(ls):
         head = cur
 
     return head
+
 
 def detect_cycle(head):
     '''
@@ -173,6 +178,7 @@ def advance_list(node, k):
         k -= 1
     return node
 
+
 def remove_kth_last_element(ls, k):
     '''
     Question 8.8: Remove kth element from
@@ -193,6 +199,6 @@ def remove_kth_last_element(ls, k):
         fast_runner = fast_runner.next
 
     if slow_runner and slow_runner.next:
-            slow_runner.next = slow_runner.next.next
+        slow_runner.next = slow_runner.next.next
 
     return head

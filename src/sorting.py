@@ -17,6 +17,7 @@ def compute_intersection(arr_1, arr_2):
             idx_2 += 1
     return intersection
 
+
 def inplace_mergesort(long_arr, long_bound, short_arr, short_bound):
     '''
     Question 14.2: Implement mergesort in-place
