@@ -103,3 +103,40 @@ def get_depth(node):
         node = node.parent
         depth += 1
     return depth
+
+
+def reconstruct_tree(preorder, inorder):
+    '''
+    Question 10.10
+    '''
+    node_to_inorder_idx = {}
+    for idx, elt in enumerate(inorder):
+        node_to_inorder_idx[elt] = idx
+
+    return reconstruct_helper(
+        preorder, 0, len(preorder),
+        0, len(inorder), node_to_inorder_idx,
+    )
+
+
+def reconstruct_helper(
+    preorder, preorder_start, preorder_end,
+    inorder_start, inorder_end, node_to_inorder_idx,
+    ):
+    if preorder_start <= preorder_end or inorder_start <= inorder_end:
+        return None
+
+    # first element in preorder is root
+    root_inorder_idx = node_to_inorder_idx[preorder[preorder_start]]
+    left_subtree_size = root_inorder_idx - inorder_start
+
+    root = TNode(preorder[preorder_start])
+    root.left = reconstruct_helper(
+        preorder, preorder_start + 1, preorder_start + 1 + left_subtree_size,
+        inorder_start, root_inorder_idx, node_to_inorder_idx,
+    )
+    root.right = reconstruct_helper(
+        preorder, preorder_start + 1 + left_subtree_size, preorder_end,
+        root_inorder_idx + 1, inorder_end, node_to_inorder_idx,
+    )
+    return root

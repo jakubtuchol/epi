@@ -1,4 +1,5 @@
-from src.binary_trees import TNode, is_balanced, compute_parent_lca, is_symmetric, check_equal
+from src.binary_trees import TNode, is_balanced, compute_parent_lca, \
+        is_symmetric, check_equal, reconstruct_tree
 
 import pytest
 
@@ -236,9 +237,10 @@ class TestParentLCA(object):
         assert root == compute_parent_lca(root.left.left, root.right)
 
 
+class TestReconstructTree(object):
     '''
-class TestReconstructTreeInorderPreorder(object):
     Question 10.10
+    '''
     def test_basic_example(self):
         root = TNode('A')
         root.left = TNode('B')
@@ -250,5 +252,4 @@ class TestReconstructTreeInorderPreorder(object):
         inorder = ['D','B','E','A','F','C']
         preorder = ['A','B','D','E','C','F']
 
-        reconstruct = reconstruct_tree_inorder_preorder(inorder, preorder)
-    '''
+        reconstruct = reconstruct_tree(preorder, inorder)
