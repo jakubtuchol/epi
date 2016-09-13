@@ -2,7 +2,9 @@
 Chapter 11: Heaps
 '''
 
+
 class Heap(object):
+
     def __init__(self, comp):
         self._heap_list = [0]
         self._cur_size = 0
@@ -31,7 +33,7 @@ class Heap(object):
 
         if self.comp(self._heap_list[i * 2], self._heap_list[i * 2 + 1]):
             return i * 2
-        return  i * 2 + 1
+        return i * 2 + 1
 
     def insert(self, k):
         self._heap_list.append(k)
@@ -63,15 +65,16 @@ class Heap(object):
     def size(self):
         return self._cur_size
 
+
 def merge_sorted_arrays(arrs):
     '''
     Question 11.1: merge n sorted arrays
     '''
     # create min-heap sorted on first element in tuple
-    heap = Heap(lambda x,y: x[0] < y[0])
+    heap = Heap(lambda x, y: x[0] < y[0])
 
     # initialize heap with first value from each arr
-    for idx,ls in enumerate(arrs):
+    for idx, ls in enumerate(arrs):
         new_item = ls.pop(0)
         heap.insert((new_item, idx))
 
@@ -94,7 +97,7 @@ def almost_sorted(ls, k):
     Question 11.3: Sort an almost-sorted array,
     where all elements are within k elements of being sorted
     '''
-    heap = Heap(lambda x,y: x < y)
+    heap = Heap(lambda x, y: x < y)
     res = []
 
     for idx, val in enumerate(ls):
@@ -115,7 +118,7 @@ def find_closest_stars(limit, stars):
     '''
     # create max heap to handle keeping
     # track of closest stars
-    heap = Heap(lambda x,y: x > y)
+    heap = Heap(lambda x, y: x > y)
 
     for star in stars:
         heap.insert(star)
@@ -128,3 +131,30 @@ def find_closest_stars(limit, stars):
         closest_stars.append(heap.pop())
 
     return closest_stars
+
+
+def stream_median(stream):
+    '''
+    Question 11.5: find median of streaming
+    integers
+    '''
+    minheap = Heap(lambda x, y: x < y)
+    maxheap = Heap(lambda x, y: x > y)
+
+    for num in stream:
+        # need to keep minheap within
+        # 1 of maxheap size
+        if not minheap.size() or num < minheap.peek():
+            maxheap.insert(num)
+            if maxheap.size() > minheap.size() + 1:
+                minheap.insert(maxheap.pop())
+        else:
+            minheap.insert(num)
+            if minheap.size() > maxheap.size() + 1:
+                maxheap.insert(minheap.pop())
+
+    if minheap.size() == maxheap.size():
+        return (minheap.peek() + maxheap.peek()) / 2
+    elif minheap.size() > maxheap.size():
+        return minheap.peek()
+    return maxheap.pop()
