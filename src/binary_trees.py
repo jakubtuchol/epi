@@ -129,7 +129,7 @@ def reconstruct_helper(
     preorder, preorder_start, preorder_end,
     inorder_start, inorder_end, node_to_inorder_idx,
 ):
-    if preorder_start <= preorder_end or inorder_start <= inorder_end:
+    if preorder_end <= preorder_start or inorder_end <= inorder_start:
         return None
 
     # first element in preorder is root
