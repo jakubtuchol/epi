@@ -1,4 +1,4 @@
-from src.heaps import Heap, merge_sorted_arrays, find_closest_stars
+from src.heaps import Heap, merge_sorted_arrays, find_closest_stars, almost_sorted
 
 class TestMinHeap(object):
     '''
@@ -87,6 +87,22 @@ class TestMergeArrays(object):
         ]
         expected = [0,10,12,100,200,400,1000,10000]
         assert expected == merge_sorted_arrays(input_arrs)
+
+class TestAlmostSorted(object):
+    '''
+    Question 11.3
+    '''
+    def test_book_example(self):
+        arr = [3,-1,2,6,4,5,8]
+        expected = [-1,2,3,4,5,6,8]
+        assert expected == almost_sorted(arr, 2)
+
+    def test_closer_example(self):
+        arr = [2,-1,4,3,6,5,10,8]
+        expected = [-1,2,3,4,5,6,8,10]
+        assert expected == almost_sorted(arr, 2)
+        assert expected == almost_sorted(arr, 1)
+        assert expected == almost_sorted(expected, 0)
 
 class TestFindClosestStars(object):
     '''

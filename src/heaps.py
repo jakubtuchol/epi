@@ -64,6 +64,9 @@ class Heap(object):
         return self._cur_size
 
 def merge_sorted_arrays(arrs):
+    '''
+    Question 11.1: merge n sorted arrays
+    '''
     # create min-heap sorted on first element in tuple
     heap = Heap(lambda x,y: x[0] < y[0])
 
@@ -85,7 +88,31 @@ def merge_sorted_arrays(arrs):
 
     return output
 
+
+def almost_sorted(ls, k):
+    '''
+    Question 11.3: Sort an almost-sorted array,
+    where all elements are within k elements of being sorted
+    '''
+    heap = Heap(lambda x,y: x < y)
+    res = []
+
+    for idx, val in enumerate(ls):
+        heap.insert(val)
+        if idx - k >= 0:
+            res.append(heap.pop())
+
+    while not heap.empty():
+        res.append(heap.pop())
+
+    return res
+
+
 def find_closest_stars(limit, stars):
+    '''
+    Question 11.4: Find k closest stars
+    to a location
+    '''
     # create max heap to handle keeping
     # track of closest stars
     heap = Heap(lambda x,y: x > y)
