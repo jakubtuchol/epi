@@ -1,4 +1,5 @@
 from collections import defaultdict
+from sys import maxint
 
 
 def find_anagrams(words):
@@ -87,3 +88,22 @@ class IsbnCache(object):
                 self.head = res_node
             return res_node.price
         return None
+
+
+def find_nearest_repetition(words):
+    '''
+    Question 13.7: Given array of words, find
+    distance of closest pair identical words
+    '''
+    past_idx = {}
+    lowest_distance = maxint
+
+    for idx, word in enumerate(words):
+        if word in past_idx:
+            if idx - past_idx[word] < lowest_distance:
+                lowest_distance = idx - past_idx[word]
+        past_idx[word] = idx
+
+    if lowest_distance == maxint:
+        return None
+    return lowest_distance

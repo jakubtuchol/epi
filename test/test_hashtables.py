@@ -1,4 +1,5 @@
 from src.hashtables import find_anagrams
+from src.hashtables import find_nearest_repetition
 from src.hashtables import IsbnCache
 from src.hashtables import palindromic_permutation
 
@@ -90,3 +91,32 @@ class TestIsbnCache(object):
             assert cache.tail.val == isbn[0]
             assert isbn[1] == cache.lookup(isbn[0])
             assert cache.head == cache.contents[isbn[0]]
+
+
+class TestFindNearestRepetition(object):
+    '''
+    Question 13.7
+    '''
+
+    def test_book_example(self):
+        words = [
+            'All', 'work', 'and',
+            'no', 'play', 'makes',
+            'for', 'no', 'work',
+            'no', 'fun', 'and',
+            'no', 'results',
+        ]
+        assert 2 == find_nearest_repetition(words)
+
+    def test_repetitions(self):
+        words = [
+            'no', 'no', 'no',
+        ]
+        assert 1 == find_nearest_repetition(words)
+
+    def test_all_unique(self):
+        words = [
+            'All', 'work', 'and',
+            'no', 'play', 'makes',
+        ]
+        assert None is find_nearest_repetition(words)
