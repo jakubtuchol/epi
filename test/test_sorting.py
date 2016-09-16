@@ -1,11 +1,12 @@
 from src.sorting import compute_intersection
+from src.sorting import count_occurrences
 from src.sorting import inplace_mergesort
 
 
 class TestComputeIntersection(object):
-    '''
+    """
     Question 14.1
-    '''
+    """
 
     def test_basic(self):
         arr_1 = [2, 3, 3, 5, 5, 6, 7, 7, 8, 12]
@@ -24,9 +25,9 @@ class TestComputeIntersection(object):
 
 
 class TestInplaceMergesort(object):
-    '''
+    """
     Question 14.2
-    '''
+    """
 
     def test_book_case(self):
         long_arr = [5, 13, 17, None, None, None, None, None]
@@ -34,3 +35,26 @@ class TestInplaceMergesort(object):
         expected = [3, 5, 7, 11, 13, 17, 19, None]
         inplace_mergesort(long_arr, 3, short_arr, 4)
         assert expected == long_arr
+
+
+class TestCountOccurrences(object):
+    """
+    Question 14.3
+    """
+
+    def test_book_example(self):
+        sentence = 'bcdacebe'
+        expected = [('a', 1), ('b', 2), ('c', 2), ('d', 1), ('e', 2)]
+        output = sorted(count_occurrences(sentence), key=lambda x: x[0])
+        assert expected == output
+
+    def test_mixed_case_sentence(self):
+        sentence = 'Mary had a little lamb'
+        expected = [
+            (' ', 4), ('a', 4), ('b', 1),
+            ('d', 1), ('e', 1), ('h', 1),
+            ('i', 1), ('l', 3), ('m', 2),
+            ('r', 1), ('t', 2), ('y', 1),
+        ]
+        output = sorted(count_occurrences(sentence), key=lambda x: x[0])
+        assert expected == output

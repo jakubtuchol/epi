@@ -1,3 +1,6 @@
+'''
+Chapter 15: Binary Search Trees
+'''
 from sys import maxint
 
 

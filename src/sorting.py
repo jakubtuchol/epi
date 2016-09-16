@@ -1,7 +1,13 @@
+"""
+Chapter 14: Sorting
+"""
+from collections import defaultdict
+
+
 def compute_intersection(arr_1, arr_2):
-    '''
+    """
     Question 14.1: Compute the intersection of two sorted arrays
-    '''
+    """
     idx_1 = 0
     idx_2 = 0
     intersection = []
@@ -19,9 +25,9 @@ def compute_intersection(arr_1, arr_2):
 
 
 def inplace_mergesort(long_arr, long_bound, short_arr, short_bound):
-    '''
+    """
     Question 14.2: Implement mergesort in-place
-    '''
+    """
     write_idx = long_bound + short_bound - 1
     long_idx = long_bound - 1
     short_idx = short_bound - 1
@@ -39,3 +45,18 @@ def inplace_mergesort(long_arr, long_bound, short_arr, short_bound):
         long_arr[write_idx] = short_arr[short_idx]
         write_idx -= 1
         short_idx -= 1
+
+
+def count_occurrences(sentence):
+    """
+    Question 14.3: Count frequencies of
+    characters in a string
+    """
+    seen = defaultdict(int)
+    for char in sentence.lower():
+        seen[char] += 1
+
+    output = []
+    for key, val in seen.iteritems():
+        output.append((key, val))
+    return output
