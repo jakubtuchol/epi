@@ -1,3 +1,6 @@
+'''
+Chapter 9: Stacks and Queues
+'''
 import pytest
 
 from src.binary_trees import TNode
@@ -5,10 +8,6 @@ from src.stacks_queues import CircularQueue
 from src.stacks_queues import depth_order
 from src.stacks_queues import evaluate_rpn
 from src.stacks_queues import MaxStack
-
-'''
-Chapter 9: Stacks and Queues
-'''
 
 
 class TestMaxStack(object):

@@ -4,6 +4,9 @@
     -   id: trailing-whitespace
     -   id: autopep8-wrapper
     -   id: flake8
+    -   id: check-ast
+    -   id: requirements-txt-fixer
+    -   id: check-docstring-first
 -   repo: git://github.com/asottile/reorder_python_imports
     sha: v0.3.0
     hooks:

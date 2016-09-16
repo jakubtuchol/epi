@@ -1,4 +1,8 @@
+'''
+Chapter 12: Searching
+'''
 from src.searching import find_first_occurrence
+from src.searching import smallest_cyclically_sorted_list
 from src.searching import square_root
 
 
@@ -20,6 +24,24 @@ class TestFindFirstOccurrence(object):
         assert -1 == find_first_occurrence(800, ls)
         assert -1 == find_first_occurrence(-200, ls)
         assert -1 == find_first_occurrence(100, ls)
+
+
+class TestSmallestCyclicallySortedArray(object):
+    '''
+    Question 12.4
+    '''
+
+    def test_book_example(self):
+        in_arr = [378, 478, 550, 631, 103, 203, 220, 234, 279, 368]
+        assert 4 == smallest_cyclically_sorted_list(in_arr)
+
+    def test_tiny_example(self):
+        in_arr = [2]
+        assert 0 == smallest_cyclically_sorted_list(in_arr)
+
+    def test_another_basic(self):
+        in_arr = [5, 9, 13, 1, 3]
+        assert 3 == smallest_cyclically_sorted_list(in_arr)
 
 
 class TestSquareRoot(object):

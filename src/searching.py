@@ -19,6 +19,24 @@ def find_first_occurrence(target, ls):
     return result
 
 
+def smallest_cyclically_sorted_list(ls):
+    '''
+    Question 12.4: Find index of smallest element
+    in cyclically sorted array
+    '''
+    left = 0
+    right = len(ls) - 1
+
+    while left < right:
+        mid = (left + right) // 2
+        if ls[mid] > ls[right]:
+            left = mid + 1
+        else:
+            right = mid
+
+    return left
+
+
 def square_root(num):
     '''
     Question 12.5
