@@ -1,10 +1,9 @@
+'''
+Chapter 6: Arrays
+'''
 import random
 import sys
 from datetime import datetime
-
-'''
-Chapter 6
-'''
 
 
 def swap(arr, idx, idy):
