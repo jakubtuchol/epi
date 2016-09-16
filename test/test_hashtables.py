@@ -1,5 +1,6 @@
 from src.hashtables import find_anagrams
 from src.hashtables import IsbnCache
+from src.hashtables import palindromic_permutation
 
 
 class TestFindAnagrams(object):
@@ -42,6 +43,21 @@ class TestFindAnagrams(object):
             assert match is not None
             for element in expect:
                 assert element in res
+
+
+class TestPalindromicPermutation(object):
+    '''
+    Question 13.2
+    '''
+
+    def test_basic_case(self):
+        assert palindromic_permutation('civic')
+        assert palindromic_permutation('ivicc')
+        assert palindromic_permutation('aabbcadad')
+
+    def test_basic_negative_case(self):
+        assert not palindromic_permutation('civil')
+        assert not palindromic_permutation('livci')
 
 
 class TestIsbnCache(object):

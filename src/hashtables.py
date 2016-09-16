@@ -3,7 +3,8 @@ from collections import defaultdict
 
 def find_anagrams(words):
     '''
-    Question 13.1
+    Question 13.1: Take in set of words and returns
+    list of these words grouped into anagrams
     '''
     anagrams = defaultdict(set)
 
@@ -12,6 +13,20 @@ def find_anagrams(words):
         anagrams[sorted_word].add(word)
 
     return [val for val in anagrams.values() if len(val) > 1]
+
+
+def palindromic_permutation(string):
+    '''
+    Question 13.2: Test whether the letters
+    forming a string to form a palindrome
+    '''
+    seen = set()
+    for char in string:
+        if char in seen:
+            seen.remove(char)
+        else:
+            seen.add(char)
+    return len(seen) <= 1
 
 
 class IsbnNode(object):
