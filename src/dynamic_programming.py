@@ -56,3 +56,22 @@ def calculate_levenshtein_distance(first_word, second_word):
 
         matrix.append(row)
     return matrix[-1][-1]
+
+
+def get_num_array_traversals(n, m):
+    """
+    Question 17.3: Count the number of ways
+    to traverse a 2D array
+    """
+    matrix = []
+    for row_num in xrange(n):
+        row = [1]
+        for col_num in xrange(1, m):
+            if row_num == 0:
+                row.append(row[-1])
+            else:
+                row.append(
+                    matrix[row_num - 1][col_num] + row[-1]
+                )
+        matrix.append(row)
+    return matrix[-1][-1]

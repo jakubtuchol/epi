@@ -1,5 +1,6 @@
 from src.dynamic_programming import calculate_levenshtein_distance
 from src.dynamic_programming import count_score_combinations
+from src.dynamic_programming import get_num_array_traversals
 
 
 class TestCountScoreCombinations(object):
@@ -27,3 +28,12 @@ class TestLevenshteinDistance(object):
 
     def test_longer_example(self):
         assert 8 == calculate_levenshtein_distance('Carthorse', 'Orchestra')
+
+
+class TestArrayTraversals(object):
+    """
+    Question 17.3
+    """
+
+    def test_book_example(self):
+        assert 70 == get_num_array_traversals(5, 5)
