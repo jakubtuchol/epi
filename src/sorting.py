@@ -60,3 +60,28 @@ def count_occurrences(sentence):
     for key, val in seen.iteritems():
         output.append((key, val))
     return output
+
+
+def find_max_simultaneous_events(events):
+    """
+    Question 14.5: Given a list of intervals representing
+    start and end times of events, find the maximum number
+    of simultaneous events that we can schedule
+    """
+    transitions = []
+    simultaneous = 0
+    max_simultaneous = 0
+
+    for event in events:
+        transitions.append((event[0], True))
+        transitions.append((event[1], False))
+
+    sorted_transitions = sorted(transitions, key=lambda x: x[0])
+
+    for transition in sorted_transitions:
+        if transition[1]:
+            simultaneous += 1
+        else:
+            simultaneous -= 1
+        max_simultaneous = max(simultaneous, max_simultaneous)
+    return max_simultaneous

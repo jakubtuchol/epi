@@ -1,5 +1,6 @@
 from src.sorting import compute_intersection
 from src.sorting import count_occurrences
+from src.sorting import find_max_simultaneous_events
 from src.sorting import inplace_mergesort
 
 
@@ -58,3 +59,17 @@ class TestCountOccurrences(object):
         ]
         output = sorted(count_occurrences(sentence), key=lambda x: x[0])
         assert expected == output
+
+
+class TestFindMaxSimultaneousEvents(object):
+    """
+    Question 14.5
+    """
+
+    def test_book_example(self):
+        events = [
+            (1, 5), (6, 10), (11, 13),
+            (14, 15), (2, 7), (8, 9),
+            (12, 15), (4, 5), (9, 18),
+        ]
+        assert 3 == find_max_simultaneous_events(events)
