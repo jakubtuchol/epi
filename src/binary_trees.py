@@ -1,6 +1,6 @@
-'''
+"""
 Chapter 10: Binary Trees
-'''
+"""
 
 
 class TNode(object):
@@ -13,9 +13,9 @@ class TNode(object):
 
 
 def check_equal(root_one, root_two):
-    '''
+    """
     Check that two binary trees are equal
-    '''
+    """
     if root_one is None and root_two is None:
         return True
     elif (root_one is None and root_two is not None) \
@@ -29,16 +29,16 @@ def check_equal(root_one, root_two):
 
 
 def is_balanced(root):
-    '''
+    """
     Problem 10.1: determine if binary tree is balanced
-    '''
+    """
     return balanced_helper(root)[0]
 
 
 def balanced_helper(root):
-    '''
+    """
     Helper function to return tuple for balancing
-    '''
+    """
     if not root:
         return (True, 0)
     left = balanced_helper(root.left)
@@ -51,16 +51,16 @@ def balanced_helper(root):
 
 
 def is_symmetric(root):
-    '''
+    """
     Question 10.2: check if binary tree is symmetric
-    '''
+    """
     return root is None or check_symmetric(root.left, root.right)
 
 
 def check_symmetric(left, right):
-    '''
+    """
     Helper function to recursively check symmetry of subtrees
-    '''
+    """
     if left is None and right is None:
         return True
     elif (left is None and right is not None) or \
@@ -74,10 +74,10 @@ def check_symmetric(left, right):
 
 
 def compute_parent_lca(first, second):
-    '''
+    """
     Problem 10.4: Get least common ancestor if nodes
     have parent pointer
-    '''
+    """
     first_depth = get_depth(first)
     second_depth = get_depth(second)
 
@@ -100,10 +100,10 @@ def compute_parent_lca(first, second):
 
 
 def get_depth(node):
-    '''
+    """
     Helper function to get depth of node
     from root
-    '''
+    """
     depth = 0
     while node.parent:
         node = node.parent
@@ -112,9 +112,9 @@ def get_depth(node):
 
 
 def reconstruct_tree(preorder, inorder):
-    '''
+    """
     Question 10.10
-    '''
+    """
     node_to_inorder_idx = {}
     for idx, elt in enumerate(inorder):
         node_to_inorder_idx[elt] = idx

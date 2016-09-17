@@ -4,9 +4,9 @@ from src.greedy_algorithms import two_sum
 
 
 class TestTwoSum(object):
-    '''
+    """
     Testing two sum method
-    '''
+    """
 
     def test_book_example(self):
         in_arr = [11, 2, 5, 7, 3]
@@ -19,9 +19,9 @@ class TestTwoSum(object):
 
 
 class TestThreeSum(object):
-    '''
+    """
     Question 18.5
-    '''
+    """
 
     def test_book_example(self):
         in_arr = [11, 2, 5, 7, 3]
@@ -30,9 +30,9 @@ class TestThreeSum(object):
 
 
 class TestFindMajorityElement(object):
-    '''
+    """
     Question 18.6
-    '''
+    """
 
     def test_book_example(self):
         in_arr = [

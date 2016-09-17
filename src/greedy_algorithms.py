@@ -1,8 +1,8 @@
 def three_sum(target, ls):
-    '''
+    """
     Question 18.5: Check if three numbers within input
     array sum to target
-    '''
+    """
     ls = sorted(ls)
 
     for idx, elt in enumerate(ls):
@@ -12,9 +12,9 @@ def three_sum(target, ls):
 
 
 def two_sum(target, ls):
-    '''
+    """
     Check if two numbers within input array sum to target
-    '''
+    """
     complements = set()
     for num in ls:
         if num in complements:
@@ -25,9 +25,9 @@ def two_sum(target, ls):
 
 
 def find_majority_element(array):
-    '''
+    """
     Question 18.6
-    '''
+    """
     majority_elt = None
     count = 0
     for elt in array:

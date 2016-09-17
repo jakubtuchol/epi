@@ -13,11 +13,11 @@ class Visited(object):
 
 
 def search_maze(maze, start, end):
-    '''
+    """
     Question 19.1: Given a 2d array of black and white entries representing
     a maze with designated entrance and exit points, find a path from the
     entrance to the exit.
-    '''
+    """
     path = []
     has_neighbors = [start]
     visited = {

@@ -1,6 +1,6 @@
-'''
+"""
 Chapter 15: Binary Search Trees
-'''
+"""
 from sys import maxint
 
 
@@ -13,11 +13,11 @@ class BST(object):
 
 
 def check_bst(root):
+    """
+    Question 15.1: Test if a binary tree satisfies the BST property
+    """
     INT_MAX = maxint
     INT_MIN = -maxint - 1
-    '''
-    Question 15.1: Test if a binary tree satisfies the BST property
-    '''
     return check_bst_helper(root, INT_MIN, INT_MAX)
 
 
@@ -33,10 +33,10 @@ def check_bst_helper(root, low, high):
 
 
 def find_first_larger_key(root, key):
-    '''
+    """
     Question 15.3: Find the first key larger than given
     value in bst
-    '''
+    """
     larger = None
     while root:
         if root.val > key:
@@ -49,9 +49,9 @@ def find_first_larger_key(root, key):
 
 
 def find_largest_keys(root, k):
-    '''
+    """
     Question 15.4: Find k largest keys in bst
-    '''
+    """
     largest = []
     stack = []
     done = False
@@ -68,3 +68,10 @@ def find_largest_keys(root, k):
             else:
                 done = True
     return largest
+
+
+def find_lca(root, a, b):
+    """
+    Question 15.5: Compute the LCA in a BST
+    """
+    pass

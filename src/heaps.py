@@ -1,6 +1,6 @@
-'''
+"""
 Chapter 11: Heaps
-'''
+"""
 
 
 class Heap(object):
@@ -67,9 +67,9 @@ class Heap(object):
 
 
 def merge_sorted_arrays(arrs):
-    '''
+    """
     Question 11.1: merge n sorted arrays
-    '''
+    """
     # create min-heap sorted on first element in tuple
     heap = Heap(lambda x, y: x[0] < y[0])
 
@@ -93,10 +93,10 @@ def merge_sorted_arrays(arrs):
 
 
 def almost_sorted(ls, k):
-    '''
+    """
     Question 11.3: Sort an almost-sorted array,
     where all elements are within k elements of being sorted
-    '''
+    """
     heap = Heap(lambda x, y: x < y)
     res = []
 
@@ -112,10 +112,10 @@ def almost_sorted(ls, k):
 
 
 def find_closest_stars(limit, stars):
-    '''
+    """
     Question 11.4: Find k closest stars
     to a location
-    '''
+    """
     # create max heap to handle keeping
     # track of closest stars
     heap = Heap(lambda x, y: x > y)
@@ -134,10 +134,10 @@ def find_closest_stars(limit, stars):
 
 
 def stream_median(stream):
-    '''
+    """
     Question 11.5: find median of streaming
     integers
-    '''
+    """
     minheap = Heap(lambda x, y: x < y)
     maxheap = Heap(lambda x, y: x > y)
 

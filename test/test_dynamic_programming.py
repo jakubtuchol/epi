@@ -3,9 +3,9 @@ from src.dynamic_programming import count_score_combinations
 
 
 class TestCountScoreCombinations(object):
-    '''
+    """
     Question 17.1
-    '''
+    """
 
     def test_single_combinations(self):
         assert 0 == count_score_combinations(1)
@@ -18,9 +18,9 @@ class TestCountScoreCombinations(object):
 
 
 class TestLevenshteinDistance(object):
-    '''
+    """
     Question 17.2
-    '''
+    """
 
     def test_book_example(self):
         assert 4 == calculate_levenshtein_distance('Saturday', 'Sundays')

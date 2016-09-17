@@ -1,15 +1,15 @@
-'''
+"""
 Chapter 12: Searching
-'''
+"""
 from src.searching import find_first_occurrence
 from src.searching import smallest_cyclically_sorted_list
 from src.searching import square_root
 
 
 class TestFindFirstOccurrence(object):
-    '''
+    """
     Question 12.1
-    '''
+    """
 
     def test_book_example(self):
         ls = [-14, -10, 2, 108, 108, 243, 285, 285, 401]
@@ -27,9 +27,9 @@ class TestFindFirstOccurrence(object):
 
 
 class TestSmallestCyclicallySortedArray(object):
-    '''
+    """
     Question 12.4
-    '''
+    """
 
     def test_book_example(self):
         in_arr = [378, 478, 550, 631, 103, 203, 220, 234, 279, 368]
@@ -45,9 +45,9 @@ class TestSmallestCyclicallySortedArray(object):
 
 
 class TestSquareRoot(object):
-    '''
+    """
     Question 12.5
-    '''
+    """
 
     def test_equal_case(self):
         assert 16 == square_root(256)

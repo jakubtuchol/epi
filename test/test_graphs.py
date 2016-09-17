@@ -7,9 +7,9 @@ from src.graphs import WHITE
 
 @pytest.fixture(scope='module')
 def create_maze():
-    '''
+    """
     Create 2d maze
-    '''
+    """
     maze = [
         [BLACK, WHITE, WHITE, WHITE, WHITE, WHITE, BLACK, BLACK, WHITE, WHITE],
         [WHITE, WHITE, BLACK, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE],
@@ -26,9 +26,9 @@ def create_maze():
 
 
 class TestGetNeighbors(object):
-    '''
+    """
     Testing get_neighbors method
-    '''
+    """
 
     def test_get_all_neighbors(self, create_maze):
         neighbors = get_neighbors((8, 5), create_maze)
@@ -47,7 +47,7 @@ class TestGetNeighbors(object):
         neighbors = get_neighbors((9, 9), create_maze)
         assert 0 == len(neighbors)
 
-    '''
+    """
 class TestSearchMaze(object):
     Question 19.1
     def test_book_example(self, create_maze):
@@ -56,4 +56,4 @@ class TestSearchMaze(object):
         path = search_maze(create_maze, start_coord, end_coord)
         assert path[0] == start_coord
         assert path[-1] == end_coord
-    '''
+    """

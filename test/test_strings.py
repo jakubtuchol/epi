@@ -8,9 +8,9 @@ from src.strings import string_to_int
 
 
 class TestIntToString(object):
-    '''
+    """
     Question 7.1
-    '''
+    """
 
     def test_basic(self):
         assert '187' == int_to_string(187)
@@ -22,9 +22,9 @@ class TestIntToString(object):
 
 
 class TestStringToInt(object):
-    '''
+    """
     Question 7.1
-    '''
+    """
 
     def test_basic(self):
         assert 187 == string_to_int('187')
@@ -36,9 +36,9 @@ class TestStringToInt(object):
 
 
 class TestConvertBase(object):
-    '''
+    """
     Question 7.2
-    '''
+    """
 
     def test_basic_conversion(self):
         assert u'1A7' == convert_base(u'615', 7, 13)
@@ -48,9 +48,9 @@ class TestConvertBase(object):
 
 
 class TestCheckPalindrome(object):
-    '''
+    """
     Question 7.5
-    '''
+    """
 
     def test_classic_case(self):
         assert check_palindrome('amanaplanacanalpanama')
@@ -70,9 +70,9 @@ class TestCheckPalindrome(object):
 
 
 class TestReverseWord(object):
-    '''
+    """
     Question 7.6
-    '''
+    """
     def test_reverse_basic_word(object):
         assert 'Alice likes Bob' == reverse_words('Bob likes Alice')
 
@@ -81,9 +81,9 @@ class TestReverseWord(object):
 
 
 class TestGetPhoneMnemonics(object):
-    '''
+    """
     Question 7.7
-    '''
+    """
 
     def test_limited_example(self):
         results = [
@@ -100,9 +100,9 @@ class TestGetPhoneMnemonics(object):
 
 
 class TestLookSay(object):
-    '''
+    """
     Question 7.8
-    '''
+    """
 
     def test_look_say(self):
         assert '1' == look_say(1)

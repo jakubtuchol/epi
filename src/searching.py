@@ -1,7 +1,7 @@
 def find_first_occurrence(target, ls):
-    '''
+    """
     Question 12.1
-    '''
+    """
     left = 0
     right = len(ls) - 1
     result = -1
@@ -20,10 +20,10 @@ def find_first_occurrence(target, ls):
 
 
 def smallest_cyclically_sorted_list(ls):
-    '''
+    """
     Question 12.4: Find index of smallest element
     in cyclically sorted array
-    '''
+    """
     left = 0
     right = len(ls) - 1
 
@@ -38,9 +38,9 @@ def smallest_cyclically_sorted_list(ls):
 
 
 def square_root(num):
-    '''
+    """
     Question 12.5
-    '''
+    """
     last_root = 1
     root = 2
     square = 4

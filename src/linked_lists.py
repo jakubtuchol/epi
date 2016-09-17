@@ -1,6 +1,6 @@
-'''
+"""
 Chapter 8: Linked Lists
-'''
+"""
 
 
 class Node(object):
@@ -11,9 +11,9 @@ class Node(object):
 
 
 def merge_sorted_lists(ls_1, ls_2):
-    '''
+    """
     Question 8.1: merge two sorted singly-linked lists
-    '''
+    """
     dummy_head = Node(1000000)
     tail = dummy_head
 
@@ -33,9 +33,9 @@ def merge_sorted_lists(ls_1, ls_2):
 
 
 def reverse_linked_list(ls):
-    '''
+    """
     Question 8.2: Reverse a linked list using O(1) space and O(n) time
-    '''
+    """
     prev = ls.next
     cur = prev
     head = ls
@@ -51,11 +51,11 @@ def reverse_linked_list(ls):
 
 
 def detect_cycle(head):
-    '''
+    """
     Question 8.4: Detect a cycle in a singly-linked list.
     Return None if there is no cycle.
     If there is, return the first node in the cycle.
-    '''
+    """
     slow = head
     fast = head
 
@@ -88,10 +88,10 @@ def detect_cycle(head):
 
 
 def find_overlap(ls_one, ls_two):
-    '''
+    """
     Question 8.5: Find overlap in two linked lists
     without cycles
-    '''
+    """
     # find length of list one
     len_one = 0
     len_two = 0
@@ -121,10 +121,10 @@ def find_overlap(ls_one, ls_two):
 
 
 def find_overlap_cycle(ls_one, ls_two):
-    '''
+    """
     Question 8.5: Find overlap in two linked lists
     with cycles
-    '''
+    """
     cycle_one = detect_cycle(ls_one)
     cycle_two = detect_cycle(ls_two)
 
@@ -180,10 +180,10 @@ def advance_list(node, k):
 
 
 def remove_kth_last_element(ls, k):
-    '''
+    """
     Question 8.8: Remove kth element from
     end of list
-    '''
+    """
     # first advance first pointer by k
     # then advance first and second pointer in tandem
     fast_runner = ls

@@ -1,6 +1,6 @@
-'''
+"""
 Chapter 6: Arrays
-'''
+"""
 import random
 import sys
 from datetime import datetime
@@ -13,13 +13,13 @@ def swap(arr, idx, idy):
 
 
 def dutch_national_partition(idx, arr):
-    '''
+    """
     Problem 6.1
     Partition such that all elements less than
     arr[idx] come first, then all elements equal
     to arr[idx], then all elements greater than
     arr[idx]
-    '''
+    """
     pivot = arr[idx]
 
     smaller = 0
@@ -44,10 +44,10 @@ def dutch_national_partition(idx, arr):
 
 
 def dutch_partition_better(idx, arr):
-    '''
+    """
     improved, single-pass version of
     dutch national flag algorithm
-    '''
+    """
     pivot = arr[idx]
 
     small = 0
@@ -67,10 +67,10 @@ def dutch_partition_better(idx, arr):
 
 
 def add_one(num):
-    '''
+    """
     Question 6.2: Implement arbitrary precision
     integer to add one
-    '''
+    """
     num[-1] += 1
     begin = len(num) - 1
 
@@ -86,11 +86,11 @@ def add_one(num):
 
 
 def buy_sell_once(stocks):
-    '''
+    """
     Problem 6.7
     find the maximum profit achieved by buying
     a stock and selling it
-    '''
+    """
     max_profit = 0
     lowest = sys.maxsize
     for price in stocks:
@@ -102,11 +102,11 @@ def buy_sell_once(stocks):
 
 
 def random_sample(inputs, size):
-    '''
+    """
     Problem 6.12
     given an array of input values, return
     a random subset of inputs of size `size`
-    '''
+    """
     next_pos = len(inputs) - 1
     # seed rand generator
     random.seed(datetime.now())
@@ -119,9 +119,9 @@ def random_sample(inputs, size):
 
 
 def check_sudoku(sudoku):
-    '''
+    """
     Question 6.17: Check if 9x9 sudoku puzzle is valid
-    '''
+    """
     # initialize sets
     rows = []
     cols = []
@@ -149,17 +149,17 @@ def check_sudoku(sudoku):
 
 
 def get_square_idx(row, col):
-    '''
+    """
     Get index of associated square
-    '''
+    """
     return (row // 3) * 3 + col // 3
 
 
 def spiralize(arr):
-    '''
+    """
     Problem 6.18
     print out spiral traversal of 2D array
-    '''
+    """
     output = []
     min_x = 0
     min_y = 0

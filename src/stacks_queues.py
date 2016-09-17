@@ -1,12 +1,12 @@
-'''
+"""
 Chapter 9: Stacks and Queues
-'''
+"""
 
 
 class MaxStack(object):
-    '''
+    """
     Question 9.1
-    '''
+    """
 
     def __init__(self):
         self.contents = []
@@ -29,9 +29,9 @@ class MaxStack(object):
 
 
 def evaluate_rpn(ls):
-    '''
+    """
     Question 9.2
-    '''
+    """
     tokens = []
     for token in ls:
         if token in '+-/*':
@@ -52,10 +52,10 @@ def evaluate_rpn(ls):
 
 
 def depth_order(root):
-    '''
+    """
     Question 9.9: return depth order representation
     of a binary tree
-    '''
+    """
     traversal = []
     queue = []
     if root:
@@ -77,9 +77,9 @@ def depth_order(root):
 
 
 class CircularQueue(object):
-    '''
+    """
     Question 9.10: Impelement a circular queue
-    '''
+    """
 
     def __init__(self, capacity):
         self.capacity = capacity

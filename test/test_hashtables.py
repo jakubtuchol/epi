@@ -5,9 +5,9 @@ from src.hashtables import palindromic_permutation
 
 
 class TestFindAnagrams(object):
-    '''
+    """
     Question 13.1
-    '''
+    """
 
     def test_find_anagrams(self):
         words = [
@@ -47,9 +47,9 @@ class TestFindAnagrams(object):
 
 
 class TestPalindromicPermutation(object):
-    '''
+    """
     Question 13.2
-    '''
+    """
 
     def test_basic_case(self):
         assert palindromic_permutation('civic')
@@ -62,9 +62,9 @@ class TestPalindromicPermutation(object):
 
 
 class TestIsbnCache(object):
-    '''
+    """
     Question 13.4
-    '''
+    """
 
     def test_serial_insert_removes_least_recent(self):
         isbns = [
@@ -94,9 +94,9 @@ class TestIsbnCache(object):
 
 
 class TestFindNearestRepetition(object):
-    '''
+    """
     Question 13.7
-    '''
+    """
 
     def test_book_example(self):
         words = [

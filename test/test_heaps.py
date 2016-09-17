@@ -6,9 +6,9 @@ from src.heaps import stream_median
 
 
 class TestMinHeap(object):
-    '''
+    """
     Testing min heap
-    '''
+    """
 
     def test_basic_heap(self):
         heap = Heap(lambda x, y: x < y)
@@ -43,9 +43,9 @@ class TestMinHeap(object):
 
 
 class TestMaxHeap(object):
-    '''
+    """
     Testing max heap
-    '''
+    """
 
     def test_basic_heap(self):
         heap = Heap(lambda x, y: x > y)
@@ -70,14 +70,14 @@ class TestMaxHeap(object):
 
 
 class TestMergeArrays(object):
-    '''
+    """
     Question 11.1
-    '''
+    """
 
     def test_book_case(self):
-        '''
+        """
         Basic book case
-        '''
+        """
         input_arrs = [
             [3, 5, 7],
             [0, 6],
@@ -87,9 +87,9 @@ class TestMergeArrays(object):
         assert expected == merge_sorted_arrays(input_arrs)
 
     def test_asymmetrical_case(self):
-        '''
+        """
         Significantly asymmetrical case
-        '''
+        """
         input_arrs = [
             [10, 100, 1000, 10000],
             [0, 200, 400],
@@ -100,9 +100,9 @@ class TestMergeArrays(object):
 
 
 class TestAlmostSorted(object):
-    '''
+    """
     Question 11.3
-    '''
+    """
 
     def test_book_example(self):
         arr = [3, -1, 2, 6, 4, 5, 8]
@@ -118,9 +118,9 @@ class TestAlmostSorted(object):
 
 
 class TestFindClosestStars(object):
-    '''
+    """
     Question 11.4
-    '''
+    """
 
     def test_basic_stream(self):
         stream = [
@@ -136,9 +136,9 @@ class TestFindClosestStars(object):
 
 
 class TestStreamMedian(object):
-    '''
+    """
     Question 11.5
-    '''
+    """
 
     def test_find_median(self):
         arr = [

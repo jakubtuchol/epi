@@ -32,9 +32,9 @@ def create_almost_equal():
 
 
 class TestCheckEqual(object):
-    '''
+    """
     Testing check equal helper function
-    '''
+    """
 
     def test_equal_trees(self, create_basic_tree):
         assert check_equal(create_basic_tree, create_basic_tree)
@@ -44,14 +44,14 @@ class TestCheckEqual(object):
 
 
 class TestIsBalanced(object):
-    '''
+    """
     Question 10.1
-    '''
+    """
 
     def test_book_case(self):
-        '''
+        """
         Test balancing in book case
-        '''
+        """
         root = TNode('A')
         # handle left subtree
         root.left = TNode('B')
@@ -78,15 +78,15 @@ class TestIsBalanced(object):
         assert is_balanced(root)
 
     def test_degenerate_case(self):
-        '''
+        """
         Test balance if root is None
-        '''
+        """
         assert is_balanced(None)
 
     def test_basic_case(self):
-        '''
+        """
         Test two basic cases of balanced trees
-        '''
+        """
         root_1 = TNode(1)
         root_1.right = TNode(2)
 
@@ -99,9 +99,9 @@ class TestIsBalanced(object):
         assert is_balanced(root_2)
 
     def test_failure_case(self):
-        '''
+        """
         Test basic failure case
-        '''
+        """
         root = TNode(1)
         root.left = TNode(2)
         root.left.right = TNode(3)
@@ -166,9 +166,9 @@ def generate_asymmetric_shape_tree():
 
 
 class TestCheckSymmetric(object):
-    '''
+    """
     Question 10.2
-    '''
+    """
 
     def test_symmetric_case(self, generate_symmetric_tree):
         assert is_symmetric(generate_symmetric_tree)
@@ -181,14 +181,14 @@ class TestCheckSymmetric(object):
 
 
 class TestParentLCA(object):
-    '''
+    """
     Question 10.4
-    '''
+    """
 
     def test_basic_case(self):
-        '''
+        """
         Right and left nodes with same parent
-        '''
+        """
         root = TNode(1)
         root.left = TNode(2)
         root.right = TNode(3)
@@ -198,9 +198,9 @@ class TestParentLCA(object):
         assert root == compute_parent_lca(root.left, root.right)
 
     def test_deeper_case(self):
-        '''
+        """
         Deeper case, with two nodes on subtree
-        '''
+        """
         root = TNode(1)
         root.left = TNode(1)
         root.left.parent = root
@@ -213,9 +213,9 @@ class TestParentLCA(object):
 
 
 class TestReconstructTree(object):
-    '''
+    """
     Question 10.10
-    '''
+    """
 
     def test_basic_example(self):
         root = TNode('A')

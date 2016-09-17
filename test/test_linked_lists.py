@@ -10,15 +10,15 @@ from src.linked_lists import reverse_linked_list
 
 
 class TestMergeLinkedLists(object):
-    '''
+    """
     Question 8.1
-    '''
+    """
 
     def test_append_case(self):
-        '''
+        """
         Basic test providing two linked lists, both
         already sorted and in order
-        '''
+        """
         head_1 = Node(1)
         cur_1 = head_1
         for i in xrange(2, 11):
@@ -37,9 +37,9 @@ class TestMergeLinkedLists(object):
             merge_head = merge_head.next
 
     def test_interleaving_case(self):
-        '''
+        """
         Test for two linked lists with interleaving values
-        '''
+        """
         head_1 = Node(1)
         cur_1 = head_1
         for i in xrange(3, 21, 2):
@@ -59,14 +59,14 @@ class TestMergeLinkedLists(object):
 
 
 class TestReverseLinkedList(object):
-    '''
+    """
     Question 8.2
-    '''
+    """
 
     def test_basic_incremental(self):
-        '''
+        """
         Test for basic presorted list
-        '''
+        """
         head = Node(1)
         cur = head
         for i in xrange(2, 11):
@@ -80,14 +80,14 @@ class TestReverseLinkedList(object):
 
 
 class TestCyclicTest(object):
-    '''
+    """
     Question 8.4
-    '''
+    """
 
     def test_basic_cycle(self):
-        '''
+        """
         Testing very simple cycle
-        '''
+        """
         head = Node(1)
         cur = head
         for i in xrange(2, 11):
@@ -104,9 +104,9 @@ class TestCyclicTest(object):
 
 
 class TestOverlappingLists(object):
-    '''
+    """
     Question 8.5
-    '''
+    """
 
     def test_book_case(self):
         head_one = Node('A')
@@ -130,9 +130,9 @@ class TestOverlappingLists(object):
 
 
 class TestFindOverlapCycle(object):
-    '''
+    """
     Question 8.6
-    '''
+    """
 
     def test_book_case(self):
         head_one = Node('A')
@@ -180,9 +180,9 @@ def create_list():
 
 
 class TestRemoveKthElement(object):
-    '''
+    """
     Question 8.8
-    '''
+    """
 
     def test_remove_kth_element(self, create_list):
         remove = remove_kth_last_element(create_list, 3)

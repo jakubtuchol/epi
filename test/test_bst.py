@@ -8,9 +8,9 @@ from src.bst import find_largest_keys
 
 @pytest.fixture(scope='module')
 def create_tiny_bst():
-    '''
+    """
     Create tiny, correctly formatted BST
-    '''
+    """
     root = BST(5)
     root.left = BST(2)
     root.right = BST(7)
@@ -19,9 +19,9 @@ def create_tiny_bst():
 
 @pytest.fixture(scope='module')
 def create_tiny_nonbst():
-    '''
+    """
     Create tiny incorrectly formatted BST
-    '''
+    """
     root = BST(30)
     root.left = BST(35)
     root.right = BST(25)
@@ -30,9 +30,9 @@ def create_tiny_nonbst():
 
 @pytest.fixture(scope='module')
 def create_large_bst():
-    '''
+    """
     Create large properly formatted bst
-    '''
+    """
     root = BST(19)
     # level 1
     root.left = BST(7)
@@ -60,9 +60,9 @@ def create_large_bst():
 
 @pytest.fixture
 def create_large_nonbst():
-    '''
+    """
     Create large improperly formatted bst
-    '''
+    """
     root = BST(10)
     root.left = BST(5)
     root.right = BST(8)
@@ -72,9 +72,9 @@ def create_large_nonbst():
 
 
 class TestCheckBST(object):
-    '''
+    """
     Question 15.1
-    '''
+    """
 
     def test_small_example(self, create_tiny_bst):
         assert check_bst(create_tiny_bst)
@@ -90,9 +90,9 @@ class TestCheckBST(object):
 
 
 class TestFindFirstLargerKey(object):
-    '''
+    """
     Question 15.3
-    '''
+    """
 
     def test_book_example(self, create_large_bst):
         assert 29 == find_first_larger_key(create_large_bst, 23)
@@ -102,9 +102,9 @@ class TestFindFirstLargerKey(object):
 
 
 class TestFindKLargestElements(object):
-    '''
+    """
     Question 15.4
-    '''
+    """
 
     def test_tiny_tree(self, create_tiny_bst):
         assert [7] == find_largest_keys(create_tiny_bst, 1)

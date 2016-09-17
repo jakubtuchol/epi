@@ -2,10 +2,10 @@ from math import floor
 
 
 def int_to_string(num):
-    '''
+    """
     Problem 7.1
     convert an integer to a string, without using `str`
-    '''
+    """
     negative = num < 0
     output = []
     if negative:
@@ -22,10 +22,10 @@ def int_to_string(num):
 
 
 def string_to_int(string):
-    '''
+    """
     Problem 7.1
     convert a string to an integer, without using `int`
-    '''
+    """
     negative = string[0] == '-'
     if negative:
         string = string[1:]
@@ -44,10 +44,10 @@ def string_to_int(string):
 
 
 def convert_base(s, base1, base2):
-    '''
+    """
     Problem 7.2
     Convert number from one base to another
-    '''
+    """
     # Convert string to int
     negative = s[0] == '-'
     begin = 1 if negative else 0
@@ -77,9 +77,9 @@ def convert_base(s, base1, base2):
 
 
 def check_palindrome(string):
-    '''
+    """
     Question 7.5: Check palindromicity of string
-    '''
+    """
     begin = 0
     end = len(string) - 1
 
@@ -97,17 +97,17 @@ def check_palindrome(string):
 
 
 def reverse_words(sentence):
-    '''
+    """
     Question 7.6: Reverse space-separated words in string
-    '''
+    """
     split_sentence = sentence.split()
     return ' '.join(reversed(split_sentence))
 
 
 def get_phone_mnemonics(number):
-    '''
+    """
     Question 7.7: Generate mnemonics for phone numbers
-    '''
+    """
     keymapping = {
         '0': [''],
         '1': [''],
@@ -135,9 +135,9 @@ def get_phone_mnemonics(number):
 
 
 def look_say(n):
-    '''
+    """
     Question 7.8: Return nth step in looksay sequence
-    '''
+    """
     x = '1'
 
     for _ in xrange(1, n):

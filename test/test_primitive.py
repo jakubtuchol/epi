@@ -7,9 +7,9 @@ from src.primitive import reverse_digits
 
 
 class TestParity(object):
-    '''
+    """
     Question 5.1
-    '''
+    """
 
     def test_basic_parity(self):
         x = int('1011', 2)
@@ -21,32 +21,32 @@ class TestParity(object):
 
 
 class TestReverseBits(object):
-    '''
+    """
     Question 5.3
-    '''
+    """
 
     def test_basic_reversal(self):
-        '''
+        """
         Alternating 0s and 1s reversed
         010101... => 101010...
-        '''
+        """
         num_in = 6148914691236517205
         num_out = 12297829382473034410L
         assert num_out == reverse_bits(num_in)
 
     def test_chunk_reversal(self):
-        '''
+        """
         48 0s and 16 1s => 16 1s and 48 0s
-        '''
+        """
         num_in = int((48 * '0') + (16 * '1'), 2)
         num_out = int((16 * '1') + (48 * '0'), 2)
         assert num_out == reverse_bits(num_in)
 
 
 class TestReverseInteger(object):
-    '''
+    """
     Question 5.8
-    '''
+    """
 
     def test_basic_reverse(self):
         assert reverse_digits(42) == 24
@@ -60,9 +60,9 @@ class TestReverseInteger(object):
 
 
 class TestCheckRectangleIntersection(object):
-    '''
+    """
     Question 5.11
-    '''
+    """
 
     def test_basic_case(self):
         rect_left = Rectangle(0, 0, 2, 2)

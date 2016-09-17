@@ -14,4 +14,5 @@ clean:
 	-rm -rf $(SRC)/*.pyc
 	-rm -rf $(TEST)/*.pyc
 	-rm -rf .cache/
+	-rm -rf src/__pycache__
 	-rm -rf test/__pycache__

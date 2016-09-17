@@ -9,15 +9,15 @@ from src.arrays import spiralize
 
 
 class TestDutchNationalFlag(object):
-    '''
+    """
     Question 6.1
-    '''
+    """
 
     def test_arr_ordered(self):
-        '''
+        """
         should pass automatically, array
         is already ordered
-        '''
+        """
         arr = [0, 0, 0, 1, 1, 1, 2, 2, 2]
         dutch_national_partition(5, arr)
         for x in xrange(9):
@@ -29,10 +29,10 @@ class TestDutchNationalFlag(object):
                 assert arr[x] == 2
 
     def test_repeated_elements(self):
-        '''
+        """
         should function properly on
         an array with repeating elements
-        '''
+        """
         arr = [5, 3, 1, 5, 5, 3, 3, 1, 1]
         dutch_national_partition(1, arr)
         for x in xrange(9):
@@ -45,9 +45,9 @@ class TestDutchNationalFlag(object):
 
 
 class TestDutchFlagBetter(object):
-    '''
+    """
     Question 6.1
-    '''
+    """
 
     def test_better_ordered(self):
         arr = [0, 0, 0, 1, 1, 1, 2, 2, 2]
@@ -61,10 +61,10 @@ class TestDutchFlagBetter(object):
                 assert arr[x] == 2
 
     def test_better_repeated(self):
-        '''
+        """
         should function properly on
         an array with repeating elements
-        '''
+        """
         arr = [5, 3, 1, 5, 5, 3, 3, 1, 1]
         dutch_partition_better(1, arr)
         for x in xrange(9):
@@ -77,9 +77,9 @@ class TestDutchFlagBetter(object):
 
 
 class TestAddOne(object):
-    '''
+    """
     Question 6.2
-    '''
+    """
 
     def test_book_example(self):
         assert [1, 3, 0] == add_one([1, 2, 9])
@@ -93,9 +93,9 @@ class TestAddOne(object):
 
 
 class TestBuySellOnce(object):
-    '''
+    """
     Question 6.7
-    '''
+    """
 
     def test_stock_one(self):
         stocks = [
@@ -116,9 +116,9 @@ class TestBuySellOnce(object):
 
 
 class TestRandomSampling(object):
-    '''
+    """
     Question 6.12
-    '''
+    """
 
     def test_random_sample(self):
         population = list(range(100))
@@ -128,9 +128,9 @@ class TestRandomSampling(object):
 
 
 class TestCheckSudoku(object):
-    '''
+    """
     Question 6.17
-    '''
+    """
 
     def test_book_solution(self):
         sudoku = [
@@ -162,9 +162,9 @@ class TestCheckSudoku(object):
 
 
 class TestGetSquare(object):
-    '''
+    """
     Testing getting square indexes
-    '''
+    """
 
     def test_get_square(self):
         assert 0 == get_square_idx(1, 1)
@@ -189,9 +189,9 @@ class TestGetSquare(object):
 
 
 class TestSpiralize(object):
-    '''
+    """
     Question 6.18
-    '''
+    """
 
     def test_spiralize_three(self):
         expected = [1, 2, 3, 6, 9, 8, 7, 4, 5]

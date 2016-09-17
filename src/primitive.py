@@ -2,9 +2,9 @@ from math import ceil
 
 
 def find_parity(x):
-    '''
+    """
     Problem 5.1: Computing the parity of a word
-    '''
+    """
     parity = 0
 
     while x:
@@ -15,9 +15,9 @@ def find_parity(x):
 
 
 def reverse_bits(x):
-    '''
+    """
     Question 5.3: Reverse the bits in a number
-    '''
+    """
     MAX_LEN = 64
     bin_str = '{:08b}'.format(x)
     remaining = MAX_LEN - len(bin_str)
@@ -26,9 +26,9 @@ def reverse_bits(x):
 
 
 def reverse_digits(num):
-    '''
+    """
     Problem 5.8: Reverse digits of a number
-    '''
+    """
     negative = False
     if num < 0:
         negative = True
@@ -58,9 +58,9 @@ class Rectangle(object):
 
 
 def check_rectangle_intersection(rect1, rect2):
-    '''
+    """
     Problem 5.11: Check intersection of two rectangles
-    '''
+    """
     if get_intersection(rect1, rect2):
         x = max(rect1.x, rect2.x)
         y = max(rect1.y, rect2.y)

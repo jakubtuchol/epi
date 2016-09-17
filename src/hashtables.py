@@ -3,10 +3,10 @@ from sys import maxint
 
 
 def find_anagrams(words):
-    '''
+    """
     Question 13.1: Take in set of words and returns
     list of these words grouped into anagrams
-    '''
+    """
     anagrams = defaultdict(set)
 
     for word in words:
@@ -17,10 +17,10 @@ def find_anagrams(words):
 
 
 def palindromic_permutation(string):
-    '''
+    """
     Question 13.2: Test whether the letters
     forming a string to form a palindrome
-    '''
+    """
     seen = set()
     for char in string:
         if char in seen:
@@ -40,9 +40,9 @@ class IsbnNode(object):
 
 
 class IsbnCache(object):
-    '''
+    """
     Question 13.4
-    '''
+    """
 
     def __init__(self, max_size):
         self.capacity = max_size
@@ -91,10 +91,10 @@ class IsbnCache(object):
 
 
 def find_nearest_repetition(words):
-    '''
+    """
     Question 13.7: Given array of words, find
     distance of closest pair identical words
-    '''
+    """
     past_idx = {}
     lowest_distance = maxint
 
