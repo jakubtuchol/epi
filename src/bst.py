@@ -74,4 +74,20 @@ def find_lca(root, a, b):
     """
     Question 15.5: Compute the LCA in a BST
     """
-    pass
+    smaller = min(a, b)
+    larger = max(a, b)
+
+    cur_node = root
+
+    while cur_node.val > larger or cur_node.val < smaller:
+        if cur_node.val > larger:
+            if cur_node.left:
+                cur_node = cur_node.left
+            else:
+                return None
+        if cur_node.val < smaller:
+            if cur_node.right:
+                cur_node = cur_node.right
+            else:
+                return None
+    return cur_node.val

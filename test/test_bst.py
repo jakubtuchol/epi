@@ -4,6 +4,7 @@ from src.bst import BST
 from src.bst import check_bst
 from src.bst import find_first_larger_key
 from src.bst import find_largest_keys
+from src.bst import find_lca
 
 
 @pytest.fixture(scope='module')
@@ -110,5 +111,23 @@ class TestFindKLargestElements(object):
         assert [7] == find_largest_keys(create_tiny_bst, 1)
 
     def test_larger_tree(self, create_large_bst):
-        assert [23, 29, 31, 37, 41, 43, 47,
-                53] == find_largest_keys(create_large_bst, 8)
+        assert [
+            23, 29, 31,
+            37, 41, 43,
+            47, 53
+        ] == find_largest_keys(create_large_bst, 8)
+
+
+class TestGetLCA(object):
+    """
+    Question 15.5
+    """
+
+    def test_large_bst_example(self, create_large_bst):
+        assert 7 == find_lca(create_large_bst, 5, 13)
+
+    def test_same_node_example(self, create_large_bst):
+        assert 23 == find_lca(create_large_bst, 23, 41)
+
+    def test_out_of_bounds_nodes(self, create_large_bst):
+        assert None is find_lca(create_large_bst, 55, 65)
