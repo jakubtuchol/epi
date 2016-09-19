@@ -1,6 +1,8 @@
 """
 Chapter 17
 """
+import attr
+from attr.validators import instance_of
 
 
 def count_score_combinations(score):
@@ -75,3 +77,21 @@ def get_num_array_traversals(n, m):
                 )
         matrix.append(row)
     return matrix[-1][-1]
+
+
+@attr.s
+class KObject(object):
+    id = attr.ib(validator=instance_of(str))
+    price = attr.ib(validator=instance_of(int))
+    weight = attr.ib(validator=instance_of(int))
+
+
+def optimize_knapsack(contents, capacity):
+    """
+    Question 17.6
+    """
+
+    '''
+    need to optimize for max([w][s], [w-1]
+    '''
+    pass
