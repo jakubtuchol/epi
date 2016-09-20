@@ -1,5 +1,6 @@
 import pytest
 
+from src.linked_lists import check_list_palindrome
 from src.linked_lists import detect_cycle
 from src.linked_lists import even_odd_merge
 from src.linked_lists import find_overlap
@@ -232,3 +233,63 @@ class TestEvenOddMerge(object):
             merged = merged.next
 
         assert merged is None
+
+
+class TestCheckListPalindrome(object):
+    """
+    Question 8.12
+    """
+
+    def test_null_case(self):
+        assert check_list_palindrome(None)
+
+    def test_even_length_case(self):
+        head = Node(None)
+        cur_node = head
+
+        for idx in xrange(5):
+            cur_node.next = Node(idx)
+            cur_node = cur_node.next
+
+        for idx in xrange(5, -1, -1):
+            cur_node.next = Node(idx)
+            cur_node = cur_node.next
+
+        assert check_list_palindrome(head.next)
+
+    def test_odd_length_case(self):
+        head = Node(None)
+        cur_node = head
+
+        for idx in xrange(5):
+            cur_node.next = Node(idx)
+            cur_node = cur_node.next
+
+        cur_node.next = Node(6)
+        cur_node = cur_node.next
+
+        for idx in xrange(5, -1, -1):
+            cur_node.next = Node(idx)
+            cur_node = cur_node.next
+
+        assert check_list_palindrome(head.next)
+
+    def test_bad_length(self):
+        head = Node(None)
+        cur_node = head
+
+        for idx in xrange(5):
+            cur_node.next = Node(idx)
+            cur_node = cur_node.next
+
+        cur_node.next = Node(6)
+        cur_node = cur_node.next
+
+        cur_node.next = Node(7)
+        cur_node = cur_node.next
+
+        for idx in xrange(5, -1, -1):
+            cur_node.next = Node(idx)
+            cur_node = cur_node.next
+
+        assert not check_list_palindrome(head.next)

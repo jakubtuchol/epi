@@ -230,3 +230,33 @@ def even_odd_merge(ls):
     cur_odd.next = None
 
     return even_head.next
+
+
+def check_list_palindrome(ls):
+    """
+    Question 8.12: Check whether singly-linked
+    list is a palindrome
+    """
+    if ls is None:
+        return True
+
+    slow = ls
+    fast = ls
+    first_half = []
+
+    while fast and fast.next:
+        first_half.append(slow.val)
+        slow = slow.next
+        fast = fast.next.next
+
+    slow = slow.next
+    first_half.reverse()
+    idx = 0 if first_half[0] == slow.val else 1
+
+    while idx < len(first_half) and slow:
+        if first_half[idx] != slow.val:
+            return False
+        slow = slow.next
+        idx += 1
+
+    return True
