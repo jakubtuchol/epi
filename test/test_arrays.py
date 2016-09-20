@@ -4,6 +4,7 @@ from src.arrays import check_sudoku
 from src.arrays import dutch_national_partition
 from src.arrays import dutch_partition_better
 from src.arrays import get_square_idx
+from src.arrays import multiply
 from src.arrays import random_sample
 from src.arrays import spiralize
 
@@ -90,6 +91,35 @@ class TestAddOne(object):
     def test_normal_addition(self):
         assert [1] == add_one([0])
         assert [1, 2] == add_one([1, 1])
+
+
+class TestMultiply(object):
+    """
+    Question 6.3
+    """
+
+    def test_book_example(self):
+        first_num = [
+            1, 9, 3,
+            7, 0, 7,
+            7, 2, 1
+        ]
+        second_num = [
+            -7, 6, 1,
+            8, 3, 8,
+            2, 5, 7,
+            2, 8, 7
+        ]
+        expected = [
+            -1, 4, 7,
+            5, 7, 3,
+            9, 5, 2,
+            5, 8, 9,
+            6, 7, 6,
+            4, 1, 2,
+            9, 2, 7,
+        ]
+        assert expected == multiply(first_num, second_num)
 
 
 class TestBuySellOnce(object):

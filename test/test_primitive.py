@@ -16,7 +16,7 @@ class TestParity(object):
         x = int('1011', 2)
         assert find_parity(x) == 1
 
-    def test_basic_nonparity(self):
+    def test_basic_non_parity(self):
         x = int('10001000', 2)
         assert find_parity(x) == 0
 

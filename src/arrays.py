@@ -85,6 +85,14 @@ def add_one(num):
     return num
 
 
+def multiply(first_num, second_num):
+    """
+    Question 6.3: Multiply two arbitrary
+    precision numbers
+    """
+    pass
+
+
 def buy_sell_once(stocks):
     """
     Problem 6.7
