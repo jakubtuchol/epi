@@ -1,4 +1,5 @@
 from math import floor
+from os import SEEK_END
 
 
 def int_to_string(num):
@@ -202,3 +203,47 @@ def roman_to_integer(roman):
         last_roman = elt
 
     return total
+
+
+def tail(file_name, num_lines):
+    """
+    Question 7.13: Implement UNIX tail command
+    """
+    lines = []
+    for line in reverse_readline(file_name):
+        if not num_lines:
+            break
+        lines.append(line)
+        num_lines -= 1
+
+    lines.reverse()
+    return '\n'.join(lines)
+
+
+def reverse_readline(filename, buf_size=8192):
+    """
+    Generator to read lines in reverse
+    """
+    with open(filename) as fp:
+        segment = None
+        offset = 0
+        fp.seek(0, SEEK_END)
+        file_size = remaining_size = fp.tell()
+        while remaining_size > 0:
+            offset = min(file_size, offset + buf_size)
+            fp.seek(file_size - offset)
+            buf = fp.read(min(remaining_size, buf_size))
+            remaining_size -= buf_size
+            lines = buf.split('\n')
+            if segment is not None:
+                if buf[-1] is not '\n':
+                    lines[-1] += segment
+                else:
+                    yield segment
+            segment = lines[0]
+            for index in range(len(lines) - 1, 0, -1):
+                if len(lines[index]):
+                    yield lines[index].strip()
+        # don't yield None if file was empty
+        if segment is not None:
+            yield segment.strip()

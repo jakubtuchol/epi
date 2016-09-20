@@ -1,3 +1,6 @@
+from mock import mock_open
+from mock import patch
+
 from src.strings import check_palindrome
 from src.strings import convert_base
 from src.strings import get_phone_mnemonics
@@ -6,6 +9,7 @@ from src.strings import look_say
 from src.strings import reverse_words
 from src.strings import roman_to_integer
 from src.strings import string_to_int
+from src.strings import tail
 
 
 class TestIntToString(object):
@@ -146,3 +150,104 @@ class TestRomanToInteger(object):
         assert 1800 == roman_to_integer('MDCCC')
         assert 900 == roman_to_integer('CM')
         assert 707 == roman_to_integer('DCCVII')
+
+
+email_data = \
+    """Message-ID: <27065550.1075858882700.JavaMail.evans@thyme>
+    Date: Wed, 18 Jul 2001 10:32:00 -0700 (PDT)
+    From: steven.kean@enron.com
+    To: maureen.mcvicker@enron.com
+    Subject: Board of Directors Meeting - August 14, 2001
+    Mime-Version: 1.0
+    Content-Type: text/plain; charset=us-ascii
+    Content-Transfer-Encoding: quoted-printable
+    X-From: Steven J Kean
+    X-To: Maureen McVicker <Maureen McVicker/NA/Enron@Enron>
+    X-cc:
+    X-bcc:
+    X-Folder: \SKEAN (Non-Privileged)\Kean, Steven J.\Sent Items
+    X-Origin: Kean-S
+    X-FileName: SKEAN (Non-Privileged).pst
+    calendar and meeting file
+    ---------------------- Forwarded by Steven J Kean/NA/Enron on 07/18/2001 07
+    :32 AM ---------------------------
+    From:=09Kelly Johnson/ENRON@enronXgate on 07/16/2001 03:22 PM
+    To:=09Jeremy Blachman/HOU/EES@EES, Raymond Bowen/ENRON@enronXgate, Michael
+    Brown/Enron@EUEnronXGate, Harold G Buchanan/HOU/EES@EES, Rick Buy/ENRON@enr
+    onXgate, Richard Causey/ENRON@enronXgate, Wade Cline/ENRON_DEVELOPMENT@ENRO
+    N_DEVELOPMENt, David Cox/Enron Communications@Enron Communications, James D
+    errick/ENRON@enronXgate, Janet R Dietrich/HOU/EES@EES, Steve Elliott/Enron
+    Communications@Enron Communications, Jim Fallon/Enron Communications@Enron
+    Communications, Andrew S Fastow/ENRON@enronXgate, Mark Frevert/ENRON@enronX
+    gate, Ben Glisan/HOU/ECT@ECT, Kevin Hannon/Enron Communications@Enron Commu
+    nications, Rod Hayslett/ENRON@enronXgate, Stanley Horton/ENRON@enronXgate,
+    James A Hughes/ENRON@enronXgate, Steven J Kean/NA/Enron@Enron, Louise Kitch
+    en/ENRON@enronXgate, Mark Koenig/ENRON@enronXgate, John J Lavorato/ENRON@en
+    ronXgate, Kenneth Lay/ENRON@enronXgate, Dan Leff/HOU/EES@EES, Danny McCarty
+    /ET&S/Enron@Enron, Mike Mcconnell/ENRON@enronXgate, Rebecca McDonald/ENRON@
+    enronXgate, Jeffrey McMahon/ENRON@enronXgate, Mark Metts/Enron@EnronXGate,
+    Mark S Muller/HOU/EES@EES, Cindy Olson/ENRON@enronXgate, Lou L Pai/HOU/EES@
+    EES, Mark Pickering/Enron@EUEnronXgate, Greg Piper/ENRON@enronXgate, Ken Ri
+    ce/Enron Communications@Enron Communications, Matthew Scrimshaw/Enron@EUEnr
+    onXGate, Jeffrey A Shankman/ENRON@enronXgate, Jeffrey Sherrick/ENRON@enronX
+    gate, John Sherriff/ENRON@EUEnronXGate, Jeff Skilling/ENRON@enronXgate, Mar
+    ty Sunde/HOU/EES@EES, Greg Whalley/ENRON@enronXgate
+    cc:=09Jennifer Adams/Enron Communications@Enron Communications, Beverly Ade
+    n/HOU/EES@EES, Julie Armstrong/Corp/Enron@ENRON, Connie Blackwood/ENRON@enr
+    onXgate, Vivianna Bolen/ENRON@enronXgate, Loretta Brelsford/ENRON@enronXgat
+    e, Jennifer Burns/ENRON@enronXgate, Alan Butler/EU/Enron@Enron, Kathy Campo
+    s/ENRON@enronXgate, Kay Chapman/HOU/EES@EES, Inez Dauterive/HOU/ECT@ECT, Bi
+    nky Davidson/HOU/EES@EES, Nicki Daw/ENRON@enronXgate, Sharon Dick/HOU/EES@E
+    ES, Kathy Dodgen/HOU/EES@EES, Kerry Ferrari/Enron@EUEnronXGate, Dolores Fis
+    her/Enron@EnronXGate, Rosalee Fleming/ENRON@enronXgate, Sue Ford/ENRON@enro
+    nXgate, Mrudula Gadade/ENRON_DEVELOPMENT@ENRON_DEVELOPMENT, Stephanie Harri
+    s/ENRON@enronXgate, Linda Hawkins/ENRON@enronXgate, Kimberly Hillis/ENRON@e
+    nronXgate, Mary Joyce/ENRON@enronXgate, Samantha Lopez-Dias/EU/Enron@Enron,
+     Bridget Maronge/ENRON@enronXgate, Lucy Marshall/Enron Communications@Enron
+     Communications, Stephanie Mcginnis/ENRON@enronXgate, Kathy McMahon/ENRON@e
+    nronXgate, Maureen McVicker/NA/Enron@Enron, Karen Owens/HOU/EES@EES, Jana L
+     Paxton/ENRON@enronXgate, Cathy Phillips/ENRON@enronXgate, "Rijo, Leah" <Le
+    ah.Rijo@ENRON.com>@SMTP@enronXgate, Marsha Schiller/ENRON@enronXgate, Tammi
+    e Schoppe/ENRON@enronXgate, Sherri Sera/ENRON@enronXgate, Caron Stark/ENRON
+    @enronXgate, Sharon E Sullo/ENRON@enronXgate, Liz M Taylor/ENRON@enronXgate
+    , Lauren Urquhart/Enron@EUEnronXGate, Christina Valdez/ENRON@enronXgate, Ve
+    ronica Valdez/ENRON@enronXgate, Terry West/ENRON@enronXgate, Sharron Westbr
+    ook/ENRON@enronXgate, Joannie Williamson/ENRON@enronXgate, Teresa Wright/EN
+    RON@enronXgate=20
+    Subject:=09Board of Directors Meeting - August 14, 2001
+    =20
+    Kelly M. Johnson
+    Enron Corp.
+    Executive Assistant
+    Tel: (713) 853-6485
+    Fax: (713) 853-2534
+    E-Mail: kelly.johnson@enron.com"""
+
+
+class TestTail(object):
+    """
+    Question 7.13
+    """
+
+    def test_extract_last_five_lines(self):
+        expected_five = \
+            """Enron Corp.
+            Executive Assistant
+            Tel: (713) 853-6485
+            Fax: (713) 853-2534
+            E-Mail: kelly.johnson@enron.com"""
+
+        with patch('src.strings.open', mock_open(read_data=email_data)):
+            received_tail = tail('email.txt', 5)
+
+            clean_received = [
+                line.strip()
+                for line
+                in received_tail.split('\n')
+            ]
+            clean_expected = [
+                line.strip()
+                for line
+                in expected_five.split('\n')
+            ]
+            assert clean_expected == clean_received
