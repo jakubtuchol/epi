@@ -1,6 +1,7 @@
 import pytest
 
 from src.linked_lists import detect_cycle
+from src.linked_lists import even_odd_merge
 from src.linked_lists import find_overlap
 from src.linked_lists import find_overlap_cycle
 from src.linked_lists import merge_sorted_lists
@@ -205,3 +206,29 @@ class TestRemoveKthElement(object):
             remove = remove.next
 
         assert remove is None
+
+
+class TestEvenOddMerge(object):
+    """
+    Question 8.11
+    """
+
+    def test_book_case(self):
+        head = Node(0)
+        cur_node = head
+
+        for idx in xrange(1, 10):
+            cur_node.next = Node(idx)
+            cur_node = cur_node.next
+
+        merged = even_odd_merge(head)
+
+        for even_idx in xrange(0, 10, 2):
+            assert even_idx == merged.val
+            merged = merged.next
+
+        for odd_idx in xrange(1, 10, 2):
+            assert odd_idx == merged.val
+            merged = merged.next
+
+        assert merged is None

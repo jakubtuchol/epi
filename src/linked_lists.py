@@ -202,3 +202,31 @@ def remove_kth_last_element(ls, k):
         slow_runner.next = slow_runner.next.next
 
     return head
+
+
+def even_odd_merge(ls):
+    """
+    Question 8.11: merge list such that
+    even-number nodes are followed by odd-number
+    nodes
+    """
+    even_head = Node(None)
+    cur_even = even_head
+    odd_head = Node(None)
+    cur_odd = odd_head
+
+    idx = 0
+
+    while ls:
+        if idx % 2 == 0:
+            cur_even.next = ls
+            cur_even = cur_even.next
+        else:
+            cur_odd.next = ls
+            cur_odd = cur_odd.next
+        ls = ls.next
+        idx += 1
+    cur_even.next = odd_head.next
+    cur_odd.next = None
+
+    return even_head.next
