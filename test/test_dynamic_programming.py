@@ -68,4 +68,4 @@ class TestOptimizeKnapsack(object):
             KObject(id='O', price=220, weight=40),
             KObject(id='P', price=99, weight=10),
         ]
-        assert 695 == optimize_knapsack(knapsack, 130)
+        assert ['O', 'J', 'H'] == optimize_knapsack(knapsack, 130)

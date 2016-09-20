@@ -94,4 +94,27 @@ def optimize_knapsack(contents, capacity):
     '''
     need to optimize for max([w][s], [w-1]
     '''
-    pass
+    num_items = len(contents)
+    table = [[0 for _ in xrange(capacity + 1)] for _ in xrange(num_items + 1)]
+
+    for j in xrange(1, num_items + 1):
+        item = contents[j - 1]
+        for weight in xrange(1, capacity + 1):
+            if item.weight > weight:
+                table[j][weight] = table[j - 1][weight]
+            else:
+                table[j][weight] = max(
+                    table[j - 1][weight],
+                    table[j - 1][weight - item.weight] + item.price
+                )
+
+    result = []
+    w = capacity
+    for j in xrange(num_items, 0, -1):
+        was_added = table[j][w] != table[j - 1][w]
+
+        if was_added:
+            item = contents[j - 1]
+            result.append(item.id)
+            w -= item.weight
+    return result
