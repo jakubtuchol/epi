@@ -90,7 +90,38 @@ def multiply(first_num, second_num):
     Question 6.3: Multiply two arbitrary
     precision numbers
     """
-    pass
+    first_num.reverse()
+    second_num.reverse()
+
+    result_len = len(first_num) + len(second_num)
+    result = [0 for _ in xrange(result_len)]
+    negative = False
+
+    for idx_first, elt_first in enumerate(first_num):
+        for idx_second, elt_second in enumerate(second_num):
+            mult = elt_first * elt_second
+            if mult < 0:
+                negative = True
+                mult *= -1
+            result[idx_first + idx_second] += mult
+
+    carry = 0
+    for idx, elt in enumerate(result):
+        elt += carry
+        carry = elt // 10
+        result[idx] = elt % 10
+
+    while carry:
+        rem = carry % 10
+        carry //= 10
+        result.append(rem)
+
+    if negative:
+        result[-1] *= -1
+
+    result.reverse()
+
+    return result
 
 
 def buy_sell_once(stocks):
