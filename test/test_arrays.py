@@ -6,6 +6,8 @@ from src.arrays import dutch_national_partition
 from src.arrays import dutch_partition_better
 from src.arrays import get_square_idx
 from src.arrays import multiply
+from src.arrays import nonuniform_random
+from src.arrays import NumProbability
 from src.arrays import random_sample
 from src.arrays import spiralize
 
@@ -229,6 +231,29 @@ class TestGetSquare(object):
         assert 4 == get_square_idx(5, 3)
         assert 4 == get_square_idx(5, 4)
         assert 4 == get_square_idx(5, 5)
+
+
+class TestNonuniformRandom(object):
+    """
+    Question 6.16
+    """
+
+    def test_basic_example(self):
+        probs = [
+            NumProbability(num=1, prob=1.0 / 3.0),
+            NumProbability(num=3, prob=2.0 / 3.0),
+        ]
+        ones = 0
+        threes = 0
+
+        for _ in xrange(100):
+            res = nonuniform_random(probs)
+            if res == 3:
+                threes += 1
+            else:
+                ones += 1
+
+        assert threes > ones
 
 
 class TestSpiralize(object):

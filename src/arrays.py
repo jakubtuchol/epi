@@ -5,6 +5,9 @@ import random
 import sys
 from datetime import datetime
 
+import attr
+from attr.validators import instance_of
+
 
 def swap(arr, idx, idy):
     tmp = arr[idx]
@@ -173,6 +176,31 @@ def random_sample(inputs, size):
         next_pos -= 1
 
     return inputs[next_pos:]
+
+
+@attr.s
+class NumProbability(object):
+    num = attr.ib(validator=instance_of(int))
+    prob = attr.ib(validator=instance_of(float))
+
+
+def nonuniform_random(nums):
+    """
+    Question 6.16: Generate nonuniform random numbers,
+    given array of numbers and probabilities
+    """
+    endpts = [(0, None)]
+
+    for num in nums:
+        new_end = endpts[-1][0] + num.prob
+        endpts.append((new_end, num.num))
+
+    prob = random.uniform(0, 1)
+
+    for idx, elt in enumerate(endpts[:-1]):
+        if elt[0] < prob < endpts[idx + 1][0]:
+            return endpts[idx + 1][1]
+    return None
 
 
 def check_sudoku(sudoku):
