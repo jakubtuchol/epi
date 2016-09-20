@@ -4,6 +4,7 @@ Chapter 9: Stacks and Queues
 import pytest
 
 from src.binary_trees import TNode
+from src.stacks_queues import balanced_parentheses
 from src.stacks_queues import CircularQueue
 from src.stacks_queues import depth_order
 from src.stacks_queues import evaluate_rpn
@@ -70,6 +71,20 @@ class TestRpnEvaluation(object):
         Test complex division operation
         """
         assert 80 == evaluate_rpn(['8', '64', '/', '640', '/'])
+
+
+class TestBalancedParentheses(object):
+    """
+    Question 9.3
+    """
+
+    def test_well_formed_strings(self):
+        assert balanced_parentheses('([]){()}')
+        assert balanced_parentheses('[()[]{()()}]')
+
+    def test_ill_formed_strings(self):
+        assert not balanced_parentheses('{)')
+        assert not balanced_parentheses('[()[]{()()')
 
 
 @pytest.fixture(scope='module')

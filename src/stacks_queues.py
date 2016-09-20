@@ -51,6 +51,33 @@ def evaluate_rpn(ls):
     return tokens.pop()
 
 
+def balanced_parentheses(elts):
+    """
+    Question 9.3: Check whether a string
+    consisting of '{,},[,],(,)' is properly
+    balanced
+    """
+    stack = []
+    open_elts = {'{', '[', '('}
+    matches = {
+        '}': '{',
+        ']': '[',
+        ')': '(',
+    }
+    for elt in elts:
+        if elt in open_elts:
+            stack.append(elt)
+        if elt in matches:
+            if not stack:
+                return False
+            if matches[elt] != stack.pop():
+                return False
+
+    if len(stack):
+        return False
+    return True
+
+
 def depth_order(root):
     """
     Question 9.9: return depth order representation
