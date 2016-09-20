@@ -4,6 +4,7 @@ from src.strings import get_phone_mnemonics
 from src.strings import int_to_string
 from src.strings import look_say
 from src.strings import reverse_words
+from src.strings import roman_to_integer
 from src.strings import string_to_int
 
 
@@ -112,3 +113,36 @@ class TestLookSay(object):
 
     def test_long_example(self):
         assert '1113213211' == look_say(8)
+
+
+class TestRomanToInteger(object):
+    """
+    Question 7.9
+    """
+
+    def test_single_nums(self):
+        assert 1 == roman_to_integer('I')
+        assert 5 == roman_to_integer('V')
+        assert 10 == roman_to_integer('X')
+        assert 50 == roman_to_integer('L')
+        assert 100 == roman_to_integer('C')
+        assert 500 == roman_to_integer('D')
+        assert 1000 == roman_to_integer('M')
+
+    def test_increment_nums(self):
+        assert 7 == roman_to_integer('VII')
+        assert 8 == roman_to_integer('VIII')
+        assert 72 == roman_to_integer('LXXII')
+        assert 33 == roman_to_integer('XXXIII')
+
+    def test_decrement_nums(self):
+        assert 9 == roman_to_integer('IX')
+        assert 79 == roman_to_integer('LXXIX')
+        assert 90 == roman_to_integer('XC')
+
+    def test_large_numbers(self):
+        assert 890 == roman_to_integer('DCCCXC')
+        assert 1500 == roman_to_integer('MD')
+        assert 1800 == roman_to_integer('MDCCC')
+        assert 900 == roman_to_integer('CM')
+        assert 707 == roman_to_integer('DCCVII')

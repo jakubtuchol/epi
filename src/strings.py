@@ -166,3 +166,39 @@ def look_say_helper(s):
         string.append(char)
 
     return ''.join(string)
+
+
+def roman_to_integer(roman):
+    """
+    Question 7.9: Convert from roman
+    numeral to decimal
+    """
+    values = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000,
+    }
+    pairs = {
+        'I': None,
+        'V': 'I',
+        'X': 'I',
+        'L': 'X',
+        'C': 'X',
+        'D': 'C',
+        'M': 'C',
+    }
+    total = 0
+
+    last_roman = None
+    for elt in roman:
+        if last_roman and last_roman == pairs[elt]:
+            total -= 2 * values[last_roman]
+        total += values[elt]
+
+        last_roman = elt
+
+    return total
