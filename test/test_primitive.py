@@ -1,6 +1,7 @@
 from src.primitive import check_rectangle_intersection
 from src.primitive import find_parity
 from src.primitive import get_intersection
+from src.primitive import palindrome_number
 from src.primitive import Rectangle
 from src.primitive import reverse_bits
 from src.primitive import reverse_digits
@@ -57,6 +58,27 @@ class TestReverseInteger(object):
     def test_reverse_zeros(self):
         assert reverse_digits(100) == 1
         assert reverse_digits(-100) == -1
+
+
+class TestPalindromeNumber(object):
+    """
+    Question 5.9
+    """
+
+    def test_true_inputs(self):
+        assert palindrome_number(0)
+        assert palindrome_number(1)
+        assert palindrome_number(7)
+        assert palindrome_number(11)
+        assert palindrome_number(121)
+        assert palindrome_number(333)
+        assert palindrome_number(2147447412)
+
+    def test_false_inputs(self):
+        assert not palindrome_number(-1)
+        assert not palindrome_number(12)
+        assert not palindrome_number(100)
+        assert not palindrome_number(2147483647)
 
 
 class TestCheckRectangleIntersection(object):

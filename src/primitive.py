@@ -1,3 +1,6 @@
+"""
+Chapter 5: Primitives
+"""
 from math import ceil
 
 
@@ -55,6 +58,31 @@ class Rectangle(object):
         self.y = y
         self.height = height
         self.width = width
+
+
+def palindrome_number(x):
+    """
+    Problem 5.9: Check if decimal integer
+    is palindrome
+    """
+    if x < 0:
+        return False
+    elif x == 0:
+        return True
+
+    x_rep = str(x)
+
+    if len(x_rep) == 1:
+        return True
+
+    left = 0
+    right = len(x_rep) - 1
+    while left < right:
+        if x_rep[left] != x_rep[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
 
 
 def check_rectangle_intersection(rect1, rect2):
