@@ -1,4 +1,6 @@
+from src.greedy_algorithms import find_ample_city
 from src.greedy_algorithms import find_majority_element
+from src.greedy_algorithms import GasCity
 from src.greedy_algorithms import three_sum
 from src.greedy_algorithms import two_sum
 
@@ -51,3 +53,22 @@ class TestFindMajorityElement(object):
             2, 4, 4,
         ]
         assert 4 == find_majority_element(in_arr)
+
+
+class TestFindAmpleCity(object):
+    """
+    Question 18.7
+    """
+
+    def test_book_example(self):
+        cities = [
+            GasCity(id='A', gas=50, to_next=900),
+            GasCity(id='B', gas=20, to_next=600),
+            GasCity(id='C', gas=5, to_next=200),
+            GasCity(id='D', gas=30, to_next=400),
+            GasCity(id='E', gas=25, to_next=600),
+            GasCity(id='F', gas=10, to_next=200),
+            GasCity(id='G', gas=10, to_next=100),
+        ]
+
+        assert 'D' == find_ample_city(cities)

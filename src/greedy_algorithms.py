@@ -1,3 +1,7 @@
+import attr
+from attr.validators import instance_of
+
+
 def three_sum(target, ls):
     """
     Question 18.5: Check if three numbers within input
@@ -40,3 +44,37 @@ def find_majority_element(array):
         else:
             count += 1
     return majority_elt
+
+
+@attr.s
+class GasCity(object):
+    id = attr.ib(validator=instance_of(str))
+    gas = attr.ib(validator=instance_of(int))
+    to_next = attr.ib(validator=instance_of(int))
+
+
+@attr.s
+class CityAndGas(object):
+    id = attr.ib(validator=instance_of(str))
+    remaining = attr.ib(validator=instance_of(int))
+
+
+def find_ample_city(cities, mpg=20):
+    """
+    Question 18.7: Given a vector of cities with
+    gas and mileages to each city, calculate the first
+    city that you can start from and reach all other
+    cities from
+    """
+    num_cities = len(cities)
+    remaining_gallons = 0
+    start_city = CityAndGas(id='', remaining=0)
+    for idx in xrange(1, num_cities):
+        last_city = cities[idx - 1]
+        remaining_gallons += last_city.gas - last_city.to_next / mpg
+        if remaining_gallons < start_city.remaining:
+            start_city = CityAndGas(
+                id=cities[idx].id,
+                remaining=remaining_gallons
+            )
+    return start_city.id

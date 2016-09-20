@@ -91,9 +91,6 @@ def optimize_knapsack(contents, capacity):
     Question 17.6
     """
 
-    '''
-    need to optimize for max([w][s], [w-1]
-    '''
     num_items = len(contents)
     table = [[0 for _ in xrange(capacity + 1)] for _ in xrange(num_items + 1)]
 
