@@ -1,4 +1,5 @@
 from src.arrays import add_one
+from src.arrays import apply_permutation
 from src.arrays import buy_sell_once
 from src.arrays import check_sudoku
 from src.arrays import dutch_national_partition
@@ -143,6 +144,18 @@ class TestBuySellOnce(object):
     def test_stock_three(self):
         stocks = [7, 9, 5, 6, 3, 2]
         assert buy_sell_once(stocks) == 2
+
+
+class TestApplyPermutation(object):
+    """
+    Question 6.10
+    """
+
+    def test_book_example(self):
+        a = ['a', 'b', 'c', 'd']
+        p = [2, 0, 1, 3]
+        expected = ['b', 'c', 'a', 'd']
+        assert expected == apply_permutation(a, p)
 
 
 class TestRandomSampling(object):

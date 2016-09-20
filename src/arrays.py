@@ -140,6 +140,17 @@ def buy_sell_once(stocks):
     return max_profit
 
 
+def apply_permutation(array, permutation):
+    """
+    Question 6.10: Given an array and a permutation,
+    apply the permutation to the array
+    """
+    for idx, perm in enumerate(permutation[:-1]):
+        array[perm], array[idx] = array[idx], array[perm]
+
+    return array
+
+
 def random_sample(inputs, size):
     """
     Problem 6.12
