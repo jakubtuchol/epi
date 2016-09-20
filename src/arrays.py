@@ -145,8 +145,15 @@ def apply_permutation(array, permutation):
     Question 6.10: Given an array and a permutation,
     apply the permutation to the array
     """
-    for idx, perm in enumerate(permutation[:-1]):
-        array[perm], array[idx] = array[idx], array[perm]
+    perm_size = len(permutation)
+    for idx in xrange(perm_size):
+        next = idx
+        while permutation[next] >= 0:
+            array[idx], array[permutation[next]] = \
+                array[permutation[next]], array[idx]
+            temp = permutation[next]
+            permutation[next] -= perm_size
+            next = temp
 
     return array
 
