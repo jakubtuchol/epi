@@ -2,6 +2,7 @@ from src.greedy_algorithms import find_ample_city
 from src.greedy_algorithms import find_majority_element
 from src.greedy_algorithms import GasCity
 from src.greedy_algorithms import three_sum
+from src.greedy_algorithms import trapped_water
 from src.greedy_algorithms import two_sum
 
 
@@ -72,3 +73,20 @@ class TestFindAmpleCity(object):
         ]
 
         assert 'D' == find_ample_city(cities)
+
+
+class TestMaxTrappedWater(object):
+    """
+    Question 18.8
+    """
+
+    def test_book_example(self):
+        heights = [
+            1, 2, 1,
+            3, 4, 4,
+            5, 6, 2,
+            1, 3, 1,
+            3, 2, 1,
+            2, 4, 1,
+        ]
+        assert 48 == trapped_water(heights)
