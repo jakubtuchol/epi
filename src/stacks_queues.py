@@ -131,3 +131,26 @@ class CircularQueue(object):
         self.size -= 1
         self.head = (self.head + 1) % self.capacity
         return elt
+
+
+class QueueUsingStacks(object):
+    """
+    Question 9.11: Implement a queue using stacks
+    """
+
+    def __init__(self):
+        self.to_enqueue = []
+        self.to_dequeue = []
+
+    def enqueue(self, val):
+        self.to_enqueue.append(val)
+
+    def dequeue(self):
+        if not len(self.to_dequeue):
+            # transfer elements in dequeue to enqueue
+            while len(self.to_enqueue):
+                self.to_dequeue.append(self.to_enqueue.pop())
+
+            if not len(self.to_dequeue):
+                raise Exception('No more elements in queue')
+        return self.to_dequeue.pop()

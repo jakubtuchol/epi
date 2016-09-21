@@ -9,6 +9,7 @@ from src.stacks_queues import CircularQueue
 from src.stacks_queues import depth_order
 from src.stacks_queues import evaluate_rpn
 from src.stacks_queues import MaxStack
+from src.stacks_queues import QueueUsingStacks
 
 
 class TestMaxStack(object):
@@ -131,12 +132,12 @@ class TestDepthOrder(object):
 
     def test_book_example(self, get_book_tree):
         expected = [
-            [314],           # level 0
-            [6, 6],           # level 1
+            [314],               # level 0
+            [6, 6],              # level 1
             [271, 561, 2, 271],  # level 2
             [28, 0, 3, 1, 28],   # level 3
-            [17, 401, 257],    # level 4
-            [641],           # level 5
+            [17, 401, 257],      # level 4
+            [641],               # level 5
         ]
 
         assert expected == depth_order(get_book_tree)
@@ -190,3 +191,26 @@ class TestCircularQueue(object):
         assert 1 == cqueue.tail
         assert 1 == cqueue.head
         assert 11 == cqueue.contents[0]
+
+
+class TestQueueUsingStacks(object):
+    """
+    Question 9.11
+    """
+
+    def test_basic_input(self):
+        queue = QueueUsingStacks()
+
+        for idx in xrange(5):
+            queue.enqueue(idx)
+
+        for idx in xrange(5):
+            assert idx == queue.dequeue()
+
+    def test_empty_exception(self):
+        queue = QueueUsingStacks()
+
+        with pytest.raises(Exception) as excinfo:
+            queue.dequeue()
+
+        assert 'No more elements in queue' in str(excinfo.value)
