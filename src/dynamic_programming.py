@@ -88,7 +88,10 @@ class KObject(object):
 
 def optimize_knapsack(contents, capacity):
     """
-    Question 17.6
+    Question 17.6: Given a set of items with corresponding
+    weights and values, as well as the maximum weight that you
+    can carry, compute the items that should be chosen to
+    maximize the carried value given the weight constraint
     """
 
     num_items = len(contents)
@@ -115,6 +118,38 @@ def optimize_knapsack(contents, capacity):
             result.append(item.id)
             w -= item.weight
     return result
+
+
+def decompose_into_dictionary_words(ls, dictionary):
+    """
+    Question 17.7: Given a dictionary of words and a
+    string, check whether the string can be decomposed
+    into
+    """
+    cache = set()
+    is_word, _ = decompose_helper(ls, dictionary, cache)
+    return is_word
+
+
+def decompose_helper(ls, dictionary, cache):
+    """
+    Helper for dictionary decomposition function
+    """
+    if ls in cache:
+        return True, cache
+
+    if not len(ls):
+        return True, cache
+
+    for idx in xrange(1, len(ls) + 1):
+        if ls[:idx] in dictionary:
+            decomposed, retcache = decompose_helper(
+                ls[idx:], dictionary, cache)
+            if decomposed:
+                retcache.add(ls)
+                return True, retcache
+
+    return False, cache
 
 
 def number_ways_climb_stairs(num_stairs, max_step):

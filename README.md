@@ -206,7 +206,7 @@ Valiantly trying to solve every single question in
 - [ ] 17.4: Compute the binomial coefficients
 - [ ] 17.5: Search for a sequence in a 2D array
 - [x] 17.6: The knapsack problem
-- [ ] 17.7: The `bedbathandbeyond` problem
+- [x] 17.7: The `bedbathandbeyond` problem
 - [ ] 17.8: Find the minimum weight path in a triangle
 - [ ] 17.9: Pick up coins for maximum gain
 - [x] 17.10: Count the number of moves to climb stairs
@@ -223,4 +223,4 @@ Valiantly trying to solve every single question in
 - [x] 18.6: Find the majority element
 - [x] 18.7: The gasup problem
 - [x] 18.8: Compute the maximum water trapped by a pair of vertical lines
-- [ ] 18.9: Compute the largest rectange under the skyline
+- [ ] 18.9: Compute the largest rectangle under the skyline

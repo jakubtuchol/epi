@@ -1,5 +1,6 @@
 from src.dynamic_programming import calculate_levenshtein_distance
 from src.dynamic_programming import count_score_combinations
+from src.dynamic_programming import decompose_into_dictionary_words
 from src.dynamic_programming import get_num_array_traversals
 from src.dynamic_programming import KObject
 from src.dynamic_programming import number_ways_climb_stairs
@@ -70,6 +71,39 @@ class TestOptimizeKnapsack(object):
             KObject(id='P', price=99, weight=10),
         ]
         assert ['O', 'J', 'H'] == optimize_knapsack(knapsack, 130)
+
+
+class TestDecomposeIntoDictionaryWords(object):
+    """
+    Question 17.7
+    """
+
+    def test_bed_bath_case(self):
+        dictionary = {
+            'bed', 'bat', 'bath',
+            'hand', 'and', 'be',
+            'beyond',
+        }
+
+        assert decompose_into_dictionary_words('bedbathandbeyond', dictionary)
+
+    def test_panama_case(self):
+        dictionary = {
+            'a', 'man', 'plan', 'an',
+            'can', 'anal', 'canal',
+            'pan', 'am', 'panama'
+        }
+        assert decompose_into_dictionary_words(
+            'amanaplanacanalpanama', dictionary)
+
+    def test_almost_case(self):
+        dictionary = {
+            'a', 'man', 'plan', 'an',
+            'can', 'anal', 'canal',
+            'pan', 'am', 'panama'
+        }
+        assert not decompose_into_dictionary_words(
+            'amanaplanacanalpa', dictionary)
 
 
 class TestNumberWaysClimbStairs(object):
