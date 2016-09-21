@@ -105,7 +105,7 @@ def depth_order(root):
 
 class CircularQueue(object):
     """
-    Question 9.10: Impelement a circular queue
+    Question 9.10: Implement a circular queue
     """
 
     def __init__(self, capacity):

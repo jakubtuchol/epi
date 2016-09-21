@@ -73,3 +73,36 @@ Valiantly trying to solve every single question in
 - [x] 8.12: Test whether a singly linked list is palindromic
 - [ ] 8.13: Implement list pivoting
 - [ ] 8.14: Add list-based integers
+
+## Chapter 9: Stacks and Queues
+
+- [x] 9.1: Implement a stack with a max API
+- [x] 9.2: Evaluate RPN expressions
+- [x] 9.3: Test a string of parens for well-formedness
+- [x] 9.4: Normalize pathnames
+- [ ] 9.5: BST keys in sort order
+- [ ] 9.6: Search a postings list
+- [ ] 9.7: Compute buildings with a sunset view
+- [ ] 9.8: Sort a stack
+- [x] 9.9: Compute binary tree nods in order of increasing depth
+- [x] 9.10: Implement a circular queue
+- [ ] 9.11: Implement a queue using stacks
+- [ ] 9.12: Implement a queue with max API
+
+## Chapter 10: Binary Trees
+
+- [x] 10.1: Test if a binary tree is balanced
+- [x] 10.2: Test if a binary tree is symmetric
+- [ ] 10.3: Compute the lowest common ancestor in a binary tree
+- [x] 10.4: Compute the LCA when nodes have parent pointers
+- [ ] 10.5: Sum the root-to-leaf paths in a binary tree
+- [ ] 10.6: Find a root to leaf path with specified sum
+- [ ] 10.7: Compute the `k`th node in an inorder traversal
+- [ ] 10.8: Compute the successor
+- [ ] 10.9: Implement an inorder traversal with `O(1)` space
+- [x] 10.10: Reconstruct a binary tree from traversal data
+- [ ] 10.11: reconstruct a binary tree from a preorder traversal with markers
+- [ ] 10.12: Form a linked list from the leaves of a binary tree
+- [ ] 10.13: Compute the exterior of a binary tree
+- [ ] 10.14: Compute the right sibling tree
+- [ ] 10.15: Implement locking in a binary tree
