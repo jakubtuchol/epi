@@ -111,6 +111,39 @@ def get_depth(node):
     return depth
 
 
+def inorder_traversal(root):
+    """
+    Question 10.9: Implement an
+    inorder traversal in O(1) space
+    """
+    elts = []
+    cur = root
+    prev = None
+
+    while cur:
+        next_node = None
+        if cur.parent == prev:
+            # came down to cur from prev
+            if cur.left:
+                next_node = cur.left
+            else:
+                elts.append(cur.val)
+                # done with left, so go up if
+                # right is not empty
+                # otherwise go up
+                next_node = cur.right if cur.right else cur.parent
+        elif cur.left == prev:
+            # came up to cur from left child
+            elts.append(cur.val)
+            next_node = cur.right if cur.right else cur.parent
+        else:
+            # done with both children so move up
+            next_node = cur.parent
+        prev = cur
+        cur = next_node
+    return elts
+
+
 def reconstruct_tree(preorder, inorder):
     """
     Question 10.10

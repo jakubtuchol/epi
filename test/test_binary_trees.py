@@ -2,6 +2,7 @@ import pytest
 
 from src.binary_trees import check_equal
 from src.binary_trees import compute_parent_lca
+from src.binary_trees import inorder_traversal
 from src.binary_trees import is_balanced
 from src.binary_trees import is_symmetric
 from src.binary_trees import reconstruct_tree
@@ -212,21 +213,47 @@ class TestParentLCA(object):
         assert root == compute_parent_lca(root.left.left, root.right)
 
 
+@pytest.fixture(scope='module')
+def generate_char_tree():
+    root = TNode('A')
+
+    root.left = TNode('B')
+    root.left.parent = root
+
+    root.right = TNode('C')
+    root.right.parent = root
+
+    root.left.left = TNode('D')
+    root.left.left.parent = root.left
+
+    root.left.right = TNode('E')
+    root.left.right.parent = root.left
+
+    root.right.left = TNode('F')
+    root.right.left.parent = root.right
+
+    return root
+
+
+class TestInorderTraversal(object):
+    """
+    Question 10.9
+    """
+
+    def test_char_example(self, generate_char_tree):
+        inorder = ['D', 'B', 'E', 'A', 'F', 'C']
+        assert inorder == inorder_traversal(generate_char_tree)
+
+
 class TestReconstructTree(object):
     """
     Question 10.10
     """
 
-    def test_basic_example(self):
-        root = TNode('A')
-        root.left = TNode('B')
-        root.right = TNode('C')
-        root.left.left = TNode('D')
-        root.left.right = TNode('E')
-        root.right.left = TNode('F')
+    def test_basic_example(self, generate_char_tree):
 
         inorder = ['D', 'B', 'E', 'A', 'F', 'C']
         preorder = ['A', 'B', 'D', 'E', 'C', 'F']
 
         reconstruct = reconstruct_tree(preorder, inorder)
-        assert check_equal(root, reconstruct)
+        assert check_equal(generate_char_tree, reconstruct)
