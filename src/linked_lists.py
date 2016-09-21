@@ -122,7 +122,7 @@ def find_overlap(ls_one, ls_two):
 
 def find_overlap_cycle(ls_one, ls_two):
     """
-    Question 8.5: Find overlap in two linked lists
+    Question 8.6: Find overlap in two linked lists
     with cycles
     """
     cycle_one = detect_cycle(ls_one)
