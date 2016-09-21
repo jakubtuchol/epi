@@ -127,6 +127,27 @@ def multiply(first_num, second_num):
     return result
 
 
+def can_reach_end(steps):
+    """
+    Question 6.4: Given an array of n integers, where
+    A[i] denotes the maximum number of steps that can
+    advance from i, return whether it is possible to
+    advance to last index from beginning of array
+    """
+    last_idx = len(steps)
+    furthest_reach_so_far = 0
+
+    idx = 0
+    while idx <= furthest_reach_so_far < last_idx:
+        furthest_reach_so_far = max(
+            furthest_reach_so_far,
+            steps[idx] + idx
+        )
+        idx += 1
+
+    return furthest_reach_so_far >= last_idx
+
+
 def buy_sell_once(stocks):
     """
     Problem 6.7

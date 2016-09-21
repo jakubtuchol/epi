@@ -22,7 +22,7 @@ Valiantly trying to solve every single question in
 - [x] 6.1: The Dutch national flag problem
 - [x] 6.2: Increment an arbitrary-precision integer
 - [x] 6.3: Multiply two arbitrary-precision integers
-- [ ] 6.4: Advancing through an array
+- [x] 6.4: Advancing through an array
 - [ ] 6.5: Delete a key from an array
 - [ ] 6.6: Delete duplicates from a sorted array
 - [x] 6.7: Buy and sell a stock once

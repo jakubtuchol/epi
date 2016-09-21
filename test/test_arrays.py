@@ -1,6 +1,7 @@
 from src.arrays import add_one
 from src.arrays import apply_permutation
 from src.arrays import buy_sell_once
+from src.arrays import can_reach_end
 from src.arrays import check_sudoku
 from src.arrays import dutch_national_partition
 from src.arrays import dutch_partition_better
@@ -123,6 +124,18 @@ class TestMultiply(object):
             9, 2, 7,
         ]
         assert expected == multiply(first_num, second_num)
+
+
+class TestCanReachEnd(object):
+    """
+    Question 6.4
+    """
+
+    def test_successful_case(self):
+        assert can_reach_end([3, 3, 1, 0, 2, 0, 1])
+
+    def test_unsuccessful_case(self):
+        assert not can_reach_end([3, 2, 0, 0, 2, 0, 1])
 
 
 class TestBuySellOnce(object):
