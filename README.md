@@ -99,10 +99,20 @@ Valiantly trying to solve every single question in
 - [ ] 10.6: Find a root to leaf path with specified sum
 - [ ] 10.7: Compute the `k`th node in an inorder traversal
 - [ ] 10.8: Compute the successor
-- [ ] 10.9: Implement an inorder traversal with `O(1)` space
+- [x] 10.9: Implement an inorder traversal with `O(1)` space
 - [x] 10.10: Reconstruct a binary tree from traversal data
-- [ ] 10.11: reconstruct a binary tree from a preorder traversal with markers
+- [ ] 10.11: Reconstruct a binary tree from a preorder traversal with markers
 - [ ] 10.12: Form a linked list from the leaves of a binary tree
 - [ ] 10.13: Compute the exterior of a binary tree
 - [ ] 10.14: Compute the right sibling tree
 - [ ] 10.15: Implement locking in a binary tree
+
+## Chapter 11: Heaps
+
+- [x] 11.1: Merge sorted files
+- [ ] 11.2: Sort an increasing-decreasing array
+- [x] 11.3: Sort an almost-sorted array
+- [x] 11.4: Compute the `k` closest stars
+- [x] 11.5: Compute the median of online data
+- [ ] 11.6: Compute the `k` largest elements in a max-heap
+- [ ] 11.7: Implement a stack API using a heap
