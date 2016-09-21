@@ -86,7 +86,7 @@ Valiantly trying to solve every single question in
 - [ ] 9.8: Sort a stack
 - [x] 9.9: Compute binary tree nods in order of increasing depth
 - [x] 9.10: Implement a circular queue
-- [ ] 9.11: Implement a queue using stacks
+- [x] 9.11: Implement a queue using stacks
 - [ ] 9.12: Implement a queue with max API
 
 ## Chapter 10: Binary Trees

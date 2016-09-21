@@ -78,6 +78,27 @@ def balanced_parentheses(elts):
     return True
 
 
+def shortest_equivalent_path(path):
+    """
+    Question 9.4: Normalize relative pathnames
+    """
+    elts = path.split('/')
+    realpath = []
+    for elt in elts:
+        if not len(elt) or elt == '.':
+            continue
+        elif elt == '..':
+            realpath.pop()
+        else:
+            realpath.append(elt)
+
+    full_path = '/'.join(realpath)
+    begin_slash = '/' if path[0] == '/' else ''
+    end_slash = '/' if path[-1] == '/' else ''
+
+    return '{}{}{}'.format(begin_slash, full_path, end_slash)
+
+
 def depth_order(root):
     """
     Question 9.9: return depth order representation

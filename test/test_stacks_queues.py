@@ -10,6 +10,7 @@ from src.stacks_queues import depth_order
 from src.stacks_queues import evaluate_rpn
 from src.stacks_queues import MaxStack
 from src.stacks_queues import QueueUsingStacks
+from src.stacks_queues import shortest_equivalent_path
 
 
 class TestMaxStack(object):
@@ -86,6 +87,32 @@ class TestBalancedParentheses(object):
     def test_ill_formed_strings(self):
         assert not balanced_parentheses('{)')
         assert not balanced_parentheses('[()[]{()()')
+
+
+class TestShortestEquivalentPath(object):
+    """
+    Question 9.4
+    """
+
+    def test_book_case(self):
+        path = '/usr/lib/../bin/gcc'
+        expected = '/usr/bin/gcc'
+        assert expected == shortest_equivalent_path(path)
+
+    def test_more_complex_case(self):
+        path = 'scripts//./../scripts/awkscripts/././'
+        expected = 'scripts/awkscripts/'
+        assert expected == shortest_equivalent_path(path)
+
+    def test_another_case(self):
+        path = 'sc//./../tc/awk/././'
+        expected = 'tc/awk/'
+        assert expected == shortest_equivalent_path(path)
+
+    def test_two_slashes_at_beginning(self):
+        path = '//usr/local/.././sbin/'
+        expected = '/usr/sbin/'
+        assert expected == shortest_equivalent_path(path)
 
 
 @pytest.fixture(scope='module')
