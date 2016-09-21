@@ -2,6 +2,7 @@ from src.dynamic_programming import calculate_levenshtein_distance
 from src.dynamic_programming import count_score_combinations
 from src.dynamic_programming import get_num_array_traversals
 from src.dynamic_programming import KObject
+from src.dynamic_programming import number_ways_climb_stairs
 from src.dynamic_programming import optimize_knapsack
 
 
@@ -69,3 +70,13 @@ class TestOptimizeKnapsack(object):
             KObject(id='P', price=99, weight=10),
         ]
         assert ['O', 'J', 'H'] == optimize_knapsack(knapsack, 130)
+
+
+class TestNumberWaysClimbStairs(object):
+    """
+    Question 17.10
+    """
+
+    def test_book_example(self):
+        assert 2 == number_ways_climb_stairs(2, 2)
+        assert 5 == number_ways_climb_stairs(4, 2)

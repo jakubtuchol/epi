@@ -115,3 +115,37 @@ def optimize_knapsack(contents, capacity):
             result.append(item.id)
             w -= item.weight
     return result
+
+
+def number_ways_climb_stairs(num_stairs, max_step):
+    """
+    Question 17.10: Given a number of stairs and the
+    maximum number of stairs taken in a single step,
+    find the number of ways to climb a set of stairs
+    """
+    num_ways = {}
+    return compute_number_ways(num_stairs, max_step, num_ways)
+
+
+def compute_number_ways(num_stairs, max_step, num_ways):
+    """
+    Helper for number of ways to climb, using cache to
+    store intermediary values
+    """
+
+    if num_stairs <= 1:
+        return 1
+
+    if num_stairs in num_ways:
+        return num_ways[num_stairs]
+
+    ways = 0
+    for idx in xrange(1, max_step + 1):
+        remaining_stairs = num_stairs - idx
+        if remaining_stairs in num_ways:
+            ways += num_ways[remaining_stairs]
+        else:
+            ways += compute_number_ways(remaining_stairs, max_step, num_ways)
+    num_ways[num_stairs] = ways
+
+    return ways

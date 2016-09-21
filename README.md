@@ -101,7 +101,7 @@ Valiantly trying to solve every single question in
 - [ ] 10.8: Compute the successor
 - [x] 10.9: Implement an inorder traversal with `O(1)` space
 - [x] 10.10: Reconstruct a binary tree from traversal data
-- [ ] 10.11: Reconstruct a binary tree from a preorder traversal with markers
+- [x] 10.11: Reconstruct a binary tree from a preorder traversal with markers
 - [ ] 10.12: Form a linked list from the leaves of a binary tree
 - [ ] 10.13: Compute the exterior of a binary tree
 - [ ] 10.14: Compute the right sibling tree
@@ -209,7 +209,7 @@ Valiantly trying to solve every single question in
 - [ ] 17.7: The `bedbathandbeyond` problem
 - [ ] 17.8: Find the minimum weight path in a triangle
 - [ ] 17.9: Pick up coins for maximum gain
-- [ ] 17.10: Cuont the number of moves to climb stairs
+- [x] 17.10: Count the number of moves to climb stairs
 - [ ] 17.11: The pretty printing problem
 - [ ] 17.12: Find the longest nondecreasing subsequence
 
