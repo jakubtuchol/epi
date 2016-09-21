@@ -179,3 +179,32 @@ def reconstruct_helper(
         root_inorder_idx + 1, inorder_end, node_to_inorder_idx,
     )
     return root
+
+
+def reconstruct_preorder(preorder):
+    """
+    Question 10.11: Reconstruct binary tree from
+    a preorder representation with markers
+    """
+
+    subtree_idx = 0
+    root, _ = reconstruct_preorder_helper(preorder, subtree_idx)
+    return root
+
+
+def reconstruct_preorder_helper(preorder, subtree_idx):
+    """
+    Recursive helper to construct subtree
+    """
+    subtree_key = TNode(preorder[subtree_idx]) if preorder[
+        subtree_idx] else None
+    subtree_idx += 1
+    if subtree_key is None:
+        return None, subtree_idx
+
+    left_subtree, left_idx = reconstruct_preorder_helper(preorder, subtree_idx)
+    right_subtree, right_idx = reconstruct_preorder_helper(preorder, left_idx)
+    subtree_key.left = left_subtree
+    subtree_key.right = right_subtree
+
+    return subtree_key, right_idx

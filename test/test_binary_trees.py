@@ -5,6 +5,7 @@ from src.binary_trees import compute_parent_lca
 from src.binary_trees import inorder_traversal
 from src.binary_trees import is_balanced
 from src.binary_trees import is_symmetric
+from src.binary_trees import reconstruct_preorder
 from src.binary_trees import reconstruct_tree
 from src.binary_trees import TNode
 
@@ -257,3 +258,48 @@ class TestReconstructTree(object):
 
         reconstruct = reconstruct_tree(preorder, inorder)
         assert check_equal(generate_char_tree, reconstruct)
+
+
+@pytest.fixture(scope='module')
+def generate_binary_tree():
+    # level 0
+    root = TNode('H')
+
+    # level 1
+    root.right = TNode('C')
+    root.left = TNode('B')
+
+    # level 2
+    root.right.right = TNode('D')
+    root.left.left = TNode('F')
+    root.left.right = TNode('E')
+
+    # level 3
+    root.right.right.right = TNode('G')
+    root.left.right.left = TNode('A')
+
+    # level 4
+    root.right.right.right.left = TNode('I')
+
+    return root
+
+
+class TestReconstructPreorder(object):
+    """
+    Question 10.11
+    """
+
+    def test_book_example(self, generate_binary_tree):
+        representation = [
+            'H', 'B', 'F',
+            None, None, 'E',
+            'A', None, None,
+            None, 'C', None,
+            'D', None, 'G',
+            'I', None, None,
+            None
+        ]
+        assert check_equal(
+            generate_binary_tree,
+            reconstruct_preorder(representation)
+        )
