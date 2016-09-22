@@ -5,11 +5,12 @@ Chapter 10: Binary Trees
 
 class TNode(object):
 
-    def __init__(self, val):
+    def __init__(self, val, node_id=None):
         self.val = val
         self.left = None
         self.right = None
         self.parent = None
+        self.node_id = node_id
 
 
 def check_equal(root_one, root_two):

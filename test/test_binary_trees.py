@@ -12,6 +12,7 @@ from src.binary_trees import sum_root_to_leaf
 from src.binary_trees import TNode
 
 
+# Fixtures
 @pytest.fixture(scope='module')
 def create_basic_tree():
     root = TNode(1)
@@ -35,6 +36,152 @@ def create_almost_equal():
     return root
 
 
+@pytest.fixture(scope='module')
+def generate_symmetric_tree():
+    root = TNode(314)
+
+    # level 1
+    root.left = TNode(6)
+    root.right = TNode(6)
+
+    # level 2
+    root.left.right = TNode(2)
+    root.right.left = TNode(2)
+
+    # level 3
+    root.left.right.right = TNode(3)
+    root.right.left.left = TNode(3)
+
+    return root
+
+
+@pytest.fixture(scope='module')
+def generate_asymmetric_value_tree():
+    root = TNode(314)
+
+    # level 1
+    root.left = TNode(6)
+    root.right = TNode(6)
+
+    # level 2
+    root.left.right = TNode(561)
+    root.right.left = TNode(2)
+
+    # level 3
+    root.left.right.right = TNode(3)
+    root.right.left.left = TNode(3)
+
+    return root
+
+
+@pytest.fixture(scope='module')
+def generate_asymmetric_shape_tree():
+    root = TNode(314)
+
+    # level 1
+    root.left = TNode(6)
+    root.right = TNode(6)
+
+    # level 2
+    root.left.right = TNode(561)
+    root.right.left = TNode(561)
+
+    # level 3
+    root.left.right.right = TNode(3)
+
+    return root
+
+
+@pytest.fixture(scope='module')
+def generate_tiny_tree():
+    root = TNode(1)
+    root.left = TNode(2)
+    root.right = TNode(3)
+    root.left.parent = root
+    root.right.parent = root
+    return root
+
+
+@pytest.fixture(scope='module')
+def generate_binary_binary_tree():
+    # level 0
+    root = TNode(1)
+
+    # level 1
+    root.left = TNode(0)
+    root.right = TNode(1)
+
+    # level 2
+    root.left.left = TNode(0)
+    root.left.right = TNode(1)
+    root.right.left = TNode(0)
+    root.right.right = TNode(0)
+
+    # level 2
+    root.left.left.left = TNode(0)
+    root.left.left.right = TNode(1)
+    root.left.right.right = TNode(1)
+    root.right.left.right = TNode(0)
+    root.right.right.right = TNode(0)
+
+    # level 3
+    root.left.right.right.left = TNode(0)
+    root.right.left.right.left = TNode(1)
+    root.right.left.right.right = TNode(0)
+
+    # level 4
+    root.right.left.right.left.right = TNode(1)
+
+    return root
+
+
+@pytest.fixture(scope='module')
+def generate_char_tree():
+    root = TNode('A')
+
+    root.left = TNode('B')
+    root.left.parent = root
+
+    root.right = TNode('C')
+    root.right.parent = root
+
+    root.left.left = TNode('D')
+    root.left.left.parent = root.left
+
+    root.left.right = TNode('E')
+    root.left.right.parent = root.left
+
+    root.right.left = TNode('F')
+    root.right.left.parent = root.right
+
+    return root
+
+
+@pytest.fixture(scope='module')
+def generate_binary_tree():
+    # level 0
+    root = TNode('H')
+
+    # level 1
+    root.right = TNode('C')
+    root.left = TNode('B')
+
+    # level 2
+    root.right.right = TNode('D')
+    root.left.left = TNode('F')
+    root.left.right = TNode('E')
+
+    # level 3
+    root.right.right.right = TNode('G')
+    root.left.right.left = TNode('A')
+
+    # level 4
+    root.right.right.right.left = TNode('I')
+
+    return root
+
+
+# Tests
 class TestCheckEqual(object):
     """
     Testing check equal helper function
@@ -113,62 +260,6 @@ class TestIsBalanced(object):
         assert not is_balanced(root)
 
 
-@pytest.fixture(scope='module')
-def generate_symmetric_tree():
-    root = TNode(314)
-
-    # level 1
-    root.left = TNode(6)
-    root.right = TNode(6)
-
-    # level 2
-    root.left.right = TNode(2)
-    root.right.left = TNode(2)
-
-    # level 3
-    root.left.right.right = TNode(3)
-    root.right.left.left = TNode(3)
-
-    return root
-
-
-@pytest.fixture(scope='module')
-def generate_asymmetric_value_tree():
-    root = TNode(314)
-
-    # level 1
-    root.left = TNode(6)
-    root.right = TNode(6)
-
-    # level 2
-    root.left.right = TNode(561)
-    root.right.left = TNode(2)
-
-    # level 3
-    root.left.right.right = TNode(3)
-    root.right.left.left = TNode(3)
-
-    return root
-
-
-@pytest.fixture(scope='module')
-def generate_asymmetric_shape_tree():
-    root = TNode(314)
-
-    # level 1
-    root.left = TNode(6)
-    root.right = TNode(6)
-
-    # level 2
-    root.left.right = TNode(561)
-    root.right.left = TNode(561)
-
-    # level 3
-    root.left.right.right = TNode(3)
-
-    return root
-
-
 class TestCheckSymmetric(object):
     """
     Question 10.2
@@ -182,16 +273,6 @@ class TestCheckSymmetric(object):
 
     def test_asymmetric_shape_case(self, generate_asymmetric_shape_tree):
         assert not is_symmetric(generate_asymmetric_shape_tree)
-
-
-@pytest.fixture(scope='module')
-def generate_tiny_tree():
-    root = TNode(1)
-    root.left = TNode(2)
-    root.right = TNode(3)
-    root.left.parent = root
-    root.right.parent = root
-    return root
 
 
 class TestFindLCA(object):
@@ -238,39 +319,6 @@ class TestParentLCA(object):
         assert root == compute_parent_lca(root.left.left, root.right)
 
 
-@pytest.fixture(scope='module')
-def generate_binary_binary_tree():
-    # level 0
-    root = TNode(1)
-
-    # level 1
-    root.left = TNode(0)
-    root.right = TNode(1)
-
-    # level 2
-    root.left.left = TNode(0)
-    root.left.right = TNode(1)
-    root.right.left = TNode(0)
-    root.right.right = TNode(0)
-
-    # level 2
-    root.left.left.left = TNode(0)
-    root.left.left.right = TNode(1)
-    root.left.right.right = TNode(1)
-    root.right.left.right = TNode(0)
-    root.right.right.right = TNode(0)
-
-    # level 3
-    root.left.right.right.left = TNode(0)
-    root.right.left.right.left = TNode(1)
-    root.right.left.right.right = TNode(0)
-
-    # level 4
-    root.right.left.right.left.right = TNode(1)
-
-    return root
-
-
 class TestSumRootToLeaf(object):
     """
     Question 10.5
@@ -287,28 +335,6 @@ class TestSumRootToLeaf(object):
         ]
         total = sum(paths)
         assert total == sum_root_to_leaf(generate_binary_binary_tree)
-
-
-@pytest.fixture(scope='module')
-def generate_char_tree():
-    root = TNode('A')
-
-    root.left = TNode('B')
-    root.left.parent = root
-
-    root.right = TNode('C')
-    root.right.parent = root
-
-    root.left.left = TNode('D')
-    root.left.left.parent = root.left
-
-    root.left.right = TNode('E')
-    root.left.right.parent = root.left
-
-    root.right.left = TNode('F')
-    root.right.left.parent = root.right
-
-    return root
 
 
 class TestInorderTraversal(object):
@@ -333,30 +359,6 @@ class TestReconstructTree(object):
 
         reconstruct = reconstruct_tree(preorder, inorder)
         assert check_equal(generate_char_tree, reconstruct)
-
-
-@pytest.fixture(scope='module')
-def generate_binary_tree():
-    # level 0
-    root = TNode('H')
-
-    # level 1
-    root.right = TNode('C')
-    root.left = TNode('B')
-
-    # level 2
-    root.right.right = TNode('D')
-    root.left.left = TNode('F')
-    root.left.right = TNode('E')
-
-    # level 3
-    root.right.right.right = TNode('G')
-    root.left.right.left = TNode('A')
-
-    # level 4
-    root.right.right.right.left = TNode('I')
-
-    return root
 
 
 class TestReconstructPreorder(object):
