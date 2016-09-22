@@ -127,3 +127,20 @@ def search_matrix(matrix, target):
         else:
             col -= 1
     return False
+
+
+def find_min_max(ls):
+    """
+    Question 12.8: Find the min and max of
+    a list simultaneously
+    """
+    min_num = ls[0]
+    max_num = ls[0]
+
+    for elt in ls[1:]:
+        if min_num > elt:
+            min_num = elt
+        elif max_num < elt:
+            max_num = elt
+
+    return min_num, max_num

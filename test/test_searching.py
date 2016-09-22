@@ -1,8 +1,11 @@
 """
 Chapter 12: Searching
 """
+import pytest
+
 from src.searching import find_entry_equal_to_index
 from src.searching import find_first_occurrence
+from src.searching import find_min_max
 from src.searching import first_larger_than_num
 from src.searching import search_matrix
 from src.searching import smallest_cyclically_sorted_list
@@ -100,11 +103,8 @@ class TestSquareRoot(object):
         assert 17 == square_root(300)
 
 
-class TestMatrixFind(object):
-    """
-    Question 12.7
-    """
-
+@pytest.fixture(scope='module')
+def get_matrix():
     matrix = [
         [-1,  2,  4,  4,  6],
         [1,  5,  5,  9, 21],
@@ -113,9 +113,40 @@ class TestMatrixFind(object):
         [6,  8,  9, 12, 25],
         [8, 10, 12, 13, 40],
     ]
+    return matrix
 
-    def test_false_example(self):
-        assert not search_matrix(self.matrix, 7)
 
-    def test_true_example(self):
-        assert search_matrix(self.matrix, 8)
+class TestMatrixFind(object):
+    """
+    Question 12.7
+    """
+
+    def test_false_example(self, get_matrix):
+        assert not search_matrix(get_matrix, 7)
+
+    def test_true_example(self, get_matrix):
+        assert search_matrix(get_matrix, 8)
+
+
+class TestFindMinMax(object):
+    """
+    Question 12.8
+    """
+
+    def test_book_example(self):
+        ls = [3, 2, 5, 1, 2, 4]
+        min_num, max_num = find_min_max(ls)
+        assert 1 == min_num
+        assert 5 == max_num
+
+    def test_matrix_input(self, get_matrix):
+        ls = [item for sublist in get_matrix for item in sublist]
+        min_num, max_num = find_min_max(ls)
+        assert -1 == min_num
+        assert 40 == max_num
+
+    def test_repeating_elements(self):
+        ls = [1] * 12
+        min_num, max_num = find_min_max(ls)
+        assert 1 == min_num
+        assert 1 == max_num
