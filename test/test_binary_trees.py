@@ -3,6 +3,7 @@ import pytest
 from src.binary_trees import check_equal
 from src.binary_trees import compute_lca
 from src.binary_trees import compute_parent_lca
+from src.binary_trees import has_leaf_sum
 from src.binary_trees import inorder_traversal
 from src.binary_trees import is_balanced
 from src.binary_trees import is_symmetric
@@ -181,6 +182,39 @@ def generate_binary_tree():
     return root
 
 
+@pytest.fixture(scope='module')
+def generate_sum_tree():
+    # level 0
+    root = TNode(314, node_id='A')
+
+    # level 1
+    root.left = TNode(6, node_id='B')
+    root.right = TNode(6, node_id='I')
+
+    # level 2
+    root.left.left = TNode(271, node_id='C')
+    root.left.right = TNode(561, node_id='F')
+    root.right.left = TNode(2, node_id='J')
+    root.right.right = TNode(271, node_id='O')
+
+    # level 3
+    root.left.left.left = TNode(28, node_id='D')
+    root.left.left.right = TNode(0, node_id='E')
+    root.left.right.right = TNode(3, node_id='G')
+    root.right.left.right = TNode(1, node_id='K')
+    root.right.right.right = TNode(28, node_id='P')
+
+    # level 4
+    root.left.right.right.left = TNode(17, node_id='H')
+    root.right.left.right.left = TNode(401, node_id='L')
+    root.right.left.right.right = TNode(257, node_id='N')
+
+    # level 5
+    root.right.left.right.left.right = TNode(641, node_id='M')
+
+    return root
+
+
 # Tests
 class TestCheckEqual(object):
     """
@@ -335,6 +369,16 @@ class TestSumRootToLeaf(object):
         ]
         total = sum(paths)
         assert total == sum_root_to_leaf(generate_binary_binary_tree)
+
+
+class TestHasLeafSum(object):
+    """
+    Question 10.6
+    """
+
+    def test_book_example(self, generate_sum_tree):
+        assert has_leaf_sum(generate_sum_tree, 591)
+        assert not has_leaf_sum(generate_sum_tree, 500)
 
 
 class TestInorderTraversal(object):

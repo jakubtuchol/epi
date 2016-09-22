@@ -178,6 +178,30 @@ def sum_root_helper(root, partial_sum):
         sum_root_helper(root.left, partial_sum)
 
 
+def has_leaf_sum(root, target):
+    """
+    Question 10.6: Check that there exists a
+    root-to-leaf path that sums to the target
+    """
+    return has_leaf_sum_helper(root, target, 0)
+
+
+def has_leaf_sum_helper(root, target, partial_sum):
+    """
+    Helper function to keep track of partial
+    sum while trying to hit target
+    """
+    if root is None:
+        return False
+
+    partial_sum += root.val
+    if partial_sum == target:
+        return True
+
+    return has_leaf_sum_helper(root.left, target, partial_sum) or \
+        has_leaf_sum_helper(root.right, target, partial_sum)
+
+
 def inorder_traversal(root):
     """
     Question 10.9: Implement an

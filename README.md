@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 81
-* Remaining: 98
+* Completed: 82
+* Remaining: 97
 
 ## Chapter 5: Primitives
 
@@ -99,7 +99,7 @@ Valiantly trying to solve every single question in
 - [x] 10.3: Compute the lowest common ancestor in a binary tree
 - [x] 10.4: Compute the LCA when nodes have parent pointers
 - [x] 10.5: Sum the root-to-leaf paths in a binary tree
-- [ ] 10.6: Find a root to leaf path with specified sum
+- [x] 10.6: Find a root to leaf path with specified sum
 - [ ] 10.7: Compute the `k`th node in an inorder traversal
 - [ ] 10.8: Compute the successor
 - [x] 10.9: Implement an inorder traversal with `O(1)` space
