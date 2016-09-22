@@ -148,6 +148,24 @@ def can_reach_end(steps):
     return furthest_reach_so_far >= last_idx
 
 
+def delete_duplicates(ls):
+    """
+    Question 6.6: Delete duplicates from sorted array,
+    return number of elements remainint
+    """
+
+    if not len(ls):
+        return 0
+
+    write_idx = 0
+    for idx, elt in enumerate(ls):
+        if idx > write_idx and elt != ls[write_idx]:
+            write_idx += 1
+            ls[write_idx] = elt
+
+    return write_idx + 1
+
+
 def buy_sell_once(stocks):
     """
     Problem 6.7

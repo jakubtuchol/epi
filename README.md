@@ -24,7 +24,7 @@ Valiantly trying to solve every single question in
 - [x] 6.3: Multiply two arbitrary-precision integers
 - [x] 6.4: Advancing through an array
 - [ ] 6.5: Delete a key from an array
-- [ ] 6.6: Delete duplicates from a sorted array
+- [x] 6.6: Delete duplicates from a sorted array
 - [x] 6.7: Buy and sell a stock once
 - [ ] 6.8: Buy and sell a stock twice
 - [ ] 6.9: Enumerate all primes to n
