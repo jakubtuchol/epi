@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 84
-* Remaining: 95
+* Completed: 85
+* Remaining: 94
 
 ## Chapter 5: Primitives
 
@@ -139,7 +139,7 @@ Valiantly trying to solve every single question in
 
 - [x] 13.1: Partition into anagrams
 - [x] 13.2: Test for palindromic permutations
-- [ ] 13.3: Is an anonymous letter constructible?
+- [ ] 13.3: Is an anonymous letter constructable?
 - [x] 13.4: Implement an ISBN cache
 - [ ] 13.5: Compute the LCA, optimizing for close ancestors
 - [ ] 13.6: Compute the `k` most frequent queries
@@ -171,7 +171,7 @@ Valiantly trying to solve every single question in
 ## Chapter 15: Binary Search Trees
 
 - [x] 15.1: Test if a binary tree satisfies the BST property
-- [ ] 15.2: Find the first occurrence of a key in a BST
+- [x] 15.2: Find the first occurrence of a key in a BST
 - [x] 15.3: Find the first key larger than a given value in a BST
 - [x] 15.4: Find the `k` largest elements in a ST
 - [x] 15.5: Compute the LCA in a BST

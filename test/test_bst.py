@@ -3,10 +3,12 @@ import pytest
 from src.bst import BST
 from src.bst import check_bst
 from src.bst import find_first_larger_key
+from src.bst import find_first_occurrence
 from src.bst import find_largest_keys
 from src.bst import find_lca
 
 
+# Fixtures
 @pytest.fixture(scope='module')
 def create_tiny_bst():
     """
@@ -59,7 +61,7 @@ def create_large_bst():
     return root
 
 
-@pytest.fixture
+@pytest.fixture(scope='module')
 def create_large_nonbst():
     """
     Create large improperly formatted bst
@@ -72,6 +74,30 @@ def create_large_nonbst():
     return root
 
 
+@pytest.fixture(scope='module')
+def generate_repeated_key_bst():
+    # level 0
+    root = BST(108)
+
+    # level 1
+    root.left = BST(108)
+    root.right = BST(285)
+
+    # level 2
+    root.left.left = BST(-10)
+    root.left.right = BST(2)
+    root.right.left = BST(243)
+    root.right.right = BST(285)
+
+    # level 3
+    root.left.left.left = BST(-14)
+    root.left.left.right = BST(2)
+    root.right.right.right = BST(401)
+
+    return root
+
+
+# Tests
 class TestCheckBST(object):
     """
     Question 15.1
@@ -88,6 +114,17 @@ class TestCheckBST(object):
 
     def test_incorrect_example(self, create_large_nonbst):
         assert not check_bst(create_large_nonbst)
+
+
+class TestFindFirstOccurrence(object):
+    """
+    Question 15.2
+    """
+
+    def test_book_example(self, generate_repeated_key_bst):
+        root = generate_repeated_key_bst
+        assert root.right == find_first_occurrence(root, 285)
+        assert root.left == find_first_occurrence(root, 108)
 
 
 class TestFindFirstLargerKey(object):

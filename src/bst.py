@@ -32,6 +32,26 @@ def check_bst_helper(root, low, high):
         and check_bst_helper(root.right, root.val + 1, high)
 
 
+def find_first_occurrence(root, target):
+    """
+    Question 15.2: Find first occurrence
+    of key in binary search tree, with
+    possible duplicate elements
+    """
+    if root is None:
+        return None
+
+    if root.val < target:
+        return find_first_occurrence(root.right, target)
+
+    left_res = find_first_occurrence(root.left, target)
+    if left_res:
+        return left_res
+
+    if root.val == target:
+        return root
+
+
 def find_first_larger_key(root, key):
     """
     Question 15.3: Find the first key larger than given
