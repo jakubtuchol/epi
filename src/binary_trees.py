@@ -152,6 +152,31 @@ def get_depth(node):
     return depth
 
 
+def sum_root_to_leaf(root):
+    """
+    Question 10.5: Sum all root to
+    leaf paths, given that all paths
+    represent binary numbers
+    """
+    return sum_root_helper(root, 0)
+
+
+def sum_root_helper(root, partial_sum):
+    """
+    Helper to keep track of partial sums as
+    getting remainder of root to leaf sums
+    """
+    if root is None:
+        return 0
+
+    partial_sum = partial_sum * 2 + root.val
+    if not root.right and not root.left:
+        return partial_sum
+
+    return sum_root_helper(root.right, partial_sum) + \
+        sum_root_helper(root.left, partial_sum)
+
+
 def inorder_traversal(root):
     """
     Question 10.9: Implement an

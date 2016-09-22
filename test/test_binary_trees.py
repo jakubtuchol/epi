@@ -8,6 +8,7 @@ from src.binary_trees import is_balanced
 from src.binary_trees import is_symmetric
 from src.binary_trees import reconstruct_preorder
 from src.binary_trees import reconstruct_tree
+from src.binary_trees import sum_root_to_leaf
 from src.binary_trees import TNode
 
 
@@ -235,6 +236,57 @@ class TestParentLCA(object):
         root.left.left.parent = root.left
 
         assert root == compute_parent_lca(root.left.left, root.right)
+
+
+@pytest.fixture(scope='module')
+def generate_binary_binary_tree():
+    # level 0
+    root = TNode(1)
+
+    # level 1
+    root.left = TNode(0)
+    root.right = TNode(1)
+
+    # level 2
+    root.left.left = TNode(0)
+    root.left.right = TNode(1)
+    root.right.left = TNode(0)
+    root.right.right = TNode(0)
+
+    # level 2
+    root.left.left.left = TNode(0)
+    root.left.left.right = TNode(1)
+    root.left.right.right = TNode(1)
+    root.right.left.right = TNode(0)
+    root.right.right.right = TNode(0)
+
+    # level 3
+    root.left.right.right.left = TNode(0)
+    root.right.left.right.left = TNode(1)
+    root.right.left.right.right = TNode(0)
+
+    # level 4
+    root.right.left.right.left.right = TNode(1)
+
+    return root
+
+
+class TestSumRootToLeaf(object):
+    """
+    Question 10.5
+    """
+
+    def test_book_example(self, generate_binary_binary_tree):
+        paths = [
+            int('1000', 2),
+            int('1001', 2),
+            int('10110', 2),
+            int('110011', 2),
+            int('11000', 2),
+            int('1100', 2),
+        ]
+        total = sum(paths)
+        assert total == sum_root_to_leaf(generate_binary_binary_tree)
 
 
 @pytest.fixture(scope='module')
