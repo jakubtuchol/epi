@@ -35,6 +35,29 @@ def first_larger_than_num(ls, k):
             right = mid - 1
         else:
             left = mid + 1
+
+    return result
+
+
+def find_entry_equal_to_index(ls):
+    """
+    Question 12.3: Find first entry with
+    index equal to entry
+    """
+    left = 0
+    right = len(ls) - 1
+    result = -1
+
+    while left <= right:
+        mid = (left + right) / 2
+        if ls[mid] == mid:
+            result = mid
+            right = mid - 1
+        elif ls[mid] < mid:
+            right = mid - 1
+        else:
+            left = mid + 1
+
     return result
 
 

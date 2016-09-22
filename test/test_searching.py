@@ -1,6 +1,7 @@
 """
 Chapter 12: Searching
 """
+from src.searching import find_entry_equal_to_index
 from src.searching import find_first_occurrence
 from src.searching import first_larger_than_num
 from src.searching import smallest_cyclically_sorted_list
@@ -37,6 +38,28 @@ class TestFirstLargerThanK(object):
         assert 9 == first_larger_than_num(ls, 285)
         assert 1 == first_larger_than_num(ls, -13)
         assert -1 == first_larger_than_num(ls, 402)
+
+    def test_repeating_example(self):
+        ls = [1] * 12
+        assert 0 == find_first_occurrence(1, ls)
+
+
+class TestFindEntryEqualToIndex(object):
+    """
+    Question 12.3
+    """
+
+    def test_book_example(self):
+        ls = [-2, 0, 2, 3, 6, 7, 9]
+        assert find_entry_equal_to_index(ls) in {2, 3}
+
+    def test_repeating_example(self):
+        ls = [1] * 12
+        assert 1 == find_entry_equal_to_index(ls)
+
+    def test_range_input(self):
+        ls = range(12)
+        assert 0 == find_entry_equal_to_index(ls)
 
 
 class TestSmallestCyclicallySortedArray(object):
