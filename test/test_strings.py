@@ -4,6 +4,7 @@ from mock import patch
 from src.strings import check_palindrome
 from src.strings import convert_base
 from src.strings import get_phone_mnemonics
+from src.strings import get_spreadsheet_column
 from src.strings import int_to_string
 from src.strings import look_say
 from src.strings import reverse_words
@@ -50,6 +51,28 @@ class TestConvertBase(object):
 
     def test_binary_conversion(self):
         assert u'4' == convert_base(u'100', 2, 10)
+
+
+class TestGetSpreadsheetColumn(object):
+    """
+    Question 7.3
+    """
+
+    def test_single_char(self):
+        assert 1 == get_spreadsheet_column('A')
+        assert 23 == get_spreadsheet_column('W')
+        assert 26 == get_spreadsheet_column('Z')
+
+    def test_double_chars(self):
+        assert 27 == get_spreadsheet_column('AA')
+        assert 51 == get_spreadsheet_column('AY')
+        assert 52 == get_spreadsheet_column('AZ')
+        assert 53 == get_spreadsheet_column('BA')
+        assert 80 == get_spreadsheet_column('CB')
+        assert 702 == get_spreadsheet_column('ZZ')
+
+    def test_triple_chars(self):
+        assert 705 == get_spreadsheet_column('AAC')
 
 
 class TestCheckPalindrome(object):

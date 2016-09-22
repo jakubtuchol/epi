@@ -77,6 +77,18 @@ def convert_base(s, base1, base2):
     return unicode(''.join(result), 'utf-8')
 
 
+def get_spreadsheet_column(code):
+    """
+    Question 7.3: Compute spreadsheet column encoding
+    """
+    cur_power = 1
+    total = 0
+    for elt in code[::-1]:
+        total += cur_power * (ord(elt) - ord('A') + 1)
+        cur_power *= 26
+    return total
+
+
 def check_palindrome(string):
     """
     Question 7.5: Check palindromicity of string

@@ -44,7 +44,7 @@ Valiantly trying to solve every single question in
 
 - [x] 7.1: Interconvert strings and integers
 - [x] 7.2: Base conversion
-- [ ] 7.3: Compute the spreadsheet column encoding
+- [x] 7.3: Compute the spreadsheet column encoding
 - [ ] 7.4: Replace and remove
 - [x] 7.5: Test palindromicity
 - [x] 7.6: Reverse all the words in a sentence
