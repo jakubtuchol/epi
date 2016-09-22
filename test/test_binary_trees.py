@@ -1,6 +1,7 @@
 import pytest
 
 from src.binary_trees import check_equal
+from src.binary_trees import compute_lca
 from src.binary_trees import compute_parent_lca
 from src.binary_trees import inorder_traversal
 from src.binary_trees import is_balanced
@@ -182,22 +183,44 @@ class TestCheckSymmetric(object):
         assert not is_symmetric(generate_asymmetric_shape_tree)
 
 
+@pytest.fixture(scope='module')
+def generate_tiny_tree():
+    root = TNode(1)
+    root.left = TNode(2)
+    root.right = TNode(3)
+    root.left.parent = root
+    root.right.parent = root
+    return root
+
+
+class TestFindLCA(object):
+    """
+    Question 10.3
+    """
+
+    def test_tiny_example(self, generate_tiny_tree):
+        root = generate_tiny_tree
+        assert root == compute_lca(root, root.left, root.right)
+
+    def test_char_tree_example(self, generate_char_tree):
+        root = generate_char_tree
+        assert root == compute_lca(root, root.left.left, root.right.left)
+
+
 class TestParentLCA(object):
     """
     Question 10.4
     """
 
-    def test_basic_case(self):
+    def test_basic_case(self, generate_tiny_tree):
         """
         Right and left nodes with same parent
         """
-        root = TNode(1)
-        root.left = TNode(2)
-        root.right = TNode(3)
-        root.left.parent = root
-        root.right.parent = root
-
-        assert root == compute_parent_lca(root.left, root.right)
+        root = generate_tiny_tree
+        assert root == compute_parent_lca(
+            root.left,
+            root.right
+        )
 
     def test_deeper_case(self):
         """

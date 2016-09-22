@@ -73,6 +73,47 @@ def check_symmetric(left, right):
             check_symmetric(left.right, right.left)
 
 
+def compute_lca(root, first, second):
+    """
+    Question 10.3: Compute the lowest
+    common ancestor in a binary tree
+    """
+    _, lca = compute_lca_helper(root, first, second)
+    return lca
+
+
+def compute_lca_helper(root, first, second):
+    """
+    Helper that returns
+    """
+    if root is None:
+        return 0, None
+
+    # get left subtree
+    left_nodes, left_lca = compute_lca_helper(
+        root.left,
+        first,
+        second
+    )
+    if left_nodes == 2:
+        return left_nodes, left_lca
+
+    right_nodes, right_lca = compute_lca_helper(
+        root.right,
+        first,
+        second
+    )
+
+    if right_nodes == 2:
+        return right_nodes, right_lca
+
+    num_nodes = left_nodes + right_nodes + \
+        (root == first) + (root == second)
+    lca = root if num_nodes == 2 else None
+
+    return num_nodes, lca
+
+
 def compute_parent_lca(first, second):
     """
     Problem 10.4: Get least common ancestor if nodes
