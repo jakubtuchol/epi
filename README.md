@@ -125,7 +125,7 @@ Valiantly trying to solve every single question in
 - [x] 12.4: Search a cyclically sorted array
 - [x] 12.5: Compute the integer square root
 - [ ] 12.6: Compute the real square root
-- [ ] 12.7: Search in a 2D sorted array
+- [x] 12.7: Search in a 2D sorted array
 - [ ] 12.8: Find the min and max simultaneously
 - [ ] 12.9: Find the `k`th largest element
 - [ ] 12.10: Compute the optimum mailbox placement

@@ -4,6 +4,7 @@ Chapter 12: Searching
 from src.searching import find_entry_equal_to_index
 from src.searching import find_first_occurrence
 from src.searching import first_larger_than_num
+from src.searching import search_matrix
 from src.searching import smallest_cyclically_sorted_list
 from src.searching import square_root
 
@@ -97,3 +98,24 @@ class TestSquareRoot(object):
 
     def test_book_case(self):
         assert 17 == square_root(300)
+
+
+class TestMatrixFind(object):
+    """
+    Question 12.7
+    """
+
+    matrix = [
+        [-1,  2,  4,  4,  6],
+        [1,  5,  5,  9, 21],
+        [3,  6,  6,  9, 22],
+        [3,  6,  8, 10, 24],
+        [6,  8,  9, 12, 25],
+        [8, 10, 12, 13, 40],
+    ]
+
+    def test_false_example(self):
+        assert not search_matrix(self.matrix, 7)
+
+    def test_true_example(self):
+        assert search_matrix(self.matrix, 8)

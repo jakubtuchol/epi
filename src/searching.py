@@ -108,3 +108,22 @@ def square_root(num):
             low = mid + 1
 
     return low - 1
+
+
+def search_matrix(matrix, target):
+    """
+    Question 12.7: A matrix is sorted if its rows
+    and columns are nondecreasing. Find if a value
+    is located in the matrix.
+    """
+    row = 0
+    col = len(matrix[0]) - 1
+
+    while row < len(matrix) and col >= 0:
+        if matrix[row][col] == target:
+            return True
+        elif matrix[row][col] < target:
+            row += 1
+        else:
+            col -= 1
+    return False
