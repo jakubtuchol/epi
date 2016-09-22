@@ -120,7 +120,7 @@ Valiantly trying to solve every single question in
 ## Chapter 12: Searching
 
 - [x] 12.1: Search a sorted array for the first occurrence of `k`
-- [ ] 12.2: Search a sorted array for the first element greater than `k`
+- [x] 12.2: Search a sorted array for the first element greater than `k`
 - [ ] 12.3: Search a sorted array for entry equal to its index
 - [x] 12.4: Search a cyclically sorted array
 - [x] 12.5: Compute the integer square root

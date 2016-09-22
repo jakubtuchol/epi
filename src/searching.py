@@ -19,6 +19,25 @@ def find_first_occurrence(target, ls):
     return result
 
 
+def first_larger_than_num(ls, k):
+    """
+    Question 12.2: Find index of first number
+    greater than k in a sorted array
+    """
+    left = 0
+    right = len(ls) - 1
+    result = -1
+
+    while left <= right:
+        mid = (left + right) / 2
+        if ls[mid] > k:
+            result = mid
+            right = mid - 1
+        else:
+            left = mid + 1
+    return result
+
+
 def smallest_cyclically_sorted_list(ls):
     """
     Question 12.4: Find index of smallest element
