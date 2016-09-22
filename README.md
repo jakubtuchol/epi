@@ -3,6 +3,9 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
+* Completed: 79
+* Remaining: 100
+
 ## Chapter 5: Primitives
 
 - [x] 5.1: Computing the parity of a word
