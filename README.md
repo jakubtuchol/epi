@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 82
-* Remaining: 97
+* Completed: 83
+* Remaining: 96
 
 ## Chapter 5: Primitives
 
@@ -68,7 +68,7 @@ Valiantly trying to solve every single question in
 - [x] 8.4: Test for cyclicity
 - [x] 8.5: Test for overlapping lists -- lists are cycle-free
 - [x] 8.6: Test for overlapping lists -- lists may have cycles
-- [ ] 8.7: Delete a node from a singly linked list
+- [x] 8.7: Delete a node from a singly linked list
 - [x] 8.8: Remove the `k`th last element from a list
 - [ ] 8.9: Remove duplicates from a sorted list
 - [ ] 8.10: Implement cyclic right shift for singly linked lists

@@ -1,6 +1,7 @@
 import pytest
 
 from src.linked_lists import check_list_palindrome
+from src.linked_lists import delete_node
 from src.linked_lists import detect_cycle
 from src.linked_lists import even_odd_merge
 from src.linked_lists import find_overlap
@@ -11,6 +12,20 @@ from src.linked_lists import remove_kth_last_element
 from src.linked_lists import reverse_linked_list
 
 
+# Fixtures
+@pytest.fixture
+def create_list():
+    dummy = Node(None)
+    head = dummy
+
+    for idx in xrange(10):
+        dummy.next = Node(idx)
+        dummy = dummy.next
+
+    return head.next
+
+
+# Tests
 class TestMergeLinkedLists(object):
     """
     Question 8.1
@@ -169,16 +184,31 @@ class TestFindOverlapCycle(object):
         assert cross_node == find_overlap(head_one, head_two)
 
 
-@pytest.fixture
-def create_list():
-    dummy = Node(None)
-    head = dummy
+class TestDeleteNode(object):
+    """
+    Question 8.7
+    """
 
-    for idx in xrange(10):
-        dummy.next = Node(idx)
-        dummy = dummy.next
+    def test_basic_example(self):
+        del_node = None
+        dummy = Node(None)
+        head = dummy
 
-    return head.next
+        for idx in xrange(10):
+            dummy.next = Node(idx)
+            dummy = dummy.next
+            if idx == 5:
+                del_node = dummy
+
+        head = head.next
+        delete_node(del_node)
+
+        for idx in xrange(10):
+            if idx != 5:
+                assert idx == head.val
+                head = head.next
+            else:
+                assert 6 == head.val
 
 
 class TestRemoveKthElement(object):

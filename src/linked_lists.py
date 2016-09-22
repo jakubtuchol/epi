@@ -172,6 +172,15 @@ def get_node_distance(a, b):
     return distance
 
 
+def delete_node(node):
+    """
+    Question 8.7: Delete node in O(1)
+    time
+    """
+    node.val = node.next.val
+    node.next = node.next.next
+
+
 def advance_list(node, k):
     while k:
         node = node.next
