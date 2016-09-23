@@ -1,4 +1,5 @@
 from src.hashtables import find_anagrams
+from src.hashtables import find_longest_distinct_subarray
 from src.hashtables import find_nearest_repetition
 from src.hashtables import IsbnCache
 from src.hashtables import palindromic_permutation
@@ -120,3 +121,22 @@ class TestFindNearestRepetition(object):
             'no', 'play', 'makes',
         ]
         assert None is find_nearest_repetition(words)
+
+
+class TestFindLongestDistinctSubarray(object):
+    """
+    Question 13.10
+    """
+
+    def test_book_example(self):
+        ls = ['f', 's', 'f', 'e', 't', 'w', 'e', 'n', 'w', 'e']
+        expected = ['s', 'f', 'e', 't', 'w']
+        assert expected == find_longest_distinct_subarray(ls)
+
+    def test_repeating_example(self):
+        ls = ['f'] * 12
+        assert ['f'] == find_longest_distinct_subarray(ls)
+
+    def test_geeks_example(self):
+        ls = 'geeksforgeeks'
+        assert 'ksforge' == find_longest_distinct_subarray(ls)

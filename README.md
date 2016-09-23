@@ -146,7 +146,7 @@ Valiantly trying to solve every single question in
 - [x] 13.7: Find the nearest repeated entries in an array
 - [ ] 13.8: Find the smallest subarray sequentially covering all values
 - [ ] 13.9: Find smallest subarray sequentially covering all values
-- [ ] 13.10: Find the longest subarray with distinct entries
+- [x] 13.10: Find the longest subarray with distinct entries
 - [ ] 13.11: Find the length of a longest contained interval
 - [ ] 13.12: Compute the average of the top three scores
 - [ ] 13.13: Compute all string decompositions
@@ -185,7 +185,6 @@ Valiantly trying to solve every single question in
 - [ ] 15.13: The range lookup problem
 - [ ] 15.14: Add credits
 - [ ] 15.15: Count the number of entries in an interval
-
 
 ## Chapter 16: Recursion
 

@@ -107,3 +107,36 @@ def find_nearest_repetition(words):
     if lowest_distance == maxint:
         return None
     return lowest_distance
+
+
+def find_longest_distinct_subarray(ls):
+    """
+    Question 13.10: Find longest subarray
+    with distinct entries
+    """
+    # maximum trackers
+    max_begin = 0
+    max_len = 0
+
+    # current trackers
+    cur_begin = 0
+    cur_len = 0
+
+    seen = {}
+
+    for idx, elt in enumerate(ls):
+        if elt not in seen or seen[elt] < cur_begin:
+            cur_len += 1
+        else:
+            if cur_len >= max_len:
+                max_len = cur_len
+                max_begin = cur_begin
+            cur_begin = seen[elt] + 1
+            cur_len = idx - seen[elt]
+        seen[elt] = idx
+
+    if cur_len > max_len:
+        max_len = cur_len
+        max_begin = cur_begin
+
+    return ls[max_begin:max_begin + max_len]
