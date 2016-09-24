@@ -159,7 +159,7 @@ Valiantly trying to solve every single question in
 - [x] 14.1: Compute the intersection of two arrays
 - [x] 14.2: Implement mergesort in-place
 - [x] 14.3: Count the frequencies of characters in a sentence
-- [ ] 14.4: Remove first-name duplicates
+- [x] 14.4: Remove first-name duplicates
 - [x] 14.5: Render a calendar
 - [ ] 14.6: Merging intervals
 - [ ] 14.7: Compute the union of intervals

@@ -62,6 +62,21 @@ def count_occurrences(sentence):
     return output
 
 
+def remove_repeated_first_names(names):
+    """
+    Question 14.4: Remove duplicate first names
+    from input array
+    """
+
+    seen = set()
+    output = []
+    for name in names:
+        if name[0] not in seen:
+            output.append(name)
+            seen.add(name[0])
+    return output
+
+
 def find_max_simultaneous_events(events):
     """
     Question 14.5: Given a list of intervals representing

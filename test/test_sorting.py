@@ -2,6 +2,7 @@ from src.sorting import compute_intersection
 from src.sorting import count_occurrences
 from src.sorting import find_max_simultaneous_events
 from src.sorting import inplace_mergesort
+from src.sorting import remove_repeated_first_names
 
 
 class TestComputeIntersection(object):
@@ -59,6 +60,25 @@ class TestCountOccurrences(object):
         ]
         output = sorted(count_occurrences(sentence), key=lambda x: x[0])
         assert expected == output
+
+
+class TestRemoveDuplicateFirstNames(object):
+    """
+    Question 14.4
+    """
+
+    def test_book_example(self):
+        names = [
+            ('Ian', 'Botham'),
+            ('David', 'Gower'),
+            ('Ian', 'Bell'),
+            ('David', 'Chappell'),
+        ]
+        expected = [
+            ('Ian', 'Botham'),
+            ('David', 'Gower'),
+        ]
+        assert expected == remove_repeated_first_names(names)
 
 
 class TestFindMaxSimultaneousEvents(object):
