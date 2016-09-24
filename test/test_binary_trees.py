@@ -3,6 +3,7 @@ import pytest
 from src.binary_trees import check_equal
 from src.binary_trees import compute_lca
 from src.binary_trees import compute_parent_lca
+from src.binary_trees import get_kth_inorder_record
 from src.binary_trees import has_leaf_sum
 from src.binary_trees import inorder_traversal
 from src.binary_trees import is_balanced
@@ -11,7 +12,6 @@ from src.binary_trees import reconstruct_preorder
 from src.binary_trees import reconstruct_tree
 from src.binary_trees import sum_root_to_leaf
 from src.binary_trees import TNode
-from src.binary_trees import get_kth_inorder_record
 
 
 # Fixtures
