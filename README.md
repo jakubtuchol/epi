@@ -100,7 +100,7 @@ Valiantly trying to solve every single question in
 - [x] 10.4: Compute the LCA when nodes have parent pointers
 - [x] 10.5: Sum the root-to-leaf paths in a binary tree
 - [x] 10.6: Find a root to leaf path with specified sum
-- [ ] 10.7: Compute the `k`th node in an inorder traversal
+- [x] 10.7: Compute the `k`th node in an inorder traversal
 - [ ] 10.8: Compute the successor
 - [x] 10.9: Implement an inorder traversal with `O(1)` space
 - [x] 10.10: Reconstruct a binary tree from traversal data

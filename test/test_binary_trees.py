@@ -11,6 +11,7 @@ from src.binary_trees import reconstruct_preorder
 from src.binary_trees import reconstruct_tree
 from src.binary_trees import sum_root_to_leaf
 from src.binary_trees import TNode
+from src.binary_trees import get_kth_inorder_record
 
 
 # Fixtures
@@ -18,11 +19,17 @@ from src.binary_trees import TNode
 def create_basic_tree():
     root = TNode(1)
     root.left = TNode(2)
+    root.left.parent = root
     root.right = TNode(3)
+    root.right.parent = root
     root.left.left = TNode(4)
+    root.left.left.parent = root.left
     root.left.right = TNode(5)
+    root.left.right.parent = root.left
     root.right.left = TNode(6)
+    root.right.left.parent = root.right
     root.right.right = TNode(7)
+    root.right.right.parent = root.right
     return root
 
 
@@ -379,6 +386,16 @@ class TestHasLeafSum(object):
     def test_book_example(self, generate_sum_tree):
         assert has_leaf_sum(generate_sum_tree, 591)
         assert not has_leaf_sum(generate_sum_tree, 500)
+
+
+class TestGetKthNode(object):
+    """
+    Question 10.7
+    """
+
+    def test_basic_example(self, create_basic_tree):
+        assert 4 == get_kth_inorder_record(create_basic_tree, 1)
+        assert 7 == get_kth_inorder_record(create_basic_tree, 7)
 
 
 class TestInorderTraversal(object):

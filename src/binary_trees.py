@@ -202,6 +202,36 @@ def has_leaf_sum_helper(root, target, partial_sum):
         has_leaf_sum_helper(root.right, target, partial_sum)
 
 
+def get_kth_inorder_record(root, k):
+    """
+    Question 10.7
+    """
+    current_num = 0
+    cur = root
+    prev = None
+
+    while cur:
+        next_node = None
+        if cur.parent == prev:
+            if cur.left:
+                next_node = cur.left
+            else:
+                current_num += 1
+                if current_num == k:
+                    return cur.val
+                next_node = cur.right if cur.right else cur.parent
+        elif cur.left == prev:
+            current_num += 1
+            if current_num == k:
+                return cur.val
+            next_node = cur.right if cur.right else cur.parent
+        else:
+            next_node = cur.parent
+        prev = cur
+        cur = next_node
+    return None
+
+
 def inorder_traversal(root):
     """
     Question 10.9: Implement an
