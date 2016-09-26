@@ -90,6 +90,25 @@ def add(x, y):
     return cur_sum | carry_in
 
 
+def divide(x, y):
+    """
+    Question 5.6: Given two positive integers,
+    compute their quotient, using only the addition,
+    subtraction, and shifting operators
+    """
+    result = 0
+    power = 32
+    y_power = y << power
+
+    while x >= y:
+        while y_power > x:
+            y_power >>= 1
+            power -= 1
+        result += 1 << power
+        x -= y_power
+    return result
+
+
 def reverse_digits(num):
     """
     Problem 5.8: Reverse digits of a number

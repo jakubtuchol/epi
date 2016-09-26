@@ -1,6 +1,7 @@
 from src.primitive import add
 from src.primitive import check_rectangle_intersection
 from src.primitive import closest_int_same_bit_count
+from src.primitive import divide
 from src.primitive import find_parity
 from src.primitive import get_intersection
 from src.primitive import multiply
@@ -90,6 +91,19 @@ class TestAdd(object):
     def test_basic_inputs(self):
         assert 100 == add(50, 50)
         assert 23 == add(19, 4)
+
+
+class TestDivide(object):
+    """
+    Question 5.6
+    """
+
+    def test_basic_example(self):
+        assert 300 == divide(300, 1)
+        assert 40 == divide(160, 4)
+
+    def test_more_involved_examples(self):
+        assert 56 == divide(13104, 234)
 
 
 class TestReverseInteger(object):
