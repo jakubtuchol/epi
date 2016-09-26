@@ -5,6 +5,7 @@ from src.primitive import palindrome_number
 from src.primitive import Rectangle
 from src.primitive import reverse_bits
 from src.primitive import reverse_digits
+from src.primitive import swap_bits
 
 
 class TestParity(object):
@@ -19,6 +20,15 @@ class TestParity(object):
     def test_basic_non_parity(self):
         x = int('10001000', 2)
         assert find_parity(x) == 0
+
+
+class TestSwapBits(object):
+    """
+    Question 5.2
+    """
+
+    def test_basic_example(self):
+        assert 7 == swap_bits(28, 0, 3)
 
 
 class TestReverseBits(object):
