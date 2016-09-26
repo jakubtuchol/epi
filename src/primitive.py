@@ -38,6 +38,21 @@ def reverse_bits(x):
     return int(full_str, 2)
 
 
+def closest_int_same_bit_count(x):
+    """
+    Question 5.4: Find an int that is closest to
+    the input integer and has the same number of
+    bits set
+    """
+    # find two right-most bits that differ and swap them
+    num_bits = x.bit_length()
+
+    for bit in xrange(num_bits):
+        if (x >> bit) & 1 != (x >> (bit + 1)) & 1:
+            x ^= (1 << bit) | (1 << (bit + 1))
+    return x
+
+
 def reverse_digits(num):
     """
     Problem 5.8: Reverse digits of a number

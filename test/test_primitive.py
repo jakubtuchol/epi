@@ -1,4 +1,5 @@
 from src.primitive import check_rectangle_intersection
+from src.primitive import closest_int_same_bit_count
 from src.primitive import find_parity
 from src.primitive import get_intersection
 from src.primitive import palindrome_number
@@ -52,6 +53,19 @@ class TestReverseBits(object):
         num_in = int((48 * '0') + (16 * '1'), 2)
         num_out = int((16 * '1') + (48 * '0'), 2)
         assert num_out == reverse_bits(num_in)
+
+
+class TestClosestIntSameBitCount(object):
+    """
+    Question 5.4
+    """
+
+    def test_book_example(self):
+        assert 4 == closest_int_same_bit_count(8)
+
+    def test_increasing_example(self):
+        assert 7 != closest_int_same_bit_count(7)
+        assert 11 == closest_int_same_bit_count(7)
 
 
 class TestReverseInteger(object):

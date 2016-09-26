@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 85
-* Remaining: 94
+* Completed: 87
+* Remaining: 92
 
 ## Chapter 5: Primitives
 
