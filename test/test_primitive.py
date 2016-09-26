@@ -28,7 +28,7 @@ class TestSwapBits(object):
     """
 
     def test_basic_example(self):
-        assert 7 == swap_bits(28, 0, 3)
+        assert 11 == swap_bits(73, 1, 6)
 
 
 class TestReverseBits(object):

@@ -17,12 +17,14 @@ def find_parity(x):
     return parity % 2
 
 
-def swap_bits(x, pos1, pos2):
+def swap_bits(x, j, k):
     """
     Question 5.2: Swap bits in a number
     """
-    if (x >> pos1) & 1 != (x >> pos2) & 1:
-        return ((x >> pos1) & 1) << pos2
+    if (x >> j) & 1 != (x >> k) & 1:
+        mask = (1 << j) | (1 << k)
+        x ^= mask
+    return x
 
 
 def reverse_bits(x):

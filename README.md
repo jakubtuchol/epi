@@ -9,7 +9,7 @@ Valiantly trying to solve every single question in
 ## Chapter 5: Primitives
 
 - [x] 5.1: Computing the parity of a word
-- [ ] 5.2: Swap bits
+- [x] 5.2: Swap bits
 - [x] 5.3: Reverse bits
 - [ ] 5.4: Find a closest integer with the same weight
 - [ ] 5.5: Compute `X x Y` without arithmetical operators
