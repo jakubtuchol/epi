@@ -53,6 +53,43 @@ def closest_int_same_bit_count(x):
     return x
 
 
+def multiply(x, y):
+    """
+    Question 5.5: Compute X x Y without using
+    arithmetic operators
+    """
+    cur_sum = 0
+    while x:
+        if x & 1 == 1:
+            cur_sum = add(cur_sum, y)
+        x >>= 1
+        y <<= 1
+    return cur_sum
+
+
+def add(x, y):
+    """
+    Helper function to implement
+    adding for binary nums
+    """
+    cur_sum = 0
+    carry_in = 0
+    temp_x = x
+    temp_y = y
+    k = 1
+
+    while temp_x or temp_y:
+        xk = x & k
+        yk = y & k
+        carry_out = (xk & yk) | (xk & carry_in) | (yk & carry_in)
+        cur_sum |= (xk ^ yk ^ carry_in)
+        carry_in = carry_out << 1
+        k <<= 1
+        temp_x >>= 1
+        temp_y >>= 1
+    return cur_sum | carry_in
+
+
 def reverse_digits(num):
     """
     Problem 5.8: Reverse digits of a number

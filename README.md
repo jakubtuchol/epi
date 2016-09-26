@@ -3,16 +3,16 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 87
-* Remaining: 92
+* Completed: 88
+* Remaining: 91
 
 ## Chapter 5: Primitives
 
 - [x] 5.1: Computing the parity of a word
 - [x] 5.2: Swap bits
 - [x] 5.3: Reverse bits
-- [ ] 5.4: Find a closest integer with the same weight
-- [ ] 5.5: Compute `X x Y` without arithmetical operators
+- [x] 5.4: Find a closest integer with the same weight
+- [x] 5.5: Compute `X x Y` without arithmetical operators
 - [ ] 5.6: Compute `X / Y`
 - [ ] 5.7: Compute `X ^ Y`
 - [x] 5.8: Reverse digits

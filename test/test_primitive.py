@@ -1,7 +1,9 @@
+from src.primitive import add
 from src.primitive import check_rectangle_intersection
 from src.primitive import closest_int_same_bit_count
 from src.primitive import find_parity
 from src.primitive import get_intersection
+from src.primitive import multiply
 from src.primitive import palindrome_number
 from src.primitive import Rectangle
 from src.primitive import reverse_bits
@@ -66,6 +68,28 @@ class TestClosestIntSameBitCount(object):
     def test_increasing_example(self):
         assert 7 != closest_int_same_bit_count(7)
         assert 11 == closest_int_same_bit_count(7)
+
+
+class TestMultiply(object):
+    """
+    Question 5.5
+    """
+
+    def test_basic_example(self):
+        assert 42 == multiply(6, 7)
+
+    def test_multi_shift(self):
+        assert 10000 == multiply(100, 100)
+
+
+class TestAdd(object):
+    """
+    Tests for helper function add
+    """
+
+    def test_basic_inputs(self):
+        assert 100 == add(50, 50)
+        assert 23 == add(19, 4)
 
 
 class TestReverseInteger(object):
