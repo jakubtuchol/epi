@@ -6,6 +6,7 @@ from src.primitive import find_parity
 from src.primitive import get_intersection
 from src.primitive import multiply
 from src.primitive import palindrome_number
+from src.primitive import power
 from src.primitive import Rectangle
 from src.primitive import reverse_bits
 from src.primitive import reverse_digits
@@ -104,6 +105,19 @@ class TestDivide(object):
 
     def test_more_involved_examples(self):
         assert 56 == divide(13104, 234)
+
+
+class TestPower(object):
+    """
+    Question 5.7
+    """
+    epsilon = 0.00000001
+
+    def test_power_double(self):
+        assert abs(1.61051 - power(1.1, 5)) < self.epsilon
+
+    def test_negative_input(self):
+        assert abs(0.44444444444 - power(1.5, -2)) < self.epsilon
 
 
 class TestReverseInteger(object):

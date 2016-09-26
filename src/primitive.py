@@ -109,6 +109,27 @@ def divide(x, y):
     return result
 
 
+def power(x, y):
+    """
+    Question 5.7: Given a double x and an integer y,
+    return x ^ y
+    """
+    result = 1.0
+
+    # handling negative case
+    if y < 0:
+        x = 1.0 / x
+        y = -y
+    while y:
+        if y & 1:
+            result *= x
+
+        x *= x
+        y >>= 1
+
+    return result
+
+
 def reverse_digits(num):
     """
     Problem 5.8: Reverse digits of a number

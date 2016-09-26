@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 89
-* Remaining: 90
+* Completed: 90
+* Remaining: 89
 
 ## Chapter 5: Primitives
 
@@ -14,7 +14,7 @@ Valiantly trying to solve every single question in
 - [x] 5.4: Find a closest integer with the same weight
 - [x] 5.5: Compute `X x Y` without arithmetical operators
 - [x] 5.6: Compute `X / Y`
-- [ ] 5.7: Compute `X ^ Y`
+- [x] 5.7: Compute `X ^ Y`
 - [x] 5.8: Reverse digits
 - [x] 5.9: Check if a decimal integer is a palindrome
 - [ ] 5.10: generate uniform random numbers
