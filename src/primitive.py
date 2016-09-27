@@ -2,6 +2,16 @@
 Chapter 5: Primitives
 """
 from math import ceil
+from random import getrandbits
+
+
+class Rectangle(object):
+
+    def __init__(self, x, y, height, width):
+        self.x = x
+        self.y = y
+        self.height = height
+        self.width = width
 
 
 def find_parity(x):
@@ -153,15 +163,6 @@ def reverse_digits(num):
     return rev_num
 
 
-class Rectangle(object):
-
-    def __init__(self, x, y, height, width):
-        self.x = x
-        self.y = y
-        self.height = height
-        self.width = width
-
-
 def palindrome_number(x):
     """
     Problem 5.9: Check if decimal integer
@@ -185,6 +186,25 @@ def palindrome_number(x):
         left += 1
         right -= 1
     return True
+
+
+def uniform_random(lower_bound, upper_bound):
+    """
+    Question 5.10: Generates uniform random number
+    within lower and upper bounds, inclusive
+    """
+    num_outcomes = upper_bound - lower_bound + 1
+    result = None
+
+    while True:
+        result = 0
+        i = 0
+        while 1 << i < num_outcomes:
+            result = (result << 1) | getrandbits(1)
+            i += 1
+        if result < num_outcomes:
+            break
+    return result + lower_bound
 
 
 def check_rectangle_intersection(rect1, rect2):

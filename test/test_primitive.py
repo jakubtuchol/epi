@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from src.primitive import add
 from src.primitive import check_rectangle_intersection
 from src.primitive import closest_int_same_bit_count
@@ -11,6 +13,7 @@ from src.primitive import Rectangle
 from src.primitive import reverse_bits
 from src.primitive import reverse_digits
 from src.primitive import swap_bits
+from src.primitive import uniform_random
 
 
 class TestParity(object):
@@ -155,6 +158,22 @@ class TestPalindromeNumber(object):
         assert not palindrome_number(12)
         assert not palindrome_number(100)
         assert not palindrome_number(2147483647)
+
+
+class TestUniformRandom(object):
+    """
+    Question 5.10
+    """
+
+    def test_number_generation(self):
+        results = defaultdict(int)
+        for _ in xrange(100):
+            outcome = uniform_random(1, 5)
+            results[outcome] += 1
+
+        for x in results.values():
+            assert x > 5
+            assert x < 40
 
 
 class TestCheckRectangleIntersection(object):

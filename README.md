@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 90
-* Remaining: 89
+* Completed: 91
+* Remaining: 88
 
 ## Chapter 5: Primitives
 
@@ -17,7 +17,7 @@ Valiantly trying to solve every single question in
 - [x] 5.7: Compute `X ^ Y`
 - [x] 5.8: Reverse digits
 - [x] 5.9: Check if a decimal integer is a palindrome
-- [ ] 5.10: generate uniform random numbers
+- [x] 5.10: generate uniform random numbers
 - [x] 5.11: Rectangle intersection
 
 ## Chapter 6: Arrays
