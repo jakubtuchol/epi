@@ -148,6 +148,24 @@ def can_reach_end(steps):
     return furthest_reach_so_far >= last_idx
 
 
+def delete_key(ls, key):
+    """
+    Question 6.5: Given an array and an input key,
+    remove the key from the array
+    """
+    write_idx = 0
+    for idx, elt in enumerate(ls):
+        if elt != key:
+            ls[write_idx] = elt
+            write_idx += 1
+
+    while write_idx < len(ls):
+        ls[write_idx] = None
+        write_idx += 1
+
+    return ls
+
+
 def delete_duplicates(ls):
     """
     Question 6.6: Delete duplicates from sorted array,

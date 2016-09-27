@@ -4,6 +4,7 @@ from src.arrays import buy_sell_once
 from src.arrays import can_reach_end
 from src.arrays import check_sudoku
 from src.arrays import delete_duplicates
+from src.arrays import delete_key
 from src.arrays import dutch_national_partition
 from src.arrays import dutch_partition_better
 from src.arrays import get_square_idx
@@ -137,6 +138,25 @@ class TestCanReachEnd(object):
 
     def test_unsuccessful_case(self):
         assert not can_reach_end([3, 2, 0, 0, 2, 0, 1])
+
+
+class TestDeleteKey(object):
+    """
+    Question 6.5
+    """
+
+    def test_book_example(self):
+        ls = [
+            5, 3, 7,
+            11, 2, 3,
+            13, 5, 7,
+        ]
+        expected = [
+            5, 7, 11,
+            2, 13, 5,
+            7, None, None
+        ]
+        assert expected == delete_key(ls, 3)
 
 
 class TestDeleteDuplicates(object):

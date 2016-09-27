@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 91
-* Remaining: 88
+* Completed: 92
+* Remaining: 87
 
 ## Chapter 5: Primitives
 
@@ -26,7 +26,7 @@ Valiantly trying to solve every single question in
 - [x] 6.2: Increment an arbitrary-precision integer
 - [x] 6.3: Multiply two arbitrary-precision integers
 - [x] 6.4: Advancing through an array
-- [ ] 6.5: Delete a key from an array
+- [x] 6.5: Delete a key from an array
 - [x] 6.6: Delete duplicates from a sorted array
 - [x] 6.7: Buy and sell a stock once
 - [ ] 6.8: Buy and sell a stock twice
