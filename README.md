@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 97
-* Remaining: 82
+* Completed: 98
+* Remaining: 81
 
 ## Chapter 5: Primitives
 
@@ -36,7 +36,7 @@ Valiantly trying to solve every single question in
 - [x] 6.12: Sample offline data
 - [x] 6.13: Sample online data
 - [x] 6.14: Compute a random permutation
-- [ ] 6.15: Compute a random subset
+- [x] 6.15: Compute a random subset
 - [x] 6.16: Generate nonuniform random numbers
 - [x] 6.17: The Sudoku checker problem
 - [x] 6.18: Compute the spiral ordering of a 2D array

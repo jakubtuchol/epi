@@ -323,6 +323,39 @@ def random_permutation(n):
     return random_sample(ls, n)
 
 
+def random_subset(n, k):
+    """
+    Question 6.15: Given a number n, compute
+    a random subset of 0 to n - 1 of size k
+    """
+    seen = {}
+
+    for idx in xrange(k):
+        rand_idx = random.randrange(n)
+        rand_val = seen.get(rand_idx, None)
+        idx_val = seen.get(idx, None)
+
+        if rand_val is None and idx_val is None:
+            seen[rand_idx] = idx
+            seen[idx] = rand_idx
+        elif rand_val is None and idx_val is not None:
+            seen[rand_idx] = idx_val
+            seen[idx] = rand_idx
+        elif rand_val is not None and idx_val is None:
+            seen[rand_idx] = idx
+            seen[idx] = rand_val
+        else:
+            tmp = idx_val
+            seen[idx] = rand_val
+            seen[rand_idx] = tmp
+
+    results = []
+    for idx in xrange(k):
+        results.append(seen[idx])
+
+    return results
+
+
 @attr.s
 class NumProbability(object):
     num = attr.ib(validator=instance_of(int))

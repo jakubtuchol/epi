@@ -19,6 +19,7 @@ from src.arrays import NumProbability
 from src.arrays import online_sample
 from src.arrays import random_permutation
 from src.arrays import random_sample
+from src.arrays import random_subset
 from src.arrays import spiralize
 
 
@@ -300,8 +301,26 @@ class TestRandomPermutation(object):
             str_output = ''.join(map(lambda x: str(x), output))
             seen[str_output] += 1
 
-        for key, val in seen.items():
+        for val in seen.values():
             assert 10 < val < 30
+
+
+class TestRandomSubset(object):
+    """
+    Question 6.15
+    """
+
+    def test_book_example(self):
+        seen = defaultdict(int)
+        for _ in xrange(100):
+            output = random_subset(10, 1)
+            seen[output[0]] += 1
+
+        for val in seen.values():
+            assert 5 < val < 20
+
+    def test_empty_value(self):
+        assert [] == random_subset(10, 0)
 
 
 class TestCheckSudoku(object):
