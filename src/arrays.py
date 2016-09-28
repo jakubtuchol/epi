@@ -200,6 +200,20 @@ def buy_sell_once(stocks):
     return max_profit
 
 
+def buy_sell_stock_twice(stocks):
+    """
+    Question: Find the maximum profit that
+    can be made from buying and selling a
+    stock at most twice
+    """
+    max_profit = 0
+    for idx in xrange(len(stocks)):
+        profit = buy_sell_once(stocks[:idx]) + \
+            buy_sell_once(stocks[idx:])
+        max_profit = max(profit, max_profit)
+    return max_profit
+
+
 def apply_permutation(array, permutation):
     """
     Question 6.10: Given an array and a permutation,

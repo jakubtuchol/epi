@@ -1,6 +1,7 @@
 from src.arrays import add_one
 from src.arrays import apply_permutation
 from src.arrays import buy_sell_once
+from src.arrays import buy_sell_stock_twice
 from src.arrays import can_reach_end
 from src.arrays import check_sudoku
 from src.arrays import delete_duplicates
@@ -192,6 +193,20 @@ class TestBuySellOnce(object):
     def test_stock_three(self):
         stocks = [7, 9, 5, 6, 3, 2]
         assert buy_sell_once(stocks) == 2
+
+
+class TestBuySellTwice(object):
+    """
+    Question 6.8
+    """
+
+    def test_book_example(self):
+        stocks = [
+            12, 11, 13,
+            9, 12, 8,
+            14, 13, 15,
+        ]
+        assert 10 == buy_sell_stock_twice(stocks)
 
 
 class TestApplyPermutation(object):
