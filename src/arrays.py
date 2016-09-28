@@ -450,3 +450,21 @@ def spiralize(arr):
             output.append(arr[y][min_x])
         min_x += 1
     return output
+
+
+def rotate_matrix(matrix):
+    """
+    Question 6.19: Rotate a 2d array
+    """
+    matrix_size = len(matrix) - 1
+    for i in xrange(len(matrix) / 2):
+        for j in xrange(i, matrix_size - i):
+            temp1 = matrix[matrix_size - j][i]
+            temp2 = matrix[matrix_size - i][matrix_size - j]
+            temp3 = matrix[j][matrix_size - i]
+            temp4 = matrix[i][j]
+            matrix[i][j] = temp1
+            matrix[matrix_size - j][i] = temp2
+            matrix[matrix_size - i][matrix_size - j] = temp3
+            matrix[j][matrix_size - i] = temp4
+    return matrix

@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 98
-* Remaining: 81
+* Completed: 99
+* Remaining: 80
 
 ## Chapter 5: Primitives
 
@@ -40,7 +40,7 @@ Valiantly trying to solve every single question in
 - [x] 6.16: Generate nonuniform random numbers
 - [x] 6.17: The Sudoku checker problem
 - [x] 6.18: Compute the spiral ordering of a 2D array
-- [ ] 6.19: Rotate a 2D array
+- [x] 6.19: Rotate a 2D array
 - [ ] 6.20: Compute rows in Pascal's Triangle
 
 ## Chapter 7: Strings

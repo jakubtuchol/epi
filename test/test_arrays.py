@@ -20,6 +20,7 @@ from src.arrays import online_sample
 from src.arrays import random_permutation
 from src.arrays import random_sample
 from src.arrays import random_subset
+from src.arrays import rotate_matrix
 from src.arrays import spiralize
 
 
@@ -323,6 +324,29 @@ class TestRandomSubset(object):
         assert [] == random_subset(10, 0)
 
 
+class TestNonuniformRandom(object):
+    """
+    Question 6.16
+    """
+
+    def test_basic_example(self):
+        probs = [
+            NumProbability(num=1, prob=1.0 / 3.0),
+            NumProbability(num=3, prob=2.0 / 3.0),
+        ]
+        ones = 0
+        threes = 0
+
+        for _ in xrange(100):
+            res = nonuniform_random(probs)
+            if res == 3:
+                threes += 1
+            else:
+                ones += 1
+
+        assert threes > ones
+
+
 class TestCheckSudoku(object):
     """
     Question 6.17
@@ -384,29 +408,6 @@ class TestGetSquare(object):
         assert 4 == get_square_idx(5, 5)
 
 
-class TestNonuniformRandom(object):
-    """
-    Question 6.16
-    """
-
-    def test_basic_example(self):
-        probs = [
-            NumProbability(num=1, prob=1.0 / 3.0),
-            NumProbability(num=3, prob=2.0 / 3.0),
-        ]
-        ones = 0
-        threes = 0
-
-        for _ in xrange(100):
-            res = nonuniform_random(probs)
-            if res == 3:
-                threes += 1
-            else:
-                ones += 1
-
-        assert threes > ones
-
-
 class TestSpiralize(object):
     """
     Question 6.18
@@ -435,3 +436,24 @@ class TestSpiralize(object):
             [13, 14, 15, 16],
         ]
         assert expected == spiralize(arr)
+
+
+class TestRotateMatrix(object):
+    """
+    Question 6.19
+    """
+
+    def test_book_example(self):
+        matrix = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12],
+            [13, 14, 15, 16],
+        ]
+        expected = [
+            [13, 9, 5, 1],
+            [14, 10, 6, 2],
+            [15, 11, 7, 3],
+            [16, 12, 8, 4],
+        ]
+        assert expected == rotate_matrix(matrix)
