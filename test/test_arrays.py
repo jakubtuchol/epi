@@ -14,6 +14,7 @@ from src.arrays import multiply
 from src.arrays import next_permutation
 from src.arrays import nonuniform_random
 from src.arrays import NumProbability
+from src.arrays import online_sample
 from src.arrays import random_sample
 from src.arrays import spiralize
 
@@ -264,6 +265,18 @@ class TestRandomSampling(object):
         population = list(range(100))
         sample_1 = random_sample(population, 5)
         sample_2 = random_sample(population, 5)
+        assert sample_1 != sample_2
+
+
+class TestOnlineSampling(object):
+    """
+    Question 6.13
+    """
+
+    def test_online_sample(self):
+        population = list(range(100))
+        sample_1 = online_sample(population, 5)
+        sample_2 = online_sample(population, 5)
         assert sample_1 != sample_2
 
 

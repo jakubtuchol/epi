@@ -295,6 +295,24 @@ def random_sample(inputs, size):
     return inputs[next_pos:]
 
 
+def online_sample(population, size):
+    """
+    Problem 6.13: Given a stream of packets and
+    an desired target size k, maintain a uniform
+    random subset of size k
+    """
+    results = []
+    for idx, elt in enumerate(population):
+        if idx < size:
+            results.append(idx)
+        else:
+            probability = float(idx + 1) / float(size)
+            if random.uniform(0, 1) < probability:
+                # add number to set
+                results[random.randrange(0, size)] = elt
+    return results
+
+
 @attr.s
 class NumProbability(object):
     num = attr.ib(validator=instance_of(int))
