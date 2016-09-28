@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 96
-* Remaining: 83
+* Completed: 97
+* Remaining: 82
 
 ## Chapter 5: Primitives
 
@@ -35,7 +35,7 @@ Valiantly trying to solve every single question in
 - [x] 6.11: Compute the next permutation
 - [x] 6.12: Sample offline data
 - [x] 6.13: Sample online data
-- [ ] 6.14: Compute a random permutation
+- [x] 6.14: Compute a random permutation
 - [ ] 6.15: Compute a random subset
 - [x] 6.16: Generate nonuniform random numbers
 - [x] 6.17: The Sudoku checker problem

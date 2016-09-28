@@ -288,9 +288,10 @@ def random_sample(inputs, size):
     # seed rand generator
     random.seed(datetime.now())
     for _ in xrange(size):
-        idx = random.randrange(next_pos)
-        swap(inputs, idx, next_pos)
-        next_pos -= 1
+        if next_pos > 0:
+            idx = random.randrange(next_pos + 1)
+            swap(inputs, idx, next_pos)
+            next_pos -= 1
 
     return inputs[next_pos:]
 
@@ -311,6 +312,15 @@ def online_sample(population, size):
                 # add number to set
                 results[random.randrange(0, size)] = elt
     return results
+
+
+def random_permutation(n):
+    """
+    Question 6.14: Compute a random permutation of
+    numbers from 0 to n - 1
+    """
+    ls = range(n)
+    return random_sample(ls, n)
 
 
 @attr.s

@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from src.arrays import add_one
 from src.arrays import apply_permutation
 from src.arrays import buy_sell_once
@@ -15,6 +17,7 @@ from src.arrays import next_permutation
 from src.arrays import nonuniform_random
 from src.arrays import NumProbability
 from src.arrays import online_sample
+from src.arrays import random_permutation
 from src.arrays import random_sample
 from src.arrays import spiralize
 
@@ -278,6 +281,27 @@ class TestOnlineSampling(object):
         sample_1 = online_sample(population, 5)
         sample_2 = online_sample(population, 5)
         assert sample_1 != sample_2
+
+
+class TestRandomPermutation(object):
+    """
+    Question 6.14
+    """
+
+    def test_basic_example(self):
+        sample_1 = random_permutation(10)
+        sample_2 = random_permutation(10)
+        assert sample_1 != sample_2
+
+    def test_probability(self):
+        seen = defaultdict(int)
+        for _ in xrange(100):
+            output = random_permutation(3)
+            str_output = ''.join(map(lambda x: str(x), output))
+            seen[str_output] += 1
+
+        for key, val in seen.items():
+            assert 10 < val < 30
 
 
 class TestCheckSudoku(object):
