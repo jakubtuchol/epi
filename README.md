@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 93
-* Remaining: 86
+* Completed: 95
+* Remaining: 84
 
 ## Chapter 5: Primitives
 
@@ -30,9 +30,9 @@ Valiantly trying to solve every single question in
 - [x] 6.6: Delete duplicates from a sorted array
 - [x] 6.7: Buy and sell a stock once
 - [x] 6.8: Buy and sell a stock twice
-- [ ] 6.9: Enumerate all primes to n
+- [x] 6.9: Enumerate all primes to n
 - [x] 6.10: Permute the elements of an array
-- [ ] 6.11: Compute the next permutation
+- [x] 6.11: Compute the next permutation
 - [x] 6.12: Sample offline data
 - [ ] 6.13: Sample online data
 - [ ] 6.14: Compute a random permutation

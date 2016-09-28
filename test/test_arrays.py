@@ -8,8 +8,10 @@ from src.arrays import delete_duplicates
 from src.arrays import delete_key
 from src.arrays import dutch_national_partition
 from src.arrays import dutch_partition_better
+from src.arrays import generate_primes
 from src.arrays import get_square_idx
 from src.arrays import multiply
+from src.arrays import next_permutation
 from src.arrays import nonuniform_random
 from src.arrays import NumProbability
 from src.arrays import random_sample
@@ -208,6 +210,23 @@ class TestBuySellTwice(object):
         ]
         assert 10 == buy_sell_stock_twice(stocks)
 
+    def test_regressive_input(self):
+        assert 0 == buy_sell_stock_twice([])
+
+
+class TestGeneratePrimes(object):
+    """
+    Question 6.9
+    """
+
+    def test_book_example(self):
+        expected = [
+            2, 3, 5,
+            7, 11, 13,
+            17,
+        ]
+        assert expected == generate_primes(18)
+
 
 class TestApplyPermutation(object):
     """
@@ -219,6 +238,21 @@ class TestApplyPermutation(object):
         p = [2, 0, 1, 3]
         expected = ['b', 'c', 'a', 'd']
         assert expected == apply_permutation(a, p)
+
+
+class TestNextPermutation(object):
+    """
+    Question 6.11
+    """
+
+    def test_book_example(self):
+        assert [1, 2, 0, 3] == next_permutation([1, 0, 3, 2])
+
+    def test_null_next(self):
+        assert [] == next_permutation([3, 2, 1, 0])
+
+    def test_larger_case(self):
+        assert [4, 2, 0, 1, 3] == next_permutation([4, 1, 3, 2, 0])
 
 
 class TestRandomSampling(object):

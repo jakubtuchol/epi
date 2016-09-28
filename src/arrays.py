@@ -202,7 +202,7 @@ def buy_sell_once(stocks):
 
 def buy_sell_stock_twice(stocks):
     """
-    Question: Find the maximum profit that
+    Question 6.8: Find the maximum profit that
     can be made from buying and selling a
     stock at most twice
     """
@@ -212,6 +212,22 @@ def buy_sell_stock_twice(stocks):
             buy_sell_once(stocks[idx:])
         max_profit = max(profit, max_profit)
     return max_profit
+
+
+def generate_primes(n):
+    """
+    Question 6.9: Enumerate all primes to n
+    """
+    primes = []
+    for idx in xrange(2, n):
+        divided = False
+        for prime in primes:
+            if idx % prime == 0:
+                divided = True
+                break
+        if not divided:
+            primes.append(idx)
+    return primes
 
 
 def apply_permutation(array, permutation):
@@ -230,6 +246,36 @@ def apply_permutation(array, permutation):
             next = temp
 
     return array
+
+
+def next_permutation(ls):
+    """
+    Question 6.11: Given an array, compute the
+    next permutation in dictionary order
+    """
+    # find right-most adjacent indices with elements
+    # in order
+    inorder_idx = None
+    cur_cand = sys.maxint
+    cand_idx = None
+    for idx, elt in enumerate(ls[:-1]):
+        if elt < ls[idx + 1]:
+            inorder_idx = idx
+        if inorder_idx is not None:
+            if ls[inorder_idx] < elt < cur_cand:
+                cur_cand = elt
+                cand_idx = idx
+
+    if inorder_idx is not None:
+        if ls[inorder_idx] < ls[-1] < cur_cand:
+            cand_idx = len(ls) - 1
+
+    if inorder_idx is None:
+        return []
+
+    # switch candidate element with first element that is in order
+    ls[inorder_idx], ls[cand_idx] = ls[cand_idx], ls[inorder_idx]
+    return ls[:inorder_idx + 1] + ls[inorder_idx + 1:][::-1]
 
 
 def random_sample(inputs, size):
