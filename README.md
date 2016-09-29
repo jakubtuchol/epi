@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 100
-* Remaining: 79
+* Completed: 101
+* Remaining: 78
 
 ## Chapter 5: Primitives
 
@@ -54,7 +54,7 @@ Valiantly trying to solve every single question in
 - [x] 7.7: Compute all mnemonics for a phone number
 - [x] 7.8: The look-and-say problem
 - [x] 7.9: Convert from Roman to decimal
-- [ ] 7.10: Compute all valid IP addresses
+- [x] 7.10: Compute all valid IP addresses
 - [ ] 7.11: Write a string sinusoidally
 - [ ] 7.12: Implement run-length encoding
 - [x] 7.13: Implement the UNIX `tail` command

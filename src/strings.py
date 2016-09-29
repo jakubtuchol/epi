@@ -250,6 +250,36 @@ def roman_to_integer(roman):
     return total
 
 
+def get_valid_ip_address(ls):
+    """
+    Question 7.10: Compute all valid IP addresses
+    from decimal string, given that
+    """
+    ips = []
+    # loop over first ip packet
+    first_idx = 1
+    while first_idx < 4 and first_idx < len(ls):
+        second_idx = 1
+        while second_idx < 4 and \
+                first_idx + second_idx < len(ls):
+            third_idx = 1
+            while third_idx < 4 and \
+                    first_idx + second_idx + third_idx < len(ls):
+                first_octet = ls[:first_idx]
+                second_octet = ls[first_idx:first_idx + second_idx]
+                third_octet = ls[first_idx +
+                                 second_idx:first_idx + second_idx + third_idx]
+                fourth_octet = ls[first_idx + second_idx + third_idx:]
+                octets = [first_octet, second_octet, third_octet, fourth_octet]
+                if all([int(octet) <= 255 for octet in octets]):
+                    ips.append('.'.join(octets))
+                third_idx += 1
+            second_idx += 1
+        first_idx += 1
+
+    return ips
+
+
 def tail(file_name, num_lines):
     """
     Question 7.13: Implement UNIX tail command

@@ -5,6 +5,7 @@ from src.strings import check_palindrome
 from src.strings import convert_base
 from src.strings import get_phone_mnemonics
 from src.strings import get_spreadsheet_column
+from src.strings import get_valid_ip_address
 from src.strings import int_to_string
 from src.strings import look_say
 from src.strings import replace_and_remove
@@ -190,6 +191,27 @@ class TestRomanToInteger(object):
         assert 1800 == roman_to_integer('MDCCC')
         assert 900 == roman_to_integer('CM')
         assert 707 == roman_to_integer('DCCVII')
+
+
+class TestValidIpAddress(object):
+    """
+    Question 7.10
+    """
+
+    def test_book_example(self):
+        dec_string = '19216811'
+        expected = [
+            '1.92.168.11',
+            '19.2.168.11',
+            '19.21.68.11',
+            '19.216.8.11',
+            '19.216.81.1',
+            '192.16.81.1',
+            '192.16.8.11',
+            '192.168.1.1',
+            '192.1.68.11',
+        ]
+        assert sorted(expected) == sorted(get_valid_ip_address(dec_string))
 
 
 email_data = \
