@@ -89,6 +89,39 @@ def get_spreadsheet_column(code):
     return total
 
 
+def replace_and_remove(ls, size):
+    """
+    Question 7.4: Apply the following rules to an array
+    of characters
+        Replace each 'a' by two 'd's
+        delete each entry containing 'b'
+    """
+    write_idx = 0
+    num_a = 0
+    for idx in xrange(size):
+        if ls[idx] != 'b':
+            if ls[idx] == 'a':
+                num_a += 1
+            ls[write_idx] = ls[idx]
+            write_idx += 1
+
+    cur_idx = write_idx - 1
+    write_idx = write_idx + num_a - 1
+
+    while write_idx >= 0:
+        if ls[cur_idx] == 'a':
+            ls[write_idx] = 'd'
+            write_idx -= 1
+            ls[write_idx] = 'd'
+            write_idx -= 1
+        else:
+            ls[write_idx] = ls[cur_idx]
+            write_idx -= 1
+        cur_idx -= 1
+
+    return ls
+
+
 def check_palindrome(string):
     """
     Question 7.5: Check palindromicity of string

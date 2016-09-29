@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 99
-* Remaining: 80
+* Completed: 100
+* Remaining: 79
 
 ## Chapter 5: Primitives
 
@@ -48,7 +48,7 @@ Valiantly trying to solve every single question in
 - [x] 7.1: Interconvert strings and integers
 - [x] 7.2: Base conversion
 - [x] 7.3: Compute the spreadsheet column encoding
-- [ ] 7.4: Replace and remove
+- [x] 7.4: Replace and remove
 - [x] 7.5: Test palindromicity
 - [x] 7.6: Reverse all the words in a sentence
 - [x] 7.7: Compute all mnemonics for a phone number

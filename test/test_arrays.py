@@ -303,7 +303,7 @@ class TestRandomPermutation(object):
             seen[str_output] += 1
 
         for val in seen.values():
-            assert 10 < val < 30
+            assert 5 <= val <= 30
 
 
 class TestRandomSubset(object):
@@ -318,7 +318,7 @@ class TestRandomSubset(object):
             seen[output[0]] += 1
 
         for val in seen.values():
-            assert 5 < val < 20
+            assert 5 <= val <= 20
 
     def test_empty_value(self):
         assert [] == random_subset(10, 0)

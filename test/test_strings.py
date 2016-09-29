@@ -7,6 +7,7 @@ from src.strings import get_phone_mnemonics
 from src.strings import get_spreadsheet_column
 from src.strings import int_to_string
 from src.strings import look_say
+from src.strings import replace_and_remove
 from src.strings import reverse_words
 from src.strings import roman_to_integer
 from src.strings import string_to_int
@@ -73,6 +74,22 @@ class TestGetSpreadsheetColumn(object):
 
     def test_triple_chars(self):
         assert 705 == get_spreadsheet_column('AAC')
+
+
+class TestReplaceRemove(object):
+    """
+    Question 7.4
+    """
+
+    def test_book_example(self):
+        ls = ['a', 'c', 'd', 'b', 'b', 'c', 'a']
+        expected = ['d', 'd', 'c', 'd', 'c', 'd', 'd']
+        assert expected == replace_and_remove(ls, 7)
+
+    def test_larger_example(self):
+        ls = ['a', 'c', 'a', 'a', None, None, None]
+        expected = ['d', 'd', 'c', 'd', 'd', 'd', 'd']
+        assert expected == replace_and_remove(ls, 4)
 
 
 class TestCheckPalindrome(object):
