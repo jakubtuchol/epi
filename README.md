@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 101
-* Remaining: 78
+* Completed: 102
+* Remaining: 77
 
 ## Chapter 5: Primitives
 
@@ -56,7 +56,7 @@ Valiantly trying to solve every single question in
 - [x] 7.9: Convert from Roman to decimal
 - [x] 7.10: Compute all valid IP addresses
 - [ ] 7.11: Write a string sinusoidally
-- [ ] 7.12: Implement run-length encoding
+- [x] 7.12: Implement run-length encoding
 - [x] 7.13: Implement the UNIX `tail` command
 - [ ] 7.14: Find the first occurrence of a substring
 

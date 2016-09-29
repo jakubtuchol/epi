@@ -3,6 +3,8 @@ from mock import patch
 
 from src.strings import check_palindrome
 from src.strings import convert_base
+from src.strings import decode_string
+from src.strings import encode_string
 from src.strings import get_phone_mnemonics
 from src.strings import get_spreadsheet_column
 from src.strings import get_valid_ip_address
@@ -212,6 +214,38 @@ class TestValidIpAddress(object):
             '192.1.68.11',
         ]
         assert sorted(expected) == sorted(get_valid_ip_address(dec_string))
+
+
+class TestEncodeString(object):
+    """
+    Question 7.12
+    """
+
+    def test_book_example(self):
+        ls = 'aaaabcccaa'
+        expected = '4a1b3c2a'
+        assert expected == encode_string(ls)
+
+    def test_single_run(self):
+        ls = 'aaaaaaaaaa'
+        expected = '10a'
+        assert expected == encode_string(ls)
+
+
+class TestDecodeString(object):
+    """
+    Question 7.12
+    """
+
+    def test_book_example(self):
+        ls = '3e4f2e'
+        expected = 'eeeffffee'
+        assert expected == decode_string(ls)
+
+    def test_continuous_example(self):
+        ls = '12a'
+        expected = 'aaaaaaaaaaaa'
+        assert expected == decode_string(ls)
 
 
 email_data = \

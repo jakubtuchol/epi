@@ -280,6 +280,45 @@ def get_valid_ip_address(ls):
     return ips
 
 
+def encode_string(ls):
+    """
+    Question 7.12: Implement run-length encoding
+    for strings
+    """
+    result = []
+    last = ls[0]
+    count = 1
+    for elt in ls[1:]:
+        if elt != last:
+            result.append(str(count))
+            result.append(last)
+            count = 1
+        else:
+            count += 1
+        last = elt
+    result.append(str(count))
+    result.append(last)
+
+    return ''.join(result)
+
+
+def decode_string(ls):
+    """
+    Question 7.12: Implement run-length decoding
+    for strings
+    """
+    result = []
+    count = 0
+
+    for elt in ls:
+        if elt.isdigit():
+            count = (count * 10) + int(elt)
+        else:
+            result += [elt for _ in xrange(count)]
+            count = 0
+    return ''.join(result)
+
+
 def tail(file_name, num_lines):
     """
     Question 7.13: Implement UNIX tail command
