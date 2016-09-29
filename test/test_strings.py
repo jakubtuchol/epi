@@ -13,6 +13,7 @@ from src.strings import look_say
 from src.strings import replace_and_remove
 from src.strings import reverse_words
 from src.strings import roman_to_integer
+from src.strings import snake_string
 from src.strings import string_to_int
 from src.strings import tail
 
@@ -214,6 +215,15 @@ class TestValidIpAddress(object):
             '192.1.68.11',
         ]
         assert sorted(expected) == sorted(get_valid_ip_address(dec_string))
+
+
+class TestSnakeString(object):
+    """
+    Question 7.11
+    """
+
+    def test_book_example(self):
+        assert 'e lHloWrdlo!' == snake_string('Hello World!')
 
 
 class TestEncodeString(object):

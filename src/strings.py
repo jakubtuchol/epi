@@ -280,6 +280,24 @@ def get_valid_ip_address(ls):
     return ips
 
 
+def snake_string(ls):
+    """
+    Question 7.11: Write a string sinusoidally
+    """
+    result = []
+    strlen = len(ls)
+    for idx in xrange(1, strlen, 4):
+        result.append(ls[idx])
+
+    for idx in xrange(0, strlen, 2):
+        result.append(ls[idx])
+
+    for idx in xrange(3, strlen, 4):
+        result.append(ls[idx])
+
+    return ''.join(result)
+
+
 def encode_string(ls):
     """
     Question 7.12: Implement run-length encoding
