@@ -213,6 +213,24 @@ def remove_kth_last_element(ls, k):
     return head
 
 
+def remove_duplicates(ls):
+    """
+    Question 8.9: Remove duplicates from
+    sorted list
+    """
+    head = ls
+    last = ls
+    cur = ls.next
+
+    while cur:
+        if last.val != cur.val:
+            last.next = cur
+            last = cur
+        cur = cur.next
+    last.next = None
+    return head
+
+
 def even_odd_merge(ls):
     """
     Question 8.11: merge list such that

@@ -8,6 +8,7 @@ from src.linked_lists import find_overlap
 from src.linked_lists import find_overlap_cycle
 from src.linked_lists import merge_sorted_lists
 from src.linked_lists import Node
+from src.linked_lists import remove_duplicates
 from src.linked_lists import remove_kth_last_element
 from src.linked_lists import reverse_linked_list
 
@@ -237,6 +238,27 @@ class TestRemoveKthElement(object):
             remove = remove.next
 
         assert remove is None
+
+
+class TestRemoveDuplicates(object):
+    """
+    Question 8.9
+    """
+
+    def test_book_example(self):
+        head = Node(None)
+        cur = head
+        for elt in [2, 2, 3, 5, 7, 11, 11]:
+            cur.next = Node(elt)
+            cur = cur.next
+
+        head = head.next
+        head = remove_duplicates(head)
+        for elt in [2, 3, 5, 7, 11]:
+            assert elt == head.val
+            head = head.next
+
+        assert not head
 
 
 class TestEvenOddMerge(object):

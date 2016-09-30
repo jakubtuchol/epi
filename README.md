@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 103
-* Remaining: 76
+* Completed: 104
+* Remaining: 75
 
 ## Chapter 5: Primitives
 
@@ -70,7 +70,7 @@ Valiantly trying to solve every single question in
 - [x] 8.6: Test for overlapping lists -- lists may have cycles
 - [x] 8.7: Delete a node from a singly linked list
 - [x] 8.8: Remove the `k`th last element from a list
-- [ ] 8.9: Remove duplicates from a sorted list
+- [x] 8.9: Remove duplicates from a sorted list
 - [ ] 8.10: Implement cyclic right shift for singly linked lists
 - [x] 8.11: Implement even-odd merge
 - [x] 8.12: Test whether a singly linked list is palindromic
