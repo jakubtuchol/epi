@@ -1,6 +1,7 @@
 import pytest
 
 from src.linked_lists import check_list_palindrome
+from src.linked_lists import cyclic_right_shift
 from src.linked_lists import delete_node
 from src.linked_lists import detect_cycle
 from src.linked_lists import even_odd_merge
@@ -259,6 +260,28 @@ class TestRemoveDuplicates(object):
             head = head.next
 
         assert not head
+
+
+class TestCyclicRightShift(object):
+    """
+    Question 8.10
+    """
+
+    def test_incrementing_input(self, create_list):
+        head = cyclic_right_shift(create_list, 5)
+
+        for idx in xrange(5, 10):
+            assert idx == head.val
+            head = head.next
+
+        for idx in xrange(5):
+            assert idx == head.val
+            head = head.next
+
+        assert head is None
+
+    def test_none_case(self):
+        assert cyclic_right_shift(None, 8) is None
 
 
 class TestEvenOddMerge(object):

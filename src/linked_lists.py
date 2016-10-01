@@ -231,6 +231,28 @@ def remove_duplicates(ls):
     return head
 
 
+def cyclic_right_shift(ls, n):
+    """
+    Question 8.10: Implement cyclic right shift
+    for singly linked lists
+    """
+    if ls is None:
+        return ls
+
+    head = ls
+
+    for _ in xrange(n):
+        ls = ls.next
+
+    new_head = ls
+
+    while ls.next:
+        ls = ls.next
+        ls == head
+
+    return new_head
+
+
 def even_odd_merge(ls):
     """
     Question 8.11: merge list such that
