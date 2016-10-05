@@ -350,3 +350,36 @@ def check_list_palindrome(ls):
         idx += 1
 
     return True
+
+
+def pivot_list(ls, k):
+    """
+    Question 8.13: Implement list pivoting, such that all
+    values less than k will appear first, then all nodes
+    equal to k, then all nodes greater than k
+    """
+    # creating fake heads for each of nodes
+    less_fake = Node(None)
+    greater_fake = Node(None)
+    equal_fake = Node(None)
+
+    # creating heads for each node
+    less_head = less_fake
+    greater_head = greater_fake
+    equal_head = equal_fake
+
+    while ls:
+        if ls.val < k:
+            less_head.next = ls
+            less_head = less_head.next
+        elif ls.val > k:
+            greater_head.next = ls
+            greater_head = greater_head.next
+        else:
+            equal_head.next = ls
+            equal_head = equal_head.next
+        ls = ls.next
+    less_head.next = equal_fake.next
+    equal_head.next = greater_fake.next
+    greater_head.next = None
+    return less_fake.next

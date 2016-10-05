@@ -13,6 +13,7 @@ from src.linked_lists import remove_duplicates
 from src.linked_lists import remove_kth_last_element
 from src.linked_lists import reverse_linked_list
 from src.linked_lists import reverse_sublist
+from src.linked_lists import pivot_list
 
 
 # Fixtures
@@ -399,3 +400,28 @@ class TestCheckListPalindrome(object):
             cur_node = cur_node.next
 
         assert not check_list_palindrome(head.next)
+
+
+class TestPivotList(object):
+    """
+    Question 8.13
+    """
+
+    def test_book_example(self):
+        nodes = [3, 2, 2, 11, 7, 5, 11]
+        res = [3, 2, 2, 5, 7, 11, 11]
+
+        fake_head = Node(None)
+        head = fake_head
+        for idx in nodes:
+            head.next = Node(idx)
+            head = head.next
+        head = fake_head.next
+
+        new_head = pivot_list(head, 7)
+
+        for idx in res:
+            assert idx == new_head.val
+            new_head = new_head.next
+
+        assert new_head is None
