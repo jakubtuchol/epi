@@ -239,16 +239,22 @@ def cyclic_right_shift(ls, n):
     if ls is None:
         return ls
 
-    head = ls
+    slow = ls
+    runner = ls
 
+    # increment runner by n
     for _ in xrange(n):
-        ls = ls.next
+        runner = runner.next
 
-    new_head = ls
+    while runner.next:
+        slow = slow.next
+        runner = runner.next
 
-    while ls.next:
-        ls = ls.next
-        ls == head
+    # slow should now point to
+    # node that is n+1 away from end
+    new_head = slow.next
+    runner.next = ls
+    slow.next = None
 
     return new_head
 
