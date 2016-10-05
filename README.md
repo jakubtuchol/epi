@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 105
-* Remaining: 74
+* Completed: 106
+* Remaining: 73
 
 ## Chapter 5: Primitives
 
@@ -64,7 +64,7 @@ Valiantly trying to solve every single question in
 
 - [x] 8.1: Merge two sorted lists
 - [x] 8.2: Reverse a singly linked list
-- [ ] 8.3: Reverse a single sublist
+- [x] 8.3: Reverse a single sublist
 - [x] 8.4: Test for cyclicity
 - [x] 8.5: Test for overlapping lists -- lists are cycle-free
 - [x] 8.6: Test for overlapping lists -- lists may have cycles

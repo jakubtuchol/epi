@@ -12,6 +12,7 @@ from src.linked_lists import Node
 from src.linked_lists import remove_duplicates
 from src.linked_lists import remove_kth_last_element
 from src.linked_lists import reverse_linked_list
+from src.linked_lists import reverse_sublist
 
 
 # Fixtures
@@ -96,6 +97,36 @@ class TestReverseLinkedList(object):
         for i in xrange(10, 0, -1):
             assert i == rev_head.val
             rev_head = rev_head.next
+
+
+class TestReverseSublist(object):
+    """
+    Question 8.3
+    """
+
+    def test_basic_case(self, create_list):
+        head = create_list
+        rev = reverse_sublist(head, 1, 5)
+
+        assert 0 == rev.val
+        rev = rev.next
+
+        for idx in xrange(5, 0, -1):
+            assert idx == rev.val
+            rev = rev.next
+
+        for idx in xrange(6, 10):
+            assert idx == rev.val
+            rev = rev.next
+
+        assert rev is None
+
+    def test_incorrect_cases(self, create_list):
+        head = create_list
+        assert head == reverse_sublist(head, 4, 2)
+
+    def test_none_input(self):
+        assert reverse_sublist(None, 1, 8) is None
 
 
 class TestCyclicTest(object):

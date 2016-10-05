@@ -50,6 +50,41 @@ def reverse_linked_list(ls):
     return head
 
 
+def reverse_sublist(ls, begin, end):
+    """
+    Question 8.3: Reverse a sublist of the input
+    list denoted by the beginning index and the end
+    index, inclusive. The list numbering begins at 0
+    """
+    # don't process nonsensical inputs
+    if ls is None or end <= begin:
+        return ls
+
+    rev_len = end - begin + 1
+    # advance pointer to just prior to sublist head
+    pre_rev_head = None
+    rev_head = ls
+    while begin:
+        begin -= 1
+        pre_rev_head = rev_head
+        rev_head = rev_head.next
+
+    prev = rev_head
+    next = None
+    head = None
+
+    while rev_len:
+        head = prev
+        prev = prev.next
+        head.next = next
+        next = head
+        rev_len -= 1
+
+    rev_head.next = prev
+    pre_rev_head.next = head
+    return ls
+
+
 def detect_cycle(head):
     """
     Question 8.4: Detect a cycle in a singly-linked list.
