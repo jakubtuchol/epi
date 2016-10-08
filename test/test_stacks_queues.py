@@ -1,10 +1,13 @@
 """
 Chapter 9: Stacks and Queues
 """
+from test.test_bst import create_large_bst
+
 import pytest
 
 from src.binary_trees import TNode
 from src.stacks_queues import balanced_parentheses
+from src.stacks_queues import bst_sorted_order
 from src.stacks_queues import CircularQueue
 from src.stacks_queues import depth_order
 from src.stacks_queues import evaluate_rpn
@@ -113,6 +116,17 @@ class TestShortestEquivalentPath(object):
         path = '//usr/local/.././sbin/'
         expected = '/usr/sbin/'
         assert expected == shortest_equivalent_path(path)
+
+
+class TestBSTSortedOrder(object):
+    """
+    Question 9.5
+    """
+
+    def test_book_example(self):
+        root = create_large_bst()
+        expected = [23, 29, 31, 37, 41, 43, 47, 53]
+        assert expected == bst_sorted_order(root.right)
 
 
 @pytest.fixture(scope='module')

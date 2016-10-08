@@ -42,34 +42,34 @@ def search_maze(maze, start, end):
 
 def get_neighbors(point, maze):
     neighbors = []
-    print('point: {}'.format(point))
-    print('maze: {} rows, {} cols'.format(len(maze), len(maze[0])))
+    # print('point: {}'.format(point))
+    # print('maze: {} rows, {} cols'.format(len(maze), len(maze[0])))
 
     # get point below
     if point[0] > 0:
         row, col = point[0] - 1, point[1]
-        print('below is {}: {}'.format((row, col), maze[row][col]))
+        # print('below is {}: {}'.format((row, col), maze[row][col]))
         if maze[row][col] == WHITE:
             neighbors.append((row, col))
 
     # get point above
     if point[0] < len(maze) - 1:
         row, col = point[0] + 1, point[1]
-        print('above is {}: {}'.format((row, col), maze[row][col]))
+        # print('above is {}: {}'.format((row, col), maze[row][col]))
         if maze[row][col] == WHITE:
             neighbors.append((row, col))
 
     # get point on left
     if point[1] > 0:
         row, col = point[0], point[1] - 1
-        print('left is {}: {}'.format((row, col), maze[row][col]))
+        # print('left is {}: {}'.format((row, col), maze[row][col]))
         if maze[row][col] == WHITE:
             neighbors.append((row, col))
 
     # get point on right
     if point[1] < len(maze[0]) - 1:
         row, col = point[0], point[1] + 1
-        print('right is {}: {}'.format((row, col), maze[row][col]))
+        # print('right is {}: {}'.format((row, col), maze[row][col]))
         if maze[row][col] == WHITE:
             neighbors.append((row, col))
 

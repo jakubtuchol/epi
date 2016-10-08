@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 108
-* Remaining: 71
+* Completed: 109
+* Remaining: 70
 
 ## Chapter 5: Primitives
 
@@ -83,7 +83,7 @@ Valiantly trying to solve every single question in
 - [x] 9.2: Evaluate RPN expressions
 - [x] 9.3: Test a string of parens for well-formedness
 - [x] 9.4: Normalize pathnames
-- [ ] 9.5: BST keys in sort order
+- [x] 9.5: BST keys in sort order
 - [ ] 9.6: Search a postings list
 - [ ] 9.7: Compute buildings with a sunset view
 - [ ] 9.8: Sort a stack

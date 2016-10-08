@@ -99,6 +99,26 @@ def shortest_equivalent_path(path):
     return '{}{}{}'.format(begin_slash, full_path, end_slash)
 
 
+def bst_sorted_order(root):
+    """
+    Question 9.5: Given a bst node, compute all keys at that node,
+    and its descendants in sorted order
+    """
+    stack = []
+    cur_node = root
+    result = []
+
+    while stack or cur_node:
+        if cur_node:
+            stack.append(cur_node)
+            cur_node = cur_node.left
+        else:
+            cur_node = stack.pop()
+            result.append(cur_node.val)
+            cur_node = cur_node.right
+    return result
+
+
 def depth_order(root):
     """
     Question 9.9: return depth order representation
