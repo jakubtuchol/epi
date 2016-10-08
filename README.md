@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 107
-* Remaining: 72
+* Completed: 108
+* Remaining: 71
 
 ## Chapter 5: Primitives
 
@@ -75,7 +75,7 @@ Valiantly trying to solve every single question in
 - [x] 8.11: Implement even-odd merge
 - [x] 8.12: Test whether a singly linked list is palindromic
 - [x] 8.13: Implement list pivoting
-- [ ] 8.14: Add list-based integers
+- [x] 8.14: Add list-based integers
 
 ## Chapter 9: Stacks and Queues
 

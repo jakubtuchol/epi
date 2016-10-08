@@ -14,6 +14,7 @@ from src.linked_lists import remove_kth_last_element
 from src.linked_lists import reverse_linked_list
 from src.linked_lists import reverse_sublist
 from src.linked_lists import pivot_list
+from src.linked_lists import add_list_numbers
 
 
 # Fixtures
@@ -425,3 +426,47 @@ class TestPivotList(object):
             new_head = new_head.next
 
         assert new_head is None
+
+
+class TestAddListNumbers(object):
+    """
+    Question 8.14
+    """
+
+    def test_book_example(self):
+        fake_one = Node(None)
+        head_one = fake_one
+        for elt in [3, 1, 4]:
+            head_one.next = Node(elt)
+            head_one = head_one.next
+        head_one = fake_one.next
+
+        fake_two = Node(None)
+        head_two = fake_two
+        for elt in [7, 0, 9]:
+            head_two.next = Node(elt)
+            head_two = head_two.next
+        head_two = fake_two.next
+
+        add_head = add_list_numbers(head_one, head_two)
+
+        for elt in [0, 2, 3, 1]:
+            assert elt == add_head.val
+            add_head = add_head.next
+        assert add_head is None
+
+    def test_nines_example(self):
+        fake_head = Node(None)
+        head = fake_head
+        for elt in [9, 9, 9, 9]:
+            head.next = Node(elt)
+            head = head.next
+
+        one = Node(1)
+
+        added = add_list_numbers(fake_head.next, one)
+
+        for elt in [0, 0, 0, 0, 1]:
+            assert elt == added.val
+            added = added.next
+        assert added is None

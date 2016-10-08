@@ -383,3 +383,32 @@ def pivot_list(ls, k):
     equal_head.next = greater_fake.next
     greater_head.next = None
     return less_fake.next
+
+
+def add_list_numbers(ls_one, ls_two):
+    """
+    Question 8.14: Given two integers represented
+    as linked lists, add the two integers. The least
+    significant place is the first element in each list
+    """
+
+    fake_head = Node(None)
+    tail = fake_head
+    carry = 0
+
+    while ls_one or ls_two:
+        num = carry
+        if ls_one:
+            num += ls_one.val
+            ls_one = ls_one.next
+        if ls_two:
+            num += ls_two.val
+            ls_two = ls_two.next
+        tail.next = Node(num % 10)
+        carry = num / 10
+        tail = tail.next
+
+    if carry:
+        tail.next = Node(carry)
+
+    return fake_head.next
