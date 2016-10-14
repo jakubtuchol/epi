@@ -3,7 +3,7 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 109
+* Completed: 110
 * Remaining: 70
 
 ## Chapter 5: Primitives
@@ -226,3 +226,8 @@ Valiantly trying to solve every single question in
 - [x] 18.7: The gasup problem
 - [x] 18.8: Compute the maximum water trapped by a pair of vertical lines
 - [ ] 18.9: Compute the largest rectangle under the skyline
+
+## Chapter 22: Honors Class
+
+- [x] 22.1: Compute the greatest common divisor
+- [ ] 22.2: Find the first missing positive entry

@@ -119,6 +119,18 @@ def bst_sorted_order(root):
     return result
 
 
+# class PostingListNode(object):
+#     def __init__(self, val):
+#         self.val = val
+#         self.next = None
+#         self.jump = None
+#         self.order = -1
+
+
+# def set_jump_order(head):
+#     pass
+
+
 def depth_order(root):
     """
     Question 9.9: return depth order representation
