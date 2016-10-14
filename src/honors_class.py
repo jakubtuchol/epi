@@ -21,3 +21,25 @@ def gcd(x, y):
     else:
         # x <= y
         return gcd(x, y - x)
+
+
+def find_first_missing(arr):
+    """
+    Question 22.2: Find the first positive
+    integer not present in the input array
+    """
+    idx = 0
+
+    while idx < len(arr):
+        if 0 < arr[idx] <= len(arr) and arr[idx] != arr[arr[idx] - 1]:
+            tmp = arr[arr[idx] - 1]
+            arr[arr[idx] - 1] = arr[idx]
+            arr[idx] = tmp
+        else:
+            idx += 1
+
+    # iterate through array to find lowest missing
+    for idx, elt in enumerate(arr):
+        if elt != idx + 1:
+            return idx + 1
+    return len(arr) + 1
