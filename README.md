@@ -3,7 +3,7 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 111
+* Completed: 112
 * Remaining: 70
 
 ## Chapter 5: Primitives
@@ -231,3 +231,5 @@ Valiantly trying to solve every single question in
 
 - [x] 22.1: Compute the greatest common divisor
 - [x] 22.2: Find the first missing positive entry
+- [ ] 22.3: Buy and sell a stock `k` times
+- [x] 22.4: Compute the maximum product of all entries but one

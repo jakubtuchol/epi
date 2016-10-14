@@ -1,5 +1,6 @@
 from src.honors_class import find_first_missing
 from src.honors_class import gcd
+from src.honors_class import largest_minus_one_product
 
 
 class TestGCD(object):
@@ -33,3 +34,25 @@ class TestFirstMissing(object):
     def test_no_missing_example(self):
         arr = [5, 3, 2, 4, 1]
         assert 6 == find_first_missing(arr)
+
+
+class TestLargestMinusOneProduct(object):
+    """
+    Question 22.4
+    """
+
+    def test_all_even_example(self):
+        arr = [3, 2, 5, 4]
+        assert 60 == largest_minus_one_product(arr)
+
+    def test_one_negative_example(self):
+        arr = [3, 2, -1, 4]
+        assert 24 == largest_minus_one_product(arr)
+
+    def test_even_negative_example(self):
+        arr = [3, 2, -1, 4, -1, 6]
+        assert 72 == largest_minus_one_product(arr)
+
+    def test_all_negative_example(self):
+        arr = [-3, -2, -5, -4]
+        assert -24 == largest_minus_one_product(arr)
