@@ -86,9 +86,61 @@ def largest_minus_one_product(nums):
 
     multiple = 1
 
-    print('idx_to_skip is {}'.format(idx_to_skip))
     for idx, elt in enumerate(nums):
         if idx != idx_to_skip:
             multiple *= elt
 
     return multiple
+
+
+def longest_increasing_subarray(ls):
+    """
+    Question 22.5: Find longest increasing subarray
+    in an array and return the beginning and end
+    indices
+    """
+    begin = 0
+    end = 0
+    cur_begin = 0
+    cur_end = 0
+
+    for idx, elt in enumerate(ls):
+        if elt > ls[cur_end]:
+            cur_end += 1
+
+            if cur_end - cur_begin > end - begin:
+                begin = cur_begin
+                end = cur_end
+        else:
+            cur_begin = idx
+            cur_end = idx
+
+    return begin, end
+
+
+def longest_increasing_optimized(ls):
+    """
+    Optimized version of subarray
+    """
+    max_length = 1
+    begin = 0
+    end = 0
+
+    i = 0
+    while i < len(ls) - max_length:
+        is_skippable = False
+        for j in xrange(i + max_length, i, -1):
+            if ls[j - 1] >= ls[j]:
+                i = j
+                is_skippable = True
+                break
+
+        if not is_skippable:
+            i += max_length
+
+            while i < len(ls) and ls[i - 1] < ls[i]:
+                i += 1
+                max_length += 1
+            begin = i - max_length
+            end = i - 1
+    return begin, end

@@ -1,6 +1,8 @@
 from src.honors_class import find_first_missing
 from src.honors_class import gcd
 from src.honors_class import largest_minus_one_product
+from src.honors_class import longest_increasing_optimized
+from src.honors_class import longest_increasing_subarray
 
 
 class TestGCD(object):
@@ -56,3 +58,15 @@ class TestLargestMinusOneProduct(object):
     def test_all_negative_example(self):
         arr = [-3, -2, -5, -4]
         assert -24 == largest_minus_one_product(arr)
+
+
+class TestLongestIncreasingSubarray(object):
+    """
+    Question 22.5
+    """
+
+    def test_book_example(self):
+        ls = [2, 11, 3, 5, 13, 7, 19, 17, 23]
+        expected = (2, 4)
+        assert expected == longest_increasing_subarray(ls)
+        assert expected == longest_increasing_optimized(ls)

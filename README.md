@@ -233,3 +233,4 @@ Valiantly trying to solve every single question in
 - [x] 22.2: Find the first missing positive entry
 - [ ] 22.3: Buy and sell a stock `k` times
 - [x] 22.4: Compute the maximum product of all entries but one
+- [x] 22.5: Compute the longest contiguous increasing subarray
