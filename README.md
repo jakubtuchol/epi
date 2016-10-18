@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 114
-* Remaining: 78
+* Completed: 115
+* Remaining: 77
 
 ## Chapter 5: Primitives
 
@@ -229,7 +229,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 19: Graphs
 
-- [ ] 19.1: Search a maze
+- [x] 19.1: Search a maze
 - [x] 19.2: Paint a Boolean matrix
 - [x] 19.3: Compute enclosed regions
 - [ ] 19.4: Degrees of connectedness - 1

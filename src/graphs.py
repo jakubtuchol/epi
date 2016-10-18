@@ -4,76 +4,63 @@ WHITE = 'WHITE'
 BLACK = 'BLACK'
 
 
-class Visited(object):
-
-    def __init__(self, point, neighbors, pos):
-        self.point = point
-        self.neighbors = neighbors
-        self.pos = pos
-
-
 def search_maze(maze, start, end):
     """
     Question 19.1: Given a 2d array of black and white entries representing
     a maze with designated entrance and exit points, find a path from the
     entrance to the exit.
     """
-    path = []
-    has_neighbors = [start]
-    visited = {
-        start: Visited(
-            start,
-            get_neighbors(start),
-            len(path) - 1,
-        )
-    }
+    path = [start]
+    visited = []
+    for elt in maze:
+        row_visit = []
+        for _ in elt:
+            row_visit.append(False)
+        visited.append(row_visit)
 
-    while has_neighbors:
+    start_row, start_col = start
+    visited[start_row][start_col] = True
+
+    while path:
         # if in has_neighbors, then
         # definitely has neighbors
-        pt = has_neighbors.pop()
-        if pt not in visited:
-            visited[pt] = Visited(pt, get_neighbors(pt), len(path))
-        neighbor = visited[pt].neighbors.pop()
-        while neighbor:
-            path.append(neighbor)
-    return
+        row, col = path[-1]
+
+        next_pos = get_next_neighbor(row, col, maze, visited)
+        if next_pos:
+            path.append(next_pos)
+            row_next, col_next = next_pos
+            visited[row_next][col_next] = True
+            if next_pos == end:
+                return path
+        else:
+            path.pop()
+    return None
 
 
-def get_neighbors(point, maze):
-    neighbors = []
-    # print('point: {}'.format(point))
-    # print('maze: {} rows, {} cols'.format(len(maze), len(maze[0])))
+def get_next_neighbor(row, col, maze, visited):
+    # below
+    if row > 0 \
+        and maze[row - 1][col] == WHITE \
+            and not visited[row - 1][col]:
+        return row - 1, col
+    # above
+    if row < len(visited) - 1 \
+        and maze[row + 1][col] == WHITE \
+            and not visited[row + 1][col]:
+        return row + 1, col
+    # left
+    if col > 0 \
+        and maze[row][col - 1] == WHITE \
+            and not visited[row][col - 1]:
+        return row, col - 1
+    # right
+    if col < len(visited) - 1 \
+        and maze[row][col + 1] == WHITE \
+            and not visited[row][col + 1]:
+        return row, col + 1
 
-    # get point below
-    if point[0] > 0:
-        row, col = point[0] - 1, point[1]
-        # print('below is {}: {}'.format((row, col), maze[row][col]))
-        if maze[row][col] == WHITE:
-            neighbors.append((row, col))
-
-    # get point above
-    if point[0] < len(maze) - 1:
-        row, col = point[0] + 1, point[1]
-        # print('above is {}: {}'.format((row, col), maze[row][col]))
-        if maze[row][col] == WHITE:
-            neighbors.append((row, col))
-
-    # get point on left
-    if point[1] > 0:
-        row, col = point[0], point[1] - 1
-        # print('left is {}: {}'.format((row, col), maze[row][col]))
-        if maze[row][col] == WHITE:
-            neighbors.append((row, col))
-
-    # get point on right
-    if point[1] < len(maze[0]) - 1:
-        row, col = point[0], point[1] + 1
-        # print('right is {}: {}'.format((row, col), maze[row][col]))
-        if maze[row][col] == WHITE:
-            neighbors.append((row, col))
-
-    return neighbors
+    return None
 
 
 def flip_color(matrix, start):
