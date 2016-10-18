@@ -135,3 +135,84 @@ def get_adjacent(matrix, point, visited):
         adjacent.append((row, col + 1))
 
     return adjacent
+
+
+def fill_surrounded_regions(board):
+    """
+    Question 19.3: Write a program that takes A
+    and replaces all W's that cannot reach the
+    boundary with B's
+    """
+
+    visited = []
+    for row_visit in board:
+        visit_row = []
+        for _ in row_visit:
+            visit_row.append(False)
+        visited.append(visit_row)
+
+    for row, row_elt in enumerate(board):
+        for col, elt in enumerate(row_elt):
+            if elt == 'W' and not visited[row][col]:
+                mark_if_surrounded(row, col, board, visited)
+
+    return board
+
+
+def mark_if_surrounded(row, col, board, visited):
+    """
+    Check if can reach exterior
+    """
+    if row == 0 or row == len(board) - 1:
+        return
+    if col == 0 or col == len(board[0]) - 1:
+        return
+
+    # otherwise, try to burrow our way out
+    to_mark = []
+    queue = [(row, col)]
+
+    while queue:
+        position = queue.pop(0)
+        to_mark.append(position)
+        row_visit, col_visit = position
+        visited[row_visit][col_visit] = True
+
+        # if this has been visited
+        # part of value that is connected
+        # to border
+        # if visited[row_visit][col_visit]:
+        #    return
+        if row_visit == 0 or row_visit == len(board) - 1:
+            return
+        if col_visit == 0 or col_visit == len(board[0]) - 1:
+            return
+        queue.extend(get_adjacent_color(row_visit, col_visit, board, visited))
+
+    # if have gotten here, need to iterate through everything
+    # and mark it as black
+    for pos in to_mark:
+        row_mark, col_mark = pos
+        board[row_mark][col_mark] = 'B'
+
+
+def get_adjacent_color(row, col, matrix, visited):
+    adjacent = []
+
+    # above
+    if matrix[row - 1][col] == 'W' and not visited[row - 1][col]:
+        adjacent.append((row - 1, col))
+
+    # below
+    if matrix[row + 1][col] == 'W' and not visited[row + 1][col]:
+        adjacent.append((row + 1, col))
+
+    # left
+    if matrix[row][col - 1] == 'W' and not visited[row][col - 1]:
+        adjacent.append((row, col - 1))
+
+    # right
+    if matrix[row][col + 1] == 'W' and not visited[row][col + 1]:
+        adjacent.append((row, col + 1))
+
+    return adjacent

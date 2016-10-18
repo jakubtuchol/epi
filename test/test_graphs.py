@@ -1,6 +1,7 @@
 import pytest
 
 from src.graphs import BLACK
+from src.graphs import fill_surrounded_regions
 from src.graphs import flip_color
 from src.graphs import get_neighbors
 from src.graphs import WHITE
@@ -113,3 +114,26 @@ class TestFlipColor(object):
         start = (3, 6)
         output = flip_color(self.matrix_b, start)
         assert self.matrix_c == output
+
+
+class TestFillSurroundedRegions(object):
+    """
+    Question 19.3
+    """
+
+    matrix_a = [
+        ['B', 'B', 'B', 'B'],
+        ['W', 'B', 'W', 'B'],
+        ['B', 'W', 'W', 'B'],
+        ['B', 'B', 'B', 'B'],
+    ]
+
+    matrix_b = [
+        ['B', 'B', 'B', 'B'],
+        ['W', 'B', 'B', 'B'],
+        ['B', 'B', 'B', 'B'],
+        ['B', 'B', 'B', 'B'],
+    ]
+
+    def test_book_example(self):
+        assert self.matrix_b == fill_surrounded_regions(self.matrix_a)
