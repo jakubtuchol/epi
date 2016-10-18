@@ -1,6 +1,7 @@
 import pytest
 
 from src.graphs import BLACK
+from src.graphs import flip_color
 from src.graphs import get_neighbors
 from src.graphs import WHITE
 
@@ -57,3 +58,58 @@ class TestSearchMaze(object):
         assert path[0] == start_coord
         assert path[-1] == end_coord
     """
+
+
+class TestFlipColor(object):
+    """
+    Question 19.2
+    """
+
+    matrix_a = [
+        [1, 0, 1, 0, 0, 0, 1, 1, 1, 1],
+        [0, 0, 1, 0, 0, 1, 0, 0, 1, 1],
+        [1, 1, 1, 0, 0, 1, 1, 0, 1, 1],
+        [0, 1, 0, 1, 1, 1, 1, 0, 1, 0],
+        [1, 0, 1, 0, 0, 0, 0, 1, 0, 0],
+        [1, 0, 1, 0, 0, 1, 0, 1, 1, 1],
+        [0, 0, 0, 0, 1, 0, 1, 0, 0, 1],
+        [1, 0, 1, 0, 1, 0, 1, 0, 0, 0],
+        [1, 0, 1, 1, 0, 0, 0, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 1, 1, 0],
+    ]
+
+    matrix_b = [
+        [1, 0, 1, 0, 0, 0, 1, 1, 1, 1],
+        [0, 0, 1, 0, 0, 1, 0, 0, 1, 1],
+        [1, 1, 1, 0, 0, 1, 1, 0, 1, 1],
+        [0, 1, 0, 1, 1, 1, 1, 0, 1, 0],
+        [1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    ]
+
+    matrix_c = [
+        [1, 0, 0, 0, 0, 0, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ]
+
+    def test_book_example(self):
+        start = (5, 4)
+        output = flip_color(self.matrix_a, start)
+        assert self.matrix_b == output
+
+    def test_second_iteration(self):
+        start = (3, 6)
+        output = flip_color(self.matrix_b, start)
+        assert self.matrix_c == output

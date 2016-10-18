@@ -74,3 +74,64 @@ def get_neighbors(point, maze):
             neighbors.append((row, col))
 
     return neighbors
+
+
+def flip_color(matrix, start):
+    """
+    Problem 19.2: Given a boolean matrix and a start
+    value, flip the color of all cells reachable
+    from the start point
+    """
+    queue = [start]
+    row, col = start
+    flipped_color = 0 if matrix[row][col] else 1
+    # print('flipping color to {}'.format(flipped_color))
+
+    # generating visited matrix so we don't visit same
+    # location multiple times
+    visited_matrix = []
+    for row_elt in matrix:
+        visited_row = []
+        for _ in row_elt:
+            visited_row.append(False)
+        visited_matrix.append(visited_row)
+
+    while queue:
+        # print('have queue of len {}'.format(queue))
+        point = queue.pop(0)
+        row, col = point
+        visited_matrix[row][col] = True
+        queue.extend(get_adjacent(matrix, point, visited_matrix))
+        matrix[row][col] = flipped_color
+    return matrix
+
+
+def get_adjacent(matrix, point, visited):
+    row, col = point
+    color = matrix[row][col]
+    adjacent = []
+    # get above
+    if row > 0 \
+        and matrix[row - 1][col] == color \
+            and not visited[row - 1][col]:
+        adjacent.append((row - 1, col))
+
+    # get below
+    if row < len(matrix) - 1 \
+        and matrix[row + 1][col] == color \
+            and not visited[row + 1][col]:
+        adjacent.append((row + 1, col))
+
+    # get left
+    if col > 0 \
+        and matrix[row][col - 1] == color \
+            and not visited[row][col - 1]:
+        adjacent.append((row, col - 1))
+
+    # get right
+    if col < len(matrix[0]) - 1 \
+        and matrix[row][col + 1] == color \
+            and not visited[row][col + 1]:
+        adjacent.append((row, col + 1))
+
+    return adjacent
