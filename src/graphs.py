@@ -2,6 +2,7 @@
 
 WHITE = 'WHITE'
 BLACK = 'BLACK'
+GRAY = 'GRAY'
 
 
 def search_maze(maze, start, end):
@@ -203,3 +204,40 @@ def get_adjacent_color(row, col, matrix, visited):
         adjacent.append((row, col + 1))
 
     return adjacent
+
+
+class GraphNode(object):
+
+    def __init__(self):
+        self.neighbors = []
+        self.color = WHITE
+
+    def add_neighbor(self, node):
+        self.neighbors.append(node)
+
+
+def is_minimally_connected(graph):
+    """
+    Question 19.4: Write a program that takes as input an
+    undirected graph, which you can assume to be connected,
+    and checks if the graph is minimally connected
+    """
+
+    return not graph or not has_cycle(graph, None)
+
+
+def has_cycle(cur, pre):
+    """
+    Checks if graph has cycle
+    """
+
+    if cur.color == GRAY:
+        return True
+
+    cur.color = GRAY
+    for neighbor in cur.neighbors:
+        if neighbor != pre and neighbor.color != BLACK:
+            if has_cycle(neighbor, cur):
+                return True
+    cur.color = BLACK
+    return False
