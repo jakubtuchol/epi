@@ -1,6 +1,7 @@
 import pytest
 
 from src.graphs import BLACK
+from src.graphs import clone_graph
 from src.graphs import fill_surrounded_regions
 from src.graphs import flip_color
 from src.graphs import GraphNode
@@ -161,10 +162,10 @@ def build_branching_graph():
 
 @pytest.fixture(scope='module')
 def build_cycle_graph():
-    one = GraphNode()
-    two = GraphNode()
-    three = GraphNode()
-    four = GraphNode()
+    one = GraphNode(val=1)
+    two = GraphNode(val=2)
+    three = GraphNode(val=3)
+    four = GraphNode(val=4)
 
     one.add_neighbor(two)
     two.add_neighbor(one)
@@ -200,3 +201,37 @@ class TestIsMinimallyConnected(object):
 
     def test_cycle_case(self, build_cycle_graph):
         assert not is_minimally_connected(build_cycle_graph)
+
+
+class TestCloneGraph(object):
+    """
+    Question 19.5
+    """
+
+    def test_graph_cloning_example(self, build_cycle_graph):
+        cloned = clone_graph(build_cycle_graph)
+
+        # building edge list for original graph
+        original_edges = {}
+        orig_queue = [build_cycle_graph]
+
+        while orig_queue:
+            node = orig_queue.pop()
+            if node.val not in original_edges:
+                original_edges[node.val] = [x.val for x in node.neighbors]
+            node.color = BLACK
+            for x in node.neighbors:
+                if x.val not in original_edges:
+                    orig_queue.append(x)
+
+        # check cloned graph against original_edges
+        cloned_queue = [cloned]
+        while cloned_queue:
+            node = cloned_queue.pop()
+            assert node.val in original_edges
+            neighbors = [x.val for x in node.neighbors]
+            assert sorted(original_edges[node.val]) == sorted(neighbors)
+            node.color = BLACK
+            for x in node.neighbors:
+                if x.color != BLACK:
+                    cloned_queue.append(x)

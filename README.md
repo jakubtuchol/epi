@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 116
-* Remaining: 76
+* Completed: 117
+* Remaining: 75
 
 ## Chapter 5: Primitives
 
@@ -233,7 +233,7 @@ Valiantly trying to solve every single question in
 - [x] 19.2: Paint a Boolean matrix
 - [x] 19.3: Compute enclosed regions
 - [x] 19.4: Degrees of connectedness - 1
-- [ ] 19.5: Clone a graph
+- [x] 19.5: Clone a graph
 - [ ] 19.6: Making wired connections
 - [ ] 19.7: Transform one string to another
 - [ ] 19.8: Addition chain exponentiation

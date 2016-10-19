@@ -208,9 +208,10 @@ def get_adjacent_color(row, col, matrix, visited):
 
 class GraphNode(object):
 
-    def __init__(self):
+    def __init__(self, val=None):
         self.neighbors = []
         self.color = WHITE
+        self.val = val
 
     def add_neighbor(self, node):
         self.neighbors.append(node)
@@ -241,3 +242,30 @@ def has_cycle(cur, pre):
                 return True
     cur.color = BLACK
     return False
+
+
+def clone_graph(graph):
+    """
+    Question 19.5: Design an algorithm that takes a reference
+    to a vertex u and creates a copy of the graph on the
+    vertices reachable from u.
+    """
+    initial = None
+    mapping = {}
+
+    queue = [graph]
+    while queue:
+        node = queue.pop()
+        if node not in mapping:
+            clone_node = GraphNode(node.val)
+            if not initial:
+                initial = clone_node
+            mapping[node] = clone_node
+            for x in node.neighbors:
+                if x in mapping:
+                    mapping[x].add_neighbor(clone_node)
+                    clone_node.add_neighbor(mapping[x])
+                else:
+                    queue.append(x)
+
+    return initial
