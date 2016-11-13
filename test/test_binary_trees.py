@@ -3,6 +3,7 @@ import pytest
 from src.binary_trees import check_equal
 from src.binary_trees import compute_lca
 from src.binary_trees import compute_parent_lca
+from src.binary_trees import create_leaf_list
 from src.binary_trees import find_successor
 from src.binary_trees import get_kth_inorder_record
 from src.binary_trees import has_leaf_sum
@@ -460,3 +461,15 @@ class TestReconstructPreorder(object):
             generate_binary_tree,
             reconstruct_preorder(representation)
         )
+
+
+class TestCreateLeafList(object):
+    """
+    Question 10.12
+    """
+
+    def test_basic_tree(self, create_basic_tree):
+        assert [4, 5, 6, 7] == create_leaf_list(create_basic_tree)
+
+    def test_symmetric_tree(self, generate_symmetric_tree):
+        assert [3, 3] == create_leaf_list(generate_symmetric_tree)

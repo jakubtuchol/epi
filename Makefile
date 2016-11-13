@@ -15,6 +15,9 @@ lint:
 test:
 	$(TEST_CMD)
 
+nuke: clean
+	-rm -rf ~/.pre-commit
+
 clean:
 	-rm -rf $(SRC)/*.pyc
 	-rm -rf $(TEST)/*.pyc

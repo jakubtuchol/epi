@@ -350,3 +350,19 @@ def reconstruct_preorder_helper(preorder, subtree_idx):
     subtree_key.right = right_subtree
 
     return subtree_key, right_idx
+
+
+def create_leaf_list(root):
+    """
+    Question 10.12: Create list from leaves
+    of binary tree
+    """
+    if root.left is None and root.right is None:
+        return [root.val]
+
+    ls = []
+    if root.left is not None:
+        ls.extend(create_leaf_list(root.left))
+    if root.right is not None:
+        ls.extend(create_leaf_list(root.right))
+    return ls
