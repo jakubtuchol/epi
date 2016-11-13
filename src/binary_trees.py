@@ -232,6 +232,27 @@ def get_kth_inorder_record(root, k):
     return None
 
 
+def find_successor(node):
+    """
+    Question 10.8: Compute the successor
+    of the given node in the inorder traversal
+    of the tree
+    """
+    if node.right is not None:
+        cur = node.right
+
+        # recurse down to left-most node
+        # in right subtree
+        while cur.left:
+            cur = cur.left
+        return cur
+
+    while node.parent and node.parent.right == node:
+        node = node.parent
+
+    return node.parent
+
+
 def inorder_traversal(root):
     """
     Question 10.9: Implement an

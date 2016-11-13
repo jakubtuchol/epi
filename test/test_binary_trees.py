@@ -3,6 +3,7 @@ import pytest
 from src.binary_trees import check_equal
 from src.binary_trees import compute_lca
 from src.binary_trees import compute_parent_lca
+from src.binary_trees import find_successor
 from src.binary_trees import get_kth_inorder_record
 from src.binary_trees import has_leaf_sum
 from src.binary_trees import inorder_traversal
@@ -17,6 +18,13 @@ from src.binary_trees import TNode
 # Fixtures
 @pytest.fixture(scope='module')
 def create_basic_tree():
+    """
+                  1
+                 / \
+                2   3
+               /|  / \
+              4  5 6  7
+    """
     root = TNode(1)
     root.left = TNode(2)
     root.left.parent = root
@@ -396,6 +404,17 @@ class TestGetKthNode(object):
     def test_basic_example(self, create_basic_tree):
         assert 4 == get_kth_inorder_record(create_basic_tree, 1)
         assert 7 == get_kth_inorder_record(create_basic_tree, 7)
+
+
+class TestFindSuccessor(object):
+    """
+    Question 10.8
+    """
+
+    def test_basic_example(self, create_basic_tree):
+        root = create_basic_tree
+        assert 6 == find_successor(root).val
+        assert 2 == find_successor(root.left.left).val
 
 
 class TestInorderTraversal(object):
