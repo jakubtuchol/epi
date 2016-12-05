@@ -11,6 +11,7 @@ class TNode(object):
         self.right = None
         self.parent = None
         self.node_id = node_id
+        self.sibling = None
 
 
 def check_equal(root_one, root_two):
@@ -417,3 +418,32 @@ def calculate_right_exterior(root, is_exterior):
         return [root.val]
     return calculate_right_exterior(root.right, False) \
         + calculate_right_exterior(root.left, False)
+
+
+def compute_right_sibling(root):
+    """
+    Question 10.14: Given a perfect binary tree, compute the
+    right sibling for each node
+    """
+    left_start = root
+
+    while left_start and left_start.left:
+        populate_next_level_sibling(left_start)
+        left_start = left_start.left
+
+    return root
+
+
+def populate_next_level_sibling(node):
+    """
+    Iterating through sibling levels and setting next level
+    """
+
+    while node:
+        # populate left child's next field
+        node.left.sibling = node.right
+        # populate right child's next field if node
+        # is not last node of this level
+        if node.sibling:
+            node.right.sibling = node.sibling.left
+        node = node.sibling

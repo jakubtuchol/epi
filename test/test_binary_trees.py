@@ -4,6 +4,7 @@ from src.binary_trees import calculate_tree_exterior
 from src.binary_trees import check_equal
 from src.binary_trees import compute_lca
 from src.binary_trees import compute_parent_lca
+from src.binary_trees import compute_right_sibling
 from src.binary_trees import create_leaf_list
 from src.binary_trees import find_successor
 from src.binary_trees import get_kth_inorder_record
@@ -228,6 +229,34 @@ def generate_sum_tree():
 
     # level 5
     root.right.left.right.left.right = TNode(641, node_id='M')
+
+    return root
+
+
+@pytest.fixture(scope='module')
+def generate_perfect_binary_tree():
+    # level 0
+    root = TNode('A')
+
+    # level 1
+    root.left = TNode('B')
+    root.right = TNode('I')
+
+    # level 2
+    root.left.left = TNode('C')
+    root.left.right = TNode('C')
+    root.right.left = TNode('J')
+    root.right.right = TNode('M')
+
+    # level 3
+    root.left.left.left = TNode('D')
+    root.left.left.right = TNode('E')
+    root.left.right.left = TNode('G')
+    root.left.right.right = TNode('H')
+    root.right.left.left = TNode('K')
+    root.right.left.right = TNode('L')
+    root.right.right.left = TNode('N')
+    root.right.right.right = TNode('O')
 
     return root
 
@@ -484,3 +513,42 @@ class TestCalculateTreeExterior(object):
     def test_basic_case(self, create_basic_tree):
         expected = [1, 2, 4, 5, 6, 7, 3]
         assert expected == calculate_tree_exterior(create_basic_tree)
+
+
+class TestComputeRightSibling(object):
+    """
+    Question 10.14
+    """
+
+    def test_book_case(self, generate_perfect_binary_tree):
+        sibling_root = compute_right_sibling(generate_perfect_binary_tree)
+
+        # level 0
+        assert sibling_root.sibling is None
+
+        # level 1
+        assert sibling_root.left.sibling == sibling_root.right
+        assert sibling_root.right.sibling is None
+
+        # level 2
+        assert sibling_root.left.left.sibling == sibling_root.left.right
+        assert sibling_root.left.right.sibling == sibling_root.right.left
+        assert sibling_root.right.left.sibling == sibling_root.right.right
+        assert sibling_root.right.right.sibling is None
+
+        # level 3
+        assert sibling_root.left.left.left.sibling \
+            == sibling_root.left.left.right
+        assert sibling_root.left.left.right.sibling \
+            == sibling_root.left.right.left
+        assert sibling_root.left.right.left.sibling \
+            == sibling_root.left.right.right
+        assert sibling_root.left.right.right.sibling \
+            == sibling_root.right.left.left
+        assert sibling_root.right.left.left.sibling \
+            == sibling_root.right.left.right
+        assert sibling_root.right.left.right.sibling \
+            == sibling_root.right.right.left
+        assert sibling_root.right.right.left.sibling \
+            == sibling_root.right.right.right
+        assert sibling_root.right.right.right.sibling is None

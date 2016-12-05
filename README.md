@@ -106,8 +106,8 @@ Valiantly trying to solve every single question in
 - [x] 10.10: Reconstruct a binary tree from traversal data
 - [x] 10.11: Reconstruct a binary tree from a preorder traversal with markers
 - [x] 10.12: Form a linked list from the leaves of a binary tree
-- [ ] 10.13: Compute the exterior of a binary tree
-- [ ] 10.14: Compute the right sibling tree
+- [x] 10.13: Compute the exterior of a binary tree
+- [x] 10.14: Compute the right sibling tree
 - [ ] 10.15: Implement locking in a binary tree
 
 ## Chapter 11: Heaps
