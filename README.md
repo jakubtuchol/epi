@@ -279,3 +279,50 @@ Valiantly trying to solve every single question in
 - [ ] 22.3: Buy and sell a stock `k` times
 - [x] 22.4: Compute the maximum product of all entries but one
 - [x] 22.5: Compute the longest contiguous increasing subarray
+- [ ] 22.6: Rotate an array
+- [ ] 22.7: Identify positions attacked by rooks
+- [ ] 22.8: Justify text
+- [ ] 22.9: Reverse sublists `k` at a time
+- [ ] 22.10: Implement list zipping
+- [ ] 22.11: Copy a postings list
+- [ ] 22.12: Compute the median of a sorted circular list
+- [ ] 22.13: Compute the longest substring with matching parens
+- [ ] 22.14: Compute the maximum of a sliding window
+- [ ] 22.15: Implement preorder and postorder traversals without recursion
+- [ ] 22.16: Compute fair bonuses
+- [ ] 22.17: Find `k` elements closest to the median
+- [ ] 22.18: Search a sorted array of unknown length
+- [ ] 22.19: Search in two sorted arrays
+- [ ] 22.20: Find the `k`th largest element - large `n`, small `k`
+- [ ] 22.21: Find an element that only appears once
+- [ ] 22.22: Find the line through the most points
+- [ ] 22.23: Find the shortest unique prefix
+- [ ] 22.24: Compute the smallest nonconstructible change
+- [ ] 22.25: Find the most visited pages in a window
+- [ ] 22.26: Convert a sorted doubly linked list into a BST
+- [ ] 22.27: Convert a BST to a sorted doubly linked list
+- [ ] 22.28: Merge two BSTs
+- [ ] 22.29: Test if a binary tree is an almost BST
+- [ ] 22.30: The view from above
+- [ ] 22.31: Searching a min-first BST
+- [ ] 22.32: Implement regular expression matching
+- [ ] 22.22: Synthesize and expression
+- [ ] 22.34: Count inversions
+- [ ] 22.35: Draw the skyline
+- [ ] 22.36: Find the two closest points
+- [ ] 22.37: Measure with defective jugs
+- [ ] 22.38: Compute the maximum sum in a circular array
+- [ ] 22.39: Determine the critical height
+- [ ] 22.40: Voltage selection in a logic circuit
+- [ ] 22.41: Find the maximum 2D subarray
+- [ ] 22.42: Trapping water
+- [ ] 22.43: Load balancing
+- [ ] 22.44: Search for a pair-sum in an abs-sorted array
+- [ ] 22.45: The heavy hitter problem
+- [ ] 22.46: Find the longest subarray whose sum `<= k`
+- [ ] 22.47: Degrees of connectedness - 2
+- [ ] 22.48: Compute a minimum delay schedule, unlimited resources
+- [ ] 22.49: Road network
+- [ ] 22.50: Test if arbitrage is possible
+- [ ] 22.51: The readers-writers problem with fairness
+- [ ] 22.52: Implement a producer-consumer queue
