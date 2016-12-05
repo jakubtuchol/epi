@@ -1,5 +1,6 @@
 import pytest
 
+from src.binary_trees import calculate_tree_exterior
 from src.binary_trees import check_equal
 from src.binary_trees import compute_lca
 from src.binary_trees import compute_parent_lca
@@ -473,3 +474,13 @@ class TestCreateLeafList(object):
 
     def test_symmetric_tree(self, generate_symmetric_tree):
         assert [3, 3] == create_leaf_list(generate_symmetric_tree)
+
+
+class TestCalculateTreeExterior(object):
+    """
+    Question 10.13
+    """
+
+    def test_basic_case(self, create_basic_tree):
+        expected = [1, 2, 4, 5, 6, 7, 3]
+        assert expected == calculate_tree_exterior(create_basic_tree)

@@ -366,3 +366,53 @@ def create_leaf_list(root):
     if root.right is not None:
         ls.extend(create_leaf_list(root.right))
     return ls
+
+
+def calculate_tree_exterior(root):
+    """
+    Question 10.13: Calculate exterior of binary
+    tree
+    """
+    if root is None:
+        return []
+    return [root.val] + calculate_left_exterior(root.left, True) \
+        + calculate_right_exterior(root.right, True)
+
+
+def calculate_left_exterior(root, is_exterior):
+    """
+    Build left exterior
+    """
+    if is_exterior:
+        ls = [root.val]
+        if root.left is not None:
+            ls.extend(calculate_left_exterior(root.left, True))
+            ls.extend(calculate_left_exterior(root.right, False))
+        elif root.right is not None:
+            ls.extend(calculate_left_exterior(root.right, True))
+        return ls
+    elif root.left is None and root.right is None:
+        return [root.val]
+    return calculate_left_exterior(root.left, False) \
+        + calculate_left_exterior(root.right, False)
+
+
+def calculate_right_exterior(root, is_exterior):
+    """
+    Build right exterior
+    """
+    if root is None:
+        return []
+
+    if is_exterior:
+        ls = [root.val]
+        if root.right is not None:
+            ls.extend(calculate_right_exterior(root.left, False))
+            ls.extend(calculate_right_exterior(root.right, True))
+        elif root.left is not None:
+            ls.extend(calculate_right_exterior(root.left, True))
+        return ls
+    elif root.right is None and root.left is None:
+        return [root.val]
+    return calculate_right_exterior(root.right, False) \
+        + calculate_right_exterior(root.left, False)
