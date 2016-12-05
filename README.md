@@ -4,9 +4,11 @@ Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
 * Completed: 121
-* Remaining: 71
+* Remaining: 115
 
 ## Chapter 5: Primitives
+
+* **Remaining**: 0
 
 - [x] 5.1: Computing the parity of a word
 - [x] 5.2: Swap bits
@@ -21,6 +23,8 @@ Valiantly trying to solve every single question in
 - [x] 5.11: Rectangle intersection
 
 ## Chapter 6: Arrays
+
+* **Remaining**: 1
 
 - [x] 6.1: The Dutch national flag problem
 - [x] 6.2: Increment an arbitrary-precision integer
@@ -45,6 +49,8 @@ Valiantly trying to solve every single question in
 
 ## Chapter 7: Strings
 
+* **Remaining**: 1
+
 - [x] 7.1: Interconvert strings and integers
 - [x] 7.2: Base conversion
 - [x] 7.3: Compute the spreadsheet column encoding
@@ -61,6 +67,8 @@ Valiantly trying to solve every single question in
 - [ ] 7.14: Find the first occurrence of a substring
 
 ## Chapter 8: Linked Lists
+
+* **Remaining**: 0
 
 - [x] 8.1: Merge two sorted lists
 - [x] 8.2: Reverse a singly linked list
@@ -79,6 +87,8 @@ Valiantly trying to solve every single question in
 
 ## Chapter 9: Stacks and Queues
 
+* **Remaining**: 4
+
 - [x] 9.1: Implement a stack with a max API
 - [x] 9.2: Evaluate RPN expressions
 - [x] 9.3: Test a string of parens for well-formedness
@@ -93,6 +103,8 @@ Valiantly trying to solve every single question in
 - [ ] 9.12: Implement a queue with max API
 
 ## Chapter 10: Binary Trees
+
+* **Remaining**: 1
 
 - [x] 10.1: Test if a binary tree is balanced
 - [x] 10.2: Test if a binary tree is symmetric
@@ -112,6 +124,8 @@ Valiantly trying to solve every single question in
 
 ## Chapter 11: Heaps
 
+* **Remaining**: 3
+
 - [x] 11.1: Merge sorted files
 - [ ] 11.2: Sort an increasing-decreasing array
 - [x] 11.3: Sort an almost-sorted array
@@ -121,6 +135,8 @@ Valiantly trying to solve every single question in
 - [ ] 11.7: Implement a stack API using a heap
 
 ## Chapter 12: Searching
+
+* **Remaining**: 5
 
 - [x] 12.1: Search a sorted array for the first occurrence of `k`
 - [x] 12.2: Search a sorted array for the first element greater than `k`
@@ -136,6 +152,8 @@ Valiantly trying to solve every single question in
 - [ ] 12.12: Find the duplicate and missing elements
 
 ## Chapter 13: Hash Tables
+
+* **Remaining**: 11
 
 - [x] 13.1: Partition into anagrams
 - [x] 13.2: Test for palindromic permutations
@@ -156,6 +174,8 @@ Valiantly trying to solve every single question in
 
 ## Chapter 14: Sorting
 
+* **Remaining**: 6
+
 - [x] 14.1: Compute the intersection of two arrays
 - [x] 14.2: Implement mergesort in-place
 - [x] 14.3: Count the frequencies of characters in a sentence
@@ -169,6 +189,8 @@ Valiantly trying to solve every single question in
 - [ ] 14.11: Compute a salary threshold
 
 ## Chapter 15: Binary Search Trees
+
+* **Remaining**: 10
 
 - [x] 15.1: Test if a binary tree satisfies the BST property
 - [x] 15.2: Find the first occurrence of a key in a BST
@@ -188,6 +210,8 @@ Valiantly trying to solve every single question in
 
 ## Chapter 16: Recursion
 
+* **Remaining**: 10
+
 - [ ] 16.1: The Tower of Hanoi problem
 - [ ] 16.2: Generate all nonattacking placements of `n`-Queens
 - [ ] 16.3: Generate permutations
@@ -201,6 +225,8 @@ Valiantly trying to solve every single question in
 - [ ] 16.11: Compute the diameter of a tree
 
 ## Chapter 17: Dynamic Programming
+
+* **Remaining**: 6
 
 - [x] 17.1: Count the number of score combinations
 - [x] 17.2: Compute the Levenshtein distance
@@ -217,6 +243,8 @@ Valiantly trying to solve every single question in
 
 ## Chapter 18: Greedy Algorithms and Invariants
 
+* **Remaining**: 5
+
 - [ ] 18.1: Implement Huffman coding
 - [ ] 18.2: Compute an optimum assignment of tasks
 - [ ] 18.3: Schedule to minimize waiting time
@@ -228,6 +256,8 @@ Valiantly trying to solve every single question in
 - [ ] 18.9: Compute the largest rectangle under the skyline
 
 ## Chapter 19: Graphs
+
+* **Remaining**: 5
 
 - [x] 19.1: Search a maze
 - [x] 19.2: Paint a Boolean matrix
@@ -241,6 +271,8 @@ Valiantly trying to solve every single question in
 - [ ] 19.10: Compute a shortest path with fewest edges
 
 ## Chapter 22: Honors Class
+
+* **Remaining**: 47
 
 - [x] 22.1: Compute the greatest common divisor
 - [x] 22.2: Find the first missing positive entry
