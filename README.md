@@ -8,7 +8,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 5: Primitives
 
-* **Remaining**: 0
+**Remaining**: 0
 
 - [x] 5.1: Computing the parity of a word
 - [x] 5.2: Swap bits
@@ -24,7 +24,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 6: Arrays
 
-* **Remaining**: 1
+**Remaining**: 1
 
 - [x] 6.1: The Dutch national flag problem
 - [x] 6.2: Increment an arbitrary-precision integer
@@ -49,7 +49,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 7: Strings
 
-* **Remaining**: 1
+**Remaining**: 1
 
 - [x] 7.1: Interconvert strings and integers
 - [x] 7.2: Base conversion
@@ -68,7 +68,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 8: Linked Lists
 
-* **Remaining**: 0
+**Remaining**: 0
 
 - [x] 8.1: Merge two sorted lists
 - [x] 8.2: Reverse a singly linked list
@@ -87,7 +87,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 9: Stacks and Queues
 
-* **Remaining**: 4
+**Remaining**: 4
 
 - [x] 9.1: Implement a stack with a max API
 - [x] 9.2: Evaluate RPN expressions
@@ -104,7 +104,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 10: Binary Trees
 
-* **Remaining**: 1
+**Remaining**: 1
 
 - [x] 10.1: Test if a binary tree is balanced
 - [x] 10.2: Test if a binary tree is symmetric
@@ -124,7 +124,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 11: Heaps
 
-* **Remaining**: 3
+**Remaining**: 3
 
 - [x] 11.1: Merge sorted files
 - [ ] 11.2: Sort an increasing-decreasing array
@@ -136,7 +136,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 12: Searching
 
-* **Remaining**: 5
+**Remaining**: 5
 
 - [x] 12.1: Search a sorted array for the first occurrence of `k`
 - [x] 12.2: Search a sorted array for the first element greater than `k`
@@ -153,7 +153,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 13: Hash Tables
 
-* **Remaining**: 11
+**Remaining**: 11
 
 - [x] 13.1: Partition into anagrams
 - [x] 13.2: Test for palindromic permutations
@@ -174,7 +174,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 14: Sorting
 
-* **Remaining**: 6
+**Remaining**: 6
 
 - [x] 14.1: Compute the intersection of two arrays
 - [x] 14.2: Implement mergesort in-place
@@ -190,7 +190,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 15: Binary Search Trees
 
-* **Remaining**: 10
+**Remaining**: 10
 
 - [x] 15.1: Test if a binary tree satisfies the BST property
 - [x] 15.2: Find the first occurrence of a key in a BST
@@ -210,7 +210,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 16: Recursion
 
-* **Remaining**: 10
+**Remaining**: 10
 
 - [ ] 16.1: The Tower of Hanoi problem
 - [ ] 16.2: Generate all nonattacking placements of `n`-Queens
@@ -226,7 +226,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 17: Dynamic Programming
 
-* **Remaining**: 6
+**Remaining**: 6
 
 - [x] 17.1: Count the number of score combinations
 - [x] 17.2: Compute the Levenshtein distance
@@ -243,7 +243,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 18: Greedy Algorithms and Invariants
 
-* **Remaining**: 5
+**Remaining**: 5
 
 - [ ] 18.1: Implement Huffman coding
 - [ ] 18.2: Compute an optimum assignment of tasks
@@ -257,7 +257,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 19: Graphs
 
-* **Remaining**: 5
+**Remaining**: 5
 
 - [x] 19.1: Search a maze
 - [x] 19.2: Paint a Boolean matrix
@@ -272,7 +272,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 22: Honors Class
 
-* **Remaining**: 47
+**Remaining**: 47
 
 - [x] 22.1: Compute the greatest common divisor
 - [x] 22.2: Find the first missing positive entry
