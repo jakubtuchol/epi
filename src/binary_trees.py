@@ -405,12 +405,13 @@ def calculate_right_exterior(root, is_exterior):
         return []
 
     if is_exterior:
-        ls = [root.val]
+        ls = []
         if root.right is not None:
             ls.extend(calculate_right_exterior(root.left, False))
             ls.extend(calculate_right_exterior(root.right, True))
         elif root.left is not None:
             ls.extend(calculate_right_exterior(root.left, True))
+        ls.append(root.val)
         return ls
     elif root.right is None and root.left is None:
         return [root.val]
