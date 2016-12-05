@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 121
-* Remaining: 115
+* Completed: 122
+* Remaining: 114
 
 ## Chapter 5: Primitives
 
@@ -24,7 +24,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 6: Arrays
 
-**Remaining**: 1
+**Remaining**: 0
 
 - [x] 6.1: The Dutch national flag problem
 - [x] 6.2: Increment an arbitrary-precision integer
@@ -45,7 +45,7 @@ Valiantly trying to solve every single question in
 - [x] 6.17: The Sudoku checker problem
 - [x] 6.18: Compute the spiral ordering of a 2D array
 - [x] 6.19: Rotate a 2D array
-- [ ] 6.20: Compute rows in Pascal's Triangle
+- [x] 6.20: Compute rows in Pascal's Triangle
 
 ## Chapter 7: Strings
 

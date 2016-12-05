@@ -10,6 +10,7 @@ from src.arrays import delete_duplicates
 from src.arrays import delete_key
 from src.arrays import dutch_national_partition
 from src.arrays import dutch_partition_better
+from src.arrays import generate_pascal_triangle
 from src.arrays import generate_primes
 from src.arrays import get_square_idx
 from src.arrays import multiply
@@ -457,3 +458,20 @@ class TestRotateMatrix(object):
             [16, 12, 8, 4],
         ]
         assert expected == rotate_matrix(matrix)
+
+
+class TestGeneratePascalTriangle(object):
+    """
+    Question 6.20
+    """
+
+    def test_book_case(self):
+        expected = [
+            [1],
+            [1, 1],
+            [1, 2, 1],
+            [1, 3, 3, 1],
+            [1, 4, 6, 4, 1],
+        ]
+
+        assert expected == generate_pascal_triangle(5)

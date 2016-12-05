@@ -468,3 +468,27 @@ def rotate_matrix(matrix):
             matrix[matrix_size - i][matrix_size - j] = temp3
             matrix[j][matrix_size - i] = temp4
     return matrix
+
+
+def generate_pascal_triangle(num_rows):
+    """
+    Question 6.20: Generate the first `num_rows` of
+    a Pascal Triangle
+    """
+    result = []
+    last_row = []
+
+    while num_rows:
+        cur = [1]
+
+        # if we don't have an empty array
+        if last_row:
+            for idx, elt in enumerate(last_row[:-1]):
+                cur.append(elt + last_row[idx + 1])
+            cur.append(1)
+        result.append(cur)
+        last_row = cur
+
+        num_rows -= 1
+
+    return result
