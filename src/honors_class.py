@@ -1,3 +1,6 @@
+from sys import maxint
+
+
 def gcd(x, y):
     """
     Question 22.1: Find the greatest common divisor
@@ -43,6 +46,29 @@ def find_first_missing(arr):
         if elt != idx + 1:
             return idx + 1
     return len(arr) + 1
+
+
+def buy_sell_stock_k_times(stocks, k):
+    """
+    Question 22.3: Find maximum profit made by
+    buying and sell a stock k times.
+    """
+    k_sum = [-maxint - 1 for _ in xrange(2 * k)]
+
+    for i, elt in enumerate(stocks):
+        pre_k_sum = list(k_sum)
+
+        sign = -1
+        j = 0
+
+        while j < len(k_sum) and j <= i:
+            add = 0 if j == 0 else pre_k_sum[j - 1]
+            diff = sign * elt + add
+            k_sum[j] = max(diff, pre_k_sum[j])
+            j += 1
+            sign *= -1
+
+    return k_sum[-1]
 
 
 def largest_minus_one_product(nums):

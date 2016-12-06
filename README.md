@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 125
-* Remaining: 111
+* Completed: 126
+* Remaining: 110
 
 ## Chapter 5: Primitives
 
@@ -272,11 +272,11 @@ Valiantly trying to solve every single question in
 
 ## Chapter 22: Honors Class
 
-**Remaining**: 47
+**Remaining**: 46
 
 - [x] 22.1: Compute the greatest common divisor
 - [x] 22.2: Find the first missing positive entry
-- [ ] 22.3: Buy and sell a stock `k` times
+- [x] 22.3: Buy and sell a stock `k` times
 - [x] 22.4: Compute the maximum product of all entries but one
 - [x] 22.5: Compute the longest contiguous increasing subarray
 - [ ] 22.6: Rotate an array

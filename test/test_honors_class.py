@@ -1,3 +1,4 @@
+from src.honors_class import buy_sell_stock_k_times
 from src.honors_class import find_first_missing
 from src.honors_class import gcd
 from src.honors_class import largest_minus_one_product
@@ -36,6 +37,16 @@ class TestFirstMissing(object):
     def test_no_missing_example(self):
         arr = [5, 3, 2, 4, 1]
         assert 6 == find_first_missing(arr)
+
+
+class TestBuySellStockKTimes(object):
+    """
+    Question 22.3
+    """
+
+    def test_basic_example(self):
+        stocks = [2, 5, 7, 1, 4, 3, 1, 3]
+        assert 10 == buy_sell_stock_k_times(stocks, 3)
 
 
 class TestLargestMinusOneProduct(object):
