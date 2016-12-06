@@ -1,4 +1,5 @@
 from src.heaps import almost_sorted
+from src.heaps import compute_k_largest_binary_heap
 from src.heaps import find_closest_stars
 from src.heaps import Heap
 from src.heaps import merge_sorted_arrays
@@ -172,3 +173,18 @@ class TestStreamMedian(object):
             79, 83, 89, 97,
         ]
         assert 41 == stream_median(arr)
+
+
+class TestComputeKLargestBinaryHeap(object):
+    """
+    Question 11.6
+    """
+
+    def test_basic_example(self):
+        maxheap = Heap(lambda x, y: x > y)
+        for i in xrange(11):
+            maxheap.insert(i)
+
+        expected = [10, 9, 8, 7, 6]
+        assert expected == compute_k_largest_binary_heap(
+            maxheap._heap_list[1:], 5)

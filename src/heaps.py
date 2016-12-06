@@ -196,3 +196,31 @@ def stream_median(stream):
     elif minheap.size() > maxheap.size():
         return minheap.peek()
     return maxheap.pop()
+
+
+def compute_k_largest_binary_heap(heap, k):
+    """
+    Question 11.6: Find k largest elements in binary
+    max heap
+    """
+    candidate_max_heap = Heap(lambda x, y: x[1] > y[1])
+    result = []
+
+    candidate_max_heap.insert((0, heap[0]))
+
+    for _ in xrange(k):
+        (candidate_index, candidate_value) = candidate_max_heap.pop()
+        result.append(candidate_value)
+
+        left_child_index = 2 * candidate_index + 1
+        if left_child_index < len(heap):
+            candidate_max_heap.insert(
+                (left_child_index, heap[left_child_index])
+            )
+
+        right_child_index = 2 * candidate_index + 2
+        if right_child_index < len(heap):
+            candidate_max_heap.insert(
+                (right_child_index, heap[right_child_index])
+            )
+    return result
