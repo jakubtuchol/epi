@@ -2,6 +2,7 @@ from src.heaps import almost_sorted
 from src.heaps import find_closest_stars
 from src.heaps import Heap
 from src.heaps import merge_sorted_arrays
+from src.heaps import sort_increasing_decreasing
 from src.heaps import stream_median
 
 
@@ -97,6 +98,25 @@ class TestMergeArrays(object):
         ]
         expected = [0, 10, 12, 100, 200, 400, 1000, 10000]
         assert expected == merge_sorted_arrays(input_arrs)
+
+
+class TestSortIncreasingDecreasing(object):
+    """
+    Question 11.2
+    """
+
+    def test_book_example(self):
+        ls = [
+            57, 131, 493,
+            294, 221, 339,
+            418, 452, 442, 190,
+        ]
+        expected = [
+            57, 131, 190,
+            221, 294, 339,
+            418, 442, 452, 493,
+        ]
+        assert expected == sort_increasing_decreasing(ls)
 
 
 class TestAlmostSorted(object):

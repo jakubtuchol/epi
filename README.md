@@ -127,7 +127,7 @@ Valiantly trying to solve every single question in
 **Remaining**: 3
 
 - [x] 11.1: Merge sorted files
-- [ ] 11.2: Sort an increasing-decreasing array
+- [x] 11.2: Sort an increasing-decreasing array
 - [x] 11.3: Sort an almost-sorted array
 - [x] 11.4: Compute the `k` closest stars
 - [x] 11.5: Compute the median of online data

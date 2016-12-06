@@ -92,6 +92,44 @@ def merge_sorted_arrays(arrs):
     return output
 
 
+def sort_increasing_decreasing(ls):
+    """
+    Question 11.2: Sort a k-increasing-decreasing
+    array
+    """
+    if len(ls) <= 1:
+        return ls
+
+    increasing = ls[0] <= ls[1]
+    sorted_arrays = []
+
+    cur_array = [ls[0]]
+    last_num = ls[0]
+
+    for elt in ls[1:]:
+        if increasing:
+            if elt >= last_num:
+                cur_array.append(elt)
+            else:
+                sorted_arrays.append(cur_array)
+                cur_array = [elt]
+                increasing = False
+        else:
+            if elt < last_num:
+                cur_array.append(elt)
+            else:
+                sorted_arrays.append(cur_array[::-1])
+                cur_array = [elt]
+                increasing = True
+        last_num = elt
+    if increasing:
+        sorted_arrays.append(cur_array)
+    else:
+        sorted_arrays.append(cur_array[::-1])
+
+    return merge_sorted_arrays(sorted_arrays)
+
+
 def almost_sorted(ls, k):
     """
     Question 11.3: Sort an almost-sorted array,
