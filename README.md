@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 124
-* Remaining: 112
+* Completed: 125
+* Remaining: 111
 
 ## Chapter 5: Primitives
 
@@ -124,7 +124,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 11: Heaps
 
-**Remaining**: 1
+**Remaining**: 0
 
 - [x] 11.1: Merge sorted files
 - [x] 11.2: Sort an increasing-decreasing array
@@ -132,7 +132,7 @@ Valiantly trying to solve every single question in
 - [x] 11.4: Compute the `k` closest stars
 - [x] 11.5: Compute the median of online data
 - [x] 11.6: Compute the `k` largest elements in a max-heap
-- [ ] 11.7: Implement a stack API using a heap
+- [x] 11.7: Implement a stack API using a heap
 
 ## Chapter 12: Searching
 

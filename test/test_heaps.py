@@ -1,7 +1,10 @@
+from pytest import raises
+
 from src.heaps import almost_sorted
 from src.heaps import compute_k_largest_binary_heap
 from src.heaps import find_closest_stars
 from src.heaps import Heap
+from src.heaps import HeapStack
 from src.heaps import merge_sorted_arrays
 from src.heaps import sort_increasing_decreasing
 from src.heaps import stream_median
@@ -188,3 +191,20 @@ class TestComputeKLargestBinaryHeap(object):
         expected = [10, 9, 8, 7, 6]
         assert expected == compute_k_largest_binary_heap(
             maxheap._heap_list[1:], 5)
+
+
+class TestHeapStack(object):
+    """
+    Question 11.7
+    """
+
+    def test_basic_case(self):
+        hs = HeapStack()
+        for idx in xrange(10, -1, -1):
+            hs.push(idx)
+
+        for idx in xrange(11):
+            assert idx == hs.pop()
+
+        with raises(Exception, message='Stack is empty'):
+            hs.pop()

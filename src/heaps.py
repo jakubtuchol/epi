@@ -224,3 +224,29 @@ def compute_k_largest_binary_heap(heap, k):
                 (right_child_index, heap[right_child_index])
             )
     return result
+
+
+class HeapStack(object):
+    """
+    Question 11.7: Implement a stack using a heap library
+    """
+
+    def __init__(self):
+        self._timestamp = 0
+        self._heap = Heap(lambda x, y: x[0] > y[0])
+
+    def push(self, elt):
+        self._heap.insert((self._timestamp, elt))
+        self._timestamp += 1
+
+    def pop(self):
+        if self._heap.empty():
+            raise Exception('Stack is empty')
+        (_, elt) = self._heap.pop()
+        return elt
+
+    def peek(self):
+        if self._heap.empty():
+            raise Exception('Stack is empty')
+        (_, elt) = self._heap.peek()
+        return elt
