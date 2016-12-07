@@ -221,3 +221,67 @@ def rook_attack(board):
             board[i][0] = 0
 
     return board
+
+
+def justify_text(words, line_length):
+    """
+    Question 22.8: After justification, each
+    line must begin with a word, and each
+    subsequent word must be separated from prior
+    words with at least one blank. If a line
+    contains more than one word, it should not
+    end in a blank. The sequences of blanks within
+    each line should be as close to equal in length
+    as possible. with the longer blank sequences
+    appearing at the initial part of the line.
+    """
+
+    # compute number of words that can
+    # fit line by line
+    cur_line_remaining = line_length
+    result = []
+    cur_line = []
+
+    for word in words:
+        # if cannot put word in current line,
+        # distribute spaces and reset variables
+        if len(word) > cur_line_remaining:
+            # create and append line
+            result.append(create_line(cur_line, line_length))
+            cur_line_remaining = line_length
+            cur_line = []
+
+        # need space after word
+        cur_line_remaining -= len(word) + 1
+        cur_line.append(word)
+
+    # final line case
+    if len(cur_line) == 1:
+        word = cur_line[0]
+        num_spaces = line_length - len(word)
+        result.append('{}{}'.format(word, ' ' * num_spaces))
+    else:
+        result.append(create_line(cur_line, line_length))
+
+    return result
+
+
+def create_line(line, length):
+    full_line = []
+    cur_len = sum([len(elt) for elt in line])
+    remaining = length - cur_len
+    expected_spaces = remaining // (len(line) - 1)
+    overflow_spaces = remaining % (len(line) - 1)
+
+    for elt in line[:-1]:
+        overflow = ' ' if overflow_spaces else ''
+        spaces = '{}{}'.format(' ' * expected_spaces, overflow)
+        full_line.append(elt)
+        full_line.append(spaces)
+
+        if overflow_spaces:
+            overflow_spaces -= 1
+
+    full_line.append(line[-1])
+
+    return ''.join(full_line)

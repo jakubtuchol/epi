@@ -1,6 +1,7 @@
 from src.honors_class import buy_sell_stock_k_times
 from src.honors_class import find_first_missing
 from src.honors_class import gcd
+from src.honors_class import justify_text
 from src.honors_class import largest_minus_one_product
 from src.honors_class import longest_increasing_optimized
 from src.honors_class import longest_increasing_subarray
@@ -112,3 +113,26 @@ class TestRookAttack(object):
         ]
 
         assert expected == rook_attack(board)
+
+
+class TestJustifyText(object):
+    """
+    Question 22.8
+    """
+
+    def test_book_case(self):
+        input_words = [
+            'The', 'quick', 'brown',
+            'fox', 'jumped', 'over',
+            'the', 'lazy', 'dogs.',
+        ]
+
+        ouput_words = [
+            'The   quick',
+            'brown   fox',
+            'jumped over',
+            'the    lazy',
+            'dogs.      ',
+        ]
+
+        assert ouput_words == justify_text(input_words, 11)
