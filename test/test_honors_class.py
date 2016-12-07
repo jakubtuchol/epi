@@ -4,6 +4,7 @@ from src.honors_class import gcd
 from src.honors_class import largest_minus_one_product
 from src.honors_class import longest_increasing_optimized
 from src.honors_class import longest_increasing_subarray
+from src.honors_class import rook_attack
 
 
 class TestGCD(object):
@@ -81,3 +82,33 @@ class TestLongestIncreasingSubarray(object):
         expected = (2, 4)
         assert expected == longest_increasing_subarray(ls)
         assert expected == longest_increasing_optimized(ls)
+
+
+class TestRookAttack(object):
+    """
+    Question 22.7
+    """
+
+    def test_book_example(self):
+        board = [
+            [1, 0, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 0, 1, 1],
+            [1, 1, 1, 0, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [0, 1, 1, 1, 1, 0, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+        ]
+        expected = [
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 1, 0, 1, 0, 1, 1],
+            [0, 0, 1, 0, 1, 0, 1, 1],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 1, 0, 1, 0, 1, 1],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 1, 0, 1, 0, 1, 1],
+        ]
+
+        assert expected == rook_attack(board)

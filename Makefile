@@ -15,6 +15,12 @@ lint:
 test:
 	$(TEST_CMD)
 
+verbose:
+	$(TEST_CMD) -v
+
+print:
+	$(TEST_CMD) -s
+
 nuke: clean
 	-rm -rf ~/.pre-commit
 

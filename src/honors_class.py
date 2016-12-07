@@ -170,3 +170,54 @@ def longest_increasing_optimized(ls):
             begin = i - max_length
             end = i - 1
     return begin, end
+
+
+def rook_attack(board):
+    """
+    Question 22.7: Given 2D array of 1s and 0s, where
+    0s encode positions of rooks on n x m chessboard,
+    update array to contain 0s at all positions which
+    can be attacked by rooks
+    """
+
+    num_rows = len(board)
+    num_cols = len(board[0])
+    first_row_attacked = False
+    first_col_attacked = False
+
+    # checking if anything on first row is rook
+    for j in xrange(num_cols):
+        if board[0][j] == 0:
+            first_row_attacked = True
+            break
+
+    # checking if anything on first column is rook
+    for i in xrange(num_rows):
+        if board[i][0] == 0:
+            first_col_attacked = True
+            break
+
+    # set first element of row and col to 0 if
+    # row or col can be attacked by rook
+    for i in xrange(1, num_rows):
+        for j in xrange(1, num_cols):
+            if board[i][j] == 0:
+                board[i][0] = 0
+                board[0][j] = 0
+
+    # update all positions
+    for i in xrange(1, num_rows):
+        for j in xrange(1, num_cols):
+            if board[i][0] == 0 or board[0][j] == 0:
+                board[i][j] = 0
+
+    # update first row and first col
+    if first_row_attacked:
+        for j in xrange(num_cols):
+            board[0][j] = 0
+
+    if first_col_attacked:
+        for i in xrange(num_rows):
+            board[i][0] = 0
+
+    return board
