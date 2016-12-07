@@ -1,5 +1,8 @@
 from sys import maxint
 
+from src.linked_lists import Node
+from src.linked_lists import reverse_linked_list
+
 
 def gcd(x, y):
     """
@@ -267,6 +270,10 @@ def justify_text(words, line_length):
 
 
 def create_line(line, length):
+    """
+    Create properly spaced line
+    """
+
     full_line = []
     cur_len = sum([len(elt) for elt in line])
     remaining = length - cur_len
@@ -285,3 +292,51 @@ def create_line(line, length):
     full_line.append(line[-1])
 
     return ''.join(full_line)
+
+
+def reverse_k_list(ls, k):
+    """
+    Question 22.9: Reverse singly-linked list k
+    nodes at a time
+    """
+    # generate a fake head to hang first sublist
+    # predecessor off of
+    fake_head = Node(None)
+    fake_head.next = ls
+
+    # predecessor that is in front of sublist
+    sublist_predecessor = fake_head
+    # successor that is after sublist
+    sublist_successor = fake_head
+    # head of sublist
+    sublist_head = fake_head.next
+    # tail of sublist
+    sublist_tail = fake_head.next
+
+    while sublist_head:
+        num_remaining = k
+
+        while num_remaining:
+            sublist_successor = sublist_tail
+            sublist_tail = sublist_tail.next
+            if not sublist_tail:
+                break
+
+        if num_remaining:
+            # did not process all nodes, so we just return
+            # the remaining unreversed
+            return fake_head.next
+
+        sublist_successor.next = None
+
+        reverse_linked_list(sublist_head)
+
+        # splice into reversed sublist
+        sublist_predecessor.next = sublist_successor
+        # go to head of next sublist
+        sublist_predecessor = sublist_head
+        sublist_head.next = sublist_tail
+        sublist_head = sublist_tail
+        sublist_successor = None
+
+    return fake_head.next
