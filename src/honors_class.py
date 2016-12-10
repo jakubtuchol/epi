@@ -372,3 +372,27 @@ def compute_circular_sorted_median(ls):
     if even:
         return float(ls.val + ls.next.val) / 2
     return ls.val
+
+
+def longest_valid_parentheses(ls):
+    """
+    Question 22.13: Given a string, find the longest substring
+    of matching parentheses
+    """
+
+    max_length = 0
+    end = -1
+
+    stack = []
+
+    for idx, elt in enumerate(ls):
+        if elt == '(':
+            stack.append(idx)
+        elif not len(stack):
+            end = idx
+        else:
+            stack.pop()
+            start = end if not len(stack) else stack[-1]
+            max_length = max(max_length, idx - start)
+
+    return max_length

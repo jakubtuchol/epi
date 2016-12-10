@@ -6,6 +6,7 @@ from src.honors_class import justify_text
 from src.honors_class import largest_minus_one_product
 from src.honors_class import longest_increasing_optimized
 from src.honors_class import longest_increasing_subarray
+from src.honors_class import longest_valid_parentheses
 from src.honors_class import rook_attack
 from src.honors_class import zip_linked_list
 from src.linked_lists import Node
@@ -210,3 +211,17 @@ class TestComputeCircularSortedMedian(object):
 
         head.next = fake_head.next
         assert is_close(5.5, compute_circular_sorted_median(fake_head.next))
+
+
+class TestLongestValidParentheses(object):
+    """
+    Question 22.13
+    """
+
+    def test_book_case(self):
+        parentheses = '((())()(()('
+        assert 6 == longest_valid_parentheses(parentheses)
+
+    def test_non_matching_case(self):
+        parentheses = ')((((((('
+        assert 0 == longest_valid_parentheses(parentheses)
