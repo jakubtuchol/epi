@@ -6,6 +6,8 @@ from src.honors_class import largest_minus_one_product
 from src.honors_class import longest_increasing_optimized
 from src.honors_class import longest_increasing_subarray
 from src.honors_class import rook_attack
+from src.honors_class import zip_linked_list
+from src.linked_lists import Node
 
 
 class TestGCD(object):
@@ -136,3 +138,32 @@ class TestJustifyText(object):
         ]
 
         assert ouput_words == justify_text(input_words, 11)
+
+
+class TestZipLinkedList(object):
+    """
+    Question 22.10
+    """
+
+    def test_none_case(self):
+        assert zip_linked_list(None) is None
+
+    def test_single_case(self):
+        single = Node(1)
+        assert single == zip_linked_list(single)
+
+    def test_basic_case(self):
+        fake_head = Node(None)
+        head = fake_head
+
+        for x in xrange(5):
+            head.next = Node(x)
+            head = head.next
+
+        zipped = zip_linked_list(fake_head.next)
+
+        for x in [0, 4, 1, 3, 2]:
+            assert x == zipped.val
+            zipped = zipped.next
+
+        assert zipped is None

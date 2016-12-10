@@ -1,5 +1,7 @@
 from sys import maxint
 
+from src.linked_lists import reverse_linked_list
+
 
 def gcd(x, y):
     """
@@ -289,3 +291,42 @@ def create_line(line, length):
     full_line.append(line[-1])
 
     return ''.join(full_line)
+
+
+def zip_linked_list(ls):
+    """
+    Question 22.10: Given a singly linked list, implement a zipping,
+    which interleaves the beginning nodes in order and the end nodes
+    in reverse
+    """
+
+    # make sure list can actually be zipped
+    if ls is None or ls.next is None:
+        return ls
+
+    # first find end of list
+    slow = ls
+    fast = ls
+
+    while fast.next and fast.next.next:
+        slow = slow.next
+        fast = fast.next.next
+
+    # slow next should now be right before reversible sector
+    first_half_head = ls
+    second_half_head = slow.next
+    slow.next = None
+
+    second_half_head = reverse_linked_list(second_half_head)
+
+    first_half_iter = first_half_head
+    second_half_iter = second_half_head
+
+    while second_half_iter:
+        temp = second_half_iter.next
+        second_half_iter.next = first_half_iter.next
+        first_half_iter.next = second_half_iter
+        first_half_iter = first_half_iter.next.next
+        second_half_iter = temp
+
+    return first_half_head

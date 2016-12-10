@@ -36,18 +36,16 @@ def reverse_linked_list(ls):
     """
     Question 8.2: Reverse a linked list using O(1) space and O(n) time
     """
-    prev = ls.next
-    cur = prev
-    head = ls
+    last = None
+    current = ls
 
-    while prev:
-        # retain pointer to current node
-        cur = prev
-        prev = prev.next
-        cur.next = head
-        head = cur
+    while current:
+        nxt = current.next
+        current.next = last
+        last = current
+        current = nxt
 
-    return head
+    return last
 
 
 def reverse_sublist(ls, begin, end):

@@ -100,6 +100,8 @@ class TestReverseLinkedList(object):
             assert i == rev_head.val
             rev_head = rev_head.next
 
+        assert rev_head is None
+
 
 class TestReverseSublist(object):
     """
