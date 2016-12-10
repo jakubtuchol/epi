@@ -5,9 +5,7 @@ from src.honors_class import justify_text
 from src.honors_class import largest_minus_one_product
 from src.honors_class import longest_increasing_optimized
 from src.honors_class import longest_increasing_subarray
-from src.honors_class import reverse_k_list
 from src.honors_class import rook_attack
-from src.linked_lists import Node
 
 
 class TestGCD(object):
@@ -138,29 +136,3 @@ class TestJustifyText(object):
         ]
 
         assert ouput_words == justify_text(input_words, 11)
-
-
-class TestReverseKList(object):
-    """
-    Question 22.9
-    """
-
-    def test_book_case(self):
-        # create list of 11 elements
-        fake_head = Node(None)
-        cur_head = fake_head
-
-        for x in xrange(1, 12):
-            cur_head.next = Node(x)
-            cur_head = cur_head.next
-
-        # reverse by 3s
-        head = reverse_k_list(fake_head.next, 3)
-
-        expected = [3, 2, 1, 6, 5, 4, 9, 8, 7, 10, 11]
-
-        for x in expected:
-            assert x == head.val
-            head = head.next
-
-        assert head is None
