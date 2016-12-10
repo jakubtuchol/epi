@@ -330,3 +330,45 @@ def zip_linked_list(ls):
         second_half_iter = temp
 
     return first_half_head
+
+
+def compute_circular_sorted_median(ls):
+    """
+    Question 22.12: Given a sorted circular linked list,
+    find the median
+    """
+
+    if ls is None:
+        return None
+
+    if ls == ls.next:
+        return float(ls.val)
+
+    # use slow and fast to find size of cycle
+    slow = ls
+    fast = ls
+    size = 0
+
+    while True:
+        slow = slow.next
+        fast = fast.next.next
+        size += 1
+
+        if slow == fast:
+            break
+
+    # get middle element
+    even = size % 2 == 0
+
+    if even:
+        half = (size // 2) - 1
+    else:
+        half = size // 2
+
+    while half:
+        ls = ls.next
+        half -= 1
+
+    if even:
+        return float(ls.val + ls.next.val) / 2
+    return ls.val

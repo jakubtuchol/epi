@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 129
-* Remaining: 107
+* Completed: 130
+* Remaining: 106
 
 ## Chapter 5: Primitives
 
@@ -272,7 +272,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 22: Honors Class
 
-**Remaining**: 43
+**Remaining**: 42
 
 - [x] 22.1: Compute the greatest common divisor
 - [x] 22.2: Find the first missing positive entry
@@ -285,7 +285,7 @@ Valiantly trying to solve every single question in
 - [ ] 22.9: Reverse sublists `k` at a time
 - [x] 22.10: Implement list zipping
 - [ ] 22.11: Copy a postings list
-- [ ] 22.12: Compute the median of a sorted circular list
+- [x] 22.12: Compute the median of a sorted circular list
 - [ ] 22.13: Compute the longest substring with matching parens
 - [ ] 22.14: Compute the maximum of a sliding window
 - [ ] 22.15: Implement preorder and postorder traversals without recursion

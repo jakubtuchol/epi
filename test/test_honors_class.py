@@ -1,4 +1,5 @@
 from src.honors_class import buy_sell_stock_k_times
+from src.honors_class import compute_circular_sorted_median
 from src.honors_class import find_first_missing
 from src.honors_class import gcd
 from src.honors_class import justify_text
@@ -8,6 +9,10 @@ from src.honors_class import longest_increasing_subarray
 from src.honors_class import rook_attack
 from src.honors_class import zip_linked_list
 from src.linked_lists import Node
+
+
+def is_close(a, b, rel_tol=1e-09, abs_tol=0.0):
+    return abs(a - b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
 
 
 class TestGCD(object):
@@ -167,3 +172,41 @@ class TestZipLinkedList(object):
             zipped = zipped.next
 
         assert zipped is None
+
+
+class TestComputeCircularSortedMedian(object):
+    """
+    Question 22.12
+    """
+
+    def test_none_case(self):
+        assert compute_circular_sorted_median(None) is None
+
+    def test_single_case(self):
+        single = Node(1)
+        single.next = single
+
+        assert is_close(1, compute_circular_sorted_median(single))
+
+    def test_odd_case(self):
+        fake_head = Node(None)
+        head = fake_head
+
+        for idx in xrange(5):
+            head.next = Node(idx)
+            head = head.next
+
+        head.next = fake_head.next
+
+        assert is_close(2, compute_circular_sorted_median(fake_head.next))
+
+    def test_even_case(self):
+        fake_head = Node(None)
+        head = fake_head
+
+        for idx in xrange(1, 11):
+            head.next = Node(idx)
+            head = head.next
+
+        head.next = fake_head.next
+        assert is_close(5.5, compute_circular_sorted_median(fake_head.next))
