@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 131
-* Remaining: 105
+* Completed: 132
+* Remaining: 104
 
 ## Chapter 5: Primitives
 
@@ -87,7 +87,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 9: Stacks and Queues
 
-**Remaining**: 4
+**Remaining**: 3
 
 - [x] 9.1: Implement a stack with a max API
 - [x] 9.2: Evaluate RPN expressions
@@ -100,7 +100,7 @@ Valiantly trying to solve every single question in
 - [x] 9.9: Compute binary tree nods in order of increasing depth
 - [x] 9.10: Implement a circular queue
 - [x] 9.11: Implement a queue using stacks
-- [ ] 9.12: Implement a queue with max API
+- [x] 9.12: Implement a queue with max API
 
 ## Chapter 10: Binary Trees
 

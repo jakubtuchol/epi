@@ -11,6 +11,7 @@ from src.stacks_queues import bst_sorted_order
 from src.stacks_queues import CircularQueue
 from src.stacks_queues import depth_order
 from src.stacks_queues import evaluate_rpn
+from src.stacks_queues import MaxQueue
 from src.stacks_queues import MaxStack
 from src.stacks_queues import QueueUsingStacks
 from src.stacks_queues import shortest_equivalent_path
@@ -255,3 +256,20 @@ class TestQueueUsingStacks(object):
             queue.dequeue()
 
         assert 'No more elements in queue' in str(excinfo.value)
+
+
+class TestMaxQueue(object):
+    """
+    Question 9.12
+    """
+
+    def test_book_example(self):
+        mqueue = MaxQueue()
+        mqueue.enqueue(3)
+        mqueue.enqueue(1)
+        assert 3 == mqueue.max()
+        mqueue.deque()
+        assert 1 == mqueue.max()
+        mqueue.enqueue(3)
+        mqueue.deque()
+        assert 3 == mqueue.max()

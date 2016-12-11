@@ -1,6 +1,7 @@
 """
 Chapter 9: Stacks and Queues
 """
+from collections import deque
 
 
 class MaxStack(object):
@@ -207,3 +208,36 @@ class QueueUsingStacks(object):
             if not len(self.to_dequeue):
                 raise Exception('No more elements in queue')
         return self.to_dequeue.pop()
+
+
+class MaxQueue(object):
+    """
+    Question 9.12: Implement a queue with a max API
+    """
+
+    def __init__(self):
+        self._entries = []
+        self._candidates_for_max = deque()
+
+    def enqueue(self, x):
+        self._entries.append(x)
+        # eliminate dominated entries in _candidates_for_max
+        while len(self._candidates_for_max):
+            if self._candidates_for_max[-1] >= x:
+                break
+            self._candidates_for_max.pop()
+        self._candidates_for_max.append(x)
+
+    def deque(self):
+        if len(self._candidates_for_max):
+            result = self._entries[0]
+            if result == self._candidates_for_max[0]:
+                self._candidates_for_max.popleft()
+            self._entries.pop(0)
+            return result
+        raise Exception('empty queue')
+
+    def max(self):
+        if len(self._candidates_for_max):
+            return self._candidates_for_max[0]
+        raise Exception('empty queue')
