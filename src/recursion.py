@@ -20,3 +20,15 @@ def calculate_power_set(ls):
     for elt in ls:
         res += [x + [elt] for x in res]
     return res
+
+
+def generate_subsets(n, k):
+    """
+    Question 16.5: Calculate all subsets of
+    {1,...,n} of size k
+    """
+
+    subsets = [[]]
+    for idx in xrange(1, n + 1):
+        subsets += [x + [idx] for x in subsets if len(x) < k]
+    return [x for x in subsets if len(x) == k]
