@@ -69,3 +69,15 @@ class TestGenerateSubsets(object):
         for sub in expected:
             assert sub in subsets
         assert len(expected) == len(subsets)
+
+    def test_singular_example(self):
+        expected = [
+            [1], [2], [3],
+            [4], [5], [6],
+            [7], [8], [9],
+        ]
+        subsets = generate_subsets(9, 1)
+
+        for sub in expected:
+            assert sub in subsets
+        assert len(expected) == len(subsets)
