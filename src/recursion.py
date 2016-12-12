@@ -11,6 +11,21 @@ def tower_of_hanoi():
     pass
 
 
+def generate_permutations(ls):
+    """
+    Question 16.3: Generate all permutations of a list
+    """
+    if len(ls) <= 1:
+        return [ls]
+
+    result = []
+    for perm in generate_permutations(ls[1:]):
+        for idx in xrange(len(ls)):
+            result.append(perm[:idx] + ls[0:1] + perm[idx:])
+
+    return result
+
+
 def calculate_power_set(ls):
     """
     Question 16.4: Calculate the power

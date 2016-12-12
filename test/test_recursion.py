@@ -1,4 +1,5 @@
 from src.recursion import calculate_power_set
+from src.recursion import generate_permutations
 from src.recursion import generate_subsets
 
 
@@ -18,6 +19,31 @@ class TestNQueens(object):
 
     def test_four_queen_solutions(self):
         pass
+
+
+class TestGeneratePermutations(object):
+    """
+    Question 16.3
+    """
+
+    def test_book_example(self):
+        ls = [2, 3, 5, 7]
+        expected = [
+            [2, 3, 5, 7], [2, 3, 7, 5], [2, 5, 3, 7],
+            [2, 5, 7, 3], [2, 7, 3, 5], [2, 7, 5, 3],
+            [3, 2, 5, 7], [3, 2, 7, 5], [3, 5, 2, 7],
+            [3, 5, 7, 2], [3, 7, 2, 5], [3, 7, 5, 2],
+            [5, 2, 3, 7], [5, 2, 7, 3], [5, 3, 2, 7],
+            [5, 3, 7, 2], [5, 7, 2, 3], [5, 7, 3, 2],
+            [7, 2, 3, 5], [7, 2, 5, 3], [7, 3, 2, 5],
+            [7, 3, 5, 2], [7, 5, 2, 3], [7, 5, 3, 2]
+        ]
+        perms = generate_permutations(ls)
+        print('got result {}'.format(perms))
+        print('got result of length {}'.format(len(perms)))
+        for p in expected:
+            assert p in perms
+        assert len(expected) == len(perms)
 
 
 class TestCalculatePowerSet(object):

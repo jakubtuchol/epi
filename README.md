@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 133
-* Remaining: 103
+* Completed: 134
+* Remaining: 102
 
 ## Chapter 5: Primitives
 
@@ -210,11 +210,11 @@ Valiantly trying to solve every single question in
 
 ## Chapter 16: Recursion
 
-**Remaining**: 9
+**Remaining**: 8
 
 - [ ] 16.1: The Tower of Hanoi problem
 - [ ] 16.2: Generate all nonattacking placements of `n`-Queens
-- [ ] 16.3: Generate permutations
+- [x] 16.3: Generate permutations
 - [x] 16.4: Generate the power set
 - [x] 16.5: Generate all subsets of `k`
 - [ ] 16.6: Generate strings of matched parens
