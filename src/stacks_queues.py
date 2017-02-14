@@ -120,16 +120,29 @@ def bst_sorted_order(root):
     return result
 
 
-# class PostingListNode(object):
-#     def __init__(self, val):
-#         self.val = val
-#         self.next = None
-#         self.jump = None
-#         self.order = -1
+class PostingListNode(object):
+
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+        self.jump = None
+        self.order = -1
 
 
-# def set_jump_order(head):
-#     pass
+def set_jump_order(head):
+    """
+    Question 9.6: Set the order of every node
+    when processed in jump first order
+    """
+    nodes = [head]
+    order = 1
+
+    while nodes:
+        cur_node = nodes.pop()
+        cur_node.order = order
+        order += 1
+        if cur_node != cur_node.jump:
+            nodes.append(cur_node.jump)
 
 
 def depth_order(root):

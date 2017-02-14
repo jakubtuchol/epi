@@ -94,7 +94,7 @@ Valiantly trying to solve every single question in
 - [x] 9.3: Test a string of parens for well-formedness
 - [x] 9.4: Normalize pathnames
 - [x] 9.5: BST keys in sort order
-- [ ] 9.6: Search a postings list
+- [x] 9.6: Search a postings list
 - [ ] 9.7: Compute buildings with a sunset view
 - [ ] 9.8: Sort a stack
 - [x] 9.9: Compute binary tree nods in order of increasing depth

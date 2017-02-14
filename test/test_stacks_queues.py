@@ -13,7 +13,9 @@ from src.stacks_queues import depth_order
 from src.stacks_queues import evaluate_rpn
 from src.stacks_queues import MaxQueue
 from src.stacks_queues import MaxStack
+from src.stacks_queues import PostingListNode
 from src.stacks_queues import QueueUsingStacks
+from src.stacks_queues import set_jump_order
 from src.stacks_queues import shortest_equivalent_path
 
 
@@ -128,6 +130,31 @@ class TestBSTSortedOrder(object):
         root = create_large_bst()
         expected = [23, 29, 31, 37, 41, 43, 47, 53]
         assert expected == bst_sorted_order(root.right)
+
+
+class TestSetJumpOrder(object):
+    """
+    Question 9.6
+    """
+
+    def test_book_example(self):
+        # create linked list
+        head = PostingListNode('a')
+        head.next = PostingListNode('b')
+        head.next.next = PostingListNode('c')
+        head.next.next.next = PostingListNode('d')
+
+        head.jump = head.next.next
+        head.next.jump = head.next.next.next
+        head.next.next.jump = head.next
+        head.next.next.next.jump = head.next.next.next
+
+        set_jump_order(head)
+
+        expected_order = [1, 3, 2, 4]
+        for elt in expected_order:
+            assert elt == head.order
+            head = head.next
 
 
 @pytest.fixture(scope='module')
