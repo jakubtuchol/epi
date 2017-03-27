@@ -100,3 +100,39 @@ def find_max_simultaneous_events(events):
             simultaneous -= 1
         max_simultaneous = max(simultaneous, max_simultaneous)
     return max_simultaneous
+
+
+def add_interval(intervals, interval_to_add):
+    """
+    Question 14.6: Takes an array of disjoint intervals
+    with integer endpoints, sorted by increasing order of
+    left endpoint, and an interval to add, and returns the
+    union of the intervals in the array and the added interval
+    """
+    processed_intervals = []
+    begin_add, end_add = interval_to_add
+
+    merge_begin = None
+    merge_end = None
+    merging = False
+
+    for interval in intervals:
+        begin, end = interval
+
+        # if prior to interval_to_add, then add to processed
+        if end < begin_add:
+            processed_intervals.append(interval)
+        # if after interval_to_add, then add to processed
+        elif begin > end_add:
+            if merging:
+                merging = False
+                processed_intervals.append((merge_begin, merge_end))
+            processed_intervals.append(interval)
+        # else end >= begin_add and begin <= end_add
+        else:
+            if merge_begin is None:
+                merge_begin = begin_add if begin_add < begin else begin
+            merge_end = end_add if end_add > end else end
+            merging = True
+
+    return processed_intervals

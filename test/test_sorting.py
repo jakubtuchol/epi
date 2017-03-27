@@ -1,3 +1,4 @@
+from src.sorting import add_interval
 from src.sorting import compute_intersection
 from src.sorting import count_occurrences
 from src.sorting import find_max_simultaneous_events
@@ -93,3 +94,23 @@ class TestFindMaxSimultaneousEvents(object):
             (12, 15), (4, 5), (9, 18),
         ]
         assert 3 == find_max_simultaneous_events(events)
+
+
+class TestAddInterval(object):
+    """
+    Question 14.6
+    """
+
+    def test_book_example(self):
+        intervals = [
+            (-4, -1), (0, 2),
+            (3, 6), (7, 9),
+            (11, 12), (14, 17),
+        ]
+        added_interval = (1, 8)
+        merged_intervals = [
+            (-4, -1), (0, 9),
+            (11, 12), (14, 17),
+        ]
+
+        assert merged_intervals == add_interval(intervals, added_interval)

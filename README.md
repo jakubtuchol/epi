@@ -181,7 +181,7 @@ Valiantly trying to solve every single question in
 - [x] 14.3: Count the frequencies of characters in a sentence
 - [x] 14.4: Remove first-name duplicates
 - [x] 14.5: Render a calendar
-- [ ] 14.6: Merging intervals
+- [x] 14.6: Merging intervals
 - [ ] 14.7: Compute the union of intervals
 - [ ] 14.8: Partitioning and sorting an array with many repeated entries
 - [ ] 14.9: Team photo day-1
