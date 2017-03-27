@@ -145,6 +145,25 @@ def set_jump_order(head):
             nodes.append(cur_node.jump)
 
 
+def get_buildings_with_sunset_view(buildings):
+    """
+    Question 9.7: Design an algorithm that processes
+    buildings in east-to-west order and returns the
+    set of buildings which view the sunset. Each
+    building is specified by its height.
+    """
+    building_stack = []
+
+    # when we get new building, we pop buildings
+    # that are shorter than this building off
+    # the stack
+    for building in buildings:
+        while len(building_stack) and building_stack[-1] <= building:
+            building_stack.pop()
+        building_stack.append(building)
+    return building_stack
+
+
 def depth_order(root):
     """
     Question 9.9: return depth order representation

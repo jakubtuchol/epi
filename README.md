@@ -3,8 +3,8 @@
 Valiantly trying to solve every single question in
 [Elements of Programming Interviews](https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836)
 
-* Completed: 134
-* Remaining: 102
+* Completed: 135
+* Remaining: 101
 
 ## Chapter 5: Primitives
 
@@ -87,7 +87,7 @@ Valiantly trying to solve every single question in
 
 ## Chapter 9: Stacks and Queues
 
-**Remaining**: 3
+**Remaining**: 2
 
 - [x] 9.1: Implement a stack with a max API
 - [x] 9.2: Evaluate RPN expressions
@@ -95,7 +95,7 @@ Valiantly trying to solve every single question in
 - [x] 9.4: Normalize pathnames
 - [x] 9.5: BST keys in sort order
 - [x] 9.6: Search a postings list
-- [ ] 9.7: Compute buildings with a sunset view
+- [x] 9.7: Compute buildings with a sunset view
 - [ ] 9.8: Sort a stack
 - [x] 9.9: Compute binary tree nods in order of increasing depth
 - [x] 9.10: Implement a circular queue

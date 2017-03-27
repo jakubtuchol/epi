@@ -11,6 +11,7 @@ from src.stacks_queues import bst_sorted_order
 from src.stacks_queues import CircularQueue
 from src.stacks_queues import depth_order
 from src.stacks_queues import evaluate_rpn
+from src.stacks_queues import get_buildings_with_sunset_view
 from src.stacks_queues import MaxQueue
 from src.stacks_queues import MaxStack
 from src.stacks_queues import PostingListNode
@@ -155,6 +156,32 @@ class TestSetJumpOrder(object):
         for elt in expected_order:
             assert elt == head.order
             head = head.next
+
+
+class TestGetBuildingsWithSunsetView(object):
+    """
+    Question 9.7
+    """
+
+    def test_basic_input_example(self):
+        buildings = [
+            68, 4, 47,
+            61, 17, 2,
+            0, 29, 53,
+            57, 99, 21,
+        ]
+        expected_buildings = [99, 21]
+        assert expected_buildings == get_buildings_with_sunset_view(buildings)
+
+    def test_more_robust_input(self):
+        buildings = [
+            89, 37, 31,
+            19, 12, 42,
+            79, 38, 77,
+            76, 33, 25
+        ]
+        expected_buildings = [89, 79, 77, 76, 33, 25]
+        assert expected_buildings == get_buildings_with_sunset_view(buildings)
 
 
 @pytest.fixture(scope='module')
